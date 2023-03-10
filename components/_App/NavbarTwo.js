@@ -60,7 +60,7 @@ const NavbarTwo = () => {
                   </a>
                 </Link>
               </div>
-              
+
             </div>
           </div>
         </div>
@@ -68,13 +68,14 @@ const NavbarTwo = () => {
         <div className={showMenu ? "miran-nav show" : "miran-nav"}>
           <div className="container-fluid">
             <nav className="navbar navbar-expand-md navbar-light">
-              <Link href="/index-2">
+              <Link href="/">
                 <a className="navbar-brand">
                   <img src="/images/black-logo.png" alt="logo" />
                 </a>
               </Link>
               <div className="collapse navbar-collapse mean-menu">
-                <form className="navbar-search-box search-box-one">
+              
+                {/* <form className="navbar-search-box search-box-one">
                   <label>
                     <i className="flaticon-search"></i>
                   </label>
@@ -83,7 +84,7 @@ const NavbarTwo = () => {
                     className="input-search"
                     placeholder="What are you looking for?"
                   />
-                </form>
+                </form> */}
 
                 <ul className="navbar-nav">
                   {/* <li className="nav-item">
