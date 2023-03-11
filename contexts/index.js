@@ -1,8 +1,7 @@
-import { createContext, useState } from 'react';
+import { createContext, useState } from "react";
 
 const IndiceContext = createContext();
 const IndiceProvider = ({ children }) => {
-
   const [displaySideMenu, setDisplaySideMenu] = useState(false);
 
   const toggleSideMenu = () => {
@@ -10,10 +9,8 @@ const IndiceProvider = ({ children }) => {
   };
 
   return (
-    <IndiceContext.Provider value={{displaySideMenu,toggleSideMenu,}}>
-
+    <IndiceContext.Provider value={{ displaySideMenu, toggleSideMenu }}>
       {children}
-
     </IndiceContext.Provider>
   );
 };
