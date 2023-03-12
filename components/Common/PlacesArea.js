@@ -50,7 +50,7 @@ const PlacesArea = () => {
                           alt="image"
                         />
                       </Link>
-                      <div className="country">FRANCE</div>
+                      <div className="country">Hydrabad</div>
                     </div>
                     <div className="content">
                       <h3>Paris</h3>
@@ -69,7 +69,7 @@ const PlacesArea = () => {
                         src="/images/destinations/destinations12.jpg"
                         alt="image"
                       />
-                      <div className="country">UNITED KINGDOM</div>
+                      <div className="country">Bangalore</div>
                     </div>
                     <div className="content">
                       <h3>London</h3>

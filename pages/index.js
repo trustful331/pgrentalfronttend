@@ -31,13 +31,10 @@ const Index3 = () => {
 
       <MostVisitedListing />
 
-      <BusinessArea />
-
-      <Blog />
-
-      <ManageBusiness />
-
-      <Subscribe />
+      {/* <BusinessArea /> */}
+      {/* <Blog /> */}
+      {/* <ManageBusiness /> */}
+      {/* <Subscribe /> */}
       
       <Footer />
     </>

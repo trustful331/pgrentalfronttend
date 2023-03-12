@@ -9,37 +9,25 @@ const Banner = () => {
       <section className='banner-wrapper-area'>
         <div className='container'>
           <div className='banner-wrapper-content'>
-            <h1 className='banner-three-heading'>
-              <Swiper
-                autoplay={{
-                  delay: 5000,
-                  pauseOnMouseEnter: true,
-                }}
-                modules={[Autoplay]}
-              >
-                <SwiperSlide>
-                  Find Nearby <span className="color-0ec6c6">Hotels</span>
-                </SwiperSlide>
-
-                <SwiperSlide>
-                  Find Nearby <span className="color-0ec6c6">Restaurants</span>
-                </SwiperSlide>
-
-                <SwiperSlide>
-                  Find Nearby <span className="color-0ec6c6">Beauty</span>
-                </SwiperSlide>
-
-                <SwiperSlide>
-                  Find Nearby <span className="color-0ec6c6">Fitness</span>
-                </SwiperSlide>
+            <h1 className='banner-three-heading' style={{"width":"auto"}}>
                 
-                <SwiperSlide>
-                  Find Nearby <span className="color-0ec6c6">Shopping</span>
-                </SwiperSlide>
-              </Swiper>
+                <Swiper autoplay={{delay: 1500,pauseOnMouseEnter: false,}} modules={[Autoplay]}>
+
+                  <SwiperSlide>
+                    Find Nearby <span className="color-0ec6c6">Modern Shared Housing</span>
+                  </SwiperSlide>
+
+                  <SwiperSlide>
+                    Find Nearby <span className="color-0ec6c6">Co-Living</span>
+                  </SwiperSlide>
+                  
+                  <SwiperSlide>
+                    Find Nearby <span className="color-0ec6c6">Appartment</span>
+                  </SwiperSlide>
+                </Swiper>
             </h1>
 
-            <p>Expolore top-rated attractions, activities and more...</p>
+            <p>Expolore top-rated PG's, Hostel and more...</p>
             
             <form>
               <div className='row m-0 align-items-center'>
@@ -69,24 +57,15 @@ const Banner = () => {
                   </div>
                 </div>
 
-                <div className='col-lg-3 col-md-6 p-0'>
+                <div className='col-lg-3 row-lg-5 col-md-6 p-0 '>
                   <div className='form-group category-select banner-three-select-custom'>
-                    <label className='category-icon'>
-                      <i className='flaticon-category'></i>
-                    </label>
                     <select className='banner-form-select-two'>
                       <option>All Categories</option>
-                      <option>Restaurants</option>
-                      <option>Events</option>
-                      <option>Clothing</option>
-                      <option>Bank</option>
-                      <option>Fitness</option>
-                      <option>Bookstore</option>
-                      <option>Shopping</option>
-                      <option>Hotels</option>
-                      <option>Hospitals</option>
-                      <option>Culture</option>
-                      <option>Beauty</option>
+                      <option>PG</option>
+                      <option>Hostel</option>
+                      <option>Appartment</option>
+                      <option>Modern student Housing</option>
+                      <option>Professional co-living</option>
                     </select>
                   </div>
                 </div>
@@ -100,37 +79,23 @@ const Banner = () => {
             </form>
             
             <ul className='popular-search-list'>
+
               <li>Popular:</li>
+
               <li>
                 <Link href='/grid-listings-with-map'>
-                  <a>Restaurants</a>
+                  <a>Banglore's PG</a>
                 </Link>
               </li>
+
               <li>
                 <Link href='/grid-listings-with-map'>
-                  <a>Events</a>
+                  <a>Hostel</a>
                 </Link>
               </li>
-              <li>
-                <Link href='/grid-listings-with-map'>
-                  <a>Clothing</a>
-                </Link>
-              </li>
-              <li>
-                <Link href='/grid-listings-with-map'>
-                  <a>Bank</a>
-                </Link>
-              </li>
-              <li>
-                <Link href='/grid-listings-with-map'>
-                  <a>Fitness</a>
-                </Link>
-              </li>
-              <li>
-                <Link href='/grid-listings-with-map'>
-                  <a>Bookstore</a>
-                </Link>
-              </li>
+
+              <li>....</li>
+
             </ul>
           </div>
         </div>
