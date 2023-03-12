@@ -40,7 +40,7 @@ const Category = () => {
                         <div className='col-lg-8 col-md-8 p-0'>
                           <div className='content'>
                             <h3>
-                              <Link href='/categories'>Restaurant</Link>
+                              <Link href='/categories'>PG</Link>
                             </h3>
                             <span>16 Places</span>
                           </div>
@@ -68,7 +68,7 @@ const Category = () => {
                         <div className='col-lg-8 col-md-8 p-0'>
                           <div className='content'>
                             <h3>
-                            <Link href='/categories'>Hotel</Link>
+                            <Link href='/categories'>Hostel</Link>
                             </h3>
                             <span>28 Places</span>
                           </div>
@@ -96,7 +96,7 @@ const Category = () => {
                         <div className='col-lg-8 col-md-8 p-0'>
                           <div className='content'>
                             <h3>
-                            <Link href='/categories'>Shopping</Link>
+                            <Link href='/categories'>Appartment</Link>
                             </h3>
                             <span>20 Places</span>
                           </div>
@@ -109,92 +109,6 @@ const Category = () => {
                     </div>
                   </div>
 
-                  <div className='col-lg-6 col-sm-6 col-md-6'>
-                    <div className='single-category-item'>
-                      <div className='row m-0'>
-                        <div className='col-lg-4 col-md-4 p-0'>
-                          <div className='image bg-img4'>
-                            <img
-                              src='/images/category/category4.jpg'
-                              alt='image'
-                            />
-                            <i className='flaticon-cleansing'></i>
-                          </div>
-                        </div>
-
-                        <div className='col-lg-8 col-md-8 p-0'>
-                          <div className='content'>
-                            <h3>
-                            <Link href='/categories'>Beauty & Spa</Link>
-                            </h3>
-                            <span>05 Places</span>
-                          </div>
-                        </div>
-                      </div>
-
-                      <Link href='/categories'>
-                        <a className='link-btn'></a>
-                      </Link>
-                    </div>
-                  </div>
-
-                  <div className='col-lg-6 col-sm-6 col-md-6'>
-                    <div className='single-category-item'>
-                      <div className='row m-0'>
-                        <div className='col-lg-4 col-md-4 p-0'>
-                          <div className='image bg-img5'>
-                            <img
-                              src='/images/category/category5.jpg'
-                              alt='image'
-                            />
-                            <i className='flaticon-heart-1'></i>
-                          </div>
-                        </div>
-
-                        <div className='col-lg-8 col-md-8 p-0'>
-                          <div className='content'>
-                            <h3>
-                            <Link href='/categories'>Health Care</Link>
-                            </h3>
-                            <span>11 Places</span>
-                          </div>
-                        </div>
-                      </div>
-
-                      <Link href='/categories'>
-                        <a className='link-btn'></a>
-                      </Link>
-                    </div>
-                  </div>
-
-                  <div className='col-lg-6 col-sm-6 col-md-6'>
-                    <div className='single-category-item'>
-                      <div className='row m-0'>
-                        <div className='col-lg-4 col-md-4 p-0'>
-                          <div className='image bg-img6'>
-                            <img
-                              src='/images/category/category6.jpg'
-                              alt='image'
-                            />
-                            <i className='flaticon-exercise'></i>
-                          </div>
-                        </div>
-
-                        <div className='col-lg-8 col-md-8 p-0'>
-                          <div className='content'>
-                            <h3>
-                            <Link href='/categories'>Fitness</Link>
-                            </h3>
-                            <span>20 Places</span>
-                          </div>
-                        </div>
-                      </div>
-
-                      <Link href='/categories'>
-                        <a className='link-btn'></a>
-                      </Link>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>

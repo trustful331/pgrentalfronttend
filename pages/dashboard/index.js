@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import NavbarThree from '../../components/_App/NavbarThree';
+import Navbar from '../../components/_App/Navbar';
 import DashboardNavbar from '../../components/Dashboard/DashboardNavbar';
 
 const Dashboard = () => {
@@ -9,7 +9,7 @@ const Dashboard = () => {
 
       <div className='main-content d-flex flex-column'>
 
-        <NavbarThree />
+        <Navbar/>
 
         <div className='breadcrumb-area'>
           <h1>Howdy, Andy!</h1>
