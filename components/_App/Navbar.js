@@ -1,12 +1,15 @@
+"use client";
+
 import { useState, useEffect } from "react";
 import Link from "../../utils/ActiveLink";
-import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import AuthModal from "../Modal/authModal";
+import { useAuthContext } from "../../contexts/authContext";
 
 const NavbarTwo = () => {
   const [displayAuth, setDisplayAuth] = useState(false);
   const [displayMiniAuth, setDisplayMiniAuth] = useState(false);
   const [sticky, setSticky] = useState(false);
+  const authContextData = useAuthContext();
 
   //sticky menu
   const showStickyMenu = () => {
@@ -42,6 +45,10 @@ const NavbarTwo = () => {
       abortController.abort();
     };
   }, []);
+  const handleLogout = () => {
+    authContextData.setUser(undefined);
+    authContextData.setToken(undefined);
+  };
 
   return (
     <>
@@ -81,10 +88,7 @@ const NavbarTwo = () => {
                 </a>
               </Link>
               <div className="collapse navbar-collapse mean-menu">
-                
-
                 <ul className="navbar-nav">
-
                   <li className="nav-item">
                     <a href="#" className="dropdown-toggle nav-link">
                       Listings
@@ -95,6 +99,32 @@ const NavbarTwo = () => {
                           List Layout <i className="bx bx-chevron-right"></i>
                         </a>
                         <ul className="dropdown-menu">
+                          {/* <li className="nav-item">
+                            <Link
+                              href="/vertical-listings-left-sidebar"
+                              activeClassName="active"
+                            >
+                              <a className="nav-link">Left Sidebar</a>
+                            </Link>
+                          </li>
+
+                          <li className="nav-item">
+                            <Link
+                              href="/vertical-listings-right-sidebar"
+                              activeClassName="active"
+                            >
+                              <a className="nav-link">Right Sidebar</a>
+                            </Link>
+                          </li>
+
+                          <li className="nav-item">
+                            <Link
+                              href="/vertical-listings-full-width"
+                              activeClassName="active"
+                            >
+                              <a className="nav-link">Full Width</a>
+                            </Link>
+                          </li> */}
 
                           <li className="nav-item">
                             <Link
@@ -102,6 +132,67 @@ const NavbarTwo = () => {
                               activeClassName="active"
                             >
                               <a className="nav-link">Full Width + Map</a>
+                            </Link>
+                          </li>
+
+                          {/* <li className="nav-item">
+                            <Link
+                              href="/vertical-listings-full-map"
+                              activeClassName="active"
+                            >
+                              <a className="nav-link">Full Width + Full Map</a>
+                            </Link>
+                          </li> */}
+                        </ul>
+                      </li>
+
+                      <li className="nav-item">
+                        <a href="#" className="nav-link">
+                          Grid Layout <i className="bx bx-chevron-right"></i>
+                        </a>
+                        <ul className="dropdown-menu">
+                          <li className="nav-item">
+                            <Link
+                              href="/grid-listings-with-left-sidebar"
+                              activeClassName="active"
+                            >
+                              <a className="nav-link">Left Sidebar</a>
+                            </Link>
+                          </li>
+
+                          <li className="nav-item">
+                            <Link
+                              href="/grid-listings-with-right-sidebar"
+                              activeClassName="active"
+                            >
+                              <a className="nav-link">Right Sidebar</a>
+                            </Link>
+                          </li>
+
+                          <li className="nav-item">
+                            <Link
+                              href="/grid-listings-full-width"
+                              activeClassName="active"
+                            >
+                              <a className="nav-link">Full Width</a>
+                            </Link>
+                          </li>
+
+                          <li className="nav-item">
+                            <Link
+                              href="/grid-listings-with-map"
+                              activeClassName="active"
+                            >
+                              <a className="nav-link">Full Width + Map</a>
+                            </Link>
+                          </li>
+
+                          <li className="nav-item">
+                            <Link
+                              href="/grid-listings-full-map"
+                              activeClassName="active"
+                            >
+                              <a className="nav-link">Full Width + Full Map</a>
                             </Link>
                           </li>
                         </ul>
@@ -128,97 +219,6 @@ const NavbarTwo = () => {
                       <li className="nav-item">
                         <Link href="/user-profile" activeClassName="active">
                           <a className="nav-link">Author Profile</a>
-                        </Link>
-                      </li>
-                    </ul>
-                  </li>
-
-                  <li className="nav-item">
-                    <a href="#" className="dropdown-toggle nav-link">
-                      User Panel
-                    </a>
-                    <ul className="dropdown-menu">
-                      <li className="nav-item">
-                        <Link href="/dashboard" activeClassName="active">
-                          <a className="nav-link">Dashboard</a>
-                        </Link>
-                      </li>
-
-                      <li className="nav-item">
-                        <Link
-                          href="/dashboard/messages"
-                          activeClassName="active"
-                        >
-                          <a className="nav-link">Messages</a>
-                        </Link>
-                      </li>
-
-                      <li className="nav-item">
-                        <Link
-                          href="/dashboard/bookings"
-                          activeClassName="active"
-                        >
-                          <a className="nav-link">Bookings</a>
-                        </Link>
-                      </li>
-
-                      <li className="nav-item">
-                        <Link href="/dashboard/wallet" activeClassName="active">
-                          <a className="nav-link">Wallet</a>
-                        </Link>
-                      </li>
-
-                      <li className="nav-item">
-                        <Link
-                          href="/dashboard/my-listing/active"
-                          activeClassName="active"
-                        >
-                          <a className="nav-link">My Listings</a>
-                        </Link>
-                      </li>
-
-                      <li className="nav-item">
-                        <Link
-                          href="/dashboard/reviews"
-                          activeClassName="active"
-                        >
-                          <a className="nav-link">Reviews</a>
-                        </Link>
-                      </li>
-
-                      <li className="nav-item">
-                        <Link
-                          href="/dashboard/bookmarks"
-                          activeClassName="active"
-                        >
-                          <a className="nav-link">Bookmarks</a>
-                        </Link>
-                      </li>
-
-                      <li className="nav-item">
-                        <Link
-                          href="/dashboard/add-listing"
-                          activeClassName="active"
-                        >
-                          <a className="nav-link">Add Listings</a>
-                        </Link>
-                      </li>
-
-                      <li className="nav-item">
-                        <Link
-                          href="/dashboard/profile"
-                          activeClassName="active"
-                        >
-                          <a className="nav-link">My Profile</a>
-                        </Link>
-                      </li>
-
-                      <li className="nav-item">
-                        <Link
-                          href="/dashboard/invoice"
-                          activeClassName="active"
-                        >
-                          <a className="nav-link">Invoice</a>
                         </Link>
                       </li>
                     </ul>
@@ -408,29 +408,258 @@ const NavbarTwo = () => {
                       </li>
                     </ul>
                   </li>
+                  {authContextData?.user !== undefined ? (
+                    authContextData?.user?.role === "admin" ? (
+                      <li className="nav-item">
+                        <a href="#" className="dropdown-toggle nav-link">
+                          Admin Panel
+                        </a>
+                        <ul className="dropdown-menu">
+                          <li className="nav-item">
+                            <Link href="/dashboard" activeClassName="active">
+                              <a className="nav-link">Dashboard</a>
+                            </Link>
+                          </li>
+
+                          <li className="nav-item">
+                            <Link
+                              href="/dashboard/messages"
+                              activeClassName="active"
+                            >
+                              <a className="nav-link">Messages</a>
+                            </Link>
+                          </li>
+
+                          <li className="nav-item">
+                            <Link
+                              href="/dashboard/bookings"
+                              activeClassName="active"
+                            >
+                              <a className="nav-link">Bookings</a>
+                            </Link>
+                          </li>
+
+                          <li className="nav-item">
+                            <Link
+                              href="/dashboard/wallet"
+                              activeClassName="active"
+                            >
+                              <a className="nav-link">Wallet</a>
+                            </Link>
+                          </li>
+
+                          <li className="nav-item">
+                            <Link
+                              href="/dashboard/my-listing/active"
+                              activeClassName="active"
+                            >
+                              <a className="nav-link">My Listings</a>
+                            </Link>
+                          </li>
+
+                          <li className="nav-item">
+                            <Link
+                              href="/dashboard/reviews"
+                              activeClassName="active"
+                            >
+                              <a className="nav-link">Reviews</a>
+                            </Link>
+                          </li>
+
+                          <li className="nav-item">
+                            <Link
+                              href="/dashboard/bookmarks"
+                              activeClassName="active"
+                            >
+                              <a className="nav-link">Bookmarks</a>
+                            </Link>
+                          </li>
+
+                          <li className="nav-item">
+                            <Link
+                              href="/dashboard/add-listing"
+                              activeClassName="active"
+                            >
+                              <a className="nav-link">Add Listings</a>
+                            </Link>
+                          </li>
+
+                          <li className="nav-item">
+                            <Link
+                              href="/dashboard/profile"
+                              activeClassName="active"
+                            >
+                              <a className="nav-link">My Profile</a>
+                            </Link>
+                          </li>
+
+                          <li className="nav-item">
+                            <Link
+                              href="/dashboard/invoice"
+                              activeClassName="active"
+                            >
+                              <a className="nav-link">Invoice</a>
+                            </Link>
+                          </li>
+                        </ul>
+                      </li>
+                    ) : (
+                      <li className="nav-item">
+                        <a href="#" className="dropdown-toggle nav-link">
+                          User Panel
+                        </a>
+                        <ul className="dropdown-menu">
+                          <li className="nav-item">
+                            <Link href="/dashboard" activeClassName="active">
+                              <a className="nav-link">Dashboard</a>
+                            </Link>
+                          </li>
+
+                          <li className="nav-item">
+                            <Link
+                              href="/dashboard/messages"
+                              activeClassName="active"
+                            >
+                              <a className="nav-link">Messages</a>
+                            </Link>
+                          </li>
+
+                          <li className="nav-item">
+                            <Link
+                              href="/dashboard/bookings"
+                              activeClassName="active"
+                            >
+                              <a className="nav-link">Bookings</a>
+                            </Link>
+                          </li>
+
+                          <li className="nav-item">
+                            <Link
+                              href="/dashboard/wallet"
+                              activeClassName="active"
+                            >
+                              <a className="nav-link">Wallet</a>
+                            </Link>
+                          </li>
+
+                          <li className="nav-item">
+                            <Link
+                              href="/dashboard/my-listing/active"
+                              activeClassName="active"
+                            >
+                              <a className="nav-link">My Listings</a>
+                            </Link>
+                          </li>
+
+                          <li className="nav-item">
+                            <Link
+                              href="/dashboard/reviews"
+                              activeClassName="active"
+                            >
+                              <a className="nav-link">Reviews</a>
+                            </Link>
+                          </li>
+
+                          <li className="nav-item">
+                            <Link
+                              href="/dashboard/bookmarks"
+                              activeClassName="active"
+                            >
+                              <a className="nav-link">Bookmarks</a>
+                            </Link>
+                          </li>
+
+                          <li className="nav-item">
+                            <Link
+                              href="/dashboard/add-listing"
+                              activeClassName="active"
+                            >
+                              <a className="nav-link">Add Listings</a>
+                            </Link>
+                          </li>
+
+                          <li className="nav-item">
+                            <Link
+                              href="/dashboard/profile"
+                              activeClassName="active"
+                            >
+                              <a className="nav-link">My Profile</a>
+                            </Link>
+                          </li>
+
+                          <li className="nav-item">
+                            <Link
+                              href="/dashboard/invoice"
+                              activeClassName="active"
+                            >
+                              <a className="nav-link">Invoice</a>
+                            </Link>
+                          </li>
+                        </ul>
+                      </li>
+                    )
+                  ) : (
+                    <></>
+                  )}
                 </ul>
 
+                {/* {
+                  <div className="others-option d-flex align-items-center">
+                    <div className="option-item">
+                      <span
+                        data-toggle="modal"
+                        onClick={toggleAuth}
+                        className="auth-one"
+                      >
+                        <i className="flaticon-user"></i> Login / Register
+                      </span>
+                    </div>
+                  </div>
+                } */}
                 <div className="others-option d-flex align-items-center">
                   <div className="option-item">
-                    <span
-                      data-toggle="modal"
-                      onClick={toggleAuth}
-                      className="auth-one"
-                    >
-                      <i className="flaticon-user"></i> Login / Register
-                    </span>
+                    {authContextData?.user &&
+                    (authContextData?.user?.role === "user" ||
+                      authContextData?.user?.role === "admin") ? (
+                      <span
+                        data-toggle="modal"
+                        className="auth-one"
+                        onClick={handleLogout}
+                      >
+                        <i className="flaticon-user"></i> Logout
+                      </span>
+                    ) : (
+                      <span
+                        data-toggle="modal"
+                        onClick={toggleAuth}
+                        className="auth-one"
+                      >
+                        <i className="flaticon-user"></i> Login / Register
+                      </span>
+                    )}
                   </div>
 
-                  <div className="option-item">
+                  {/* <div className="option-item">
                     <Link
                       href="/dashboard/add-listing"
                       activeClassName="active"
                     >
-                      <a className="default-btn button-one">
-                        <i className="flaticon-more"></i> Add Listing
-                      </a>
+                      {userRole ? (
+                        <a className="default-btn button-one">
+                          <i className="flaticon-more"></i> Add Listing
+                        </a>
+                      ) : (
+                        <a
+                          onClick={(e) => {
+                            toast.error("Please login to add listings.");
+                          }}
+                          className="default-btn button-one"
+                        >
+                          <i className="flaticon-more"></i> Add Listing
+                        </a>
+                      )}
                     </Link>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </nav>
@@ -451,37 +680,17 @@ const NavbarTwo = () => {
               <div className="option-inner">
                 <div className="others-option">
                   <div className="option-item">
-                    <form className="navbar-search-box">
-                      <label>
-                        <i className="flaticon-search"></i>
-                      </label>
-                      <input
-                        type="text"
-                        className="input-search"
-                        placeholder="What are you looking for?"
-                      />
-                    </form>
-                  </div>
-
-                  <div className="option-item">
-                    <span
-                      data-toggle="modal"
-                      data-target="#loginRegisterModal"
-                      onClick={toggleAuth}
-                    >
-                      <i className="flaticon-user"></i> Login / Register
-                    </span>
-                  </div>
-
-                  <div className="option-item">
-                    <Link
-                      href="/dashboard/add-listing"
-                      activeClassName="active"
-                    >
-                      <a className="default-btn">
-                        <i className="flaticon-more"></i> Add Listing
-                      </a>
-                    </Link>
+                    {authContextData?.user &&
+                    (authContextData?.user?.role === "user" ||
+                      authContextData?.user?.role === "admin") ? (
+                      <span onClick={handleLogout}>
+                        <i className="flaticon-user"></i> Logout
+                      </span>
+                    ) : (
+                      <span onClick={toggleAuth}>
+                        <i className="flaticon-user"></i> Login / Register
+                      </span>
+                    )}
                   </div>
                 </div>
               </div>

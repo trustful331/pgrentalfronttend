@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { IndiceProvider } from "../contexts";
 import { QueryClient, QueryClientProvider } from "react-query";
+import { Toaster } from "react-hot-toast";
 
 import "../styles/bootstrap.min.css";
 import "../styles/animate.min.css";
@@ -32,6 +33,7 @@ function MyApp({ Component, pageProps }) {
         <QueryClientProvider client={queryClient}>
           <IndiceProvider>
             <AuthContextProvider>
+              <Toaster position="top-right" reverseOrder={false} />
               <Component {...pageProps} />
 
               <Loader loading={loading} />
