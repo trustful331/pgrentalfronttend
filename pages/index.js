@@ -1,13 +1,13 @@
 
 //home 3
-import NavbarTwo from '../components/_App/NavbarTwo';
-import Banner from '../components/HomeThree/Banner';
-import ListingArea from '../components/HomeThree/ListingArea';
-import Feedback from '../components/HomeThree/Feedback';
-import MostVisitedListing from '../components/HomeThree/MostVisitedListing';
-import BusinessArea from '../components/HomeThree/BusinessArea';
-import Blog from '../components/HomeThree/Blog';
-import ManageBusiness from '../components/HomeThree/ManageBusiness';
+import Navbar from '../components/_App/Navbar';
+import Banner from '../components/Home/Banner';
+import ListingArea from '../components/Home/ListingArea';
+import Feedback from '../components/Home/Feedback';
+import MostVisitedListing from '../components/Home/MostVisitedListing';
+import BusinessArea from '../components/Home/BusinessArea';
+import Blog from '../components/Home/Blog';
+import ManageBusiness from '../components/Home/ManageBusiness';
 
 import Category from '../components/Common/Category';
 import PlacesArea from '../components/Common/PlacesArea';
@@ -17,7 +17,7 @@ import Footer from '../components/_App/Footer';
 const Index3 = () => {
   return (
     <>
-      <NavbarTwo />
+      <Navbar/>
 
       <Banner />
 

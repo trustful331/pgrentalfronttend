@@ -4,13 +4,13 @@ import { Navigation } from "swiper";
 import Link from 'next/link';
 
 //components
-import NavbarTwo from '../components/_App/NavbarTwo';
+import Navbar from '../components/_App/Navbar';
 import Footer from '../components/_App/Footer';
 
 const SingleListings = ({ images }) => {
   return (
     <>
-      <NavbarTwo />
+      <Navbar />
 
       <section className='listings-details-area pb-70'>
         <div className='listings-details-image'>

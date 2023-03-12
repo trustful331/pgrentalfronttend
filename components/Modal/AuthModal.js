@@ -12,13 +12,29 @@ function AuthModal({ displayAuth, toggleAuth }) {
   const { mutate } = useMutation({
     mutationFn: (data) => authApi.loginHandlerApi(data),
   });
+
+
   const onSubmitForSendOtp = (e) => {
-    formRef.preventDefault();
+    //formRef.preventDefault();
+    console.log("click 1")
+
+    e.preventDefault()
     mutate({ number: phoneNo });
   };
+
+
   const onChangeHandlerForPhoneNo = (e) => {
+    e.preventDefault()
+    console.log("click 2")
     setPhoneNo(e.target.value);
   };
+
+  const handleSubmit = (e)=>{
+    console.log("click 3")
+    e.preventDefault()
+  }
+
+
   return (
     <div
       className={
@@ -42,12 +58,6 @@ function AuthModal({ displayAuth, toggleAuth }) {
                     Login
                   </a>
                 </Tab>
-
-                {/* <Tab className="nav-item">
-                <a className="nav-link" id="register-tab">
-                  Register
-                </a>
-              </Tab> */}
               </TabList>
             </ul>
 
@@ -55,48 +65,33 @@ function AuthModal({ displayAuth, toggleAuth }) {
               <TabPanel>
                 <div className="tab-pane fade show active" id="login">
                   <div className="miran-login">
-                    {/* <div className="login-with-account">
-                    <span>Login with</span>
-                    <ul>
-                      <li>
-                        <a href="#" className="facebook">
-                          <i className="bx bxl-facebook"></i> Facebook
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#" className="twitter">
-                          <i className="bx bxl-twitter"></i> Twitter
-                        </a>
-                      </li>
-                    </ul>
-                  </div> */}
-
+                    
                     <span className="sub-title">
                       <span>Phone Number</span>
                     </span>
 
                     <form ref={formRef}>
-                      <div className="form-group">
-                        <input
-                          type="text"
-                          value={phoneNo}
-                          onChange={onChangeHandlerForPhoneNo}
-                          placeholder="Phone Number"
-                          className="form-control"
-                        />
-                      </div>
+                        <div className="form-group">
+                          <input
+                            type="text"
+                            value={phoneNo}
+                            onChange={(e)=>{onChangeHandlerForPhoneNo(e)}}
+                            placeholder="Phone Number"
+                            className="form-control"
+                          />
+                        </div>
 
-                      <button onClick={onSubmitForSendOtp}>Send OTP</button>
+                        <button onClick={(e)=>{onSubmitForSendOtp(e)}} type='submit'>Send OTP</button>
 
-                      <div className="form-group">
-                        <input
-                          type="Text"
-                          placeholder="OTP"
-                          className="form-control"
-                        />
-                      </div>
+                        {/* <div className="form-group">
+                          <input
+                            type="Text"
+                            placeholder="OTP"
+                            className="form-control"
+                          />
+                        </div>
 
-                      <button>Login</button>
+                        <button>Login</button> */}
                     </form>
 
                     <span className="dont-account">
@@ -105,72 +100,6 @@ function AuthModal({ displayAuth, toggleAuth }) {
                   </div>
                 </div>
               </TabPanel>
-
-              {/* <TabPanel>
-              <div className="tab-pane" id="register">
-                <div className="miran-register">
-                  <div className="register-with-account">
-                    <span>Register with</span>
-                    <ul>
-                      <li>
-                        <a href="#" className="facebook">
-                          <i className="bx bxl-facebook"></i> Facebook
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#" className="twitter">
-                          <i className="bx bxl-twitter"></i> Twitter
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-
-                  <span className="sub-title">
-                    <span>Or Register with</span>
-                  </span>
-
-                  <form>
-                    <div className="form-group">
-                      <input
-                        type="text"
-                        placeholder="Username"
-                        className="form-control"
-                      />
-                    </div>
-
-                    <div className="form-group">
-                      <input
-                        type="email"
-                        placeholder="Email"
-                        className="form-control"
-                      />
-                    </div>
-
-                    <div className="form-group">
-                      <input
-                        type="password"
-                        placeholder="Password"
-                        className="form-control"
-                      />
-                    </div>
-
-                    <div className="form-group">
-                      <input
-                        type="password"
-                        placeholder="Confirm Password"
-                        className="form-control"
-                      />
-                    </div>
-
-                    <button type="submit">Register Now</button>
-                  </form>
-
-                  <span className="already-account">
-                    Already have an account? <a href="#">Login Now</a>
-                  </span>
-                </div>
-              </div>
-            </TabPanel> */}
             </div>
           </Tabs>
         </div>
