@@ -49,17 +49,24 @@ function AuthModal({ displayAuth, toggleAuth }) {
       toast.error(message);
     },
   });
+
+
   const onSubmitForSendOtp = (e) => {
     e.preventDefault();
     if (otp === "") mutate({ number: phoneNo });
     else verifyOtp({ otp: otp, number: phoneNo });
   };
+
+
   const onChangeHandlerForPhoneNo = (e) => {
     setPhoneNo(e.target.value);
   };
+
+
   const onChangeHandlerOtp = (e) => {
     setOtp(e.target.value);
   };
+
   useEffect(() => {
     if (isSuccess) {
       setDisable(false);
@@ -90,11 +97,7 @@ function AuthModal({ displayAuth, toggleAuth }) {
                   </a>
                 </Tab>
 
-                {/* <Tab className="nav-item">
-                <a className="nav-link" id="register-tab">
-                  Register
-                </a>
-              </Tab> */}
+                
               </TabList>
             </ul>
 
@@ -102,27 +105,15 @@ function AuthModal({ displayAuth, toggleAuth }) {
               <TabPanel>
                 <div className="tab-pane fade show active" id="login">
                   <div className="miran-login">
-                    {/* <div className="login-with-account">
-                    <span>Login with</span>
-                    <ul>
-                      <li>
-                        <a href="#" className="facebook">
-                          <i className="bx bxl-facebook"></i> Facebook
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#" className="twitter">
-                          <i className="bx bxl-twitter"></i> Twitter
-                        </a>
-                      </li>
-                    </ul>
-                  </div> */}
-
+                    
                     <span className="sub-title">
                       <span>Phone Number</span>
                     </span>
 
                     <form onSubmit={onSubmitForSendOtp}>
+
+{/*...............................................otp send............................................................................*/}
+
                       <div className="form-group">
                         <input
                           type="text"
@@ -138,6 +129,7 @@ function AuthModal({ displayAuth, toggleAuth }) {
                         Send OTP
                       </button>
 
+{/*..........................................otp verify............................................................................*/}
                       <div className="form-group">
                         <input
                           type="Text"
@@ -167,72 +159,6 @@ function AuthModal({ displayAuth, toggleAuth }) {
                   </div>
                 </div>
               </TabPanel>
-
-              {/* <TabPanel>
-              <div className="tab-pane" id="register">
-                <div className="miran-register">
-                  <div className="register-with-account">
-                    <span>Register with</span>
-                    <ul>
-                      <li>
-                        <a href="#" className="facebook">
-                          <i className="bx bxl-facebook"></i> Facebook
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#" className="twitter">
-                          <i className="bx bxl-twitter"></i> Twitter
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-
-                  <span className="sub-title">
-                    <span>Or Register with</span>
-                  </span>
-
-                  <form>
-                    <div className="form-group">
-                      <input
-                        type="text"
-                        placeholder="Username"
-                        className="form-control"
-                      />
-                    </div>
-
-                    <div className="form-group">
-                      <input
-                        type="email"
-                        placeholder="Email"
-                        className="form-control"
-                      />
-                    </div>
-
-                    <div className="form-group">
-                      <input
-                        type="password"
-                        placeholder="Password"
-                        className="form-control"
-                      />
-                    </div>
-
-                    <div className="form-group">
-                      <input
-                        type="password"
-                        placeholder="Confirm Password"
-                        className="form-control"
-                      />
-                    </div>
-
-                    <button type="submit">Register Now</button>
-                  </form>
-
-                  <span className="already-account">
-                    Already have an account? <a href="#">Login Now</a>
-                  </span>
-                </div>
-              </div>
-            </TabPanel> */}
             </div>
           </Tabs>
         </div>

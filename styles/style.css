@@ -11634,12 +11634,25 @@ All Modal CSS
   margin-bottom: 15px;
 }
 
+
+
 .loginRegisterModal .modal-dialog .modal-content .tab-content .miran-login form .form-group .form-control {
   border: 1px solid #d5d5d5 !important;
   border-radius: 5px;
   background-color: var(--whiteColor) !important;
   padding-top: 9px;
 }
+
+/*...................................Form select......................................................*/
+
+.loginRegisterModal .modal-dialog .modal-content .tab-content .miran-login form .form-group .dashbaord-category-select{
+  border:  none;
+}
+
+.loginRegisterModal .modal-dialog .modal-content .tab-content .miran-login form .form-group .dashbaord-category-select option{
+  border:  none;
+}
+
 
 .loginRegisterModal .modal-dialog .modal-content .tab-content .miran-login form button {
   display: block;
@@ -11654,6 +11667,15 @@ All Modal CSS
   -webkit-transition: var(--transition);
   transition: var(--transition);
   margin-bottom: 4%;
+}
+
+/* disabled button */
+
+.loginRegisterModal .modal-dialog .modal-content .tab-content .miran-login form button:disabled,
+.loginRegisterModal .modal-dialog .modal-content .tab-content .miran-login form button:disabled[disabled]{
+  /* border: 1px solid #999999; */
+  background-color: #cccccc;
+  color: #666666;
 }
 
 .loginRegisterModal .modal-dialog .modal-content .tab-content .miran-login form button:hover {

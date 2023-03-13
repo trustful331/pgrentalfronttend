@@ -3,7 +3,7 @@ import DashboardNavbar from "../../../components/Dashboard/DashboardNavbar";
 
 import React, { useEffect, useState } from "react";
 import { useDropzone } from "react-dropzone";
-import NavbarTwo from "../../../components/_App/Navbar";
+import Navbar from "../../../components/_App/Navbar";
 
 const AddListing = () => {
   const [files, setFiles] = useState([]);
@@ -39,7 +39,7 @@ const AddListing = () => {
       <DashboardNavbar />
 
       <div className="main-content d-flex flex-column">
-        <NavbarTwo />
+        <Navbar/>
 
         <div className="breadcrumb-area">
           <h1>Add Listings</h1>
@@ -159,8 +159,12 @@ const AddListing = () => {
           </div>
         </div>
 
+{/* ...........................IMAGE Gallery.......................................................................*/}
+
+{/*...........................room images.........................................*/}
+
         <div {...getRootProps()} className="dropzone add-listings-box">
-          <h3>Gallery</h3>
+          <h3>Add Room Images (Gallery)</h3>
           {files.length > 0 ? (
             <div className="gallery-flex">
               {thumbs}
@@ -173,6 +177,41 @@ const AddListing = () => {
             </div>
           )}
         </div>
+
+{/*.....................gallery image section......................................*/}
+
+        <div {...getRootProps()} className="dropzone add-listings-box">
+          <h3>Add Dining images (Gallery)</h3>
+          {files.length > 0 ? (
+            <div className="gallery-flex">
+              {thumbs}
+              <input {...getInputProps()} />
+            </div>
+          ) : (
+            <div className="file-upload-box">
+              <input {...getInputProps()} />
+              <p>Drag 'n' drop some files here, or click to select files</p>
+            </div>
+          )}
+        </div>
+
+{/*....................Bedroom images section........................................*/}
+
+        <div {...getRootProps()} className="dropzone add-listings-box">
+          <h3>Add Bedroom Images (Gallery)</h3>
+          {files.length > 0 ? (
+            <div className="gallery-flex">
+              {thumbs}
+              <input {...getInputProps()} />
+            </div>
+          ) : (
+            <div className="file-upload-box">
+              <input {...getInputProps()} />
+              <p>Drag 'n' drop some files here, or click to select files</p>
+            </div>
+          )}
+        </div>
+{/* ............................................................................................................*/}
 
         <div className="add-listings-box">
           <h3>Details</h3>

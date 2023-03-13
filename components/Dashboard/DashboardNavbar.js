@@ -170,6 +170,46 @@ const DashboardNavbar = () => {
               </Link>
             </li>
 
+{/* ..........................................................add 2 morer pages......................................................................... */}
+
+            <li className='nav-item'>
+              <Link href='/dashboard/add-city' activeClassName='active'>
+                <a>
+                  <span className='icon'>
+                    <i className='bx bx-plus-circle'></i>
+                  </span>
+                  <span className='menu-title'>Add City</span>
+                </a>
+              </Link>
+            </li>
+
+            <li className='nav-item'>
+              <Link href='/dashboard/add-category' activeClassName='active'>
+                <a>
+                  <span className='icon'>
+                    <i className='bx bx-plus-circle'></i>
+                  </span>
+                  <span className='menu-title'>Add Category</span>
+                </a>
+              </Link>
+            </li>
+
+            <li className='nav-item'>
+              <Link href='/dashboard/add-aminities' activeClassName='active'>
+                <a>
+                  <span className='icon'>
+                    <i className='bx bx-plus-circle'></i>
+                  </span>
+                  <span className='menu-title'>Add Aminities</span>
+                </a>
+              </Link>
+            </li>
+            
+
+
+
+{/* ............................................................................................................................................ */}
+
             <li className='nav-item'>
               <Link href='/dashboard/invoice' activeClassName='active'>
                 <a>
