@@ -38,6 +38,7 @@ function AuthModal({ displayAuth, toggleAuth }) {
       toast.success(data.message);
       authContTextData.setToken(data.token);
       authContTextData.setUser(data.user);
+      localStorage.setItem("token", data.token);
       setDisable(true);
       setPhoneNo("");
       setOtp("");

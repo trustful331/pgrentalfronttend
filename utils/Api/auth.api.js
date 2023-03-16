@@ -13,9 +13,18 @@ const verifyOtpForLogin = async (body) => {
   );
   return response.data;
 };
+const getUserDetail = async (token) => {
+  const response = await axios.get(`${config.url}/api/auth/me`, {
+    headers: {
+      authorization: `Bearer ${token}`,
+    },
+  });
+  return response.data;
+};
 
 const authApi = {
   loginHandlerApi,
   verifyOtpForLogin,
+  getUserDetail,
 };
 export default authApi;

@@ -48,6 +48,7 @@ const Navbar = () => {
     };
   }, []);
   const handleLogout = () => {
+    localStorage.removeItem("token");
     authContextData.setUser(undefined);
     authContextData.setToken(undefined);
   };

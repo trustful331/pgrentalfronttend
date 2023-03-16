@@ -1,15 +1,13 @@
 import Link from "next/link";
-import Navbar from "../../components/_App/Navbar";
 import DashboardNavbar from "../../components/Dashboard/DashboardNavbar";
+import NavbarTwo from "../../components/_App/Navbar";
 
 const Dashboard = () => {
   return (
     <>
       <DashboardNavbar />
-
+      <NavbarTwo />
       <div className="main-content d-flex flex-column">
-        <Navbar/>
-
         <div className="breadcrumb-area">
           <h1>Howdy, Andy!</h1>
           <ol className="breadcrumb">
