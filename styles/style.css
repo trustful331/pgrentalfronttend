@@ -11641,7 +11641,27 @@ All Modal CSS
   margin-bottom: 15px;
 }
 
+/*........................... custom form list aminity modal .................................*/
 
+.loginRegisterModal .modal-dialog .modal-content .tab-content .miran-login form .form-group ul{
+  margin-left: 0;
+  padding-left: 0;
+}
+.loginRegisterModal .modal-dialog .modal-content .tab-content .miran-login form .form-group ul li p{
+  text-align: center;
+}
+.loginRegisterModal .modal-dialog .modal-content .tab-content .miran-login form .form-group ul li .add-listings-btn{
+  margin-bottom: 0;
+  margin-right: 5px;
+}
+.loginRegisterModal .modal-dialog .modal-content .tab-content .miran-login form .form-group ul li .add-listings-btn button{
+  margin-bottom: 5px;
+  margin-top: 5px;
+  padding: 5px 10px;
+}
+
+
+/* ......................................................................... */
 
 .loginRegisterModal .modal-dialog .modal-content .tab-content .miran-login form .form-group .form-control {
   border: 1px solid #d5d5d5 !important;

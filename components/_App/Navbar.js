@@ -1,11 +1,13 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Link from "../../utils/ActiveLink";
+import { IndiceContext } from "../../contexts";
 import AuthModal from "../Modal/authModal";
 import { useAuthContext } from "../../contexts/authContext";
 
 const Navbar = () => {
+  const { toggleSideMenu } = useContext(IndiceContext);
   const [displayAuth, setDisplayAuth] = useState(false);
   const [displayMiniAuth, setDisplayMiniAuth] = useState(false);
   const [sticky, setSticky] = useState(false);
@@ -66,6 +68,12 @@ const Navbar = () => {
                 ) : (
                   <i className="bx bx-menu"></i>
                 )}
+              </div>
+
+              <div className="responsive-burger-menu d-lg-none d-block" onClick={toggleSideMenu}>
+                <span className="top-bar"></span>
+                <span className="middle-bar"></span>
+                <span className="bottom-bar"></span>
               </div>
 
               <div className="logo">

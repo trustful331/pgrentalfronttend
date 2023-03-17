@@ -14,6 +14,28 @@ import { toast } from "react-hot-toast";
 
 function AminityModal({ displayAM,toggleAM }) {
 
+
+  const features = [
+    {
+        "_id": "6411ceb57d263f9a7ed80916",
+        "feature_name": "Broadband",
+        "icon": "https://res.cloudinary.com/drbwctym7/image/upload/v1678888630b6711e6d-cf8a-41f7-a339-831b56c179fb.png",
+        "__v": 0
+    },
+    {
+        "_id": "6411ceb57d263f9a7ed80816",
+        "feature_name": "Single room",
+        "icon": "https://res.cloudinary.com/drbwctym7/image/upload/v1678888630b6711e6d-cf8a-41f7-a339-831b56c179fb.png",
+        "__v": 0
+    },
+    {
+        "_id": "6411ctb57d263f9a7ed80916",
+        "feature_name": "Double room",
+        "icon": "https://res.cloudinary.com/drbwctym7/image/upload/v1678888630b6711e6d-cf8a-41f7-a339-831b56c179fb.png",
+        "__v": 0
+    }
+  ]
+
 const  handleSubmit = (e)=>{
     e.preventDefault()
 }
@@ -60,11 +82,33 @@ const  handleSubmit = (e)=>{
 {/*..............................................................................................................................*/}
 
                       <div className="form-group">
-                        <input
+                        <ul>
+                        {
+                          features.map((feature,index)=>{
+                            return(
+                              <li className="list-group-item d-flex" key={feature.id}>
+
+                                <p className="p-0 m-0 flex-grow-1">{feature.feature_name}</p>
+
+                                <div className="add-listings-btn">
+                                  <button type="submit" className="btn-success" >Edit</button>
+                                </div>
+
+                                <div className="add-listings-btn">
+                                  <button type="submit" className="btn-success" >DELETE</button>
+                                </div>
+                                
+                              </li>
+                            )
+                          })
+                        }
+                        </ul>
+
+                        {/* <input
                           type="text"
                           placeholder="add Aminities"
                           className="form-control"
-                        />
+                        /> */}
 
                         {/* <select className="dashbaord-category-select">
                             <option>Select City</option>

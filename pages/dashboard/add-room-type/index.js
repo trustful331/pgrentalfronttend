@@ -8,12 +8,12 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../../../components/_App/Navbar";
 
 //modal
-import RoomtypeModal from "../../../components/Modal/CategoryModal";
+import RoomtypeModal from "../../../components/Modal/RoomTypeModal";
 
 
 
 const AddRoomType = () => {
-  var roomType = [
+  const roomType = [
     {
       "_id": "6410abad994949ce2b1d2f24",
       "typeOfRoom": "independent room",

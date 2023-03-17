@@ -1,5 +1,5 @@
-
 import React from 'react'
+
 
 export default function DesignTab2() {
   return (
@@ -34,16 +34,22 @@ export default function DesignTab2() {
                 <div className="tile-row">
 
                     <div className="tile">
-                        <div className="logo"></div>
-                        <p>dummy-text</p>
+                        <div className="logo">
+                            <i class="fa-solid fa-house"></i>
+                        </div>
+                        <p>Pg's</p>
                     </div>
                     <div className="tile">
-                        <div className="logo"></div>
-                        <p>dummy-text</p>
+                        <div className="logo">
+                            <i class="fa-solid fa-bed"></i>
+                        </div>
+                        <p>Single share</p>
                     </div>
                     <div className="tile">
-                        <div className="logo"></div>
-                        <p>dummy-text</p>
+                        <div className="logo">
+                            <i class="fa-solid fa-house"></i>
+                        </div>
+                        <p>Double share</p>
                     </div>
 
                 </div>
@@ -51,16 +57,22 @@ export default function DesignTab2() {
                 <div className="tile-row">
 
                     <div className="tile">
-                        <div className="logo"></div>
-                        <p>dummy-text</p>
+                        <div className="logo">
+                            <i class="fa-solid fa-hotel"></i>
+                        </div>
+                        <p>co-appartment</p>
                     </div>
                     <div className="tile">
-                        <div className="logo"></div>
-                        <p>dummy-text</p>
+                        <div className="logo">
+                            <i class="fa-solid fa-hotel"></i>
+                        </div>
+                        <p>Hostel</p>
                     </div>
                     <div className="tile">
-                        <div className="logo"></div>
-                        <p>dummy-text</p>
+                        <div className="logo">
+                            <i class="fa-solid fa-hotel"></i>
+                        </div>
+                        <p>Hostel</p>
                     </div>
 
                 </div>
