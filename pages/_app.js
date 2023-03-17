@@ -14,6 +14,9 @@ import "swiper/css/bundle";
 import "../styles/style.css";
 import "../styles/responsive.css";
 
+import '../styles/designTab1.css'
+import '../styles/designTab2.css'
+
 import Layout from "../components/_App/Layout";
 import Loader from "../components/Shared/Loader";
 import GoTop from "../components/Shared/GoTop";

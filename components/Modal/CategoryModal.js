@@ -12,7 +12,7 @@ import { Tabs } from "react-tabs";
 import { toast } from "react-hot-toast";
 
 
-function CategoryModal({ displayCTM,toggleCTM }) {
+function RoomTypeModal({ displayCTM,toggleCTM }) {
 
 const  handleSubmit = (e)=>{
     e.preventDefault()
@@ -38,7 +38,7 @@ const  handleSubmit = (e)=>{
               <TabList>
                 <Tab className="nav-item">
                   <a className="nav-link" id="login-tab">
-                    Add Category
+                    Add Room Type
                   </a>
                 </Tab>
 
@@ -52,7 +52,7 @@ const  handleSubmit = (e)=>{
                   <div className="miran-login">
                     
                     <span className="sub-title">
-                      <span>Add Category</span>
+                      <span>Add Room Type</span>
                     </span>
 
                     <form onSubmit={(e)=>{handleSubmit(e)}}>
@@ -63,14 +63,14 @@ const  handleSubmit = (e)=>{
 
                         <input
                             type="text"
-                            placeholder="add Category"
+                            placeholder="add Room type..."
                             className="form-control"
                             />
 
                       </div>
 
                       <button type="submit" onClick={()=>{toggleCTM(!displayCTM)}}>
-                        Add Category
+                        Add Room type
                       </button>
                     </form>
                   </div>
@@ -84,4 +84,4 @@ const  handleSubmit = (e)=>{
   );
 }
 
-export default CategoryModal;
+export default RoomTypeModal;

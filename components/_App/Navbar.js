@@ -5,7 +5,7 @@ import Link from "../../utils/ActiveLink";
 import AuthModal from "../Modal/authModal";
 import { useAuthContext } from "../../contexts/authContext";
 
-const NavbarTwo = () => {
+const Navbar = () => {
   const [displayAuth, setDisplayAuth] = useState(false);
   const [displayMiniAuth, setDisplayMiniAuth] = useState(false);
   const [sticky, setSticky] = useState(false);
@@ -705,4 +705,4 @@ const NavbarTwo = () => {
   );
 };
 
-export default NavbarTwo;
+export default Navbar;

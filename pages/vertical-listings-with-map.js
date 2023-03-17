@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 
-import NavbarTwo from "../components/_App/NavbarTwo";
+import Navbar from "../components/_App/Navbar";
 import PopularPlacesFilter from "../components/Common/PopularPlacesFilter";
 import Footer from "../components/_App/Footer";
 import { useState } from "react";
@@ -48,7 +48,7 @@ const VerticalListingsWihMap = () => {
 
   return (
     <>
-      <NavbarTwo />
+      <Navbar/>
 
       <PopularPlacesFilter />
 

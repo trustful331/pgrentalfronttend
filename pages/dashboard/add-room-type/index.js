@@ -8,11 +8,18 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../../../components/_App/Navbar";
 
 //modal
-import CategoryModal from "../../../components/Modal/CategoryModal";
+import RoomtypeModal from "../../../components/Modal/CategoryModal";
 
 
 
-const AddCategory = () => {
+const AddRoomType = () => {
+  var roomType = [
+    {
+      "_id": "6410abad994949ce2b1d2f24",
+      "typeOfRoom": "independent room",
+      "slug": "independent_room",
+      "__v": 0
+    }]
 
 var [displayCTM,toggleCTM] = useState(false)
 
@@ -26,7 +33,7 @@ useEffect(()=>{},[])
         <Navbar/>
 
         <div className="breadcrumb-area">
-          <h1>Add Category</h1>
+          <h1>Add Room type</h1>
           <ol className="breadcrumb">
             <li className="item">
               <Link href="/dashboard">
@@ -38,13 +45,37 @@ useEffect(()=>{},[])
                 <a>Dashboard</a>
               </Link>
             </li>
-            <li className="item">Add category</li>
+            <li className="item">Add Room Type</li>
           </ol>
         </div>
         
         <div className="add-listings-btn">
-          <button type="submit" onClick={()=>{toggleCTM(!displayCTM)}}>Add Category</button>
+          <button type="submit" onClick={()=>{toggleCTM(!displayCTM)}}>Add Room Type</button>
         </div>
+
+          <ul className="list-group cityList"> 
+
+            {
+              roomType.map((room,index)=>{
+                  return(
+                    <li className="list-group-item d-flex" key={room.id}>
+
+                      <p className="p-0 m-0 flex-grow-1">{room.typeOfRoom}</p>
+
+                      <div className="add-listings-btn">
+                        <button type="submit" className="btn-success" >Edit</button>
+                      </div>
+
+                      <div className="add-listings-btn">
+                        <button type="submit" className="btn-success" >DELETE</button>
+                      </div>
+                      
+                    </li>
+                  )
+                })
+              }
+
+            </ul>
 
         <div className="flex-grow-1"></div>
 
@@ -73,9 +104,9 @@ useEffect(()=>{},[])
       </div>
 
 {/*..........................CITY MODAL................................................. */}
-        <CategoryModal displayCTM={displayCTM} toggleCTM={toggleCTM}/>
+        <RoomtypeModal displayCTM={displayCTM} toggleCTM={toggleCTM}/>
     </>
   );
 };
 
-export default AddCategory;
+export default AddRoomType;

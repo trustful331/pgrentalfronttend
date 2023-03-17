@@ -1,0 +1,194 @@
+.design-tab2{
+    width: 100%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.design-tab2 .bg-text{
+    position: absolute;
+    font-size: 15rem;
+    z-index: -1;
+    opacity: 0.1;
+    color:  #00aeef;
+}
+
+.design-tab2 .text-section{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    padding-left: 5%;
+    justify-content: center;
+}
+
+.design-tab2 .text-section .box{
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    position: relative;
+    margin-bottom: 2%;
+    background-color: #00aeef;
+    /* border: 1px solid black; */
+}
+.design-tab2 .text-section .box span,
+.design-tab2 .text-section .box p{
+    /* width: auto;
+    height: auto; */
+    position: absolute;
+    bottom: 0;
+    right: 2%;
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+}
+.design-tab2 .text-section .box span{
+    margin-bottom: 0;
+
+}
+.design-tab2 .text-section .box p{
+    left:100%;
+    padding-bottom: 6%;
+    color: #343434;
+}
+
+.design-tab2 .text-section .box .bg-box{
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    position: absolute;
+    z-index: -1;
+    top: -15%;
+    left: -15%;
+}
+
+.design-tab2 .text-section h2{
+    font-size: 2rem;
+    margin-bottom: 5%;
+}
+
+.design-tab2 .text-section h4{
+    font-size: 1.5rem;
+    margin-bottom: 3%;
+    color: #3bbdad;
+}
+
+.design-tab2 .text-section p{
+    width: 70%;
+    line-height: 25px;
+    color: rgb(78, 78, 78);
+}
+
+
+.design-tab2 .tiles-section{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+.design-tab2 .tiles-section .tile-row{
+    width: 100%;
+    height: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.design-tab2 .tiles-section .tile-row .tile .logo{
+    width:80px;
+    height:80px;
+    margin: auto;
+    border-radius: 5px;
+    border: 2px solid rgb(216, 183, 37);
+}
+.design-tab2 .tiles-section .tile-row .tile p{
+    margin-top: 20%;
+    font-weight: bold;
+    color: rgb(80, 78, 78);
+}
+
+
+/* resonsive css */
+
+
+@media only screen and (max-width:965px){
+
+    .design-tab2 .text-section{
+        padding-left: 3%;
+    }
+
+    .design-tab2 .text-section p{
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width:875px){
+    .design-tab2 .bg-text{
+        font-size: 13rem;
+    }
+}
+
+@media only screen and (max-width:755px){
+    .design-tab2 .text-section .box span{
+        right: 5%;
+    }
+    .design-tab2 .bg-text{
+        font-size: 10rem;
+    }
+    .design-tab2 .tiles-section .tile-row .tile .logo{
+        width: 70px;
+        height: 70px;
+    }
+    .design-tab2 .text-section p{
+        line-height: 23px;
+        font-size: 0.9rem;
+    }
+}
+
+@media only screen and (max-width:675px){
+    .design-tab2 .text-section h4{
+        font-size: 1.3rem;
+    }
+    .design-tab2 .tiles-section .tile-row{
+        height: 45%;
+    }
+}
+
+/* alignment change */
+
+@media only screen and (max-width:590px){
+    .design-tab2{
+        flex-direction: column;
+        height: 100%;
+    }
+    .design-tab2 .bg-text{
+        font-size: 8rem;
+    }
+    .design-tab2 .text-section{
+        height: 50%;
+        width: 100%;
+        padding-left: 5%;
+        padding-top: 3%;
+    }
+    .design-tab2 .tiles-section{
+        height: 50%;
+        width: 100%;
+    }
+    .design-tab2 .text-section h2{
+        margin-bottom: 3%;
+    }
+}
+
+@media only screen and (max-width:540px){
+    .design-tab2 .text-section h2{
+        font-size: 1.6rem;
+        margin-bottom: 2%;
+    }
+}

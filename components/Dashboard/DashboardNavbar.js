@@ -184,12 +184,12 @@ const DashboardNavbar = () => {
             </li>
 
             <li className='nav-item'>
-              <Link href='/dashboard/add-category' activeClassName='active'>
+              <Link href='/dashboard/add-room-type' activeClassName='active'>
                 <a>
                   <span className='icon'>
                     <i className='bx bx-plus-circle'></i>
                   </span>
-                  <span className='menu-title'>Add Category</span>
+                  <span className='menu-title'>Room type</span>
                 </a>
               </Link>
             </li>
