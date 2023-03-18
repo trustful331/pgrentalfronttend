@@ -3,25 +3,23 @@
 import Link from "next/link";
 import DashboardNavbar from "../../../components/Dashboard/DashboardNavbar";
 
-import React, { useEffect, useState } from "react";
-import Navbar from "../../../components/_App/Navbar";
+import React, { useState } from "react";
 
 //modal
 import RoomtypeModal from "../../../components/Modal/RoomTypeModal";
+import roomTypeAPi from "../../../utils/Api/roomType.api";
+import { useQuery } from "react-query";
 
-const AddRoomType = () => {
-  const roomType = [
-    {
-      _id: "6410abad994949ce2b1d2f24",
-      typeOfRoom: "independent room",
-      slug: "independent_room",
-      __v: 0,
+const RooomType = () => {
+  const [displayCTM, toggleCTM] = useState(false);
+  const [roomTypes, setRoomTypes] = useState([]);
+  const {} = useQuery({
+    queryFn: roomTypeAPi.getAllRoomType,
+    queryKey: "getAllRoomType",
+    onSuccess: (data) => {
+      setRoomTypes(data.data);
     },
-  ];
-
-  var [displayCTM, toggleCTM] = useState(false);
-
-  useEffect(() => {}, []);
+  });
 
   return (
     <>
@@ -57,9 +55,9 @@ const AddRoomType = () => {
         </div>
 
         <ul className="list-group cityList">
-          {roomType.map((room, index) => {
+          {roomTypes.map((room) => {
             return (
-              <li className="list-group-item d-flex" key={room.id}>
+              <li key={room._id} className="list-group-item d-flex">
                 <p className="p-0 m-0 flex-grow-1">{room.typeOfRoom}</p>
 
                 <div className="add-listings-btn">
@@ -110,4 +108,4 @@ const AddRoomType = () => {
   );
 };
 
-export default AddRoomType;
+export default RooomType;

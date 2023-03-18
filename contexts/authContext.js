@@ -31,3 +31,4 @@ const AuthContextProvider = ({ children }) => {
 export { AuthContextProvider, AuthContext };
 
 export const useAuthContext = () => useContext(AuthContext);
+export const useAuthToken = () => useAuthContext().token;

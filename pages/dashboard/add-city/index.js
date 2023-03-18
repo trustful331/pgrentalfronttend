@@ -46,59 +46,6 @@ const AddCities = () => {
 
         {/*..........................city information............................................*/}
 
-        {/* <div className="add-listings-box">
-          <h3>Location</h3>
-
-          <div className="row">
-            <div className="col-lg-6 col-md-6">
-              <div className="form-group">
-                <label>
-                  <i className="bx bx-menu-alt-left"></i> City:
-                </label>
-                <select className="dashbaord-category-select">
-                  <option>Select City</option>
-                  <option>New York</option>
-                  <option>London</option>
-                  <option>Paris</option>
-                  <option>Moscow</option>
-                  <option>Rome</option>
-                </select>
-              </div>
-            </div>
-
-            <div className="col-lg-6 col-md-6">
-              <div className="form-group">
-                <label>
-                  <i className="bx bx-menu-alt-left"></i> Address:
-                </label>
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder="e.g. 55 County Laois"
-                />
-              </div>
-            </div>
-
-            <div className="col-lg-6 col-md-6">
-              <div className="form-group">
-                <label>
-                  <i className="bx bx-menu-alt-left"></i> State:
-                </label>
-                <input type="text" className="form-control" />
-              </div>
-            </div>
-
-            <div className="col-lg-6 col-md-6">
-              <div className="form-group">
-                <label>
-                  <i className="bx bx-menu-alt-left"></i> Zip-Code:
-                </label>
-                <input type="text" className="form-control" />
-              </div>
-            </div>
-          </div>
-        </div> */}
-
         <div className="add-listings-btn">
           <button
             type="submit"
@@ -112,9 +59,9 @@ const AddCities = () => {
 
         {/*.................................... city List .........................................................*/}
         <ul className="list-group cityList">
-          {cities.map((city, index) => {
+          {cities.map((city) => {
             return (
-              <li className="list-group-item d-flex" key={city.id}>
+              <li className="list-group-item d-flex" key={city._id}>
                 <p className="p-0 m-0 flex-grow-1">{city.name}</p>
 
                 <div className="add-listings-btn">

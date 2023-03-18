@@ -1,6 +1,3 @@
-
-
-
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
@@ -10,27 +7,57 @@ import { TabList } from "react-tabs";
 import { Tabs } from "react-tabs";
 
 import { toast } from "react-hot-toast";
+import { useMutation, useQueryClient } from "react-query";
+import { useAuthToken } from "../../contexts/authContext";
+import roomTypeAPi from "../../utils/Api/roomType.api";
 
+function RoomTypeModal({ displayCTM, toggleCTM }) {
+  const [roomTypeName, setRoomTypeName] = useState("");
+  const queryClient = useQueryClient();
+  const token = useAuthToken();
+  const { mutate } = useMutation({
+    mutationFn: (data) => roomTypeAPi.addNewRoomType(data, token),
+    onSuccess: () => {
+      toast.success(`${roomTypeName} added successfully`);
+      queryClient.invalidateQueries({ queryKey: ["getAllRoomType"] });
+      setRoomTypeName("");
+    },
+    onError: (error) => {
+      const message =
+        error?.response?.data?.message || "Mobile Number does not exist";
+      toast.error(message);
+      setRoomTypeName("");
+    },
+  });
 
-function RoomTypeModal({ displayCTM,toggleCTM }) {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    mutate({ name: roomTypeName });
+  };
 
-const  handleSubmit = (e)=>{
-    e.preventDefault()
-}
-
-
-  useEffect(() => {
-
-  }, []);
+  const onChnageHandler = (e) => {
+    setRoomTypeName(e.target.value);
+  };
 
   return (
     <div
-      className={displayCTM ? "modal loginRegisterModal show" : "modal loginRegisterModal"} id="loginRegisterModal"
+      className={
+        displayCTM
+          ? "modal loginRegisterModal show"
+          : "modal loginRegisterModal"
+      }
+      id="loginRegisterModal"
     >
       <div className="modal-dialog modal-dialog-centered">
         <div className="modal-content">
           <Tabs>
-            <button type="button" className="close" onClick={()=>{toggleCTM(!displayCTM)}}>
+            <button
+              type="button"
+              className="close"
+              onClick={() => {
+                toggleCTM(!displayCTM);
+              }}
+            >
               <i className="bx bx-x"></i>
             </button>
 
@@ -41,8 +68,6 @@ const  handleSubmit = (e)=>{
                     Add Room Type
                   </a>
                 </Tab>
-
-                
               </TabList>
             </ul>
 
@@ -50,26 +75,31 @@ const  handleSubmit = (e)=>{
               <TabPanel>
                 <div className="tab-pane fade show active" id="login">
                   <div className="miran-login">
-                    
                     <span className="sub-title">
                       <span>Add Room Type</span>
                     </span>
 
-                    <form onSubmit={(e)=>{handleSubmit(e)}}>
-
-{/*...............................................otp send............................................................................*/}
-
+                    <form
+                      onSubmit={(e) => {
+                        handleSubmit(e);
+                      }}
+                    >
                       <div className="form-group">
-
                         <input
-                            type="text"
-                            placeholder="add Room type..."
-                            className="form-control"
-                            />
-
+                          type="text"
+                          value={roomTypeName}
+                          onChange={onChnageHandler}
+                          placeholder="add Room type..."
+                          className="form-control"
+                        />
                       </div>
 
-                      <button type="submit" onClick={()=>{toggleCTM(!displayCTM)}}>
+                      <button
+                        type="submit"
+                        onClick={() => {
+                          toggleCTM(!displayCTM);
+                        }}
+                      >
                         Add Room type
                       </button>
                     </form>
