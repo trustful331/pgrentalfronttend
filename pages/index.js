@@ -23,14 +23,13 @@ const Index = () => {
   return (
     <>
       <Banner />
-      <Banner />
-
+    
       <DesignTab1 />
 
       <DesignTab2 />
       <Category />
 
-      <DesignTab2 />
+      {/* <DesignTab2 /> */}
 
       <DesignTab3 />
 
