@@ -5,12 +5,10 @@ import Link from "../../utils/ActiveLink";
 import { IndiceContext } from "../../contexts";
 import AuthModal from "../Modal/authModal";
 import { useAuthContext } from "../../contexts/authContext";
-import { IndiceContext } from "../../contexts";
 
 const Navbar = () => {
   const { toggleSideMenu } = useContext(IndiceContext);
   const [displayAuth, setDisplayAuth] = useState(false);
-  const { toggleSideMenu } = useContext(IndiceContext);
   const [displayMiniAuth, setDisplayMiniAuth] = useState(false);
   const [sticky, setSticky] = useState(false);
   const authContextData = useAuthContext();
@@ -81,7 +79,10 @@ const Navbar = () => {
                 <span className="bottom-bar"></span>
               </div>
 
-              <div className="responsive-burger-menu d-lg-none d-block" onClick={toggleSideMenu}>
+              <div
+                className="responsive-burger-menu d-lg-none d-block"
+                onClick={toggleSideMenu}
+              >
                 <span className="top-bar"></span>
                 <span className="middle-bar"></span>
                 <span className="bottom-bar"></span>
