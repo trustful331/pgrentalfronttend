@@ -1,7 +1,6 @@
 import DashboardNavbar from "../../../components/Dashboard/DashboardNavbar";
 
 import Link from "next/link";
-import NavbarTwo from "../../../components/_App/Navbar";
 
 const Wallet = () => {
   return (
@@ -9,8 +8,6 @@ const Wallet = () => {
       <DashboardNavbar />
 
       <div className="main-content d-flex flex-column">
-        <NavbarTwo />
-
         <div className="breadcrumb-area">
           <h1>Wallet</h1>
           <ol className="breadcrumb">

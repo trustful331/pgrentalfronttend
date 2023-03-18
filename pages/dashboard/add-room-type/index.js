@@ -1,4 +1,3 @@
-
 //add category
 
 import Link from "next/link";
@@ -10,28 +9,25 @@ import Navbar from "../../../components/_App/Navbar";
 //modal
 import RoomtypeModal from "../../../components/Modal/RoomTypeModal";
 
-
-
 const AddRoomType = () => {
   const roomType = [
     {
-      "_id": "6410abad994949ce2b1d2f24",
-      "typeOfRoom": "independent room",
-      "slug": "independent_room",
-      "__v": 0
-    }]
+      _id: "6410abad994949ce2b1d2f24",
+      typeOfRoom: "independent room",
+      slug: "independent_room",
+      __v: 0,
+    },
+  ];
 
-var [displayCTM,toggleCTM] = useState(false)
+  var [displayCTM, toggleCTM] = useState(false);
 
-useEffect(()=>{},[])
+  useEffect(() => {}, []);
 
   return (
     <>
       <DashboardNavbar />
 
       <div className="main-content d-flex flex-column">
-        <Navbar/>
-
         <div className="breadcrumb-area">
           <h1>Add Room type</h1>
           <ol className="breadcrumb">
@@ -48,34 +44,39 @@ useEffect(()=>{},[])
             <li className="item">Add Room Type</li>
           </ol>
         </div>
-        
+
         <div className="add-listings-btn">
-          <button type="submit" onClick={()=>{toggleCTM(!displayCTM)}}>Add Room Type</button>
+          <button
+            type="submit"
+            onClick={() => {
+              toggleCTM(!displayCTM);
+            }}
+          >
+            Add Room Type
+          </button>
         </div>
 
-          <ul className="list-group cityList"> 
+        <ul className="list-group cityList">
+          {roomType.map((room, index) => {
+            return (
+              <li className="list-group-item d-flex" key={room.id}>
+                <p className="p-0 m-0 flex-grow-1">{room.typeOfRoom}</p>
 
-            {
-              roomType.map((room,index)=>{
-                  return(
-                    <li className="list-group-item d-flex" key={room.id}>
+                <div className="add-listings-btn">
+                  <button type="submit" className="btn-success">
+                    Edit
+                  </button>
+                </div>
 
-                      <p className="p-0 m-0 flex-grow-1">{room.typeOfRoom}</p>
-
-                      <div className="add-listings-btn">
-                        <button type="submit" className="btn-success" >Edit</button>
-                      </div>
-
-                      <div className="add-listings-btn">
-                        <button type="submit" className="btn-success" >DELETE</button>
-                      </div>
-                      
-                    </li>
-                  )
-                })
-              }
-
-            </ul>
+                <div className="add-listings-btn">
+                  <button type="submit" className="btn-success">
+                    DELETE
+                  </button>
+                </div>
+              </li>
+            );
+          })}
+        </ul>
 
         <div className="flex-grow-1"></div>
 
@@ -103,8 +104,8 @@ useEffect(()=>{},[])
         </div>
       </div>
 
-{/*..........................CITY MODAL................................................. */}
-        <RoomtypeModal displayCTM={displayCTM} toggleCTM={toggleCTM}/>
+      {/*..........................CITY MODAL................................................. */}
+      <RoomtypeModal displayCTM={displayCTM} toggleCTM={toggleCTM} />
     </>
   );
 };

@@ -7,8 +7,6 @@ const Messages = () => {
       <DashboardNavbar />
 
       <div className="main-content d-flex flex-column">
-        <NavbarTwo />
-
         <div className="chat-content-area">
           <div className="sidebar-left">
             <div className="sidebar">

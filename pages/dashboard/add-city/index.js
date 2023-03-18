@@ -1,4 +1,3 @@
-
 //add city
 
 import Link from "next/link";
@@ -10,41 +9,24 @@ import Navbar from "../../../components/_App/Navbar";
 
 //modal
 import CityModal from "../../../components/Modal/CityModal";
-
+import { useQuery } from "react-query";
+import cityApi from "../../../utils/Api/city.api";
 
 const AddCities = () => {
-
-const cities = [
-{
-  _id: "6410abbd994949ce2b1d2f27",
-  name: "Hydrabad",
-  slug: "hydrabad",
-  __v: 0,
-},
-{
-  _id: "6410abbd994949ce2b1d2f27",
-  name: "Bangalore",
-  slug: "Bangalore",
-  __v: 0,
-},
-{
-  _id: "6410abbd994949ce2b1d2f27",
-  name: "kolkata",
-  slug: "kolkata",
-  __v: 0,
-},
-];
-
-var [displayCM,toggleCM] = useState(false)
-useEffect(()=>{},[])
-
+  var [displayCM, toggleCM] = useState(false);
+  const [cities, setCities] = useState([]);
+  const {} = useQuery({
+    queryFn: cityApi.getAllCity,
+    queryKey: "getAllcities",
+    onSuccess: (data) => {
+      setCities(data.data);
+    },
+  });
   return (
     <>
       <DashboardNavbar />
 
       <div className="main-content d-flex flex-column">
-        <Navbar/>
-
         <div className="breadcrumb-area">
           <h1>Add Cities</h1>
           <ol className="breadcrumb">
@@ -61,36 +43,94 @@ useEffect(()=>{},[])
             <li className="item">Add city</li>
           </ol>
         </div>
-        
+
+        {/*..........................city information............................................*/}
+
+        {/* <div className="add-listings-box">
+          <h3>Location</h3>
+
+          <div className="row">
+            <div className="col-lg-6 col-md-6">
+              <div className="form-group">
+                <label>
+                  <i className="bx bx-menu-alt-left"></i> City:
+                </label>
+                <select className="dashbaord-category-select">
+                  <option>Select City</option>
+                  <option>New York</option>
+                  <option>London</option>
+                  <option>Paris</option>
+                  <option>Moscow</option>
+                  <option>Rome</option>
+                </select>
+              </div>
+            </div>
+
+            <div className="col-lg-6 col-md-6">
+              <div className="form-group">
+                <label>
+                  <i className="bx bx-menu-alt-left"></i> Address:
+                </label>
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="e.g. 55 County Laois"
+                />
+              </div>
+            </div>
+
+            <div className="col-lg-6 col-md-6">
+              <div className="form-group">
+                <label>
+                  <i className="bx bx-menu-alt-left"></i> State:
+                </label>
+                <input type="text" className="form-control" />
+              </div>
+            </div>
+
+            <div className="col-lg-6 col-md-6">
+              <div className="form-group">
+                <label>
+                  <i className="bx bx-menu-alt-left"></i> Zip-Code:
+                </label>
+                <input type="text" className="form-control" />
+              </div>
+            </div>
+          </div>
+        </div> */}
 
         <div className="add-listings-btn">
-          <button type="submit" onClick={()=>{toggleCM(!displayCM)}}>Add Cities</button>
+          <button
+            type="submit"
+            onClick={() => {
+              toggleCM(!displayCM);
+            }}
+          >
+            Add Cities
+          </button>
         </div>
 
-        
-{/*.................................... city List .........................................................*/}
-        <ul className="list-group cityList"> 
+        {/*.................................... city List .........................................................*/}
+        <ul className="list-group cityList">
+          {cities.map((city, index) => {
+            return (
+              <li className="list-group-item d-flex" key={city.id}>
+                <p className="p-0 m-0 flex-grow-1">{city.name}</p>
 
-            {
-              cities.map((city,index)=>{
-                return(
-                  <li className="list-group-item d-flex" key={city.id}>
+                <div className="add-listings-btn">
+                  <button type="submit" className="btn-success">
+                    Edit
+                  </button>
+                </div>
 
-                    <p className="p-0 m-0 flex-grow-1">{city.name}</p>
-
-                    <div className="add-listings-btn">
-                      <button type="submit" className="btn-success" >Edit</button>
-                    </div>
-
-                    <div className="add-listings-btn">
-                      <button type="submit" className="btn-success" >DELETE</button>
-                    </div>
-                    
-                  </li>
-                )
-              })
-            }
-
+                <div className="add-listings-btn">
+                  <button type="submit" className="btn-success">
+                    DELETE
+                  </button>
+                </div>
+              </li>
+            );
+          })}
         </ul>
 
         <div className="flex-grow-1"></div>
@@ -119,8 +159,8 @@ useEffect(()=>{},[])
         </div>
       </div>
 
-{/*..........................CITY MODAL................................................. */}
-        <CityModal displayCM={displayCM} toggleCM={toggleCM}/>
+      {/*..........................CITY MODAL................................................. */}
+      <CityModal displayCM={displayCM} toggleCM={toggleCM} />
     </>
   );
 };

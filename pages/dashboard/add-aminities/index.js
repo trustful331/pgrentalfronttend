@@ -1,5 +1,3 @@
-
-
 //add aminities
 
 import Link from "next/link";
@@ -11,20 +9,16 @@ import Navbar from "../../../components/_App/Navbar";
 //modal
 import AminityModal from "../../../components/Modal/AminityModal";
 
-
 const AddAminities = () => {
+  var [displayAM, toggleAM] = useState(false);
 
-var [displayAM,toggleAM] = useState(false)
-
-useEffect(()=>{},[])
+  useEffect(() => {}, []);
 
   return (
     <>
       <DashboardNavbar />
 
       <div className="main-content d-flex flex-column">
-        <Navbar/>
-
         <div className="breadcrumb-area">
           <h1>Add Aminities</h1>
           <ol className="breadcrumb">
@@ -41,9 +35,16 @@ useEffect(()=>{},[])
             <li className="item">Add Aminities</li>
           </ol>
         </div>
-        
+
         <div className="add-listings-btn">
-          <button type="submit" onClick={()=>{toggleAM(!displayAM)}}>Add Aminities</button>
+          <button
+            type="submit"
+            onClick={() => {
+              toggleAM(!displayAM);
+            }}
+          >
+            Add Aminities
+          </button>
         </div>
 
         <div className="flex-grow-1"></div>
@@ -72,8 +73,8 @@ useEffect(()=>{},[])
         </div>
       </div>
 
-{/*..........................CITY MODAL................................................. */}
-        <AminityModal displayAM={displayAM} toggleAM={toggleAM}/>
+      {/*..........................CITY MODAL................................................. */}
+      <AminityModal displayAM={displayAM} toggleAM={toggleAM} />
     </>
   );
 };

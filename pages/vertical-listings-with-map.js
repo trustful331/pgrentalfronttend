@@ -48,8 +48,6 @@ const VerticalListingsWihMap = () => {
 
   return (
     <>
-      <Navbar/>
-
       <PopularPlacesFilter />
 
       <section className="listings-area ptb-100">

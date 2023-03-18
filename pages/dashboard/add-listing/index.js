@@ -39,8 +39,6 @@ const AddListing = () => {
       <DashboardNavbar />
 
       <div className="main-content d-flex flex-column">
-        <Navbar/>
-
         <div className="breadcrumb-area">
           <h1>Add Listings</h1>
           <ol className="breadcrumb">
@@ -159,9 +157,9 @@ const AddListing = () => {
           </div>
         </div>
 
-{/* ...........................IMAGE Gallery.......................................................................*/}
+        {/* ...........................IMAGE Gallery.......................................................................*/}
 
-{/*...........................room images.........................................*/}
+        {/*...........................room images.........................................*/}
 
         <div {...getRootProps()} className="dropzone add-listings-box">
           <h3>Add Room Images (Gallery)</h3>
@@ -178,7 +176,7 @@ const AddListing = () => {
           )}
         </div>
 
-{/*.....................gallery image section......................................*/}
+        {/*.....................gallery image section......................................*/}
 
         <div {...getRootProps()} className="dropzone add-listings-box">
           <h3>Add Dining images (Gallery)</h3>
@@ -195,7 +193,7 @@ const AddListing = () => {
           )}
         </div>
 
-{/*....................Bedroom images section........................................*/}
+        {/*....................Bedroom images section........................................*/}
 
         <div {...getRootProps()} className="dropzone add-listings-box">
           <h3>Add Bedroom Images (Gallery)</h3>
@@ -211,7 +209,7 @@ const AddListing = () => {
             </div>
           )}
         </div>
-{/* ............................................................................................................*/}
+        {/* ............................................................................................................*/}
 
         <div className="add-listings-box">
           <h3>Details</h3>

@@ -5,7 +5,6 @@ import Link from "next/link";
 
 //components
 import DashboardNavbar from "../../../components/Dashboard/DashboardNavbar";
-import NavbarTwo from "../../../components/_App/Navbar";
 
 const BookMarks = () => {
   return (
@@ -13,8 +12,6 @@ const BookMarks = () => {
       <DashboardNavbar />
 
       <div className="main-content d-flex flex-column">
-        <NavbarTwo />
-
         <div className="breadcrumb-area">
           <h1>Bookmarked Listings</h1>
           <ol className="breadcrumb">

@@ -1,6 +1,5 @@
 import Link from "next/link";
 import DashboardNavbar from "../../../components/Dashboard/DashboardNavbar";
-import NavbarTwo from "../../../components/_App/Navbar";
 
 const Reviews = () => {
   return (
@@ -8,8 +7,6 @@ const Reviews = () => {
       <DashboardNavbar />
 
       <div className="main-content d-flex flex-column">
-        <NavbarTwo />
-
         <div className="breadcrumb-area">
           <h1>Reviews</h1>
           <ol className="breadcrumb">
