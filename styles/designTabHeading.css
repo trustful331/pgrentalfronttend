@@ -1,0 +1,56 @@
+@font-face {
+  font-family: 'Beyond Infinity';
+  src: url(../public/fonts/Beyond_Infinity.ttf);
+}
+@font-face {
+  font-family: 'Louize';
+  src: url(../public/fonts/Louize_font.ttf);
+}
+
+
+.designtab-heading{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #6f726f;
+    background-image: linear-gradient(to right, #f9f9f9 , white
+    );
+}
+.designtab-heading h1{
+    font-size: 46px;
+    margin-bottom: 40px;
+    font-family: "Beyond Infinity",sans-serif;
+    margin-top: 50px;
+}
+.designtab-heading h1 span{
+    color: #3bbdad;
+}
+.designtab-heading p{
+    max-width: 50%;
+    font-size: 20px;
+    line-height: 1.5;
+    text-align: center;
+    font-family: 'Louize',sans-serif;
+    margin-bottom: 20px;
+}
+
+/* responsive css */
+
+@media only screen and (max-width:1068px){
+    .designtab-heading p{
+        max-width: 70%;
+    }
+}
+
+@media only screen and (max-width:770px){
+    .designtab-heading p{
+        max-width: 80%;
+    }
+}
+
+@media only screen and (max-width:670px){
+    .designtab-heading p{
+        max-width: 90%;
+    }
+}

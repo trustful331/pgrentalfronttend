@@ -1,5 +1,11 @@
 import React from 'react'
 import Image from 'next/image'
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Autoplay } from "swiper";
+
+// import image1 from 'images/designTab/dt1.png'
+
+// import 
 
 export default function DesignTab1() {
 
@@ -9,40 +15,58 @@ export default function DesignTab1() {
         <section className="design-tab" id="1">
 
             <div className="text-section">
-                <h1>Step into a room that has</h1>
-                <h2>room for everything</h2>
+                {/* <h1>Create Memories</h1>
+                <h2>Memories are encoded through repetition, emotion, and association, shaping our past and influencing our future.</h2> */}
 
                 <div className="img-section hidden">
-                        <img 
-                            id="pic-1"
-                        src="https://www.stanzaliving.com/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fstanza-living%2Fimage%2Fupload%2Ff_auto%2Cq_auto%2Cw_840%2Fv1653659840%2Fwebsite-v2%2Fhome-page%2Froom-for-everything-img-1.png&w=1920&q=75" 
-                        alt="no img"/>
-
-                        <img 
-                        id="pic-2"
-                        src="https://www.stanzaliving.com/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fstanza-living%2Fimage%2Fupload%2Ff_auto%2Cq_auto%2Cw_540%2Fv1653659840%2Fwebsite-v2%2Fhome-page%2Froom-for-everything-img-2.png&w=1920&q=75" 
-                        alt="no img"/>
-                    </div>
+                    {/* <img src='images/designTab/dt1.png' alt='no img'/> */}
+                    <Swiper
+                        autoplay={{delay: 1500}}
+                        effect='fade'
+                        loop={true}
+                        modules={[Pagination,Autoplay]}
+                        >
+                        <SwiperSlide>
+                            <img src='images/designTab/dt1.png' alt='no img'/>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <img src='images/designTab/dt2.png' alt='no img'/>
+                        </SwiperSlide>
+                    </Swiper>
+                </div>
 
                 <p>
-                    Your clothes and bag will not be fighting 
-                    for space on the same chair. At Stanza Living, 
-                    there's ample room for all your possessions. 
-                    Even a framed photo of your family, for the 
-                    rare occasions you miss home.
+                    Zestos Living offers a warm and welcoming environment for 
+                    guests to create lasting memories. Our comfortable living 
+                    spaces, modern bathrooms, high-speed internet, healthy food 
+                    options, and 24/7 security guarantee a comfortable and 
+                    hassle-free stay. We organize various events and activities 
+                    to encourage social interaction and community engagement. Our 
+                    friendly and professional staff is always available to assist you. 
+                    At Zestos Living, we are committed to providing an unforgettable 
+                    experience that makes you feel at home and allows you to look back 
+                    on your stay with fond memories.
                 </p>
             </div>
-            
-            <div className="img-section">
-                <img 
-                    id="pic-1"
-                src="https://www.stanzaliving.com/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fstanza-living%2Fimage%2Fupload%2Ff_auto%2Cq_auto%2Cw_840%2Fv1653659840%2Fwebsite-v2%2Fhome-page%2Froom-for-everything-img-1.png&w=1920&q=75" 
-                alt="no img"/>
 
-                <img 
-                id="pic-2"
-                src="https://www.stanzaliving.com/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fstanza-living%2Fimage%2Fupload%2Ff_auto%2Cq_auto%2Cw_540%2Fv1653659840%2Fwebsite-v2%2Fhome-page%2Froom-for-everything-img-2.png&w=1920&q=75" 
-                alt="no img"/>
+            <div className="img-section">
+
+                 {/* <img src='images/designTab/dt1.png' alt='no img'/>  */}
+
+                <Swiper
+                    autoplay={{delay: 1500}}
+                    effect='fade'
+                    modules={[Pagination,Autoplay]}
+                    loop={true}>
+                    <SwiperSlide>
+                        <img src='images/designTab/dt1.png' alt='no img'/>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <img src='images/designTab/dt2.png' alt='no img'/>
+                    </SwiperSlide>
+                </Swiper>
+
+                
             </div>
         </section>
     </>

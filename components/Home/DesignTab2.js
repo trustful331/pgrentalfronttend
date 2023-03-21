@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 
 
 export default function DesignTab2() {
@@ -6,19 +7,19 @@ export default function DesignTab2() {
     <>
         <section className="design-tab2">
 
-            <h1 className="bg-text">Promise</h1>
+            <h1 className="bg-text">Zestos</h1>
 
             <div className="text-section">
 
                 
                     <div className="box">
                         <div className="bg-box"></div>
-                        <span>the</span> 
-                        <p>xyz</p>
+                        <span>The</span> 
+                        {/* <p>Zestos</p> */}
                     </div>
                     
                
-                <h2>promise !</h2>
+                <h2>Promise</h2>
 
                 <h4>What you should expect at every Zolo</h4>
 
@@ -35,19 +36,22 @@ export default function DesignTab2() {
 
                     <div className="tile">
                         <div className="logo">
-                            <i class="fa-solid fa-house"></i>
+                            <img src='/images/category/category1.jpg' alt='image' />
+                            <i className='flaticon-cooking'></i>
                         </div>
                         <p>Pg's</p>
                     </div>
                     <div className="tile">
                         <div className="logo">
-                            <i class="fa-solid fa-bed"></i>
+                            <img src='/images/category/category1.jpg' alt='image' />
+                            <i className='flaticon-cooking'></i>
                         </div>
                         <p>Single share</p>
                     </div>
                     <div className="tile">
                         <div className="logo">
-                            <i class="fa-solid fa-house"></i>
+                            <img src='/images/category/category1.jpg' alt='image' />
+                            <i className='flaticon-cooking'></i>
                         </div>
                         <p>Double share</p>
                     </div>
@@ -58,25 +62,27 @@ export default function DesignTab2() {
 
                     <div className="tile">
                         <div className="logo">
-                            <i class="fa-solid fa-hotel"></i>
+                            <img src='/images/category/category1.jpg' alt='image' />
+                            <i className='flaticon-cooking'></i>
                         </div>
-                        <p>co-appartment</p>
+                        <p>Appartment</p>
                     </div>
                     <div className="tile">
                         <div className="logo">
-                            <i class="fa-solid fa-hotel"></i>
+                            <img src='/images/category/category1.jpg' alt='image' />
+                            <i className='flaticon-cooking'></i>
                         </div>
                         <p>Hostel</p>
                     </div>
                     <div className="tile">
                         <div className="logo">
-                            <i class="fa-solid fa-hotel"></i>
+                            <img src='/images/category/category1.jpg' alt='image' />
+                            <i className='flaticon-cooking'></i>
                         </div>
                         <p>Hostel</p>
                     </div>
 
                 </div>
-
             </div>
         </section>
     </>

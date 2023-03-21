@@ -8,7 +8,7 @@ const AppDownload = () => {
           <div className='row align-items-center'>
             <div className='col-lg-5 col-md-12'>
               <div className='app-download-content'>
-                <h2>Download Indice App</h2>
+                <h2>Download <span id='adas'>Zestos</span> App</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 
                 <div className='btn-box'>

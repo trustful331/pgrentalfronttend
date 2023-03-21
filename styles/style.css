@@ -57,6 +57,16 @@ This files table contents are outlined below>>>>>
 /*================================================
 Default CSS
 =================================================*/
+@font-face {
+  font-family: 'Beyond Infinity';
+  src: url(../public/fonts/Beyond_Infinity.ttf);
+}
+
+@font-face {
+  font-family: 'Louize';
+  src: url(../public/fonts/Louize_font.ttf);
+}
+
 :root {
   --fontFamily: "Work Sans", sans-serif;
   --mainColor: #0ec6c6;
@@ -343,56 +353,71 @@ Navbar Area CSS
 .navbar-area {
   position: relative;
   padding: 0;
+  background-color: #ffffff3d;
+  background: transparent;
+  background-color: transparent;
+  /* background-color: green; */
 }
 
-.navbar-area.is-sticky {
+.navbar-area .is-sticky {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 999;
+
   -webkit-box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.09);
           box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.09);
-  background-color: var(--whiteColor) !important;
+  /* background-color: var(--whiteColor) !important; */
+  background-color: #ffffff3d;
+  background-color: green !important;
+
   -webkit-animation: 500ms ease-in-out 0s normal none 1 running fadeInDown;
           animation: 500ms ease-in-out 0s normal none 1 running fadeInDown;
 }
 
 .miran-responsive-nav {
   display: none;
+  background-color:  transparent;
 }
 
 .miran-nav .container-fluid {
   padding-left: 20px;
   padding-right: 20px;
+  background-color:  transparent;
 }
 
 .miran-nav .navbar {
   position: inherit;
   padding: 0;
+  background-color:  transparent;
 }
 
 .miran-nav .navbar .navbar-brand {
   font-size: inherit;
   line-height: 1;
   padding: 0;
+  background-color:  transparent;
 }
 
 .miran-nav .navbar ul {
   padding-left: 0;
   list-style-type: none;
   margin-bottom: 0;
+  background-color:  transparent;
 }
 
 .miran-nav .navbar .navbar-nav {
   margin-left: auto;
   margin-right: auto;
+  background-color:  transparent;
 }
 
 .miran-nav .navbar .navbar-nav .nav-item {
   position: relative;
   margin-left: 15px;
   margin-right: 15px;
+  background-color:  transparent;
 }
 
 .miran-nav .navbar .navbar-nav .nav-item a {
@@ -451,6 +476,8 @@ Navbar Area CSS
   margin-top: 15px;
   position: absolute;
   visibility: hidden;
+
+  /* change */
   background: var(--whiteColor);
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
@@ -1929,6 +1956,7 @@ Main Banner Area CSS
 
 .banner-image {
   margin-left: -35px;
+  animation: moveleftbounce 2s linear infinite;
 }
 
 .banner-wrapper-area {
@@ -3394,8 +3422,9 @@ Listings Area CSS
 
 .map-container.fw-map.side-full-map {
   width: 100%;
-  height: 100%;
-  padding-bottom: 82px;
+  height: 150%;
+  margin-bottom: 5%;
+  /* padding-bottom: 82px; */
 }
 
 .map-container.fw-map.side-full-map #main-full-map {
@@ -3776,6 +3805,7 @@ Listings Details Area CSS
   font-weight: 800;
   margin-top: 15px;
   margin-bottom: 14px;
+  text-align: center;
 }
 
 .listings-details-image .listings-details-content .rating {
@@ -3905,6 +3935,12 @@ Listings Details Area CSS
 .listings-details-image .container-fluid .share-save li {
   display: inline-block;
   position: relative;
+}
+
+.listings-details-image .container-fluid .share-save li div,
+.listings-details-image .container-fluid .share-save li a
+{
+  border-radius: 5px ;
 }
 
 .listings-details-image .container-fluid .share-save li a,
@@ -4631,6 +4667,7 @@ Listings Details Area CSS
   background-color: var(--mainColor);
   color: var(--whiteColor);
   border-color: var(--mainColor);
+  margin-bottom: 3%;
 }
 
 .listings-sidebar .book_listings .default-btn:hover {
@@ -5766,6 +5803,15 @@ Places Area CSS
 /*================================================
 Feedback Area CSS
 =================================================*/
+.feedback-area .container .section-title h2{
+  font-family: "Beyond Infinity",sans-serif;
+  font-size: 3rem;
+  color: #808080;
+}
+.feedback-area .container .section-title p{
+  font-family: 'Louize',sans-serif;
+  font-size: 1.2rem;
+}
 .feedback-area.bg-image {
   background-image: url(/images/feedback-bg.jpg);
   background-position: center center;
@@ -5927,6 +5973,12 @@ Feedback Area CSS
 /*================================================
 How It Works Area CSS
 =================================================*/
+.how-it-works-area .container .section-title h2{
+  font-family: "Beyond Infinity",sans-serif;
+  font-size: 50px;
+  color: gray;
+}
+
 .single-how-it-works-box {
   margin-bottom: 30px;
   text-align: center;
@@ -5954,6 +6006,7 @@ How It Works Area CSS
 .single-how-it-works-box h3 {
   font-size: 22px;
   margin-bottom: 12px;
+  font-family: 'Louize',sans-serif;
 }
 
 .single-how-it-works-box::before {
@@ -7819,6 +7872,7 @@ App Download Area CSS
 .app-download-area {
   position: relative;
   z-index: 1;
+  /* background-color: #fafafa; */
 }
 
 .app-download-area::before {
@@ -7844,8 +7898,15 @@ App Download Area CSS
 }
 
 .app-download-content h2 {
-  font-size: 30px;
+  font-size: 50px;
   margin-bottom: 12px;
+  font-family: "Beyond Infinity",sans-serif;
+  color: rgb(87, 86, 86);
+}
+
+.app-download-content h2 span#adas{
+  /* color: #30eded; */
+  color: white;
 }
 
 .app-download-content p {
@@ -8550,6 +8611,113 @@ Page Title Area CSS
 /*================================================
 Pricing Area CSS
 =================================================*/
+
+/*.....................change.....................................*/
+#pricing{
+  border: 1px solid black;
+  display: none;
+}
+.food-menu{
+    /* width: 60%;
+    height: 70%; */
+
+    position: relative;
+    width: 100%;
+    height: 400px;
+    /* height: 100%; */
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 0.9rem;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/*.........................week.......................*/
+.food-menu .week{
+    /* position: absolute;
+    top: 0;
+    left: 0; */
+    height: 100%;
+    width: 15%;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.food-menu .week .heading,
+.food-menu .fdetails .fcol .heading
+{
+    width: 100%;
+    height: 15%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.food-menu .week .heading span,
+.food-menu .fdetails .fcol .heading span{
+    font-weight: bold;
+    color: #68c6b1;
+}
+
+.food-menu .week p{
+    width: 80%;
+    height: 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: auto auto;
+    margin-top: 10%;
+    border-radius: 30px;
+    color: gray;
+}
+
+.food-menu .week p:hover{
+    color: #68c6b1;
+    background-color: #ecf8f5;
+    cursor: pointer;
+    /* font-weight: bold; */
+}
+
+
+/*..................food details (items)..............*/
+
+.food-menu .fdetails{
+    height: 400px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #ecf8f5;
+}
+.food-menu .fdetails .fcol{
+    height: 100%;
+    width: 21%;
+}
+.food-menu .fdetails .fcol .items{
+    background-color: white;
+    height: 80%;
+    padding-top: 10%;
+    border-radius: 10px;
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+}
+.food-menu .fdetails .fcol .items .item{
+    width: 90%;
+    display: block;
+    margin: auto auto;
+    margin-top: 5%;
+    font-size: 0.8rem;
+    text-align: center;
+    padding-bottom: 5%;
+    padding-top: 5%;
+    border-bottom: 2px solid gray;
+}
+
+/* ............................................................... */
+
+
+
 .pricing-tabs .react-tabs__tab-list {
   text-align: center;
   padding: 0;
@@ -15420,6 +15588,14 @@ Dashboard CSS
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  font-family: "Beyond Infinity",sans-serif;
+  font-size: 5rem;
+  color: gray;
+}
+
+.banner-content .banner-two-heading .banner-swiper{
+  width: 50%;
+  /* background-color: green; */
 }
 
 .typewrite {

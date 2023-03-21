@@ -1,13 +1,11 @@
 
-
-
 .design-tab{
     width: 100%;
     height: 80%;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    background-image: linear-gradient(to right, #e2f2f0 , white
+    background-image: linear-gradient(to right, #f9f9f9 , white
     );
 }
 
@@ -18,9 +16,8 @@
     height: 80%;
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
     justify-content: center;
-    padding-left: 8%;
+    padding-left: 5%;
 }
 .design-tab#dt2 .text-section{
     padding-left: 5%;
@@ -32,32 +29,22 @@
     font-size: 2.4rem;
     margin-bottom: 1%;
 }
-.design-tab#dt2 .text-section h1{
-    margin-bottom: 5%;
-}
 .design-tab .text-section h1 span{
     font-size: 2rem;
     color: #60c3ad;
 }
-
-
-
 .design-tab .text-section h2{
     font-size: 2rem;
     margin-bottom: 3%;
     color: #60c3ad;
 }
-
-
-
 .design-tab .text-section p{
-    width: 80%;
-    font-size: 1.2rem;
-    line-height: 25px;
-    color: #616464;
-}
-.design-tab#dt2 .text-section p{
     width: 90%;
+    font-size: 1.2rem;
+    line-height: 30px;
+    color: #616464;
+    font-family: 'Louize',sans-serif;
+    /* border: 1px solid black; */
 }
 
 
@@ -72,50 +59,22 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: inherit;
+    
 }
-
 .design-tab .text-section .hidden{
     display: none;
 }
-
 .design-tab .img-section img{
-    width: 35%;
-    height: 95%;
-    border-radius: 20px;
-    /* height: auto; */
-    margin-right: 5%;
-}
-.design-tab .img-section .img-col{
-    width: 40%;
-    height: 95%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* justify-content: space-around; */
-    justify-content: space-between;
-}
-.design-tab#dt2 .img-section .img-col img{
-    width: 100%;
-    height: 47%;
-    margin-right: 0;
-}
-.design-tab .img-section #pic-1,
-.design-tab .img-section #pic-2{
+    
+    width: 75%;
     height: auto;
-    border-radius: 20px;
-    position: absolute;
-}
-.design-tab .img-section #pic-1{
-    width: 50%;
-    top: 20%;
-    left: 5%;
-    z-index: 1;
-}
-.design-tab .img-section #pic-2{
-    width: 40%;
-    right: 15%;
-    top: 2%;
+    margin-right: 5%;
+    display: block;
+    margin: auto auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
+    /* border: 1px solid black; */
 }
 
 
@@ -141,15 +100,10 @@
     .design-tab .img-section #pic-1{
         top: 30%;
     }
-    .design-tab#dt2 .img-section img{
-        width: 40%;
-        margin-right:3%;
-    }
  }
 
  @media only screen and (max-width:1024px){
     .design-tab .text-section p{
-        /* width: 100%; */
         font-size: 1rem;
     }
     .design-tab .text-section{
@@ -200,10 +154,6 @@
         top: 30%;
         width: 60%;
     }
-    .design-tab#dt2 .img-section img{
-        width: 45%;
-        margin-right:3%;
-    }
     .design-tab .img-section .img-col{
         width: 45%;
     }
@@ -227,32 +177,11 @@
         height: 100%;
         padding-top: 1%;
         align-items: center;
-        /* height: auto; */
     }
     .design-tab .text-section .hidden{
         width: 70%;
         height: 60%;
         display: flex;
-    }
-    /* .design-tab .text-section .hidden img{
-
-    } */
-    .design-tab#dt2 .text-section .hidden{
-        height: 65%;
-    }
-    .design-tab#dt2 .text-section .hidden img,
-    .design-tab#dt2 .text-section .hidden .img-col
-    {
-        height: 90%;
-    }
-    
-    .design-tab .text-section .hidden #pic-1{
-        top: 20%;
-    }
-    .design-tab .text-section .hidden #pic-2{
-        width: 45%;
-        top: 3%;
-        right: 1%;
     }
     .design-tab .text-section p{
         margin-top: 3%;
@@ -265,23 +194,14 @@
  }
 
  @media only screen and (max-width:595px){
-    .design-tab#dt2 .text-section .hidden{
-       width: 85%;
+    .design-tab .img-section img{
+        width: 80%;
     }
  }
 
  @media only screen and (max-width:560px){
     .design-tab.text-section .hidden{
        height: 40%;
-    }
-
-    .design-tab .text-section .hidden #pic-1{
-        top: 20%;
-    }
-    .design-tab .text-section .hidden #pic-2{
-        width: 50%;
-        top: 5%;
-        right: 1%;
     }
  }
 

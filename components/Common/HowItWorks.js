@@ -6,7 +6,7 @@ const HowItWorks = ({bgColor}) => {
       <section className={`how-it-works-area pt-100 pb-70 ${bgColor}`}>
         <div className='container'>
           <div className='section-title'>
-            <h2>How It Works</h2>
+            <h2>How It <span>Works</span></h2>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis

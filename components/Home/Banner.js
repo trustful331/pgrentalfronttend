@@ -1,112 +1,145 @@
 import React from 'react';
+import Link from  'next/link';
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Autoplay } from "swiper";
+import { Autoplay } from "swiper";
 
 const Banner = () => {
   return (
     <>
-      <section className='home-slider-area'>
-        <Swiper
-          autoplay={{
-            delay: 1500,
-            pauseOnMouseEnter: true,
-          }}
-          pagination={{
-            clickable: true
-          }}
-          modules={[Pagination]}
-          className="home-slides"
-        >
-          <SwiperSlide>
-            <div className='single-banner-item item-bg1'></div>
-          </SwiperSlide>
+      <section className='banner-area'>
+        <div className='container-fluid'>
+          <div className='row'>
+            <div className='col-lg-8 col-md-12'>
+              <div className='banner-content'>
+                <h1 className="banner-two-heading">
+                  Find Nearby
 
-          <SwiperSlide>
-            <div className='single-banner-item item-bg2'></div>
-          </SwiperSlide>
+                  <Swiper
+                    className='banner-swiper'
+                    autoplay={{
+                      delay: 1500,
+                      pauseOnMouseEnter: false,
+                    }}
+                    loop={true}
+                    modules={[Autoplay]}
+                  >
+                    <SwiperSlide>
+                      <span className="color-0ec6c6">Pgs</span>
+                    </SwiperSlide>
 
-          <SwiperSlide>
-            <div className='single-banner-item item-bg3'></div>
-          </SwiperSlide>
-        </Swiper>
+                    <SwiperSlide>
+                      <span className="color-0ec6c6">Rooms</span>
+                    </SwiperSlide>
 
-        <div className='banner-content'>
-          <h1 className="banner-two-heading">
-            <Swiper
-              autoplay={{
-                delay: 1500,
-                pauseOnMouseEnter: true,
-              }}
-              modules={[Autoplay]}
-            >
-              <SwiperSlide>
-                Find Nearby <span className="color-0ec6c6">Rooms</span>
-              </SwiperSlide>
+                    {/* <SwiperSlide>
+                      Find Nearby <span className="color-0ec6c6">Apartments</span>
+                    </SwiperSlide> */}
+                  </Swiper>
+                  
+                </h1>
+                
+                <p>Expolore top-rated attractions, activities and more...</p>
 
-              <SwiperSlide>
-                Find Nearby <span className="color-0ec6c6">Hostel</span>
-              </SwiperSlide>
+                <form>
+                  <div className='row m-0 align-items-center'>
+                    <div className='col-lg-4 col-md-12 p-0'>
+                      <div className='form-group'>
+                        <label>
+                          <i className='flaticon-search'></i>
+                        </label>
+                        <input
+                          type='text'
+                          className='form-control'
+                          placeholder='What are you looking for?'
+                        />
+                      </div>
+                    </div>
 
-              <SwiperSlide>
-                Find Nearby <span className="color-0ec6c6">Pg's</span>
-              </SwiperSlide>
-            </Swiper>
-          </h1>
+                    <div className='col-lg-3 col-md-6 p-0'>
+                      <div className='form-group'>
+                        <label>
+                          <i className='flaticon-pin'></i>
+                        </label>
+                        <input
+                          type='text'
+                          className='form-control'
+                          placeholder='Location'
+                        />
+                      </div>
+                    </div>
 
-          <p>Expolore top-rated Pg's, rooms and more...</p>
+                    <div className='col-lg-3 col-md-6 p-0'>
+                      <div className='form-group category-select'>
+                        <label className='category-icon'>
+                          <i className='flaticon-category'></i>
+                        </label>
+                        <select className="banner-form-select-two">
+                          <option>All Categories</option>
+                          <option>Restaurants</option>
+                          <option>Events</option>
+                          <option>Clothing</option>
+                          <option>Bank</option>
+                          <option>Fitness</option>
+                          <option>Bookstore</option>
+                          <option>Shopping</option>
+                          <option>Hotels</option>
+                          <option>Hospitals</option>
+                          <option>Culture</option>
+                          <option>Beauty</option>
+                        </select>
+                      </div>
+                    </div>
 
-          <form>
-            <div className='row m-0 align-items-center'>
-              <div className='col-lg-4 col-md-12 p-0'>
-                <div className='form-group'>
-                  <label>
-                    <i className='flaticon-search'></i>
-                  </label>
-                  <input
-                    type='text'
-                    className='form-control'
-                    placeholder='What are you looking for?'
-                  />
-                </div>
-              </div>
+                    <div className='col-lg-2 col-md-12 p-0'>
+                      <div className='submit-btn'>
+                        <button type='submit'>Search Now</button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
 
-              <div className='col-lg-3 col-md-6 p-0'>
-                <div className='form-group'>
-                  <label>
-                    <i className='flaticon-pin'></i>
-                  </label>
-                  <input
-                    type='text'
-                    className='form-control'
-                    placeholder='Location'
-                  />
-                </div>
-              </div>
-
-              <div className='col-lg-3 col-md-6 p-0'>
-                <div className='form-group category-select'>
-                  <label className='category-icon'>
-                    <i className='flaticon-category'></i>
-                  </label>
-                  <select className='banner-form-select-four'>
-                    {
-                      ['All Categories','single room','double room'].map((op,index)=>{
-                        return(
-                          <option key={op}>{op}</option>
-                        )
-                      })
-                    }
-                  </select>
-                </div>
-              </div>
-
-              <div className='col-lg-2 col-md-12 p-0'>
-                <div className='submit-btn'>
-                  <button type='submit'>Search Now</button>
-                </div>
+                <ul className='popular-search-list'>
+                  <li>Popular:</li>
+                  <li>
+                    <Link href="/grid-listings-with-map">
+                      <a>Restaurants</a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/grid-listings-with-map">
+                      <a>Events</a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/grid-listings-with-map">
+                      <a>Clothing</a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/grid-listings-with-map">
+                      <a>Bank</a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/grid-listings-with-map">
+                      <a>Fitness</a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/grid-listings-with-map">
+                      <a>Bookstore</a>
+                    </Link>
+                  </li>
+                </ul>
               </div>
             </div>
-          </form>
+
+            <div className='col-lg-4 col-md-12'>
+              <div className='banner-image'>
+                <img src='/images/banner-img1.png' alt='image' />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </>
@@ -114,3 +147,4 @@ const Banner = () => {
 };
 
 export default Banner;
+

@@ -16,23 +16,23 @@ const SingleListings = ({ images }) => {
           <div className="container">
             <div className="container">
               <div className="listings-details-content">
-                <span className="meta">
+                {/* <span className="meta">
                   <i className="flaticon-furniture-and-household"></i>
                   Restaurant
-                </span>
+                </span> */}
 
                 <h3>Chipotle Mexican Grill</h3>
 
-                <div className="rating d-flex align-items-center">
+                {/* <div className="rating d-flex align-items-center">
                   <span className="bx bxs-star checked"></span>
                   <span className="bx bxs-star checked"></span>
                   <span className="bx bxs-star checked"></span>
                   <span className="bx bxs-star checked"></span>
                   <span className="bx bxs-star checked"></span>
                   <span className="rating-count">(45)</span>
-                </div>
+                </div> */}
 
-                <ul className="d-flex align-items-center">
+                {/* <ul className="d-flex align-items-center">
                   <li className="phone-number">
                     <a href="#">
                       <i className="bx bx-phone-call"></i> (+212) 279-1456
@@ -48,7 +48,8 @@ const SingleListings = ({ images }) => {
                     <span>Location</span>
                     New York, USA
                   </li>
-                </ul>
+                </ul> */}
+
               </div>
             </div>
           </div>
@@ -203,26 +204,103 @@ const SingleListings = ({ images }) => {
                   </div>
                 </div>
 
-                <h3>Pricing</h3>
-                <div id="pricing">
-                  <ul className="pricing-list">
-                    <li>
-                      Pizza <span>$15</span>
-                    </li>
-                    <li>
-                      Burger <span>$10</span>
-                    </li>
-                    <li>
-                      Cool Drink <span>$12</span>
-                    </li>
-                    <li>
-                      Fried Rice <span>$08</span>
-                    </li>
-                    <li>
-                      Orange Juice <span>$05</span>
-                    </li>
-                  </ul>
+                <h3>Food menu</h3>
+
+                <div class="food-menu">
+                      <div class="week">
+                          <div class="heading">
+                              <span>Days</span>
+                              Mon-Sun
+                          </div>
+                          <p>Day 1</p>
+                          <p>Day 2</p>
+                          <p>Day 3</p>
+                          <p>Day 4</p>
+                          <p>Day 5</p>
+                          <p>Day 6</p>
+                          <p>Day 7</p>
+                      </div>
+
+                      <div class="fdetails">
+                          <div class="fcol">
+                              <div class="heading">
+                                  <span>Breakfast</span>
+                                  07:30-09:30
+                              </div>
+
+                              <div class="items">
+                                  <div class="item">
+                                      Black Chana Masala
+                                  </div>
+                                  <div class="item">
+                                      Black Chana Masala
+                                  </div>
+                                  <div class="item">
+                                      Black Chana Masala
+                                  </div>
+                              </div>
+                          </div>
+
+                          <div class="fcol">
+                              <div class="heading">
+                                  <span>Lunch</span>
+                                  12:30:-14:30
+                              </div>
+
+                              <div class="items">
+                                  <div class="item">
+                                      Black Chana Masala
+                                  </div>
+                                  <div class="item">
+                                      Black Chana Masala
+                                  </div>
+                                  <div class="item">
+                                      Black Chana Masala
+                                  </div>
+                              </div>
+                          </div>
+
+                          <div class="fcol">
+                              <div class="heading">
+                                  <span>Evening Snaks</span>
+                                  16:30-17:30
+                              </div>
+
+                              <div class="items">
+                                  <div class="item">
+                                      Black Chana Masala
+                                  </div>
+                                  <div class="item">
+                                      Black Chana Masala
+                                  </div>
+                                  <div class="item">
+                                      Black Chana Masala
+                                  </div>
+                              </div>
+                          </div>
+
+                          <div class="fcol">
+                              <div class="heading">
+                                  <span>Dinner</span>
+                                  19:30-21:30
+                              </div>
+
+                              <div class="items">
+                                  <div class="item">
+                                      Black Chana Masala
+                                  </div>
+                                  <div class="item">
+                                      Black Chana Masala
+                                  </div>
+                                  <div class="item">
+                                      Black Chana Masala
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
                 </div>
+
+                {/* <div id="pricing"> </div> */}
 
                 <h3>Review</h3>
                 <div className="listings-review">
@@ -825,246 +903,30 @@ const SingleListings = ({ images }) => {
                   </div>
                 </div>
 
-                <h3>Other Nearby Services</h3>
-                <div className="row">
-                  <div className="col-lg-6 col-md-6">
-                    <div className="single-listings-box">
-                      <div className="listings-image">
-                        <img src="/images/listings/listings1.jpg" alt="image" />
-                        <a href="#" className="link-btn"></a>
-                        <a href="#" className="bookmark-save">
-                          <i className="flaticon-heart"></i>
-                        </a>
-                        <a href="#" className="category">
-                          <i className="flaticon-cooking"></i>
-                        </a>
-                      </div>
-
-                      <div className="listings-content">
-                        <div className="author">
-                          <div className="d-flex align-items-center">
-                            <img src="/images/user1.jpg" alt="image" />
-                            <span>Taylor</span>
-                          </div>
-                        </div>
-                        <ul className="listings-meta">
-                          <li>
-                            <a href="#">
-                              <i className="flaticon-furniture-and-household"></i>
-                              Restaurant
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <i className="flaticon-pin"></i> New York, USA
-                            </a>
-                          </li>
-                        </ul>
-                        <h3>
-                          <a href="#">Chipotle Mexican Grill</a>
-                        </h3>
-                        <span className="status">
-                          <i className="flaticon-save"></i> Open Now
-                        </span>
-                        <div
-                          className="
-                          d-flex
-                          align-items-center
-                          justify-content-between
-                        "
-                        >
-                          <div className="rating">
-                            <i className="bx bxs-star"></i>
-                            <i className="bx bxs-star"></i>
-                            <i className="bx bxs-star"></i>
-                            <i className="bx bxs-star"></i>
-                            <i className="bx bxs-star"></i>
-                            <span className="count">(45)</span>
-                          </div>
-                          <div className="price">
-                            Start From <span>$150</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="col-lg-6 col-md-6">
-                    <div className="single-listings-box">
-                      <div className="listings-image">
-                        <Swiper
-                          loop={true}
-                          navigation={true}
-                          modules={[Navigation]}
-                          className="listings-image-slides"
-                        >
-                          <SwiperSlide>
-                            <div className="single-image">
-                              <img
-                                src="/images/listings/listings4.jpg"
-                                alt="image"
-                              />
-                              <Link href="/single-listings">
-                                <a className="link-btn"></a>
-                              </Link>
-                            </div>
-                          </SwiperSlide>
-
-                          <SwiperSlide>
-                            <div className="single-image">
-                              <img
-                                src="/images/listings/listings2.jpg"
-                                alt="image"
-                              />
-                              <Link href="/single-listings">
-                                <a className="link-btn"></a>
-                              </Link>
-                            </div>
-                          </SwiperSlide>
-                        </Swiper>
-
-                        <a href="#" className="bookmark-save">
-                          <i className="flaticon-heart"></i>
-                        </a>
-                        <a href="#" className="category">
-                          <i className="flaticon-cooking"></i>
-                        </a>
-                      </div>
-
-                      <div className="listings-content">
-                        <div className="author">
-                          <div className="d-flex align-items-center">
-                            <img src="/images/user2.jpg" alt="image" />
-                            <span>Sarah</span>
-                          </div>
-                        </div>
-                        <ul className="listings-meta">
-                          <li>
-                            <a href="#">
-                              <i className="flaticon-furniture-and-household"></i>
-                              Hotel
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <i className="flaticon-pin"></i> Los Angeles, USA
-                            </a>
-                          </li>
-                        </ul>
-                        <h3>
-                          <a href="#">The Beverly Hills Hotel</a>
-                        </h3>
-                        <span className="status">
-                          <i className="flaticon-save"></i> Open Now
-                        </span>
-                        <div
-                          className="
-                          d-flex
-                          align-items-center
-                          justify-content-between
-                        "
-                        >
-                          <div className="rating">
-                            <i className="bx bxs-star"></i>
-                            <i className="bx bxs-star"></i>
-                            <i className="bx bxs-star"></i>
-                            <i className="bx bxs-star"></i>
-                            <i className="bx bx-star"></i>
-                            <span className="count">(10)</span>
-                          </div>
-                          <div className="price">
-                            Start From <span>$200</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
 
             <div className="col-lg-4 col-md-12">
               <div className="listings-sidebar">
+
                 <div className="listings-widget book_listings">
                   <h3>Booking Online</h3>
-                  <a href="#" className="default-btn">
-                    Book Now
-                  </a>
+                  <a href="#" className="default-btn">Book Now</a>
+                  <a href="#" className="default-btn">Book Now</a>
                   <span>
                     By <a href="#">Booking.com</a>
                   </span>
                 </div>
 
-                <div className="listings-widget listings_contact_details">
-                  <h3>Contact Details</h3>
-                  <ul>
-                    <li>
-                      <i className="bx bx-globe"></i>
-                      <a href="#">www.indice.com</a>
-                    </li>
-                    <li>
-                      <i className="bx bx-phone-call"></i>
-                      <a href="tel:+2122791456">(+212) 279-1456</a>
-                    </li>
-                    <li>
-                      <i className="bx bx-directions"></i>
-                      <a href="#">Get Directions</a>
-                    </li>
-                    <li>
-                      <i className="bx bx-map"></i> New York, USA
-                    </li>
-                  </ul>
+  
+                <div className='listings-widget listings_contact_details'>
+                  
+                  
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d243646.88005384957!2d78.26795710593576!3d17.412627419334125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb99daeaebd2c7%3A0xae93b78392bafbc2!2sHyderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1679405651481!5m2!1sen!2sin" referrerpolicy="no-referrer-when-downgrade" style={{"width":"400px","height":"500px"}}
+                  ></iframe>
+
                 </div>
 
-                <div className="listings-widget listings_author">
-                  <h3>Hosted By</h3>
-                  <div className="author">
-                    <div className="d-flex align-items-center">
-                      <img src="/images/user1.jpg" alt="image" />
-                      <div className="title">
-                        <h4>
-                          <a href="#">John Smith</a>
-                        </h4>
-                        <span>20 Places Hosted</span>
-                      </div>
-                    </div>
-
-                    <div className="author-profile">
-                      <div className="row align-items-center">
-                        <div className="col-lg-5 col-md-5">
-                          <a href="#" className="view-profile">
-                            View Profile
-                          </a>
-                        </div>
-
-                        <div className="col-lg-7 col-md-7">
-                          <ul className="social">
-                            <li>
-                              <a href="#">
-                                <i className="bx bxl-facebook"></i>
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <i className="bx bxl-twitter"></i>
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <i className="bx bxl-linkedin"></i>
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <i className="bx bxl-instagram"></i>
-                              </a>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>

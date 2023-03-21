@@ -9,7 +9,7 @@ const Feedback = () => {
       <div className='feedback-area ptb-100 bg-f9f9f9'>
         <div className='container'>
           <div className='section-title'>
-            <h2>User’s Feedback About Us</h2>
+            <h2>Users Feedback <span>About Us</span> </h2>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis

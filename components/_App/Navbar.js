@@ -56,13 +56,13 @@ const Navbar = () => {
   return (
     <>
       <div className={displayAuth ? "body_overlay open" : "body_overlay"}></div>
-      <div className={sticky ? "is-sticky navbar-area" : "navbar-area"}>
+      <div className={sticky ? "is-sticky navbar-area " : "navbar-area "}>
         <div className="miran-responsive-nav">
           <div className="container">
             <div className="miran-responsive-menu">
               <div
                 onClick={() => toggleMenu()}
-                className="hamburger-menu hamburger-two"
+                className="hamburger-menu "
               >
                 {showMenu ? (
                   <i className="bx bx-x"></i>
