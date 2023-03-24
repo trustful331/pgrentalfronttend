@@ -1,19 +1,111 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper";
 
+import {motion,useAnimation} from 'framer-motion'
+import {useInView} from 'react-intersection-observer'
+
 const Feedback = ({ bgColor, bgImage }) => {
+
+  const data = [
+    {
+      name:"temp",
+      relation:"Restaurant Owner",
+      feedback:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus viverra maecenas accumsan.",
+      img:"/images/user1.jpg"
+    },
+    {
+      name:"temp",
+      relation:"Restaurant Owner",
+      feedback:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus viverra maecenas accumsan.",
+      img:"/images/user1.jpg"
+    },
+    {
+      name:"temp",
+      relation:"user",
+      feedback:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus viverra maecenas accumsan.",
+      img:"/images/user1.jpg"
+    },
+    {
+      name:"temp",
+      relation:"Restaurant Owner",
+      feedback:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus viverra maecenas accumsan.",
+      img:"/images/user1.jpg"
+    },
+    {
+      name:"temp",
+      relation:"user",
+      feedback:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus viverra maecenas accumsan.",
+      img:"/images/user1.jpg"
+    },
+    {
+      name:"temp",
+      relation:"Restaurant Owner",
+      feedback:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus viverra maecenas accumsan.",
+      img:"/images/user1.jpg"
+    }
+  ]
+
+  //heading view point and animation hook
+  const [headingRef,headingInview] = useInView({threshold:0.1})
+  const headingAnimation = useAnimation();
+
+  //paragraph view point 7 animation
+  const [paraRef,paraInview] = useInView({threshold:0.1})
+  const paraAnimation = useAnimation();
+
+  //feedbox view and animation
+
+
+  useEffect(()=>{
+
+      //heading animation
+      if(headingInview){
+        headingAnimation.start({
+          opacity:1,
+          x:'0',
+          transition:{
+            ease: "linear",
+            duration:0.9
+          }
+        })
+      }else{
+        headingAnimation.start({
+          opacity:0,
+          x:'-20vw',
+        })
+      }
+
+      //paragraph animation
+      if(paraInview){
+        paraAnimation.start({
+          opacity:1,
+          x:'0',
+          transition:{
+            ease: "linear",
+            duration:0.9
+          }
+        })
+      }else{
+        paraAnimation.start({
+          opacity:0,
+          x:'20vw',
+        })
+      }
+  },[headingInview])
+
+
   return (
     <>
       <div className={`feedback-area ${bgImage} ${bgColor} ptb-100`}>
         <div className="container">
           <div className="section-title">
-            <h2>User’s Feedback About Us</h2>
-            <p>
+            <motion.h2 ref={headingRef} animate={headingAnimation}>Users Feedback About Us</motion.h2>
+            <motion.p ref={paraRef} animate={paraAnimation}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
               ipsum suspendisse ultrices gravida. Risus commodo viverra.
-            </p>
+            </motion.p>
           </div>
 
           <Swiper
@@ -35,161 +127,37 @@ const Feedback = ({ bgColor, bgImage }) => {
             modules={[Pagination]}
             className="feedback-slides"
           > 
-            <SwiperSlide>
-              <div className="single-feedback-box">
-                <div className="rating">
-                  <i className="bx bxs-star"></i>
-                  <i className="bx bxs-star"></i>
-                  <i className="bx bxs-star"></i>
-                  <i className="bx bxs-star"></i>
-                  <i className="bx bxs-star"></i>
-                </div>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                  eiusmod tempor ut labore et dolore magna aliqua. Quis ipsum
-                  suspendisse ultrices gravida. Risus viverra maecenas accumsan.
-                </p>
-                <div className="client-info">
-                  <div className="d-flex align-items-center">
-                    <img src="/images/user1.jpg" alt="image" />
-                    <div className="title">
-                      <h3>John Smith</h3>
-                      <span>Restaurant Owner</span>
+            {
+              data.map((detail,index)=>{
+                return(
+                  <SwiperSlide>
+                    <div 
+                      className="single-feedback-box" >
+                      <div className="rating">
+                        <i className="bx bxs-star"></i>
+                        <i className="bx bxs-star"></i>
+                        <i className="bx bxs-star"></i>
+                        <i className="bx bxs-star"></i>
+                        <i className="bx bxs-star"></i>
+                      </div>
+                      <p>
+                        {detail.feedback}
+                      </p>
+                      <div className="client-info">
+                        <div className="d-flex align-items-center">
+                          <img src={detail.img} alt="image" />
+                          <div className="title">
+                            <h3>{detail.name}</h3>
+                            <span>{detail.relation}</span>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
-              </div>
-            </SwiperSlide>
-            
-            <SwiperSlide>
-              <div className="single-feedback-box">
-                <div className="rating">
-                  <i className="bx bxs-star"></i>
-                  <i className="bx bxs-star"></i>
-                  <i className="bx bxs-star"></i>
-                  <i className="bx bxs-star"></i>
-                  <i className="bx bxs-star-half"></i>
-                </div>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                  eiusmod tempor ut labore et dolore magna aliqua. Quis ipsum
-                  suspendisse ultrices gravida. Risus viverra maecenas accumsan.
-                </p>
-                <div className="client-info">
-                  <div className="d-flex align-items-center">
-                    <img src="/images/user2.jpg" alt="image" />
-                    <div className="title">
-                      <h3>Sarah Taylor</h3>
-                      <span>Hotel Owner</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </SwiperSlide>
+                  </SwiperSlide>
+                )
+              })
+            }
 
-            <SwiperSlide>
-              <div className="single-feedback-box">
-                <div className="rating">
-                  <i className="bx bxs-star"></i>
-                  <i className="bx bxs-star"></i>
-                  <i className="bx bxs-star"></i>
-                  <i className="bx bxs-star"></i>
-                  <i className="bx bx-star"></i>
-                </div>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                  eiusmod tempor ut labore et dolore magna aliqua. Quis ipsum
-                  suspendisse ultrices gravida. Risus viverra maecenas accumsan.
-                </p>
-                <div className="client-info">
-                  <div className="d-flex align-items-center">
-                    <img src="/images/user3.jpg" alt="image" />
-                    <div className="title">
-                      <h3>Alex Hales</h3>
-                      <span>Developer</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </SwiperSlide>
-
-            <SwiperSlide>
-              <div className="single-feedback-box">
-                <div className="rating">
-                  <i className="bx bxs-star"></i>
-                  <i className="bx bxs-star"></i>
-                  <i className="bx bxs-star"></i>
-                  <i className="bx bxs-star-half"></i>
-                  <i className="bx bx-star"></i>
-                </div>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                  eiusmod tempor ut labore et dolore magna aliqua. Quis ipsum
-                  suspendisse ultrices gravida. Risus viverra maecenas accumsan.
-                </p>
-                <div className="client-info">
-                  <div className="d-flex align-items-center">
-                    <img src="/images/user4.jpg" alt="image" />
-                    <div className="title">
-                      <h3>Andy James</h3>
-                      <span>Traveler</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </SwiperSlide>
-
-            <SwiperSlide>
-              <div className="single-feedback-box">
-                <div className="rating">
-                  <i className="bx bxs-star"></i>
-                  <i className="bx bxs-star"></i>
-                  <i className="bx bxs-star"></i>
-                  <i className="bx bxs-star"></i>
-                  <i className="bx bxs-star-half"></i>
-                </div>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                  eiusmod tempor ut labore et dolore magna aliqua. Quis ipsum
-                  suspendisse ultrices gravida. Risus viverra maecenas accumsan.
-                </p>
-                <div className="client-info">
-                  <div className="d-flex align-items-center">
-                    <img src="/images/user2.jpg" alt="image" />
-                    <div className="title">
-                      <h3>Sarah Taylor</h3>
-                      <span>Hotel Owner</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </SwiperSlide>
-
-            <SwiperSlide>
-              <div className="single-feedback-box">
-                <div className="rating">
-                  <i className="bx bxs-star"></i>
-                  <i className="bx bxs-star"></i>
-                  <i className="bx bxs-star"></i>
-                  <i className="bx bxs-star"></i>
-                  <i className="bx bx-star"></i>
-                </div>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                  eiusmod tempor ut labore et dolore magna aliqua. Quis ipsum
-                  suspendisse ultrices gravida. Risus viverra maecenas accumsan.
-                </p>
-                <div className="client-info">
-                  <div className="d-flex align-items-center">
-                    <img src="/images/user3.jpg" alt="image" />
-                    <div className="title">
-                      <h3>Alex Hales</h3>
-                      <span>Developer</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </SwiperSlide>
           </Swiper>
         </div>
       </div>

@@ -1,9 +1,83 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Link from  'next/link';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper";
 
+import {motion,useAnimation} from 'framer-motion'
+import {useInView} from 'react-intersection-observer'
+
 const Banner = () => {
+
+  //Heading view point & Heading animation hook
+  const [headingRef, headingInView] = useInView({threshold:0.1});
+  const Hanimation = useAnimation();
+
+  //img view point & img animation hook
+  const [imgRef,imgInView] = useInView({threshold:0.1})
+  const IManimation = useAnimation()
+
+  //search box view point & animation hook
+  const [sref,sInview]  =useInView({threshold:0.01})
+  const SRanimation = useAnimation()
+
+  useEffect(()=>{
+
+    // console.log("banner:-",imgInView)
+
+    //heading animation
+    if(headingInView){
+      Hanimation.start({
+        opacity:1,
+        y:'0',
+        transition:{
+          ease: "linear",
+          duration:0.8
+        }
+      })
+    }else{
+      Hanimation.start({
+        opacity:0,
+        y:'-20vh'
+      })
+    }
+
+
+    //img animation
+    if(imgInView){
+        IManimation.start({
+          x:'0',
+          opacity:1,
+          transition:{
+            ease: "linear",
+            duration:1
+          }
+        })
+    }else{
+      IManimation.start({
+        x:'10vw',
+        opacity:0
+      })
+    }
+
+    //search box animation
+    if(sInview){
+      SRanimation.start({
+        y:'0',
+        opacity:1,
+        transition:{
+          delay:0.7,
+          ease:"linear"
+        }
+      })
+    }else{
+      SRanimation.start({
+        y:'-10vh',
+        opacity:0
+      })
+    }
+
+  },[headingInView,imgInView,sInview])
+
   return (
     <>
       <section className='banner-area'>
@@ -11,7 +85,8 @@ const Banner = () => {
           <div className='row'>
             <div className='col-lg-8 col-md-12'>
               <div className='banner-content'>
-                <h1 className="banner-two-heading">
+
+                <motion.h1 className="banner-two-heading" ref={headingRef} animate={Hanimation}>
                   Find Nearby
 
                   <Swiper
@@ -36,11 +111,11 @@ const Banner = () => {
                     </SwiperSlide> */}
                   </Swiper>
                   
-                </h1>
+                </motion.h1>
                 
-                <p>Expolore top-rated attractions, activities and more...</p>
+                {/* <p>Expolore top-rated attractions, activities and more...</p> */}
 
-                <form>
+                <motion.form ref={sref} animate={SRanimation}>
                   <div className='row m-0 align-items-center'>
                     <div className='col-lg-4 col-md-12 p-0'>
                       <div className='form-group'>
@@ -96,48 +171,33 @@ const Banner = () => {
                       </div>
                     </div>
                   </div>
-                </form>
+                </motion.form>
 
-                <ul className='popular-search-list'>
+                {/* <ul className='popular-search-list'>
                   <li>Popular:</li>
                   <li>
                     <Link href="/grid-listings-with-map">
-                      <a>Restaurants</a>
+                      <a>Pg's</a>
                     </Link>
                   </li>
                   <li>
                     <Link href="/grid-listings-with-map">
-                      <a>Events</a>
+                      <a>Hotels</a>
                     </Link>
                   </li>
                   <li>
                     <Link href="/grid-listings-with-map">
-                      <a>Clothing</a>
+                      <a>Apartments</a>
                     </Link>
                   </li>
-                  <li>
-                    <Link href="/grid-listings-with-map">
-                      <a>Bank</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/grid-listings-with-map">
-                      <a>Fitness</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/grid-listings-with-map">
-                      <a>Bookstore</a>
-                    </Link>
-                  </li>
-                </ul>
+                </ul> */}
               </div>
             </div>
 
             <div className='col-lg-4 col-md-12'>
-              <div className='banner-image'>
-                <img src='/images/banner-img1.png' alt='image' />
-              </div>
+              <motion.div className='banner-image' >
+                <motion.img src='/images/banner-img1.png' alt='image' ref={imgRef} animate={IManimation}/>
+              </motion.div>
             </div>
           </div>
         </div>

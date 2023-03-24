@@ -17,6 +17,8 @@ import "../styles/responsive.css";
 import "../styles/designTab1.css";
 import "../styles/designTab2.css";
 import "../styles/designTabHeading.css"
+import "../styles/gallery.css"
+import '../styles/appattachment.css'
 
 import Layout from "../components/_App/Layout";
 import Loader from "../components/Shared/Loader";

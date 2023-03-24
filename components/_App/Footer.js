@@ -219,9 +219,9 @@ const Footer = ({ bgColor }) => {
 
           <div className='copyright-area'>
             <p>
-              Copyright <span>Indice</span> is Proudly Owned by{' '}
+              Copyright <span>Zestos</span> is Proudly created by{' '}
               <a href='https://envytheme.com/' target='_blank' rel='noreferrer'>
-                EnvyTheme
+                Mohions
               </a>
             </p>
           </div>

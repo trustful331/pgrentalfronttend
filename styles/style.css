@@ -90,6 +90,8 @@ body {
 #__next{
   width: 100%;
   height: 100vh;
+  overflow-x: hidden;
+  background-image: linear-gradient(to right, #f9f9f9 , white );
 }
 
 .h1,
@@ -219,6 +221,7 @@ p:last-child {
 .section-title h2 {
   font-size: 30px;
   margin-bottom: 15px;
+  /* font-family: "Beyond Infinity",sans-serif; */
 }
 
 .section-title h2 span {
@@ -6006,7 +6009,9 @@ How It Works Area CSS
 .single-how-it-works-box h3 {
   font-size: 22px;
   margin-bottom: 12px;
-  font-family: 'Louize',sans-serif;
+  /* color: rgb(189, 186, 186); */
+  color: #808080;
+  /* font-family: 'Louize',sans-serif; */
 }
 
 .single-how-it-works-box::before {
@@ -6035,6 +6040,12 @@ How It Works Area CSS
 /*================================================
 Events Area CSS
 =================================================*/
+.events-area .container .section-title h2{
+  font-family: "Beyond Infinity",sans-serif;
+  /* border: 1px solid black; */
+  font-size: 60px;
+  color: #6f726f;
+}
 .events-item-list {
   margin-bottom: 30px;
 }
@@ -6212,7 +6223,8 @@ Events Area CSS
 }
 
 .single-events-box .content {
-  padding: 11.5px 20px;
+  /* padding: 11.5px 20px; */
+  padding: 40px 20px;
 }
 
 .single-events-box .content .meta {
@@ -7872,19 +7884,19 @@ App Download Area CSS
 .app-download-area {
   position: relative;
   z-index: 1;
-  /* background-color: #fafafa; */
+  /* border: 1px solid black; */
 }
 
-.app-download-area::before {
+/* .app-download-area::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  background-color: var(--whiteColor);
+  background-color: #fafafa;
   z-index: -1;
   height: 90px;
-}
+} */
 
 .app-download-area::after {
   content: "";
@@ -7892,7 +7904,7 @@ App Download Area CSS
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: var(--whiteColor);
+  background-color: #fafafa;
   z-index: -1;
   height: 70px;
 }
@@ -8904,15 +8916,31 @@ Funfacts Area CSS
 /*================================================
 Products Area CSS
 =================================================*/
+.row-item{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 .single-products-box {
+  width: 80%;
+  height: 80%;
+  height: auto;
   position: relative;
-  margin-bottom: 30px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  /* background-color: white; */
+  /* border: 1px solid black; */
 }
 
 .single-products-box .products-image {
   text-align: center;
   position: relative;
   overflow: hidden;
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+  box-shadow: 50px gray;
+  border-radius: 10px;
+  /* border: 1px solid black; */
 }
 
 .single-products-box .products-image a {
@@ -8957,13 +8985,19 @@ Products Area CSS
 }
 
 .single-products-box .products-content {
-  margin-top: 25px;
+  /* margin-top: 25px; */
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .single-products-box .products-content h3 {
   margin-bottom: 0;
+  margin-top: 10px;
   font-size: 20px;
+  text-align: center;
+  color: #6f726f;
 }
 
 .single-products-box .products-content .price {
@@ -15867,11 +15901,138 @@ Preloader Area CSS
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: var(--whiteColor);
+  background-color: var(--mainColor2);
+  /* background-image: linear-gradient(to right, var(--mainColor2), white); */
+  font-family: "Beyond Infinity",sans-serif;
   z-index: 999999;
 }
 
+/* ................... */
+
+#cupcake{
+flex-direction:row;
+-webkit-flex-direction:row;
+-ms-flex-direction:row;
+-mos-flex-direction:row;
+-o-flex-direction:row;
+justify-content:center;
+-webkit-justify-content:center;
+-ms-justify-content:center;
+height:100%;
+width:100%;
+/* border: 1px solid black; */
+/* background-color:#FFD454;     */
+}
+
+.letter{
+    font-size:150px;
+    color:#222;
+    font-family: "Beyond Infinity",sans-serif;
+    /* color: gray; */
+    font-weight: bolder;
+    color: white;
+}
+
+.box{
+  display: box;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+  /* border: 1px solid black; */
+}
+
+.cupcakeCircle, .cupcakeInner, .cupcakeCore{
+    border-radius:50%;
+    -webkit-border-radius:50%;
+    -moz-border-radius:50%;
+    -ms-border-radius:50%;
+    /* margin-right: 5%; */
+}
+
+.cupcake, .letter, .cupcakeCircle, .cupcakeInner, .cupcakeCore{
+    flex:none;
+    -webkit-flex:none;
+    -moz-flex:none;
+    -ms-flex:none;
+    -o-flex:none;
+}
+
+.letter, .cupcakeCircle{
+    align-self:center;
+    -webkit-align-self:center;
+    -moz-align-self:center;
+    -o-align-self:center;
+    -ms-align-self:center;
+    /* color: gray; */
+}
+.cupcakeCircle{
+    align-items:center;
+    -ms-align-items:center;
+    justify-content:center;
+    -ms-justify-content:center;
+    height:100px;
+    width:100px;
+    margin: 0 1%;
+    /* background-color:#222; */
+    /* background-color: #00aeef; */
+    background-color: #77cbeb;
+    background-color: white;
+}
+
+.cupcakeInner{
+    align-self:center;
+    -ms-align-self:center;
+    justify-content:center;
+    -ms-justify-content:center;
+    height:50%;
+    width:50%;
+    /* background-color:#FFD454; */
+    /* background-color: gray; */
+    background-color: #cdc4c4;
+
+    -webkit-animation-name:cupcakeAnimate;
+    -webkit-animation-duration:500ms;
+    -webkit-animation-direction:alternate;
+    -webkit-animation-timing-function:ease-in-out;
+    -webkit-animation-iteration-count:infinite;
+    
+}
+.cupcakeCore{
+    align-self:center;
+    -ms-align-self:center;
+    height:25%;
+    width:25%;
+    /* background-color:#222; */
+    background-color: white;
+    -webkit-animation-name:coreAnimate;
+    -webkit-animation-duration:1s;
+    -webkit-animation-direction:alternate;
+    -webkit-animation-timing-function:ease-in-out;
+    -webkit-animation-iteration-count:infinite;
+}
+
+@-webkit-keyframes cupcakeAnimate{
+    to{ height:90%; width:90%; }
+}
+@keyframes cupcakeAnimate{
+    to{ height:90%; width:90%; }
+}
+
+@-webkit-keyframes coreAnimate{
+    to{ height:90%; width:90%; }
+}
+@keyframes coreAnimate{
+    to{ height:90%; width:90%; }
+}
+
+
+
+/* ......................................... */
+
 .preloader .preloader {
+  border: 1px solid black;
   width: 100px;
   height: 100px;
   display: inline-block;
