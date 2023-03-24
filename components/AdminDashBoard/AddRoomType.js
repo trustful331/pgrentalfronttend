@@ -1,58 +1,48 @@
-//add city
-
 import Link from "next/link";
-import DashboardNavbar from "../../../components/Dashboard/DashboardNavbar";
+import React, { useState } from "react";
 
-import React, { useEffect, useState } from "react";
+import useRoomTypes from "../../utils/Hooks/useRoomTypes";
+import RoomtypeModal from "../Modal/RoomTypeModal";
 
-//modal
-import CityModal from "../../../components/Modal/CityModal";
-import useCities from "../../../utils/Hooks/useCities";
-
-const AddCities = () => {
-  const [displayCM, toggleCM] = useState(false);
-  const { cities } = useCities();
+const AddRoomType = () => {
+  const [displayCTM, toggleCTM] = useState(false);
+  const { roomTypes } = useRoomTypes();
   return (
     <>
-      <DashboardNavbar />
-
       <div className="main-content d-flex flex-column">
         <div className="breadcrumb-area">
-          <h1>Add Cities</h1>
+          <h1>Add Room type</h1>
           <ol className="breadcrumb">
             <li className="item">
-              <Link href="/dashboard">
+              <Link href="/admin">
                 <a>Home</a>
               </Link>
             </li>
             <li className="item">
-              <Link href="/dashboard">
+              <Link href="/admin">
                 <a>Dashboard</a>
               </Link>
             </li>
-            <li className="item">Add city</li>
+            <li className="item">Add Room Type</li>
           </ol>
         </div>
-
-        {/*..........................city information............................................*/}
 
         <div className="add-listings-btn">
           <button
             type="submit"
             onClick={() => {
-              toggleCM(!displayCM);
+              toggleCTM(!displayCTM);
             }}
           >
-            Add Cities
+            Add Room Type
           </button>
         </div>
 
-        {/*.................................... city List .........................................................*/}
         <ul className="list-group cityList">
-          {cities.map((city) => {
+          {roomTypes.map((room) => {
             return (
-              <li className="list-group-item d-flex" key={city._id}>
-                <p className="p-0 m-0 flex-grow-1">{city.name}</p>
+              <li key={room._id} className="list-group-item d-flex">
+                <p className="p-0 m-0 flex-grow-1">{room.typeOfRoom}</p>
 
                 <div className="add-listings-btn">
                   <button type="submit" className="btn-success">
@@ -96,10 +86,9 @@ const AddCities = () => {
         </div>
       </div>
 
-      {/*..........................CITY MODAL................................................. */}
-      <CityModal displayCM={displayCM} toggleCM={toggleCM} />
+      <RoomtypeModal displayCTM={displayCTM} toggleCTM={toggleCTM} />
     </>
   );
 };
 
-export default AddCities;
+export default AddRoomType;

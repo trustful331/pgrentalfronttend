@@ -1,10 +1,10 @@
 "use client";
 
 import { useState, useEffect, useContext } from "react";
-import Link from "../../utils/ActiveLink";
 import { IndiceContext } from "../../contexts";
 import AuthModal from "../Modal/authModal";
 import { useAuthContext } from "../../contexts/authContext";
+import Link from "next/link";
 
 const Navbar = () => {
   const { toggleSideMenu } = useContext(IndiceContext);
@@ -60,10 +60,7 @@ const Navbar = () => {
         <div className="miran-responsive-nav">
           <div className="container">
             <div className="miran-responsive-menu">
-              <div
-                onClick={() => toggleMenu()}
-                className="hamburger-menu "
-              >
+              <div onClick={() => toggleMenu()} className="hamburger-menu ">
                 {showMenu ? (
                   <i className="bx bx-x"></i>
                 ) : (
@@ -435,92 +432,24 @@ const Navbar = () => {
                           Admin Panel
                         </a>
                         <ul className="dropdown-menu">
-                          <li className="nav-item">
-                            <Link href="/dashboard" activeClassName="active">
-                              <a className="nav-link">Dashboard</a>
-                            </Link>
-                          </li>
-
-                          <li className="nav-item">
-                            <Link
-                              href="/dashboard/messages"
-                              activeClassName="active"
-                            >
-                              <a className="nav-link">Messages</a>
-                            </Link>
-                          </li>
-
-                          <li className="nav-item">
-                            <Link
-                              href="/dashboard/bookings"
-                              activeClassName="active"
-                            >
-                              <a className="nav-link">Bookings</a>
-                            </Link>
-                          </li>
-
-                          <li className="nav-item">
-                            <Link
-                              href="/dashboard/wallet"
-                              activeClassName="active"
-                            >
-                              <a className="nav-link">Wallet</a>
-                            </Link>
-                          </li>
-
-                          <li className="nav-item">
-                            <Link
-                              href="/dashboard/my-listing/active"
-                              activeClassName="active"
-                            >
-                              <a className="nav-link">My Listings</a>
-                            </Link>
-                          </li>
-
-                          <li className="nav-item">
-                            <Link
-                              href="/dashboard/reviews"
-                              activeClassName="active"
-                            >
-                              <a className="nav-link">Reviews</a>
-                            </Link>
-                          </li>
-
-                          <li className="nav-item">
-                            <Link
-                              href="/dashboard/bookmarks"
-                              activeClassName="active"
-                            >
-                              <a className="nav-link">Bookmarks</a>
-                            </Link>
-                          </li>
-
-                          <li className="nav-item">
-                            <Link
-                              href="/dashboard/add-listing"
-                              activeClassName="active"
-                            >
-                              <a className="nav-link">Add Listings</a>
-                            </Link>
-                          </li>
-
-                          <li className="nav-item">
-                            <Link
-                              href="/dashboard/profile"
-                              activeClassName="active"
-                            >
-                              <a className="nav-link">My Profile</a>
-                            </Link>
-                          </li>
-
-                          <li className="nav-item">
-                            <Link
-                              href="/dashboard/invoice"
-                              activeClassName="active"
-                            >
-                              <a className="nav-link">Invoice</a>
-                            </Link>
-                          </li>
+                          {[
+                            { path: "", name: "Dashboard" },
+                            { path: "bookings", name: "Bookings" },
+                            { path: "my-listing", name: "My Listings" },
+                            { path: "reviews", name: "Reviews" },
+                            { path: "bookings", name: "Booking" },
+                            { path: "add-listing", name: "Add Listings" },
+                            { path: "add-city", name: "Add City" },
+                            { path: "add-room-type", name: "Add Room Type" },
+                            { path: "add-aminities", name: "Add Aminities" },
+                            { path: "profile", name: "My Profile" },
+                          ].map(({ path, name }) => (
+                            <li className="nav-item" key={name}>
+                              <Link href={`/admin/${path}`}>
+                                <a className="nav-link">{name}</a>
+                              </Link>
+                            </li>
+                          ))}
                         </ul>
                       </li>
                     ) : (

@@ -1,32 +1,24 @@
-//add city
-
 import Link from "next/link";
-import DashboardNavbar from "../../../components/Dashboard/DashboardNavbar";
+import React, { useState } from "react";
+import useCities from "../../utils/Hooks/useCities";
+import CityModal from "../Modal/CityModal";
 
-import React, { useEffect, useState } from "react";
-
-//modal
-import CityModal from "../../../components/Modal/CityModal";
-import useCities from "../../../utils/Hooks/useCities";
-
-const AddCities = () => {
+function AddCity() {
   const [displayCM, toggleCM] = useState(false);
   const { cities } = useCities();
   return (
     <>
-      <DashboardNavbar />
-
       <div className="main-content d-flex flex-column">
         <div className="breadcrumb-area">
           <h1>Add Cities</h1>
           <ol className="breadcrumb">
             <li className="item">
-              <Link href="/dashboard">
+              <Link href="/admin">
                 <a>Home</a>
               </Link>
             </li>
             <li className="item">
-              <Link href="/dashboard">
+              <Link href="/admin">
                 <a>Dashboard</a>
               </Link>
             </li>
@@ -100,6 +92,6 @@ const AddCities = () => {
       <CityModal displayCM={displayCM} toggleCM={toggleCM} />
     </>
   );
-};
+}
 
-export default AddCities;
+export default AddCity;

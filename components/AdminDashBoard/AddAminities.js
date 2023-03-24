@@ -1,25 +1,14 @@
-//add aminities
-
 import Link from "next/link";
-import DashboardNavbar from "../../../components/Dashboard/DashboardNavbar";
+import React, { useState } from "react";
+import useFacilites from "../../utils/Hooks/useFacilities";
+import AminityModal from "../Modal/AminityModal";
 
-import React, { useEffect, useState } from "react";
-import Navbar from "../../../components/_App/Navbar";
-
-//modal
-import AminityModal from "../../../components/Modal/AminityModal";
-import { useQuery } from "react-query";
-import featureApi from "../../../utils/Api/features.api";
-import useFacilites from "../../../utils/Hooks/useFacilities";
-
-const AddAminities = () => {
+function AddAminities() {
   const [displayAM, toggleAM] = useState(false);
   const { features } = useFacilites();
 
   return (
     <>
-      <DashboardNavbar />
-
       <div className="main-content d-flex flex-column">
         <div className="breadcrumb-area">
           <h1>Add Aminities</h1>
@@ -101,6 +90,6 @@ const AddAminities = () => {
       <AminityModal displayAM={displayAM} toggleAM={toggleAM} />
     </>
   );
-};
+}
 
 export default AddAminities;

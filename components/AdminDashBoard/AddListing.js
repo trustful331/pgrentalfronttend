@@ -5,13 +5,11 @@ import React, { useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { Formik } from "formik";
 import * as yup from "yup";
-
-import useCities from "../../../utils/Hooks/useCities";
-import useFacilites from "../../../utils/Hooks/useFacilities";
-import DashboardNavbar from "../../../components/Dashboard/DashboardNavbar";
 import { useMutation } from "react-query";
-import listingApi from "../../../utils/Api/addListing.api";
-import { useAuthToken } from "../../../contexts/authContext";
+import useCities from "../../utils/Hooks/useCities";
+import useFacilites from "../../utils/Hooks/useFacilities";
+import { useAuthToken } from "../../contexts/authContext";
+import listingApi from "../../utils/Api/addListing.api";
 
 const UploadComponent = ({ fieldName, setFieldValue, value, title }) => {
   const [previewFiles, setPreviewFiles] = useState([]);
@@ -98,8 +96,6 @@ const AddListing = () => {
 
   return (
     <>
-      <DashboardNavbar />
-
       <div className="main-content d-flex flex-column">
         <div className="breadcrumb-area">
           <h1>Add Listings</h1>
