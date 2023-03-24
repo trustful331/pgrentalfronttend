@@ -246,7 +246,7 @@ const AddListing = () => {
                     <div className="col-lg-6 col-md-6">
                       <div className="form-group">
                         <label
-                          className={`${errors?.name ? "text-danger" : ""}`}
+                          className={`${errors?.city ? "text-danger" : ""}`}
                         >
                           <i className="bx bx-menu-alt-left"></i>{" "}
                           {errors?.city ?? "City:"}
@@ -271,8 +271,13 @@ const AddListing = () => {
 
                     <div className="col-lg-6 col-md-6">
                       <div className="form-group">
-                        <label>
-                          <i className="bx bx-menu-alt-left"></i> Address:
+                        <label
+                          className={`${
+                            errors?.location?.address ? "text-danger" : ""
+                          }`}
+                        >
+                          <i className="bx bx-menu-alt-left"></i>
+                          {`${errors?.location?.address ?? "Address:"}`}
                         </label>
                         <input
                           type="text"
@@ -287,8 +292,13 @@ const AddListing = () => {
 
                     <div className="col-lg-6 col-md-6">
                       <div className="form-group">
-                        <label>
-                          <i className="bx bx-menu-alt-left"></i> State:
+                        <label
+                          className={`${
+                            errors?.location?.state ? "text-danger" : ""
+                          }`}
+                        >
+                          <i className="bx bx-menu-alt-left"></i>
+                          {`${errors?.location?.state ?? "State:"}`}
                         </label>
                         <input
                           type="text"

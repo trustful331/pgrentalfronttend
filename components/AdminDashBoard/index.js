@@ -1,11 +1,13 @@
 import Link from "next/link";
 import React from "react";
+import { useAuthContext } from "../../contexts/authContext";
 
 function AdminIndex() {
+  const context = useAuthContext();
   return (
     <>
       <div className="breadcrumb-area">
-        <h1>Howdy, Andy!</h1>
+        <h1>Hi,{context.user?.name}</h1>
         <ol className="breadcrumb">
           <li className="item">
             <Link href="/dashboard">

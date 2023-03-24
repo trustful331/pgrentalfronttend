@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useEffect } from "react";
 
 import AdminIndex from "../../components/AdminDashBoard";
 import Booking from "../../components/AdminDashBoard/booking";
@@ -11,6 +11,7 @@ import AddCity from "../../components/AdminDashBoard/AddCity";
 import AddRoomType from "../../components/AdminDashBoard/AddRoomType";
 import AddAminities from "../../components/AdminDashBoard/AddAminities";
 import ProfileComponent from "../../components/CommonDashBoard/Profile";
+import { useAuthContext } from "../../contexts/authContext";
 
 const Template = ({ children, value }) => {
   return (
@@ -46,8 +47,17 @@ const RenderComponent = ({ slug }) => {
   }
 };
 function Dynamic() {
+  const router = useRouter();
+  const authState = useAuthContext();
   const ruter = useRouter();
+  useEffect(() => {
+    if (!authState?.user || authState?.user?.role !== "admin") {
+      router.push("/");
+    }
+  }, [authState.user, router]);
+
   const slug = ruter.query.slug;
+
   return (
     <Template value={slug}>
       <RenderComponent slug={slug} />
