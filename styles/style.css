@@ -8999,6 +8999,9 @@ Products Area CSS
   font-size: 20px;
   text-align: center;
   color: #6f726f;
+  font-size: 0.95rem;
+  /* opacity: 0.9; */
+  font-weight: 400;
 }
 
 .single-products-box .products-content .price {

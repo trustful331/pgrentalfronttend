@@ -8,35 +8,35 @@ export default function Features() {
 
     const data = [
         {
-            title:'Note Book Mockup',
+            title:'Clean bathroom',
             img:'/images/features/ft1.png'
         },
         {
-            title:'Note Book Mockup',
+            title:'Neat environment',
             img:'/images/features/ft2.png'
         },
         {
-            title:'Note Book Mockup',
+            title:'Cozy beds',
             img:'/images/features/ft3.png'
         },
         {
-            title:'Note Book Mockup',
+            title:'Spacious cupboard',
             img:'/images/features/ft4.png'
         },
         {
-            title:'Note Book Mockup',
+            title:'Desks',
             img:'/images/features/ft5.png'
         },
         {
-            title:'Note Book Mockup',
+            title:'Entertainment area',
             img:'/images/features/ft6.png'
         },
         {
-            title:'Note Book Mockup',
+            title:'Clean restrooms',
             img:'/images/features/ft1.png'
         },
         {
-            title:'Note Book Mockup',
+            title:'Clean restrooms',
             img:'/images/features/ft2.png'
         }
     ] 
