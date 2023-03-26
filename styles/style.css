@@ -3769,6 +3769,7 @@ Listings Details Area CSS
   left: 0;
   right: 0;
   bottom: 0;
+  /* top: 0; */
   height: auto;
   z-index: 2;
 }
@@ -4653,7 +4654,7 @@ Listings Details Area CSS
   background-color: #fbfbfb;
   border: 1px solid #e0e0e0;
   border-radius: 5px;
-  padding: 30px;
+  padding: 20px;
 }
 
 .listings-sidebar .listings-widget:last-child {
@@ -6188,18 +6189,18 @@ Events Area CSS
 }
 
 .single-events-box .image.bg-1 {
-  background-image: url(/images/events/events1.jpg);
+  background-image: url(https://media.istockphoto.com/id/466766434/vector/polygonal-professional-badminton-player.jpg?s=612x612&w=0&k=20&c=0k_PdhAnOePMkj-yQkv4kTldvN4o3xtGJhJZkA7LlQQ=);
 }
 
 .single-events-box .image.bg-2 {
-  background-image: url(/images/events/events2.jpg);
+  background-image: url(https://w0.peakpx.com/wallpaper/269/877/HD-wallpaper-olympic-tennis-player-art-beautiful-olympic-tennis-artwork-1916-painting-summer-wide-screen-sports.jpg);
 }
 
 .single-events-box .image.bg-3 {
-  background-image: url(/images/events/events3.jpg);
+  background-image: url(https://i.pinimg.com/736x/98/fb/84/98fb84424369a8c4897b8816dc998e23.jpg);
 }
 
-.single-events-box .image.bg-4 {
+.single-events-box .image .bg-4 {
   background-image: url(/images/events/events4.jpg);
 }
 

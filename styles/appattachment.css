@@ -7,6 +7,8 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    margin-top: 5%;
+    /* margin: 10% 0; */
 }
 .app-atachment::-webkit-scrollbar{
     display: none;

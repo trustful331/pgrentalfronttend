@@ -51,7 +51,7 @@ export default function Features() {
                         <motion.div 
                             className='col-lg-3 col-md-6 col-sm-6 row-item'
                             
-                            initial={{opacity:0,y:'-10vh'}}
+                            initial={{opacity:0,y:'10vh'}}
                             whileInView={{y:0,opacity:1}}
                             viewport={{once:false,amount:0.9}}
                             transition={{staggerChildren:0.9,duration:0.9}}

@@ -77,7 +77,7 @@ const Index = () => {
       <Banner />
 
       <DesignTabHeading 
-        title={'Create Memories with'}
+        title={'Feel like Home with '}
         span={"Zestos"}
         subtitle="Memories are encoded through repetition"
         reff={mh_1_ref}
@@ -85,8 +85,6 @@ const Index = () => {
         animate={MH_1_animation}
         />
 
-      
-      
          <Gallery/>
 
        <DesignTabHeading 

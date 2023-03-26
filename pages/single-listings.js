@@ -16,39 +16,8 @@ const SingleListings = ({ images }) => {
           <div className="container">
             <div className="container">
               <div className="listings-details-content">
-                {/* <span className="meta">
-                  <i className="flaticon-furniture-and-household"></i>
-                  Restaurant
-                </span> */}
 
                 <h3>Chipotle Mexican Grill</h3>
-
-                {/* <div className="rating d-flex align-items-center">
-                  <span className="bx bxs-star checked"></span>
-                  <span className="bx bxs-star checked"></span>
-                  <span className="bx bxs-star checked"></span>
-                  <span className="bx bxs-star checked"></span>
-                  <span className="bx bxs-star checked"></span>
-                  <span className="rating-count">(45)</span>
-                </div> */}
-
-                {/* <ul className="d-flex align-items-center">
-                  <li className="phone-number">
-                    <a href="#">
-                      <i className="bx bx-phone-call"></i> (+212) 279-1456
-                    </a>
-                  </li>
-                  <li className="time">
-                    <i className="bx bx-time-five"></i>
-                    <span>Currently Open</span>
-                    08:00 AM - 10:00 PM
-                  </li>
-                  <li className="location">
-                    <i className="bx bx-map"></i>
-                    <span>Location</span>
-                    New York, USA
-                  </li>
-                </ul> */}
 
               </div>
             </div>
@@ -911,8 +880,8 @@ const SingleListings = ({ images }) => {
 
                 <div className="listings-widget book_listings">
                   <h3>Booking Online</h3>
-                  <a href="#" className="default-btn">Book Now</a>
-                  <a href="#" className="default-btn">Book Now</a>
+                  <a href="#" className="default-btn">Schedule a call </a>
+                  <a href="#" className="default-btn">visite Now</a>
                   <span>
                     By <a href="#">Booking.com</a>
                   </span>
@@ -922,13 +891,14 @@ const SingleListings = ({ images }) => {
                 <div className='listings-widget listings_contact_details'>
                   
                   
-                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d243646.88005384957!2d78.26795710593576!3d17.412627419334125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb99daeaebd2c7%3A0xae93b78392bafbc2!2sHyderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1679405651481!5m2!1sen!2sin" referrerpolicy="no-referrer-when-downgrade" style={{"width":"400px","height":"500px"}}
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d243646.88005384957!2d78.26795710593576!3d17.412627419334125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb99daeaebd2c7%3A0xae93b78392bafbc2!2sHyderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1679405651481!5m2!1sen!2sin" referrerpolicy="no-referrer-when-downgrade" style={{"width":"100%","height":"500px"}}
                   ></iframe>
 
                 </div>
 
               </div>
             </div>
+
           </div>
         </div>
       </section>

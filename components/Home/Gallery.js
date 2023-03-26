@@ -6,24 +6,24 @@ export default function Gallery() {
 
   const data = [
     {
-      title:'Image Title',
+      title:'Laundry',
       para:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi accusamus molestias quidem iusto.',
-      img:'https://images.unsplash.com/photo-1579748138140-ce9ef2c32db1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80'
+      img:'https://cozystay.app/static/home_app/assets_new/cozyhome/cm1.png'
     },
     {
-      title:'Image Title',
+      title:'Homely Food',
       para:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi accusamus molestias quidem iusto.',
-      img:'https://images.unsplash.com/photo-1579748138140-ce9ef2c32db1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80'
+      img:'https://cozystay.app/static/home_app/assets_new/cozyhome/cm3.png'
     },
     {
-      title:'Image Title',
+      title:'House keeping',
       para:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi accusamus molestias quidem iusto.',
-      img:'https://images.unsplash.com/photo-1579748138140-ce9ef2c32db1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80'
+      img:'https://cozystay.app/static/home_app/assets_new/cozyhome/cm4.png'
     },
     {
-      title:'Image Title',
+      title:'Common Dinning',
       para:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi accusamus molestias quidem iusto.',
-      img:'https://images.unsplash.com/photo-1579748138140-ce9ef2c32db1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80'
+      img:'https://cozystay.app/static/home_app/assets_new/cozyhome/cm2.png'
     }]
 
   return (
@@ -40,7 +40,7 @@ export default function Gallery() {
                     <div class="content">
                       <div>
                         <h2>{item.title}</h2>
-                        <p>{item.para}</p>
+                        {/* <p>{item.para}</p> */}
                       </div>
                     </div>
                   </motion.div>

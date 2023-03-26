@@ -18,7 +18,7 @@ const AppDownload = () => {
     if(mh_3_Inview){
       MH_3_animation.start({
         opacity:1,
-        x:'0',
+        y:'0',
         transition:{
           ease: "linear",
           duration:0.7
@@ -27,7 +27,7 @@ const AppDownload = () => {
     }else{
       MH_3_animation.start({
         opacity:0,
-        x:'-20vw',
+        y:'20vh',
       })
     }
 
@@ -61,8 +61,12 @@ const AppDownload = () => {
           <div className='row align-items-center'>
             <div className='col-lg-5 col-md-12'>
               <div className='app-download-content'>
-                <motion.h2 animate={MH_3_animation} ref={mh_3_ref}>Download <span id='adas'>Zestos</span> App</motion.h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+                <motion.h2 animate={MH_3_animation} ref={mh_3_ref}>
+                  One Tap Solution For <span id='adas'>Zestos</span>
+                </motion.h2>
+                
+                {/* <p>Now available in</p> */}
 
                 <div className='btn-box'>
                   <a href='#' className='playstore-btn'>

@@ -28,12 +28,14 @@
   position: relative;
   width: 240px;
   height: 240px;
-  background: #000;
+  /* background: #000; */
   transition: 0.5s;
   transform-style: preserve-3d;
   overflow: hidden;
   margin-right: 15px;
   margin-top: 45px;
+  border-radius: 10px;
+  overflow: hidden;
 }
 .containerd:hover .box {
   transform: rotateY(25deg);

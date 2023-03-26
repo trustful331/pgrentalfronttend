@@ -22,14 +22,19 @@
 }
 .designtab-heading .myheading{
     font-size: 60px;
+    width: 90%;
     font-family: "Beyond Infinity",sans-serif;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 20px 0;
+    /* border: 1px solid black; */
 }
 .designtab-heading .myheading span{
+    margin-left: 1%;
+    /* padding-left: 1%; */
     color: #3bbdad;
+    /* border: 1px solid black; */
 }
 .designtab-heading p{
     max-width: 50%;

@@ -48,7 +48,7 @@ const HowItWorks = ({bgColor}) => {
                 <div className='icon'>
                   <i className='flaticon-placeholder'></i>
                 </div>
-                <h3>Finalieze a Pg</h3>
+                <h3>Select a Location</h3>
                 {/* <p>
                   Quis ipsum suspendisse ultrices gravida. Risus commodo viverra
                   maecenas accumsan lacus vel facilisis.

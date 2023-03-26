@@ -63,7 +63,7 @@ const Feedback = ({ bgColor, bgImage }) => {
       if(headingInview){
         headingAnimation.start({
           opacity:1,
-          x:'0',
+          y:'0',
           transition:{
             ease: "linear",
             duration:0.9
@@ -72,7 +72,7 @@ const Feedback = ({ bgColor, bgImage }) => {
       }else{
         headingAnimation.start({
           opacity:0,
-          x:'-20vw',
+          y:'20vh',
         })
       }
 
@@ -101,11 +101,11 @@ const Feedback = ({ bgColor, bgImage }) => {
         <div className="container">
           <div className="section-title">
             <motion.h2 ref={headingRef} animate={headingAnimation}>Users Feedback About Us</motion.h2>
-            <motion.p ref={paraRef} animate={paraAnimation}>
+            {/* <motion.p ref={paraRef} animate={paraAnimation}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
               ipsum suspendisse ultrices gravida. Risus commodo viverra.
-            </motion.p>
+            </motion.p> */}
           </div>
 
           <Swiper

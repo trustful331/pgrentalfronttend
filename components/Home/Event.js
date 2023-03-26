@@ -10,7 +10,7 @@ const EventsArea = () => {
     const data = [
         {
             des:"Internet of Things Forum Africa Exhibition 1",
-            img:"/images/events/events1.jpg"
+            img:"https://media.istockphoto.com/id/466766434/vector/polygonal-professional-badminton-player.jpg?s=612x612&w=0&k=20&c=0k_PdhAnOePMkj-yQkv4kTldvN4o3xtGJhJZkA7LlQQ="
         },
         {
             des:"Internet of Things Forum Africa Exhibition 2",
@@ -73,17 +73,17 @@ const EventsArea = () => {
         <div className='container'>
           <div className='section-title'>
             <motion.h2 ref={headingRef} animate={headingAnimation}>Delightful moments with <span>Zestos</span></motion.h2>
-            <p>
+            {/* <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
               ipsum suspendisse ultrices gravida. Risus commodo viverra.
-            </p>
+            </p> */}
           </div>
 
           <div className='row'>
             <div className='col-lg-6 col-md-12'>
               <div className='events-box'>
-                <motion.img src='/images/events/events-big.jpg' alt='image'/>
+                <motion.img src='/images/events/game_count.gif' alt='image'/>
                 <div className='content'>
                   <h3>Global Robotics Summit & Festival</h3>
                   {/* <span className='meta'>
@@ -103,17 +103,11 @@ const EventsArea = () => {
                 {
                     data.map((detail,index)=>{
                         return(
-                            <motion.div 
-                             className='single-events-box'
-                            //  initial={{opacity:0, y:'50vh'}}
-                            //  whileInView={{y:"0", opacity:1}}
-                            //  viewport={{once:false, amount:0.5}}
-                            //  transition={{duration:0.7, delay: index * 0.7}}
-                            >
+                            <motion.div className='single-events-box' key={detail.des}>
                                 <div className='row m-0'>
                                     <div className='col-lg-4 col-md-4 p-0'>
-                                    <div className='image bg-1'>
-                                        <img src={detail.img} alt='image' />
+                                    <div className= {`image bg-${index+1}`}>
+                                        {/* <img src={detail.img} alt='image' /> */}
                                         <Link href='/single-events'>
                                         <a className='link-btn'></a>
                                         </Link>
