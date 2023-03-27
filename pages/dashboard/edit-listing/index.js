@@ -1,5 +1,6 @@
 
 import Link from "next/link";
+import Image from "next/image";
 
 import React, { useState,useEffect } from "react";
 import { useDropzone } from "react-dropzone";
@@ -51,23 +52,26 @@ const AddListing = () => {
         {/* <NavbarThree /> */}
 
         <div className='breadcrumb-area'>
-          <h1>Add Listings</h1>
+          <h1>Edit Listing</h1>
           <ol className='breadcrumb'>
+
             <li className='item'>
               <Link href='/dashboard'>
                 <a>Home</a>
               </Link>
             </li>
+
             <li className='item'>
               <Link href='/dashboard'>
                 <a>Dashboard</a>
               </Link>
             </li>
-            <li className='item'>Add Listings</li>
+            <li className='item'>Edit Listings</li>
           </ol>
         </div>
 
-        <div className='add-listings-box'>
+        {/* basic Informations */}
+        {/* <div className='add-listings-box'>
           <h3>Basic Informations</h3>
 
           <div className='row'>
@@ -113,9 +117,10 @@ const AddListing = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
-        <div className='add-listings-box'>
+          {/* Location */}
+        {/* <div className='add-listings-box'>
           <h3>Location</h3>
 
           <div className='row'>
@@ -166,7 +171,7 @@ const AddListing = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
         <div {...getRootProps()} className='dropzone add-listings-box'>
           <h3>Gallery</h3>
@@ -183,7 +188,8 @@ const AddListing = () => {
           )}
         </div>
 
-        <div className='add-listings-box'>
+        {/* Details */}
+        {/* <div className='add-listings-box'>
           <h3>Details</h3>
 
           <div className='row'>
@@ -272,7 +278,7 @@ const AddListing = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
         <div className='add-listings-box'>
           <h3>Facilities</h3>
@@ -365,8 +371,9 @@ const AddListing = () => {
             </ul>
           </div>
         </div>
-
-        <div className='add-listings-box'>
+        
+        {/* sidebar wedges */}
+        {/* <div className='add-listings-box'>
           <h3>Sidebar Widgets</h3>
 
           <div className='form-group'>
@@ -396,9 +403,11 @@ const AddListing = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
-        <div className='add-listings-box'>
+        {/* opening hours */}
+
+        {/* <div className='add-listings-box'>
           <h3>Opening Hours</h3>
 
           <div className='row opening-day align-items-center'>
@@ -876,9 +885,10 @@ const AddListing = () => {
               </select>
             </div>
           </div>
-        </div>
+        </div> */}
 
-        <div className='add-listings-box'>
+        {/* pricing */}
+        {/* <div className='add-listings-box'>
           <h3>Pricing</h3>
 
           <div className='form-group'>
@@ -887,10 +897,10 @@ const AddListing = () => {
             </label>
             <input type='text' className='form-control' placeholder='$542.00' />
           </div>
-        </div>
+        </div> */}
 
         <div className='add-listings-btn'>
-          <button type='submit'>Submit Listings</button>
+          <button type='submit'>Update Listings</button>
         </div>
 
         <div className='flex-grow-1'></div>
