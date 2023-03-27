@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useContext } from "react";
 import { IndiceContext } from "../../contexts";
-import AuthModal from "../Modal/authModal";
+import AuthModal from "../Modal/AuthModal";
 import { useAuthContext } from "../../contexts/authContext";
 import Link from "next/link";
 

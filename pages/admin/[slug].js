@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import React, { useEffect } from "react";
 
 import AdminIndex from "../../components/AdminDashBoard";
-import Booking from "../../components/AdminDashBoard/booking";
+import Booking from "../../components/AdminDashBoard/Booking";
 import AddListing from "../../components/AdminDashBoard/AddListing";
 import AdminNavbar from "../../components/AdminDashBoard/AdminNavbar";
 import MyListing from "../../components/AdminDashBoard/MyListing";

@@ -14882,8 +14882,23 @@ Dashboard CSS
 }
 
 .add-listings-btn {
+  /* border: 1px solid black; */
   margin-bottom: 30px;
 }
+
+
+/* change here, custom css */
+.sub-btn{
+  /* background-color: green;  */
+  display: flex;
+  align-items: right;
+  padding-left: 80%;
+  /* position: relative;  */
+}
+
+/* .sub-btn button{
+  position: absolute;
+}  */
 
 .add-listings-btn button {
   display: inline-block;
@@ -15823,6 +15838,25 @@ Dashboard CSS
 .drop-gallery-thumb {
   width: 10%;
   margin-left: 16px;
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.drop-gallery-thumb .close{
+  font-family: sans-serif;
+  background-color: red;
+  color: white;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  position: absolute;
+  font-weight: bold;
+  top: -10px;
+  right: -10px;
+  cursor: pointer;
 }
 
 .drop-gallery-thumb img {

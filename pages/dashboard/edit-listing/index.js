@@ -2,6 +2,8 @@
 import Link from "next/link";
 import Image from "next/image";
 
+import ImageAddModal from "../../../components/Modal/ImageAddModal";
+
 import React, { useState,useEffect } from "react";
 import { useDropzone } from "react-dropzone";
 import { Formik } from "formik";
@@ -15,6 +17,8 @@ import listingApi from "../../../utils/Api/addListing.api";
 import { useAuthToken } from "../../../contexts/authContext";
 
 const AddListing = () => {
+  const [displayIM, toggleIM] = useState(false);
+  
   const [files, setFiles] = useState([]);
   const { getRootProps, getInputProps } = useDropzone({
     accept: 'image/*',
@@ -49,131 +53,80 @@ const AddListing = () => {
 
       <div className='main-content d-flex flex-column'>
 
-        {/* <NavbarThree /> */}
-
         <div className='breadcrumb-area'>
           <h1>Edit Listing</h1>
-          <ol className='breadcrumb'>
-
-            <li className='item'>
-              <Link href='/dashboard'>
-                <a>Home</a>
-              </Link>
-            </li>
-
-            <li className='item'>
-              <Link href='/dashboard'>
-                <a>Dashboard</a>
-              </Link>
-            </li>
-            <li className='item'>Edit Listings</li>
-          </ol>
         </div>
 
-        {/* basic Informations */}
-        {/* <div className='add-listings-box'>
-          <h3>Basic Informations</h3>
 
-          <div className='row'>
-            <div className='col-lg-12 col-md-12'>
-              <div className='form-group'>
-                <label>
-                  <i className='bx bx-briefcase-alt'></i> Listing Title:
-                </label>
-                <input
-                  type='text'
-                  className='form-control'
-                  placeholder='Name of your business'
-                />
-              </div>
+        {/* list of listings */}
+        <div className="add-listings-box">
+          <h3>lists</h3>
+
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Availability</th>
+                <th scope="col">occupancy</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Larry</td>
+                <td>the Bird</td>
+                <td>@twitter</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        {/* image show section */}
+        <div className="add-listings-box">
+          
+          <h3>images</h3>
+          
+          <div className="gallery-flex">
+
+              <div  className='drop-gallery-thumb'>
+                <div className="close">X</div>
+                <img src="https://images.pexels.com/photos/268533/pexels-photo-268533.jpeg?cs=srgb&dl=pexels-pixabay-268533.jpg&fm=jpg" alt="noimg" />
             </div>
 
-            <div className='col-lg-6 col-md-6'>
-              <div className='form-group'>
-                <label>
-                  <i className='bx bx-duplicate'></i> Type / Category:
-                </label>
-                <select className='dashbaord-category-select'>
-                  <option>Select Category</option>
-                  <option>Shops</option>
-                  <option>Hotels</option>
-                  <option>Restaurants</option>
-                  <option>Fitness</option>
-                  <option>Events</option>
-                </select>
-              </div>
+            <div  className='drop-gallery-thumb'>
+                <div className="close">X</div>
+                <img src="https://images.pexels.com/photos/268533/pexels-photo-268533.jpeg?cs=srgb&dl=pexels-pixabay-268533.jpg&fm=jpg" alt="noimg" />
             </div>
 
-            <div className='col-lg-6 col-md-6'>
-              <div className='form-group'>
-                <label>
-                  <i className='bx bxs-key'></i> Keywords:
-                </label>
-                <input
-                  type='text'
-                  className='form-control'
-                  placeholder='Maximum 15 , should be separated by commas'
-                />
-              </div>
-            </div>
           </div>
+
+          <div className='add-listings-btn sub-btn'>
+            <button type='submit' onClick={()=>{toggleIM(!displayIM)}}>Add Images</button>
+          </div>
+        </div>
+
+        {/* <div className='add-listings-btn sub-btn'>
+          <button type='submit' onClick={()=>{toggleIM(!displayIM)}}>Add Images</button>
         </div> */}
 
-          {/* Location */}
-        {/* <div className='add-listings-box'>
-          <h3>Location</h3>
+        
 
-          <div className='row'>
-            <div className='col-lg-6 col-md-6'>
-              <div className='form-group'>
-                <label>
-                  <i className='bx bx-menu-alt-left'></i> City:
-                </label>
-                <select className='dashbaord-category-select'>
-                  <option>Select City</option>
-                  <option>New York</option>
-                  <option>London</option>
-                  <option>Paris</option>
-                  <option>Moscow</option>
-                  <option>Rome</option>
-                </select>
-              </div>
-            </div>
-
-            <div className='col-lg-6 col-md-6'>
-              <div className='form-group'>
-                <label>
-                  <i className='bx bx-menu-alt-left'></i> Address:
-                </label>
-                <input
-                  type='text'
-                  className='form-control'
-                  placeholder='e.g. 55 County Laois'
-                />
-              </div>
-            </div>
-
-            <div className='col-lg-6 col-md-6'>
-              <div className='form-group'>
-                <label>
-                  <i className='bx bx-menu-alt-left'></i> State:
-                </label>
-                <input type='text' className='form-control' />
-              </div>
-            </div>
-
-            <div className='col-lg-6 col-md-6'>
-              <div className='form-group'>
-                <label>
-                  <i className='bx bx-menu-alt-left'></i> Zip-Code:
-                </label>
-                <input type='text' className='form-control' />
-              </div>
-            </div>
-          </div>
-        </div> */}
-
-        <div {...getRootProps()} className='dropzone add-listings-box'>
+        {/* dropzone */}
+        {/* <div {...getRootProps()} className='dropzone add-listings-box'>
           <h3>Gallery</h3>
           {files.length > 0 ? (
             <div className='gallery-flex'>
@@ -186,101 +139,11 @@ const AddListing = () => {
               <p>Drag 'n' drop some files here, or click to select files</p>
             </div>
           )}
-        </div>
-
-        {/* Details */}
-        {/* <div className='add-listings-box'>
-          <h3>Details</h3>
-
-          <div className='row'>
-            <div className='col-lg-12 col-md-12'>
-              <div className='form-group'>
-                <label>
-                  <i className='bx bx-text'></i> Description:
-                </label>
-                <textarea
-                  cols='30'
-                  rows='7'
-                  className='form-control'
-                  placeholder='Details...'
-                ></textarea>
-              </div>
-            </div>
-
-            <div className='col-lg-4 col-md-6'>
-              <div className='form-group'>
-                <label>
-                  <i className='bx bx-envelope'></i> Email Address:{' '}
-                  <span>(optional)</span>
-                </label>
-                <input type='email' className='form-control' />
-              </div>
-            </div>
-
-            <div className='col-lg-4 col-md-6'>
-              <div className='form-group'>
-                <label>
-                  <i className='bx bx-globe'></i> Website: <span>(optional)</span>
-                </label>
-                <input type='text' className='form-control' />
-              </div>
-            </div>
-
-            <div className='col-lg-4 col-md-6'>
-              <div className='form-group'>
-                <label>
-                  <i className='bx bx-phone-call'></i> Phone:{' '}
-                  <span>(optional)</span>
-                </label>
-                <input type='text' className='form-control' />
-              </div>
-            </div>
-
-            <div className='col-lg-4 col-md-6'>
-              <div className='form-group'>
-                <label>
-                  <i className='bx bxl-facebook-square'></i> Facebook:{' '}
-                  <span>(optional)</span>
-                </label>
-                <input
-                  type='text'
-                  className='form-control'
-                  placeholder='https://www.facebook.com/'
-                />
-              </div>
-            </div>
-
-            <div className='col-lg-4 col-md-6'>
-              <div className='form-group'>
-                <label>
-                  <i className='bx bxl-twitter'></i> Twitter:{' '}
-                  <span>(optional)</span>
-                </label>
-                <input
-                  type='text'
-                  className='form-control'
-                  placeholder='https://www.twitter.com/'
-                />
-              </div>
-            </div>
-
-            <div className='col-lg-4 col-md-6'>
-              <div className='form-group'>
-                <label>
-                  <i className='bx bxl-linkedin'></i> Linkedin:{' '}
-                  <span>(optional)</span>
-                </label>
-                <input
-                  type='text'
-                  className='form-control'
-                  placeholder='https://www.linkedin.com/'
-                />
-              </div>
-            </div>
-          </div>
         </div> */}
 
-        <div className='add-listings-box'>
+        
+        {/* facilities */}
+        {/* <div className='add-listings-box'>
           <h3>Facilities</h3>
 
           <div className='form-group'>
@@ -370,534 +233,9 @@ const AddListing = () => {
               </li>
             </ul>
           </div>
-        </div>
+        </div> */}
         
-        {/* sidebar wedges */}
-        {/* <div className='add-listings-box'>
-          <h3>Sidebar Widgets</h3>
-
-          <div className='form-group'>
-            <div className='sidebar-widgets'>
-              <div className='box'>
-                <span className='title'>Booking Form</span>
-                <label className='switch'>
-                  <input type='checkbox' />
-                  <span></span>
-                </label>
-              </div>
-
-              <div className='box'>
-                <span className='title'>Price Range</span>
-                <label className='switch'>
-                  <input type='checkbox' defaultChecked />
-                  <span></span>
-                </label>
-              </div>
-
-              <div className='box'>
-                <span className='title'>Instagram</span>
-                <label className='switch'>
-                  <input type='checkbox' />
-                  <span></span>
-                </label>
-              </div>
-            </div>
-          </div>
-        </div> */}
-
-        {/* opening hours */}
-
-        {/* <div className='add-listings-box'>
-          <h3>Opening Hours</h3>
-
-          <div className='row opening-day align-items-center'>
-            <div className='col-lg-2 col-md-12'>
-              <h5>Monday</h5>
-            </div>
-
-            <div className='col-lg-5 col-md-6'>
-              <select className='dashbaord-category-select'>
-                <option>Opening Time</option>
-                <option>Closed</option>
-                <option>1 AM</option>
-                <option>2 AM</option>
-                <option>3 AM</option>
-                <option>4 AM</option>
-                <option>5 AM</option>
-                <option>6 AM</option>
-                <option>7 AM</option>
-                <option>8 AM</option>
-                <option>9 AM</option>
-                <option>10 AM</option>
-                <option>11 AM</option>
-                <option>12 AM</option>
-                <option>1 PM</option>
-                <option>2 PM</option>
-                <option>3 PM</option>
-                <option>4 PM</option>
-                <option>5 PM</option>
-                <option>6 PM</option>
-                <option>7 PM</option>
-                <option>8 PM</option>
-                <option>9 PM</option>
-                <option>10 PM</option>
-                <option>11 PM</option>
-                <option>12 PM</option>
-              </select>
-            </div>
-
-            <div className='col-lg-5 col-md-6'>
-              <select className='dashbaord-category-select'>
-                <option>Closing Time</option>
-                <option>Closed</option>
-                <option>1 AM</option>
-                <option>2 AM</option>
-                <option>3 AM</option>
-                <option>4 AM</option>
-                <option>5 AM</option>
-                <option>6 AM</option>
-                <option>7 AM</option>
-                <option>8 AM</option>
-                <option>9 AM</option>
-                <option>10 AM</option>
-                <option>11 AM</option>
-                <option>12 AM</option>
-                <option>1 PM</option>
-                <option>2 PM</option>
-                <option>3 PM</option>
-                <option>4 PM</option>
-                <option>5 PM</option>
-                <option>6 PM</option>
-                <option>7 PM</option>
-                <option>8 PM</option>
-                <option>9 PM</option>
-                <option>10 PM</option>
-                <option>11 PM</option>
-                <option>12 PM</option>
-              </select>
-            </div>
-          </div>
-
-          <div className='row opening-day align-items-center'>
-            <div className='col-lg-2 col-md-12'>
-              <h5>Tuesday</h5>
-            </div>
-
-            <div className='col-lg-5 col-md-6'>
-              <select className='dashbaord-category-select'>
-                <option>Opening Time</option>
-                <option>Closed</option>
-                <option>1 AM</option>
-                <option>2 AM</option>
-                <option>3 AM</option>
-                <option>4 AM</option>
-                <option>5 AM</option>
-                <option>6 AM</option>
-                <option>7 AM</option>
-                <option>8 AM</option>
-                <option>9 AM</option>
-                <option>10 AM</option>
-                <option>11 AM</option>
-                <option>12 AM</option>
-                <option>1 PM</option>
-                <option>2 PM</option>
-                <option>3 PM</option>
-                <option>4 PM</option>
-                <option>5 PM</option>
-                <option>6 PM</option>
-                <option>7 PM</option>
-                <option>8 PM</option>
-                <option>9 PM</option>
-                <option>10 PM</option>
-                <option>11 PM</option>
-                <option>12 PM</option>
-              </select>
-            </div>
-
-            <div className='col-lg-5 col-md-6'>
-              <select className='dashbaord-category-select'>
-                <option>Closing Time</option>
-                <option>Closed</option>
-                <option>1 AM</option>
-                <option>2 AM</option>
-                <option>3 AM</option>
-                <option>4 AM</option>
-                <option>5 AM</option>
-                <option>6 AM</option>
-                <option>7 AM</option>
-                <option>8 AM</option>
-                <option>9 AM</option>
-                <option>10 AM</option>
-                <option>11 AM</option>
-                <option>12 AM</option>
-                <option>1 PM</option>
-                <option>2 PM</option>
-                <option>3 PM</option>
-                <option>4 PM</option>
-                <option>5 PM</option>
-                <option>6 PM</option>
-                <option>7 PM</option>
-                <option>8 PM</option>
-                <option>9 PM</option>
-                <option>10 PM</option>
-                <option>11 PM</option>
-                <option>12 PM</option>
-              </select>
-            </div>
-          </div>
-
-          <div className='row opening-day align-items-center'>
-            <div className='col-lg-2 col-md-12'>
-              <h5>Wednesday</h5>
-            </div>
-
-            <div className='col-lg-5 col-md-6'>
-              <select className='dashbaord-category-select'>
-                <option>Opening Time</option>
-                <option>Closed</option>
-                <option>1 AM</option>
-                <option>2 AM</option>
-                <option>3 AM</option>
-                <option>4 AM</option>
-                <option>5 AM</option>
-                <option>6 AM</option>
-                <option>7 AM</option>
-                <option>8 AM</option>
-                <option>9 AM</option>
-                <option>10 AM</option>
-                <option>11 AM</option>
-                <option>12 AM</option>
-                <option>1 PM</option>
-                <option>2 PM</option>
-                <option>3 PM</option>
-                <option>4 PM</option>
-                <option>5 PM</option>
-                <option>6 PM</option>
-                <option>7 PM</option>
-                <option>8 PM</option>
-                <option>9 PM</option>
-                <option>10 PM</option>
-                <option>11 PM</option>
-                <option>12 PM</option>
-              </select>
-            </div>
-
-            <div className='col-lg-5 col-md-6'>
-              <select className='dashbaord-category-select'>
-                <option>Closing Time</option>
-                <option>Closed</option>
-                <option>1 AM</option>
-                <option>2 AM</option>
-                <option>3 AM</option>
-                <option>4 AM</option>
-                <option>5 AM</option>
-                <option>6 AM</option>
-                <option>7 AM</option>
-                <option>8 AM</option>
-                <option>9 AM</option>
-                <option>10 AM</option>
-                <option>11 AM</option>
-                <option>12 AM</option>
-                <option>1 PM</option>
-                <option>2 PM</option>
-                <option>3 PM</option>
-                <option>4 PM</option>
-                <option>5 PM</option>
-                <option>6 PM</option>
-                <option>7 PM</option>
-                <option>8 PM</option>
-                <option>9 PM</option>
-                <option>10 PM</option>
-                <option>11 PM</option>
-                <option>12 PM</option>
-              </select>
-            </div>
-          </div>
-
-          <div className='row opening-day align-items-center'>
-            <div className='col-lg-2 col-md-12'>
-              <h5>Thursday</h5>
-            </div>
-
-            <div className='col-lg-5 col-md-6'>
-              <select className='dashbaord-category-select'>
-                <option>Opening Time</option>
-                <option>Closed</option>
-                <option>1 AM</option>
-                <option>2 AM</option>
-                <option>3 AM</option>
-                <option>4 AM</option>
-                <option>5 AM</option>
-                <option>6 AM</option>
-                <option>7 AM</option>
-                <option>8 AM</option>
-                <option>9 AM</option>
-                <option>10 AM</option>
-                <option>11 AM</option>
-                <option>12 AM</option>
-                <option>1 PM</option>
-                <option>2 PM</option>
-                <option>3 PM</option>
-                <option>4 PM</option>
-                <option>5 PM</option>
-                <option>6 PM</option>
-                <option>7 PM</option>
-                <option>8 PM</option>
-                <option>9 PM</option>
-                <option>10 PM</option>
-                <option>11 PM</option>
-                <option>12 PM</option>
-              </select>
-            </div>
-
-            <div className='col-lg-5 col-md-6'>
-              <select className='dashbaord-category-select'>
-                <option>Closing Time</option>
-                <option>Closed</option>
-                <option>1 AM</option>
-                <option>2 AM</option>
-                <option>3 AM</option>
-                <option>4 AM</option>
-                <option>5 AM</option>
-                <option>6 AM</option>
-                <option>7 AM</option>
-                <option>8 AM</option>
-                <option>9 AM</option>
-                <option>10 AM</option>
-                <option>11 AM</option>
-                <option>12 AM</option>
-                <option>1 PM</option>
-                <option>2 PM</option>
-                <option>3 PM</option>
-                <option>4 PM</option>
-                <option>5 PM</option>
-                <option>6 PM</option>
-                <option>7 PM</option>
-                <option>8 PM</option>
-                <option>9 PM</option>
-                <option>10 PM</option>
-                <option>11 PM</option>
-                <option>12 PM</option>
-              </select>
-            </div>
-          </div>
-
-          <div className='row opening-day align-items-center'>
-            <div className='col-lg-2 col-md-12'>
-              <h5>Friday</h5>
-            </div>
-
-            <div className='col-lg-5 col-md-6'>
-              <select className='dashbaord-category-select'>
-                <option>Opening Time</option>
-                <option>Closed</option>
-                <option>1 AM</option>
-                <option>2 AM</option>
-                <option>3 AM</option>
-                <option>4 AM</option>
-                <option>5 AM</option>
-                <option>6 AM</option>
-                <option>7 AM</option>
-                <option>8 AM</option>
-                <option>9 AM</option>
-                <option>10 AM</option>
-                <option>11 AM</option>
-                <option>12 AM</option>
-                <option>1 PM</option>
-                <option>2 PM</option>
-                <option>3 PM</option>
-                <option>4 PM</option>
-                <option>5 PM</option>
-                <option>6 PM</option>
-                <option>7 PM</option>
-                <option>8 PM</option>
-                <option>9 PM</option>
-                <option>10 PM</option>
-                <option>11 PM</option>
-                <option>12 PM</option>
-              </select>
-            </div>
-
-            <div className='col-lg-5 col-md-6'>
-              <select className='dashbaord-category-select'>
-                <option>Closing Time</option>
-                <option>Closed</option>
-                <option>1 AM</option>
-                <option>2 AM</option>
-                <option>3 AM</option>
-                <option>4 AM</option>
-                <option>5 AM</option>
-                <option>6 AM</option>
-                <option>7 AM</option>
-                <option>8 AM</option>
-                <option>9 AM</option>
-                <option>10 AM</option>
-                <option>11 AM</option>
-                <option>12 AM</option>
-                <option>1 PM</option>
-                <option>2 PM</option>
-                <option>3 PM</option>
-                <option>4 PM</option>
-                <option>5 PM</option>
-                <option>6 PM</option>
-                <option>7 PM</option>
-                <option>8 PM</option>
-                <option>9 PM</option>
-                <option>10 PM</option>
-                <option>11 PM</option>
-                <option>12 PM</option>
-              </select>
-            </div>
-          </div>
-
-          <div className='row opening-day align-items-center'>
-            <div className='col-lg-2 col-md-12'>
-              <h5>Saturday</h5>
-            </div>
-
-            <div className='col-lg-5 col-md-6'>
-              <select className='dashbaord-category-select'>
-                <option>Opening Time</option>
-                <option>Closed</option>
-                <option>1 AM</option>
-                <option>2 AM</option>
-                <option>3 AM</option>
-                <option>4 AM</option>
-                <option>5 AM</option>
-                <option>6 AM</option>
-                <option>7 AM</option>
-                <option>8 AM</option>
-                <option>9 AM</option>
-                <option>10 AM</option>
-                <option>11 AM</option>
-                <option>12 AM</option>
-                <option>1 PM</option>
-                <option>2 PM</option>
-                <option>3 PM</option>
-                <option>4 PM</option>
-                <option>5 PM</option>
-                <option>6 PM</option>
-                <option>7 PM</option>
-                <option>8 PM</option>
-                <option>9 PM</option>
-                <option>10 PM</option>
-                <option>11 PM</option>
-                <option>12 PM</option>
-              </select>
-            </div>
-
-            <div className='col-lg-5 col-md-6'>
-              <select className='dashbaord-category-select'>
-                <option>Closing Time</option>
-                <option>Closed</option>
-                <option>1 AM</option>
-                <option>2 AM</option>
-                <option>3 AM</option>
-                <option>4 AM</option>
-                <option>5 AM</option>
-                <option>6 AM</option>
-                <option>7 AM</option>
-                <option>8 AM</option>
-                <option>9 AM</option>
-                <option>10 AM</option>
-                <option>11 AM</option>
-                <option>12 AM</option>
-                <option>1 PM</option>
-                <option>2 PM</option>
-                <option>3 PM</option>
-                <option>4 PM</option>
-                <option>5 PM</option>
-                <option>6 PM</option>
-                <option>7 PM</option>
-                <option>8 PM</option>
-                <option>9 PM</option>
-                <option>10 PM</option>
-                <option>11 PM</option>
-                <option>12 PM</option>
-              </select>
-            </div>
-          </div>
-
-          <div className='row opening-day align-items-center'>
-            <div className='col-lg-2 col-md-12'>
-              <h5>Sunday</h5>
-            </div>
-
-            <div className='col-lg-5 col-md-6'>
-              <select className='dashbaord-category-select'>
-                <option>Opening Time</option>
-                <option>Closed</option>
-                <option>1 AM</option>
-                <option>2 AM</option>
-                <option>3 AM</option>
-                <option>4 AM</option>
-                <option>5 AM</option>
-                <option>6 AM</option>
-                <option>7 AM</option>
-                <option>8 AM</option>
-                <option>9 AM</option>
-                <option>10 AM</option>
-                <option>11 AM</option>
-                <option>12 AM</option>
-                <option>1 PM</option>
-                <option>2 PM</option>
-                <option>3 PM</option>
-                <option>4 PM</option>
-                <option>5 PM</option>
-                <option>6 PM</option>
-                <option>7 PM</option>
-                <option>8 PM</option>
-                <option>9 PM</option>
-                <option>10 PM</option>
-                <option>11 PM</option>
-                <option>12 PM</option>
-              </select>
-            </div>
-
-            <div className='col-lg-5 col-md-6'>
-              <select className='dashbaord-category-select'>
-                <option>Closing Time</option>
-                <option>Closed</option>
-                <option>1 AM</option>
-                <option>2 AM</option>
-                <option>3 AM</option>
-                <option>4 AM</option>
-                <option>5 AM</option>
-                <option>6 AM</option>
-                <option>7 AM</option>
-                <option>8 AM</option>
-                <option>9 AM</option>
-                <option>10 AM</option>
-                <option>11 AM</option>
-                <option>12 AM</option>
-                <option>1 PM</option>
-                <option>2 PM</option>
-                <option>3 PM</option>
-                <option>4 PM</option>
-                <option>5 PM</option>
-                <option>6 PM</option>
-                <option>7 PM</option>
-                <option>8 PM</option>
-                <option>9 PM</option>
-                <option>10 PM</option>
-                <option>11 PM</option>
-                <option>12 PM</option>
-              </select>
-            </div>
-          </div>
-        </div> */}
-
-        {/* pricing */}
-        {/* <div className='add-listings-box'>
-          <h3>Pricing</h3>
-
-          <div className='form-group'>
-            <label>
-              <i className='bx bx-purchase-tag'></i> Pricing:
-            </label>
-            <input type='text' className='form-control' placeholder='$542.00' />
-          </div>
-        </div> */}
+        
 
         <div className='add-listings-btn'>
           <button type='submit'>Update Listings</button>
@@ -905,26 +243,10 @@ const AddListing = () => {
 
         <div className='flex-grow-1'></div>
 
-        <div className='copyrights-area'>
-          <div className='row align-items-center'>
-            <div className='col-lg-6 col-sm-6 col-md-6'>
-              <p>
-                <i className='bx bx-copyright'></i> Indice All
-                rights reserved
-              </p>
-            </div>
-
-            <div className='col-lg-6 col-sm-6 col-md-6 text-right'>
-              <p>
-                Designed by ❤️{' '}
-                <a href='https://envytheme.com/' target='_blank' rel="noreferrer">
-                  EnvyTheme
-                </a>
-              </p>
-            </div>
-          </div>
-        </div>
       </div>
+
+{/*..........................Image MODAL................................................. */}
+      <ImageAddModal displayIM={displayIM} toggleIM={toggleIM} />
     </>
   );
 };
