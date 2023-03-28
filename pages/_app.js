@@ -20,6 +20,8 @@ import "../styles/designTabHeading.css"
 import "../styles/gallery.css"
 import '../styles/appattachment.css'
 
+import '../styles/foodmenue.css'
+
 import Layout from "../components/_App/Layout";
 import Loader from "../components/Shared/Loader";
 import GoTop from "../components/Shared/GoTop";

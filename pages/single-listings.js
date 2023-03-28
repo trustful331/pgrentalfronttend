@@ -3,10 +3,46 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 import Link from "next/link";
 
+import Accordion from "../components/Accordion/Accordion";
+
 //components
 import Footer from "../components/_App/Footer";
 
 const SingleListings = ({ images }) => {
+
+  const questionsAnswers = [
+    {
+      question: "Monday",
+      answer:
+        "You can invite up to 2 additional users on the Free plan. There is no limit on team members for the Premium plan.",
+    },
+    {
+      question: "Tuesday",
+      answer:
+        "No more than 2GB. All files in your account must fit your allotted storage space.",
+    },
+    {
+      question: "Wednesday",
+      answer: `Click “Forgot password” from the login page or “Change password” from your profile page. A reset link will be emailed to you.`,
+    },
+    {
+      question: "Thrushday",
+      answer: `Yes! Send us a message and we’ll process your request no questions asked.`,
+    },
+    {
+      question: "friday",
+      answer: `Chat and email support is available 24/7. Phone lines are open during normal business hours.`,
+    },
+    {
+      question: "Saturday",
+      answer: `Chat and email support is available 24/7. Phone lines are open during normal business hours.`,
+    },
+    {
+      question: "Sunday",
+      answer: `Chat and email support is available 24/7. Phone lines are open during normal business hours.`,
+    },
+  ];
+
   return (
     <>
       <section className="listings-details-area pb-70">
@@ -174,8 +210,7 @@ const SingleListings = ({ images }) => {
                 </div>
 
                 <h3>Food menu</h3>
-
-                <div class="food-menu">
+                {/* <div class="food-menu">
                       <div class="week">
                           <div class="heading">
                               <span>Days</span>
@@ -267,9 +302,31 @@ const SingleListings = ({ images }) => {
                               </div>
                           </div>
                       </div>
-                </div>
+                </div> */}
 
-                {/* <div id="pricing"> </div> */}
+                <div className="fcontainer">
+                  <div className="component">
+                    <div className="illustration">
+                      <img
+                        src='../images/accordion/illustration-box-desktop.svg'
+                        alt="illustration with box"
+                        className="illustration__box"
+                      />
+
+                      <img
+                        className="illustration__woman-desktop"
+                        src='../images/accordion/illustration-woman-online-desktop.svg'
+                        alt="illustration with woman"
+                      />
+                      <img
+                        className="illustration__woman-mobile"
+                        src='../images/accordion/illustration-woman-online-mobile.svg'
+                        alt="illustration with woman"
+                      />
+                    </div>
+                    <Accordion questionsAnswers={questionsAnswers} />
+                  </div>
+                </div>
 
                 <h3>Review</h3>
                 <div className="listings-review">
