@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 const GoTop = () => {
   const [isVisible, setisVisible] = useState(false);
 
   useEffect(() => {
-    document.addEventListener('scroll', function (e) {
+    document.addEventListener("scroll", function (e) {
       toggleVisibility();
     });
   }, []);
@@ -20,15 +20,15 @@ const GoTop = () => {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth',
+      behavior: "smooth",
     });
   };
 
   return (
     <>
       {isVisible && (
-        <div className='go-top active' onClick={() => scrollToTop()}>
-          <i className='bx bx-up-arrow-alt'></i>
+        <div className="go-top active" onClick={() => scrollToTop()}>
+          <i className="bx bx-up-arrow-alt"></i>
         </div>
       )}
     </>

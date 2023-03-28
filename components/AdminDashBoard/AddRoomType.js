@@ -6,7 +6,7 @@ import RoomtypeModal from "../Modal/RoomTypeModal";
 
 const AddRoomType = () => {
   const [displayCTM, toggleCTM] = useState(false);
-  const { roomTypes } = useRoomTypes();
+  const { roomTypes, isLoading } = useRoomTypes();
   return (
     <>
       <div className="main-content d-flex flex-column">

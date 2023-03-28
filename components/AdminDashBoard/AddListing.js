@@ -9,7 +9,7 @@ import { useMutation } from "react-query";
 import useCities from "../../utils/Hooks/useCities";
 import useFacilites from "../../utils/Hooks/useFacilities";
 import { useAuthToken } from "../../contexts/authContext";
-import listingApi from "../../utils/Api/addListing.api";
+import listingApi from "../../utils/Api/listing.api";
 
 const UploadComponent = ({ fieldName, setFieldValue, value, title }) => {
   const [previewFiles, setPreviewFiles] = useState([]);
@@ -437,24 +437,24 @@ const AddListing = () => {
 
                   <div className="form-group">
                     <ul className="facilities-list">
-                      {features.map(({ _id, feature_name }) => (
-                        <li key={_id}>
+                      {features.map(({ id, feature_name }) => (
+                        <li key={id}>
                           <label className="checkbox">
                             <input
                               type="checkbox"
                               name="feature"
-                              value={_id}
+                              value={id}
                               onChange={(e) => {
                                 if (e.target.checked) {
                                   setFieldValue(
                                     "feature",
-                                    values.feature.concat(_id)
+                                    values.feature.concat(id)
                                   );
                                 } else {
                                   setFieldValue(
                                     "feature",
                                     values.feature.filter(
-                                      (value) => value != _id
+                                      (value) => value != id
                                     )
                                   );
                                 }
