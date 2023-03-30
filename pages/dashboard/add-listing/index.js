@@ -1,7 +1,7 @@
 /* eslint-disable */
 import Link from "next/link";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { Formik } from "formik";
 import * as yup from "yup";
@@ -10,7 +10,9 @@ import useCities from "../../../utils/Hooks/useCities";
 import useFacilites from "../../../utils/Hooks/useFacilities";
 import DashboardNavbar from "../../../components/Dashboard/DashboardNavbar";
 import { useMutation } from "react-query";
-import listingApi from "../../../utils/Api/addListing.api";
+// import listingApi from "../../../utils/Api/addListing.api";
+
+import listingApi from '../../../utils/Api/listing.api';
 import { useAuthToken } from "../../../contexts/authContext";
 
 const UploadComponent = ({ fieldName, setFieldValue, value, title }) => {
@@ -91,16 +93,32 @@ const AddListing = () => {
   const { cities } = useCities();
   const { features } = useFacilites();
   const token = useAuthToken();
-  const { mutate } = useMutation({
+
+  const { mutate,isLoading } = useMutation({
     mutationFn: (data) => listingApi.addNewListing(data, token),
     mutationKey: "addNewLising",
   });
+
+  console.log("addlisting isloading:- ", isLoading)
+
+  useEffect(()=>{
+      console.log("addlisting isloading:- ", isLoading)
+  },[isLoading])
 
   return (
     <>
       <DashboardNavbar />
 
       <div className="main-content d-flex flex-column">
+
+        {/* preloader */}
+        {
+          !isLoading ?? <div class="sub-preloader">
+          <div class="spinner-border text-light" role="status"></div>
+        </div>
+        }
+        
+
         <div className="breadcrumb-area">
           <h1>Add Listings</h1>
           <ol className="breadcrumb">
@@ -117,6 +135,7 @@ const AddListing = () => {
             <li className="item">Add Listings</li>
           </ol>
         </div>
+
         <Formik
           initialValues={{
             name: "",

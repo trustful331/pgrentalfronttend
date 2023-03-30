@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import DashboardNavbar from "../../../components/Dashboard/DashboardNavbar";
-
 import React, { useEffect, useState } from "react";
 
 //modal
@@ -12,6 +11,7 @@ import useCities from "../../../utils/Hooks/useCities";
 const AddCities = () => {
   const [displayCM, toggleCM] = useState(false);
   const { cities } = useCities();
+
   return (
     <>
       <DashboardNavbar />

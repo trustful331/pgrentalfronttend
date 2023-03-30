@@ -214,6 +214,17 @@ const DashboardNavbar = () => {
               </Link>
             </li>
 
+            <li className="nav-item">
+              <Link href="/dashboard/users" activeClassName="active">
+                <a>
+                  <span className="icon">
+                    <i className="bx bx-plus-circle"></i>
+                  </span>
+                  <span className="menu-title">Add Users</span>
+                </a>
+              </Link>
+            </li>
+
             {/* ............................................................................................................................................ */}
 
             <li className="nav-item">

@@ -130,7 +130,7 @@ const Feedback = ({ bgColor, bgImage }) => {
             {
               data.map((detail,index)=>{
                 return(
-                  <SwiperSlide>
+                  <SwiperSlide key={index}>
                     <div 
                       className="single-feedback-box" >
                       <div className="rating">

@@ -70,14 +70,9 @@ const EventsArea = () => {
   return (
     <>
       <section className='events-area pt-100 pb-70'>
-        <div className='container'>
+        <div className='container event-container'>
           <div className='section-title'>
             <motion.h2 ref={headingRef} animate={headingAnimation}>Beat the stress in <span>Zestos</span></motion.h2>
-            {/* <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
-              ipsum suspendisse ultrices gravida. Risus commodo viverra.
-            </p> */}
           </div>
 
           <div className='row'>

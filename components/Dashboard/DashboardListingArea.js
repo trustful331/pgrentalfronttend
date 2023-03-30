@@ -7,7 +7,7 @@ import useListing from "../../utils/Hooks/useListing";
 
 const DashboardListingArea = () => {
   const { listing } = useListing();
-  console.log(listing);
+  // console.log(listing);
   return (
     <>
       <section className="listing-area">
@@ -79,85 +79,6 @@ const DashboardListingArea = () => {
               {/* <div className="col-xl-4 col-lg-6 col-md-6">
                 <div className="single-listings-box">
                   <div className="listings-image">
-                    <Swiper
-                      loop={true}
-                      navigation={true}
-                      modules={[Navigation]}
-                      className="listings-image-slides"
-                    >
-                      <SwiperSlide>
-                        <div className="single-image">
-                          <img
-                            src="/images/listings/listings4.jpg"
-                            alt="image"
-                          />
-                          <Link href="/single-listings">
-                            <a className="link-btn"></a>
-                          </Link>
-                        </div>
-                      </SwiperSlide>
-
-                      <SwiperSlide>
-                        <div className="single-image">
-                          <img
-                            src="/images/listings/listings2.jpg"
-                            alt="image"
-                          />
-                          <Link href="/single-listings">
-                            <a className="link-btn"></a>
-                          </Link>
-                        </div>
-                      </SwiperSlide>
-                    </Swiper>
-                  </div>
-
-                  <div className="listings-content">
-                    <ul className="listings-meta">
-                      <li>
-                        <a href="#">
-                          <i className="flaticon-furniture-and-household"></i>{" "}
-                          Hotel
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i className="flaticon-pin"></i> Los Angeles, USA
-                        </a>
-                      </li>
-                    </ul>
-                    <h3>
-                      <Link href="/single-listings">
-                        <a>The Beverly Hills Hotel</a>
-                      </Link>
-                    </h3>
-                    <div className="d-flex align-items-center justify-content-between">
-                      <div className="rating">
-                        <i className="bx bxs-star"></i>
-                        <i className="bx bxs-star"></i>
-                        <i className="bx bxs-star"></i>
-                        <i className="bx bxs-star"></i>
-                        <i className="bx bx-star"></i>
-                        <span className="count">(10)</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="listings-footer">
-                    <div className="d-flex justify-content-between align-items-center">
-                      <a href="#" className="default-btn">
-                        Edit
-                      </a>
-                      <a href="#" className="default-btn">
-                        Delete
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="col-xl-4 col-lg-6 col-md-6">
-                <div className="single-listings-box">
-                  <div className="listings-image">
                     <img src="/images/listings/listings3.jpg" alt="image" />
                     <Link href="/single-listings">
                       <a className="link-btn"></a>
@@ -206,6 +127,7 @@ const DashboardListingArea = () => {
                   </div>
                 </div>
               </div> */}
+
             </div>
           </div>
         </div>

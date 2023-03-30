@@ -13,7 +13,7 @@ import useCities from "../../../utils/Hooks/useCities";
 import useFacilites from "../../../utils/Hooks/useFacilities";
 import DashboardNavbar from "../../../components/Dashboard/DashboardNavbar";
 import { useMutation } from "react-query";
-import listingApi from "../../../utils/Api/addListing.api";
+import listingApi from "../../../utils/Api/listing.api";
 import { useAuthToken } from "../../../contexts/authContext";
 
 const AddListing = () => {
@@ -57,6 +57,45 @@ const AddListing = () => {
           <h1>Edit Listing</h1>
         </div>
 
+        {/* Basic details */}
+
+        <div className="add-listings-box">
+          <h3>Basic Details</h3>
+
+          <div className="row">
+
+            <div className="col-lg-6 col-md-6">
+              <div className="form-group">
+                <label>
+                  <i className="bx bx-menu-alt-left"></i> Name
+                </label>
+                <input
+                  readOnly
+                  type="text"
+                  value={"Xyz"}
+                  name="location.state"
+                  className="form-control"
+                />
+              </div>
+            </div>
+
+            <div className="col-lg-6 col-md-6">
+              <div className="form-group">
+                <label>
+                  <i className="bx bx-menu-alt-left"></i>Location
+                </label>
+                <input
+                  readOnly
+                  type="text"
+                  value={"Kolkata"}
+                  name="location.state"
+                  className="form-control"
+                />
+              </div>
+            </div>
+
+          </div>
+        </div>
 
         {/* list of listings */}
         <div className="add-listings-box">
@@ -69,6 +108,7 @@ const AddListing = () => {
                 <th scope="col">Name</th>
                 <th scope="col">Availability</th>
                 <th scope="col">occupancy</th>
+                <th scope="col">Edit </th>
               </tr>
             </thead>
 
@@ -78,21 +118,29 @@ const AddListing = () => {
                 <td>Mark</td>
                 <td>Otto</td>
                 <td>@mdo</td>
+                <td><button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button></td>
               </tr>
               <tr>
                 <th scope="row">2</th>
                 <td>Jacob</td>
                 <td>Thornton</td>
                 <td>@fat</td>
+                <td><button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button></td>
               </tr>
               <tr>
                 <th scope="row">3</th>
                 <td>Larry</td>
                 <td>the Bird</td>
                 <td>@twitter</td>
+                <td><button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button></td>
               </tr>
             </tbody>
           </table>
+
+          <div className='add-listings-btn sub-btn'>
+            <button type='submit'>Availability</button>
+          </div>
+
         </div>
 
         {/* image show section */}
@@ -118,124 +166,6 @@ const AddListing = () => {
             <button type='submit' onClick={()=>{toggleIM(!displayIM)}}>Add Images</button>
           </div>
         </div>
-
-        {/* <div className='add-listings-btn sub-btn'>
-          <button type='submit' onClick={()=>{toggleIM(!displayIM)}}>Add Images</button>
-        </div> */}
-
-        
-
-        {/* dropzone */}
-        {/* <div {...getRootProps()} className='dropzone add-listings-box'>
-          <h3>Gallery</h3>
-          {files.length > 0 ? (
-            <div className='gallery-flex'>
-              {thumbs}
-              <input {...getInputProps()} />
-            </div>
-          ) : (
-            <div className='file-upload-box'>
-              <input {...getInputProps()} />
-              <p>Drag 'n' drop some files here, or click to select files</p>
-            </div>
-          )}
-        </div> */}
-
-        
-        {/* facilities */}
-        {/* <div className='add-listings-box'>
-          <h3>Facilities</h3>
-
-          <div className='form-group'>
-            <ul className='facilities-list'>
-              <li>
-                <label className='checkbox'>
-                  <input
-                    type='checkbox'
-                    name='facilities-list'
-                    value='free-wifi'
-                    defaultChecked
-                  />
-                  <span>Free WiFi</span>
-                </label>
-              </li>
-              <li>
-                <label className='checkbox'>
-                  <input
-                    type='checkbox'
-                    name='facilities-list'
-                    value='parking'
-                  />
-                  <span>Parking</span>
-                </label>
-              </li>
-              <li>
-                <label className='checkbox'>
-                  <input
-                    type='checkbox'
-                    name='facilities-list'
-                    value='fitness-center'
-                    defaultChecked
-                  />
-                  <span>Fitness Center</span>
-                </label>
-              </li>
-              <li>
-                <label className='checkbox'>
-                  <input
-                    type='checkbox'
-                    name='facilities-list'
-                    value='non-smoking-rooms'
-                  />
-                  <span>Non-smoking Rooms</span>
-                </label>
-              </li>
-              <li>
-                <label className='checkbox'>
-                  <input
-                    type='checkbox'
-                    name='facilities-list'
-                    value='airport-shuttle'
-                    defaultChecked
-                  />
-                  <span>Airport Shuttle</span>
-                </label>
-              </li>
-              <li>
-                <label className='checkbox'>
-                  <input
-                    type='checkbox'
-                    name='facilities-list'
-                    value='air-conditioning'
-                  />
-                  <span>Air Conditioning</span>
-                </label>
-              </li>
-              <li>
-                <label className='checkbox'>
-                  <input
-                    type='checkbox'
-                    name='facilities-list'
-                    value='events'
-                  />
-                  <span>Events</span>
-                </label>
-              </li>
-              <li>
-                <label className='checkbox'>
-                  <input
-                    type='checkbox'
-                    name='facilities-list'
-                    value='friendly-workspace'
-                  />
-                  <span>Friendly Workspace</span>
-                </label>
-              </li>
-            </ul>
-          </div>
-        </div> */}
-        
-        
 
         <div className='add-listings-btn'>
           <button type='submit'>Update Listings</button>

@@ -42,7 +42,7 @@ export default function Features() {
     ] 
 
   return (
-    <motion.div className='container features'>
+    <motion.div className=' features'>
         <div className='row'>
 
             {
@@ -50,6 +50,7 @@ export default function Features() {
                     return(
                         <motion.div 
                             className='col-lg-3 col-md-6 col-sm-6 row-item'
+                            key={index}
                             
                             initial={{opacity:0,y:'10vh'}}
                             whileInView={{y:0,opacity:1}}

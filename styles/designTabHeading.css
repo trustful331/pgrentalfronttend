@@ -15,10 +15,16 @@
     align-items: center;
     justify-content: center;
     color: #6f726f;
-    background-image: linear-gradient(to right, #f9f9f9 , white
-    );
+    /* background-image: linear-gradient(to right, #f9f9f9 , white
+    ); */
 
-     /* border: 1px solid black; */
+     background-size: auto auto;
+     /* background-image: url(../public/images/svg/layered-waves-haikei-1.svg); */
+    background-repeat: no-repeat;
+    /* background-size: 100%,100%; */
+    object-fit: cover;
+    background-color: #f6f6f6;
+    /* background-color: #3bbdad; */
 }
 .designtab-heading .myheading{
     font-size: 60px;
@@ -28,12 +34,13 @@
     align-items: center;
     justify-content: center;
     margin: 20px 0;
+    /* color: white; */
     /* border: 1px solid black; */
 }
 .designtab-heading .myheading span{
     margin-left: 1%;
     /* padding-left: 1%; */
-    color: #3bbdad;
+    color: #25645d;
     /* border: 1px solid black; */
 }
 .designtab-heading p{
