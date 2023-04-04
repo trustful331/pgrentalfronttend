@@ -1,12 +1,12 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import { TabPanel } from "react-tabs";
 import { Tab } from "react-tabs";
 import { TabList } from "react-tabs";
 import { Tabs } from "react-tabs";
 
-import { QueryClient, useMutation, useQueryClient } from "react-query";
+import { useMutation, useQueryClient } from "react-query";
 import { useAuthToken } from "../../contexts/authContext";
 import featureApi from "../../utils/Api/features.api";
 import { toast } from "react-hot-toast";
@@ -30,27 +30,6 @@ function AminityModal({ displayAM, toggleAM }) {
       setFeatureName("");
     },
   });
-  const features = [
-    {
-      _id: "6411ceb57d263f9a7ed80916",
-      feature_name: "Broadband",
-      icon: "https://res.cloudinary.com/drbwctym7/image/upload/v1678888630b6711e6d-cf8a-41f7-a339-831b56c179fb.png",
-      __v: 0,
-    },
-    {
-      _id: "6411ceb57d263f9a7ed80816",
-      feature_name: "Single room",
-      icon: "https://res.cloudinary.com/drbwctym7/image/upload/v1678888630b6711e6d-cf8a-41f7-a339-831b56c179fb.png",
-      __v: 0,
-    },
-    {
-      _id: "6411ctb57d263f9a7ed80916",
-      feature_name: "Double room",
-      icon: "https://res.cloudinary.com/drbwctym7/image/upload/v1678888630b6711e6d-cf8a-41f7-a339-831b56c179fb.png",
-      __v: 0,
-    },
-  ];
-
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);

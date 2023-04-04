@@ -3,6 +3,7 @@ import React, { useState } from "react";
 
 import useRoomTypes from "../../utils/Hooks/useRoomTypes";
 import RoomtypeModal from "../Modal/RoomTypeModal";
+import Loading from "../Shared/Loading";
 
 const AddRoomType = () => {
   const [displayCTM, toggleCTM] = useState(false);
@@ -38,27 +39,31 @@ const AddRoomType = () => {
           </button>
         </div>
 
-        <ul className="list-group cityList">
-          {roomTypes.map((room) => {
-            return (
-              <li key={room._id} className="list-group-item d-flex">
-                <p className="p-0 m-0 flex-grow-1">{room.typeOfRoom}</p>
+        {isLoading ? (
+          <Loading />
+        ) : (
+          <ul className="list-group cityList">
+            {roomTypes.map((room) => {
+              return (
+                <li key={room._id} className="list-group-item d-flex">
+                  <p className="p-0 m-0 flex-grow-1">{room.typeOfRoom}</p>
 
-                <div className="add-listings-btn">
+                  {/* <div className="add-listings-btn">
                   <button type="submit" className="btn-success">
                     Edit
                   </button>
-                </div>
+                </div> */}
 
-                <div className="add-listings-btn">
-                  <button type="submit" className="btn-success">
-                    DELETE
-                  </button>
-                </div>
-              </li>
-            );
-          })}
-        </ul>
+                  <div className="add-listings-btn">
+                    <button type="submit" className="btn-success">
+                      DELETE
+                    </button>
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
+        )}
 
         <div className="flex-grow-1"></div>
 

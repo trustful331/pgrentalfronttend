@@ -4,13 +4,13 @@ import cityApi from "../Api/city.api";
 
 const useCities = () => {
   const [cities, setCities] = useState([]);
-  const { refetch } = useQuery({
+  const { refetch, isLoading } = useQuery({
     queryFn: cityApi.getAllCity,
     queryKey: "getAllcities",
     onSuccess: (data) => {
       setCities(data.data);
     },
   });
-  return { cities, refetch };
+  return { cities, refetch, isLoading };
 };
 export default useCities;

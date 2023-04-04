@@ -12,6 +12,7 @@ import AddRoomType from "../../components/AdminDashBoard/AddRoomType";
 import AddAminities from "../../components/AdminDashBoard/AddAminities";
 import ProfileComponent from "../../components/CommonDashBoard/Profile";
 import { useAuthContext } from "../../contexts/authContext";
+import UserList from "../../components/AdminDashBoard/UsersList";
 
 const Template = ({ children, value }) => {
   return (
@@ -42,8 +43,8 @@ const RenderComponent = ({ slug }) => {
     return <AddAminities />;
   } else if (slug === "profile") {
     return <ProfileComponent admin="admin" />;
-  } else {
-    router.push("/404");
+  } else if (slug === "users") {
+    return <UserList />;
   }
 };
 function Dynamic() {

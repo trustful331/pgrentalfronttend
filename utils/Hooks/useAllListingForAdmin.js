@@ -1,21 +1,20 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useQuery } from "react-query";
+import { useAuthToken } from "../../contexts/authContext";
 import listingAPi from "../Api/listing.api";
 
-const useListing = (city, roomType) => {
+const useListingForAdmin = (city) => {
   const [listing, setListings] = useState([]);
   const [page, setPageNo] = useState(1);
   const [limit, setLimit] = useState(5);
+  const token = useAuthToken();
   const { refetch, isLoading } = useQuery({
-    queryFn: () => listingAPi.getAllListing(city, roomType, limit, page),
-    queryKey: ["getAllLising", city, roomType],
+    queryFn: () => listingAPi.getAllListingForAdmin(city, limit, page, token),
+    queryKey: "getAllLisingAmin",
     onSuccess: (data) => {
       setListings(data.data);
     },
   });
-  useEffect(() => {
-    refetch();
-  }, [refetch]);
   return { listing, refetch, isLoading };
 };
-export default useListing;
+export default useListingForAdmin;

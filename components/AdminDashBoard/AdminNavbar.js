@@ -73,10 +73,16 @@ const AdminNavbar = ({ value }) => {
                 title: "My Listings",
               },
               {
+                iconClass: "bx bx-layer",
+                path: "users",
+                title: "Users",
+              },
+              {
                 iconClass: "bx  bx-star",
                 path: "reviews",
                 title: "Reviews",
               },
+
               {
                 iconClass: "bx bx-plus-circle",
                 path: "add-listing",

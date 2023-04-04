@@ -4,13 +4,13 @@ import featureApi from "../Api/features.api";
 
 const useFacilites = () => {
   const [features, setFeatures] = useState([]);
-  const { refetch } = useQuery({
+  const { refetch, isLoading } = useQuery({
     queryFn: featureApi.getAllAminites,
     queryKey: "getAllFeatures",
     onSuccess: (data) => {
       setFeatures(data.data);
     },
   });
-  return { features, refetch };
+  return { features, refetch, isLoading };
 };
 export default useFacilites;

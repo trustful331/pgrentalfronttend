@@ -2,10 +2,11 @@ import Link from "next/link";
 import React, { useState } from "react";
 import useCities from "../../utils/Hooks/useCities";
 import CityModal from "../Modal/CityModal";
+import Loading from "../Shared/Loading";
 
 function AddCity() {
   const [displayCM, toggleCM] = useState(false);
-  const { cities } = useCities();
+  const { cities, isLoading } = useCities();
   return (
     <>
       <div className="main-content d-flex flex-column">
@@ -40,27 +41,31 @@ function AddCity() {
         </div>
 
         {/*.................................... city List .........................................................*/}
-        <ul className="list-group cityList">
-          {cities.map((city) => {
-            return (
-              <li className="list-group-item d-flex" key={city._id}>
-                <p className="p-0 m-0 flex-grow-1">{city.name}</p>
+        {isLoading ? (
+          <Loading />
+        ) : (
+          <ul className="list-group cityList">
+            {cities.map((city) => {
+              return (
+                <li className="list-group-item d-flex" key={city._id}>
+                  <p className="p-0 m-0 flex-grow-1">{city.name}</p>
 
-                <div className="add-listings-btn">
-                  <button type="submit" className="btn-success">
-                    Edit
-                  </button>
-                </div>
+                  <div className="add-listings-btn">
+                    <button type="submit" className="btn-success">
+                      Edit
+                    </button>
+                  </div>
 
-                <div className="add-listings-btn">
-                  <button type="submit" className="btn-success">
-                    DELETE
-                  </button>
-                </div>
-              </li>
-            );
-          })}
-        </ul>
+                  <div className="add-listings-btn">
+                    <button type="submit" className="btn-success">
+                      DELETE
+                    </button>
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
+        )}
 
         <div className="flex-grow-1"></div>
 

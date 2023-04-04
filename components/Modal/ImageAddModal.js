@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useEffect, useState } from "react";
@@ -8,59 +7,35 @@ import { Tab } from "react-tabs";
 import { TabList } from "react-tabs";
 import { Tabs } from "react-tabs";
 
-import { toast } from "react-hot-toast";
-import { useAuthToken } from "../../contexts/authContext";
-import { useMutation, useQueryClient } from "react-query";
-//import cityApi from "../../utils/Api/city.api";
+function ImageModal({ displayIM, toggleIM }) {
+  const [files, setFiles] = useState([]);
+  const { getRootProps, getInputProps } = useDropzone({
+    accept: "image/*",
+    onDrop: (acceptedFiles) => {
+      setFiles(
+        acceptedFiles.map((file) =>
+          Object.assign(file, {
+            preview: URL.createObjectURL(file),
+          })
+        )
+      );
+    },
+  });
 
-function CityModal({ displayIM, toggleIM }) {
+  const thumbs = files.map((file) => (
+    <div key={file.name} className="drop-gallery-thumb">
+      <img src={file.preview} />
+    </div>
+  ));
 
-    const [files, setFiles] = useState([]);
-    const { getRootProps, getInputProps } = useDropzone({
-        accept: 'image/*',
-        onDrop: (acceptedFiles) => {
-        setFiles(
-            acceptedFiles.map((file) =>
-            Object.assign(file, {
-                preview: URL.createObjectURL(file),
-            })
-            )
-        );
-        },
-    });
-
-    const thumbs = files.map((file) => (
-        <div key={file.name} className='drop-gallery-thumb'>
-        <img src={file.preview} />
-        </div>
-    ));
-
-
-//   const [cityName, setCityName] = useState("");
-//   const queryClient = useQueryClient();
-//   const token = useAuthToken();
-//   const { mutate } = useMutation({
-//     mutationFn: (data) => cityApi.addNewCity(data, token),
-//     onSuccess: () => {
-//       toast.success(`${cityName} city added successfully`);
-//       queryClient.invalidateQueries({ queryKey: ["getAllcities"] });
-//       setCityName("");
-//     },
-//     onError: (error) => {
-//       const message =
-//         error?.response?.data?.message || "Mobile Number does not exist";
-//       toast.error(message);
-//       setCityName("");
-//     },
-//   });
   const handleSubmit = (e) => {
     e.preventDefault();
     // mutate({ name: cityName });
   };
 
-//   const onChnageHandler = (e) => {
-//     setCityName(e.target.value);
-//   };
+  //   const onChnageHandler = (e) => {
+  //     setCityName(e.target.value);
+  //   };
 
   return (
     <div
@@ -100,7 +75,11 @@ function CityModal({ displayIM, toggleIM }) {
                       <span>Add Images</span>
                     </span>
 
-                    <form onSubmit={(e) => {handleSubmit(e);}}>
+                    <form
+                      onSubmit={(e) => {
+                        handleSubmit(e);
+                      }}
+                    >
                       {/* <div className="form-group">
                         <input
                           type="text"
@@ -109,20 +88,23 @@ function CityModal({ displayIM, toggleIM }) {
                         />
                       </div> */}
 
-                        <div {...getRootProps()} className='dropzone add-listings-box'>
-                            <h3>add images</h3>
-                            {files.length > 0 ? (
-                                <div className='gallery-flex'>
-                                {thumbs}
-                                <input {...getInputProps()} />
-                                </div>
-                            ) : (
-                                <div className='file-upload-box'>
-                                <input {...getInputProps()} />
-                                <p>Drag 'n' drop , or click to select files</p>
-                                </div>
-                            )}
-                        </div>
+                      <div
+                        {...getRootProps()}
+                        className="dropzone add-listings-box"
+                      >
+                        <h3>add images</h3>
+                        {files.length > 0 ? (
+                          <div className="gallery-flex">
+                            {thumbs}
+                            <input {...getInputProps()} />
+                          </div>
+                        ) : (
+                          <div className="file-upload-box">
+                            <input {...getInputProps()} />
+                            <p>Drag 'n' drop , or click to select files</p>
+                          </div>
+                        )}
+                      </div>
 
                       <button
                         type="submit"
@@ -132,7 +114,7 @@ function CityModal({ displayIM, toggleIM }) {
                       >
                         Add Imges
                       </button>
-                      
+
                       <button
                         type="submit"
                         onClick={() => {
@@ -153,4 +135,4 @@ function CityModal({ displayIM, toggleIM }) {
   );
 }
 
-export default CityModal;
+export default ImageModal;

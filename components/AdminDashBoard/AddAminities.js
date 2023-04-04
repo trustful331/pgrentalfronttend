@@ -2,10 +2,11 @@ import Link from "next/link";
 import React, { useState } from "react";
 import useFacilites from "../../utils/Hooks/useFacilities";
 import AminityModal from "../Modal/AminityModal";
+import Loading from "../Shared/Loading";
 
 function AddAminities() {
   const [displayAM, toggleAM] = useState(false);
-  const { features } = useFacilites();
+  const { features, isLoading } = useFacilites();
 
   return (
     <>
@@ -39,27 +40,31 @@ function AddAminities() {
         </div>
 
         <div className="flex-grow-1">
-          <ul className="list-group cityList">
-            {features.map(({ feature_name, _id }) => {
-              return (
-                <li className="list-group-item d-flex" key={_id}>
-                  <p className="p-0 m-0 flex-grow-1">{feature_name}</p>
+          {isLoading ? (
+            <Loading />
+          ) : (
+            <ul className="list-group cityList">
+              {features.map(({ feature_name, _id }) => {
+                return (
+                  <li className="list-group-item d-flex" key={_id}>
+                    <p className="p-0 m-0 flex-grow-1">{feature_name}</p>
 
-                  <div className="add-listings-btn">
-                    <button type="submit" className="btn-success">
-                      Edit
-                    </button>
-                  </div>
+                    <div className="add-listings-btn">
+                      <button type="submit" className="btn-success">
+                        Edit
+                      </button>
+                    </div>
 
-                  <div className="add-listings-btn">
-                    <button type="submit" className="btn-success">
-                      DELETE
-                    </button>
-                  </div>
-                </li>
-              );
-            })}
-          </ul>
+                    <div className="add-listings-btn">
+                      <button type="submit" className="btn-success">
+                        DELETE
+                      </button>
+                    </div>
+                  </li>
+                );
+              })}
+            </ul>
+          )}
         </div>
 
         <div className="copyrights-area">

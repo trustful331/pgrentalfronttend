@@ -11,7 +11,13 @@ import useFacilites from "../../utils/Hooks/useFacilities";
 import { useAuthToken } from "../../contexts/authContext";
 import listingApi from "../../utils/Api/listing.api";
 
-const UploadComponent = ({ fieldName, setFieldValue, value, title }) => {
+const UploadComponent = ({
+  fieldName,
+  setFieldValue,
+  value,
+  title,
+  errors,
+}) => {
   const [previewFiles, setPreviewFiles] = useState([]);
   const { getRootProps, getInputProps } = useDropzone({
     accept: "image/*",
@@ -33,7 +39,9 @@ const UploadComponent = ({ fieldName, setFieldValue, value, title }) => {
   ));
   return (
     <div {...getRootProps()} className="dropzone add-listings-box">
-      <h3>{title}</h3>
+      <h3 className={`${errors && errors[fieldName] ? "text-danger" : ""}`}>
+        {(errors && errors[fieldName]) ?? title}
+      </h3>
       {previewFiles.length > 0 ? (
         <div className="gallery-flex">
           {thumbs}
@@ -48,42 +56,6 @@ const UploadComponent = ({ fieldName, setFieldValue, value, title }) => {
     </div>
   );
 };
-
-const formValidationSchema = yup.object().shape({
-  name: yup
-    .string()
-    .min(5, "Name is too short,it should be more than 5 character")
-    .required("Name is Required"),
-  city: yup
-    .string()
-    .required("City is Requied")
-    .notOneOf([yup.ref("Select City")], "Select the city please"),
-  seoTitle: yup
-    .string()
-    .min(5, "Seo Title is too short,it should be more than 5 character")
-    .required("Seotitle is Required"),
-  feature: yup.array().of(yup.string()),
-  location: yup.object().shape({
-    latitude: yup.string().required("Latitude is Required"),
-    longitude: yup.string().required("Longitude is Required"),
-    state: yup.string().required("State is Required"),
-    zip_code: yup.string().required("Zip Code is Required"),
-    address: yup.string().required("Address is Required"),
-  }),
-  description: yup
-    .string()
-    .min(5, "Description is too short,it should be more than 5 character")
-    .required("Description is Required"),
-  hotelSupportNumber: yup
-    .string()
-    .min(5, "Support number is too short,it should be more than 5 character")
-    .required("Support Number is Required"),
-  googleMapUrl: yup.string().url().required("Map Url is Required"),
-  roomPhotos: yup.array(),
-  dinningAreaPhotos: yup.array(),
-  commonAreaPhotos: yup.array(),
-  coverImage: yup.array(),
-});
 
 const AddListing = () => {
   const { cities } = useCities();
@@ -159,7 +131,7 @@ const AddListing = () => {
             mutate(formData);
             resetForm({
               name: "",
-              city: "Select City",
+              city: "select_city",
               seoTitle: "",
               feature: [],
               location: {
@@ -183,9 +155,7 @@ const AddListing = () => {
           {({
             values,
             errors,
-            touched,
             handleChange,
-            handleBlur,
             handleSubmit,
             isSubmitting,
             setFieldValue,
@@ -257,7 +227,7 @@ const AddListing = () => {
                           onChange={handleChange}
                           className="dashbaord-category-select"
                         >
-                          <option value="Slelect City">Select City</option>
+                          <option value="select_city">Select City</option>
                           {cities.map(({ _id, name, slug }) => {
                             return (
                               <option value={slug} key={_id}>
@@ -312,8 +282,13 @@ const AddListing = () => {
 
                     <div className="col-lg-6 col-md-6">
                       <div className="form-group">
-                        <label>
-                          <i className="bx bx-menu-alt-left"></i> Zip-Code:
+                        <label
+                          className={`${
+                            errors?.location?.zip_code ? "text-danger" : ""
+                          }`}
+                        >
+                          <i className="bx bx-menu-alt-left"></i>{" "}
+                          {errors?.location?.zip_code ?? "Zip-Code:"}
                         </label>
                         <input
                           type="text"
@@ -326,8 +301,13 @@ const AddListing = () => {
                     </div>
                     <div className="col-lg-6 col-md-6">
                       <div className="form-group">
-                        <label>
-                          <i className="bx bx-menu-alt-left"></i> Longitude:
+                        <label
+                          className={`${
+                            errors?.location?.longitude ? "text-danger" : ""
+                          }`}
+                        >
+                          <i className="bx bx-menu-alt-left"></i>{" "}
+                          {errors?.location?.longitude ?? "Longitude:"}
                         </label>
                         <input
                           type="text"
@@ -341,8 +321,13 @@ const AddListing = () => {
 
                     <div className="col-lg-6 col-md-6">
                       <div className="form-group">
-                        <label>
-                          <i className="bx bx-menu-alt-left"></i> Latitude:
+                        <label
+                          className={`${
+                            errors?.location?.latitude ? "text-danger" : ""
+                          }`}
+                        >
+                          <i className="bx bx-menu-alt-left"></i>{" "}
+                          {errors?.location?.longitude ?? "Latitude::"}{" "}
                         </label>
                         <input
                           type="text"
@@ -355,9 +340,13 @@ const AddListing = () => {
                     </div>
                     <div className="col-lg-6 col-md-6">
                       <div className="form-group">
-                        <label>
-                          <i className="bx bx-menu-alt-left"></i> Google Map
-                          Url:
+                        <label
+                          className={`${
+                            errors?.googleMapUrl ? "text-danger" : ""
+                          }`}
+                        >
+                          <i className="bx bx-menu-alt-left"></i>
+                          {errors.googleMapUrl ?? "Google Map Url:"}
                         </label>
                         <input
                           type="text"
@@ -371,9 +360,6 @@ const AddListing = () => {
                   </div>
                 </div>
 
-                {/* ...........................IMAGE Gallery.......................................................................*/}
-
-                {/*...........................room images.........................................*/}
                 {[
                   { field: "coverImage", title: "Add Cover  images (Gallery)" },
                   { field: "roomPhotos", title: "Add Rooms  images (Gallery)" },
@@ -392,6 +378,7 @@ const AddListing = () => {
                     fieldName={ele.field}
                     value={values[ele.field]}
                     title={ele.title}
+                    errors={errors}
                   />
                 ))}
 
@@ -401,8 +388,13 @@ const AddListing = () => {
                   <div className="row">
                     <div className="col-lg-12 col-md-12">
                       <div className="form-group">
-                        <label>
-                          <i className="bx bx-text"></i> Description:
+                        <label
+                          className={`${
+                            errors?.description ? "text-danger" : ""
+                          }`}
+                        >
+                          <i className="bx bx-text"></i>{" "}
+                          {errors?.description ?? " Description:"}
                         </label>
                         <textarea
                           value={values.description}
@@ -417,8 +409,13 @@ const AddListing = () => {
                     </div>
                     <div className="col-lg-12 col-md-12">
                       <div className="form-group">
-                        <label>
-                          <i className="bx bx-phone-call"></i> Support Number:{" "}
+                        <label
+                          className={`${
+                            errors?.hotelSupportNumber ? "text-danger" : ""
+                          }`}
+                        >
+                          <i className="bx bx-phone-call"></i>{" "}
+                          {errors?.hotelSupportNumber ?? "Support Number:"}
                         </label>
                         <input
                           type="text"
@@ -433,7 +430,9 @@ const AddListing = () => {
                 </div>
 
                 <div className="add-listings-box pb-2">
-                  <h3>Facilities</h3>
+                  <h3 className={`${errors?.feature ? "text-danger" : ""}`}>
+                    {errors?.feature ?? "Facilities"}
+                  </h3>
 
                   <div className="form-group">
                     <ul className="facilities-list">
@@ -469,7 +468,11 @@ const AddListing = () => {
                 </div>
 
                 <div className="add-listings-btn">
-                  <button type="submit" onClick={submitForm}>
+                  <button
+                    disabled={isSubmitting}
+                    type="submit"
+                    onClick={submitForm}
+                  >
                     Submit Listings
                   </button>
                 </div>
@@ -481,5 +484,43 @@ const AddListing = () => {
     </>
   );
 };
+const formValidationSchema = yup.object().shape({
+  name: yup
+    .string()
+    .min(5, "Name is too short,it should be more than 5 character")
+    .required("Name is Required"),
+  city: yup
+    .string()
+    .notOneOf(["select_city"], "Select a city")
+    .required("City is Requied"),
+  seoTitle: yup
+    .string()
+    .min(5, "Seo Title is too short,it should be more than 5 character")
+    .required("Seotitle is Required"),
+  feature: yup
+    .array()
+    .of(yup.string())
+    .min(1, "Hotel Should have minum one facility"),
+  location: yup.object().shape({
+    latitude: yup.string().required("Latitude is Required"),
+    longitude: yup.string().required("Longitude is Required"),
+    state: yup.string().required("State is Required"),
+    zip_code: yup.string().required("Zip Code is Required"),
+    address: yup.string().required("Address is Required"),
+  }),
+  description: yup
+    .string()
+    .min(5, "Description is too short,it should be more than 5 character")
+    .required("Description is Required"),
+  hotelSupportNumber: yup
+    .string()
+    .min(5, "Support number is too short,it should be more than 5 character")
+    .required("Support Number is Required"),
+  googleMapUrl: yup.string().url().required("Map Url is Required"),
+  roomPhotos: yup.array().min(1, "There should be minimum 1 picture"),
+  dinningAreaPhotos: yup.array().min(1, "There should be minimum 1 picture"),
+  commonAreaPhotos: yup.array().min(1, "There should be minimum 1 picture"),
+  coverImage: yup.array().min(1, "There should be minimum 1 picture"),
+});
 
 export default AddListing;

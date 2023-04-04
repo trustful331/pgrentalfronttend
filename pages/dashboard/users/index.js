@@ -1,4 +1,3 @@
-
 import Link from "next/link";
 import DashboardNavbar from "../../../components/Dashboard/DashboardNavbar";
 import DashboardListingArea from "../../../components/Dashboard/DashboardListingArea";
@@ -10,9 +9,6 @@ const Index = () => {
       <DashboardNavbar />
 
       <div className="main-content d-flex flex-column">
-        {/* <Navbar/> */}
-
-        {/* breadcrumb */}
         <div className="breadcrumb-area">
           <h1>User's Detail</h1>
           <ol className="breadcrumb">
@@ -30,44 +26,42 @@ const Index = () => {
           </ol>
         </div>
 
-         <div className="add-listings-btn">
+        <div className="add-listings-btn">
           <button type="submit"> Add Users </button>
         </div>
 
         <section className="listing-area">
-            <div className="tab-content" id="myTabContent">
+          <div className="tab-content" id="myTabContent">
             <div className="" id="active-listing">
-                <div className="row">
-
+              <div className="row">
                 <div className="col-xl-4 col-lg-6 col-md-6">
-                    <div className="single-listings-box">
+                  <div className="single-listings-box">
                     <div className="listings-image">
-                        <img src="/images/listings/listings3.jpg" alt="image" />
-                        <Link href="/single-listings">
-                            <a className="link-btn"></a>
-                        </Link>
+                      <img src="/images/listings/listings3.jpg" alt="image" />
+                      <Link href="/single-listings">
+                        <a className="link-btn"></a>
+                      </Link>
                     </div>
 
                     <div className="listings-content">
-                        <h3>User Name</h3>
+                      <h3>User Name</h3>
                     </div>
 
                     <div className="listings-footer">
-                        <div className="d-flex justify-content-between align-items-center">
+                      <div className="d-flex justify-content-between align-items-center">
                         <a href="#" className="default-btn">
-                            Edit
+                          Edit
                         </a>
                         <a href="#" className="default-btn">
-                            Delete
+                          Delete
                         </a>
-                        </div>
+                      </div>
                     </div>
-                    </div>
+                  </div>
                 </div>
-
-                </div>
+              </div>
             </div>
-            </div>
+          </div>
         </section>
       </div>
     </>
