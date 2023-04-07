@@ -13,7 +13,6 @@ const AuthContextProvider = ({ children }) => {
       localStorage.setItem("token", res.token);
     } catch (error) {
       localStorage.removeItem("token");
-      console.log(error);
     }
   };
   useEffect(() => {
