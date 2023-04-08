@@ -7,7 +7,7 @@ const useGetListingById = (id) => {
 
   const { isLoading } = useQuery({
     queryFn: () => listingApi.getListingById(id),
-    queryKey: ["listingDetailById", id],
+    queryKey: [`listingDetailById ${id}`],
     onSuccess: (data) => {
       console.log(data);
       setListing(data.data);
