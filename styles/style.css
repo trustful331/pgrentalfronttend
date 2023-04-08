@@ -3777,6 +3777,12 @@ Listings Details Area CSS
   position: relative;
 }
 
+.listings-details-image img{
+  width: 100%;
+  max-height:500px;
+  object-fit: cover;
+}
+
 .listings-details-image .container {
   position: relative;
 }
@@ -11679,6 +11685,7 @@ All Modal CSS
   max-width: 500px;
   margin-top: 0;
   margin-bottom: 0;
+  padding-top: 1%;
 }
 
 .loginRegisterModal .modal-dialog .modal-content {

@@ -4,12 +4,19 @@ import Accordion from "../../components/Accordion/Accordion";
 import { useRouter } from "next/router";
 import useGetListingById from "../../utils/Hooks/useGetListingById";
 
+//modal
+
+import ScheduleModal from "../../components/Modal/ScheduleModal";
+import VisitModal from "../../components/Modal/VisitModal";
+
 //components
 
 const SingleListings = ({ images }) => {
   const router = useRouter();
   const { id } = router.query;
   const { listing, isLoading } = useGetListingById(id);
+  const [displaySM,toggleSM] = useState(false)
+  const [displayVM,toggleVM] = useState(false)
 
   const questionsAnswers = [
     {
@@ -46,6 +53,8 @@ const SingleListings = ({ images }) => {
   if (!listing) {
     return <div>Not listing by id</div>;
   }
+
+  
 
   return (
     <>
@@ -905,14 +914,21 @@ const SingleListings = ({ images }) => {
               <div className="listings-sidebar">
                 <div className="listings-widget book_listings">
                   <h3>Booking Online</h3>
-                  <a href="#" className="default-btn">
+
+                  <a href="#" className="default-btn" onClick={()=>{
+                    toggleSM(!displaySM)
+                  }}>
                     Schedule a call{" "}
                   </a>
-                  <a href="#" className="default-btn">
+
+                  <a href="#" className="default-btn" onClick={()=>{
+                    toggleVM(!displayVM)
+                  }}>
                     visite Now
                   </a>
+
                   <span>
-                    By <a href="#">Booking.com</a>
+                    By <a href="#">Zestos.com</a>
                   </span>
                 </div>
 
@@ -930,6 +946,12 @@ const SingleListings = ({ images }) => {
       </section>
 
       <Footer bgColor="bg-f5f5f5" />
+
+      {/* ....................................Schedule Modal.............................. */}
+
+      <ScheduleModal displaySM={displaySM} toggleSM={toggleSM} />
+
+      <VisitModal displayVM={displayVM} toggleVM={toggleVM}/>
     </>
   );
 };

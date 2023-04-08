@@ -1,9 +1,15 @@
+import { useState } from "react";
 import Link from "next/link";
 import DashboardNavbar from "../../../components/Dashboard/DashboardNavbar";
 import DashboardListingArea from "../../../components/Dashboard/DashboardListingArea";
 import Navbar from "../../../components/_App/Navbar";
 
+//modal
+import AddUserModal from "../../../components/Modal/AddUsersModal";
+
 const Index = () => {
+
+  const[displayAUM,toggleAUM] = useState(false)
   return (
     <>
       <DashboardNavbar />
@@ -27,7 +33,9 @@ const Index = () => {
         </div>
 
         <div className="add-listings-btn">
-          <button type="submit"> Add Users </button>
+          <button type="submit" onClick={()=>{
+              toggleAUM(!displayAUM)
+          }}> Add Users </button>
         </div>
 
         <section className="listing-area">
@@ -64,6 +72,10 @@ const Index = () => {
           </div>
         </section>
       </div>
+
+      {/* ....................Add user Modal.......................... */}
+
+      <AddUserModal displayAUM={displayAUM} toggleAUM={toggleAUM}/>
     </>
   );
 };

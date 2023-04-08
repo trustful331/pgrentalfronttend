@@ -1,9 +1,15 @@
+import { useState } from "react";
 import Link from "next/link";
 import useUsers from "../../utils/Hooks/useUsers";
 import Loading from "../Shared/Loading";
 
+//modal
+import AddUserModal from "../Modal/AddUsersModal";
+
 const UserList = () => {
   const { users, isLoading } = useUsers();
+  const[displayAUM,toggleAUM] = useState(false)
+
   return (
     <>
       <div className="main-content d-flex flex-column">
@@ -26,7 +32,9 @@ const UserList = () => {
         </div>
 
         <div className="add-listings-btn">
-          <button type="submit"> Add Users </button>
+          <button type="submit" onClick={()=>{
+              toggleAUM(!displayAUM)
+          }}> Add Users </button>
         </div>
 
         <section className="listing-area">
@@ -66,6 +74,10 @@ const UserList = () => {
           </div>
         </section>
       </div>
+
+      {/* ....................Add user Modal.......................... */}
+
+      <AddUserModal displayAUM={displayAUM} toggleAUM={toggleAUM}/>
     </>
   );
 };
