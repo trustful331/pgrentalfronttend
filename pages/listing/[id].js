@@ -13,10 +13,11 @@ import VisitModal from "../../components/Modal/VisitModal";
 
 const SingleListings = ({ images }) => {
   const router = useRouter();
+  console.log(router.query);
   const { id } = router.query;
   const { listing, isLoading } = useGetListingById(id);
-  const [displaySM,toggleSM] = useState(false)
-  const [displayVM,toggleVM] = useState(false)
+  const [displaySM, toggleSM] = useState(false);
+  const [displayVM, toggleVM] = useState(false);
 
   const questionsAnswers = [
     {
@@ -53,8 +54,6 @@ const SingleListings = ({ images }) => {
   if (!listing) {
     return <div>Not listing by id</div>;
   }
-
-  
 
   return (
     <>
@@ -189,99 +188,6 @@ const SingleListings = ({ images }) => {
                 </div>
 
                 <h3>Food menu</h3>
-                {/* <div class="food-menu">
-                      <div class="week">
-                          <div class="heading">
-                              <span>Days</span>
-                              Mon-Sun
-                          </div>
-                          <p>Day 1</p>
-                          <p>Day 2</p>
-                          <p>Day 3</p>
-                          <p>Day 4</p>
-                          <p>Day 5</p>
-                          <p>Day 6</p>
-                          <p>Day 7</p>
-                      </div>
-
-                      <div class="fdetails">
-                          <div class="fcol">
-                              <div class="heading">
-                                  <span>Breakfast</span>
-                                  07:30-09:30
-                              </div>
-
-                              <div class="items">
-                                  <div class="item">
-                                      Black Chana Masala
-                                  </div>
-                                  <div class="item">
-                                      Black Chana Masala
-                                  </div>
-                                  <div class="item">
-                                      Black Chana Masala
-                                  </div>
-                              </div>
-                          </div>
-
-                          <div class="fcol">
-                              <div class="heading">
-                                  <span>Lunch</span>
-                                  12:30:-14:30
-                              </div>
-
-                              <div class="items">
-                                  <div class="item">
-                                      Black Chana Masala
-                                  </div>
-                                  <div class="item">
-                                      Black Chana Masala
-                                  </div>
-                                  <div class="item">
-                                      Black Chana Masala
-                                  </div>
-                              </div>
-                          </div>
-
-                          <div class="fcol">
-                              <div class="heading">
-                                  <span>Evening Snaks</span>
-                                  16:30-17:30
-                              </div>
-
-                              <div class="items">
-                                  <div class="item">
-                                      Black Chana Masala
-                                  </div>
-                                  <div class="item">
-                                      Black Chana Masala
-                                  </div>
-                                  <div class="item">
-                                      Black Chana Masala
-                                  </div>
-                              </div>
-                          </div>
-
-                          <div class="fcol">
-                              <div class="heading">
-                                  <span>Dinner</span>
-                                  19:30-21:30
-                              </div>
-
-                              <div class="items">
-                                  <div class="item">
-                                      Black Chana Masala
-                                  </div>
-                                  <div class="item">
-                                      Black Chana Masala
-                                  </div>
-                                  <div class="item">
-                                      Black Chana Masala
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                </div> */}
 
                 <div className="fcontainer">
                   <div className="component">
@@ -915,15 +821,23 @@ const SingleListings = ({ images }) => {
                 <div className="listings-widget book_listings">
                   <h3>Booking Online</h3>
 
-                  <a href="#" className="default-btn" onClick={()=>{
-                    toggleSM(!displaySM)
-                  }}>
+                  <a
+                    href="#"
+                    className="default-btn"
+                    onClick={() => {
+                      toggleSM(!displaySM);
+                    }}
+                  >
                     Schedule a call{" "}
                   </a>
 
-                  <a href="#" className="default-btn" onClick={()=>{
-                    toggleVM(!displayVM)
-                  }}>
+                  <a
+                    href="#"
+                    className="default-btn"
+                    onClick={() => {
+                      toggleVM(!displayVM);
+                    }}
+                  >
                     visite Now
                   </a>
 
@@ -949,9 +863,14 @@ const SingleListings = ({ images }) => {
 
       {/* ....................................Schedule Modal.............................. */}
 
-      <ScheduleModal displaySM={displaySM} toggleSM={toggleSM} />
+      <ScheduleModal
+        roomType={router.query?.roomType}
+        displaySM={displaySM}
+        toggleSM={toggleSM}
+        residentId={id}
+      />
 
-      <VisitModal displayVM={displayVM} toggleVM={toggleVM}/>
+      <VisitModal displayVM={displayVM} toggleVM={toggleVM} />
     </>
   );
 };
