@@ -139,7 +139,7 @@ const Banner = () => {
 
                 <motion.form ref={sref} animate={SRanimation}>
                   <div className="row m-0 align-items-center">
-                    <div className="col-lg-4 col-md-12 p-0">
+                    {/* <div className="col-lg-4 col-md-12 p-0">
                       <div className="form-group">
                         <label>
                           <i className="flaticon-search"></i>
@@ -150,9 +150,9 @@ const Banner = () => {
                           placeholder="What are you looking for?"
                         />
                       </div>
-                    </div>
+                    </div> */}
 
-                    <div className="col-lg-3 col-md-6 p-0">
+                    <div className="col-lg-4 col-md-6 p-0">
                       <div className="form-group">
                         {/* <label>
                           <i className="flaticon-pin"></i>
@@ -174,7 +174,7 @@ const Banner = () => {
                       </div>
                     </div>
 
-                    <div className="col-lg-3 col-md-6 p-0">
+                    <div className="col-lg-4 col-md-6 p-0">
                       <div className="form-group category-select">
                         {/* <label className="category-icon">
                           <i className="flaticon-category"></i>
@@ -198,7 +198,7 @@ const Banner = () => {
                       </div>
                     </div>
 
-                    <div className="col-lg-2 col-md-12 p-0">
+                    <div className="col-lg-4 col-md-12 p-0">
                       <div className="submit-btn">
                         <button type="submit" onClick={onSearchHandler}>
                           Search Now

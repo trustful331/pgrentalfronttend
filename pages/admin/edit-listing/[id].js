@@ -51,6 +51,50 @@ const EditListing = () => {
           </div>
         </div>
 
+        {/* aminities check box */}
+
+        <div className="add-listings-box">
+          <h3>Edit Aminities</h3>
+
+          <div className="row">
+            {
+              ["Single Bed","Double Bed","Triple Bed","Wifi","Sports Complex","Gamming Zone"].map((aminity,index)=>{
+                  return(
+                    <div className="col-lg-6 col-md-6">
+                      <div class="form-check form-switch">
+                        <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
+                        <label className="form-check-label" htmlFor="flexSwitchCheckDefault">{aminity}</label>
+                      </div>
+                    </div>
+                  )
+              })
+            }
+          </div>
+
+        </div>
+
+        {/* favourite aminities check box */}
+
+        <div className="add-listings-box">
+          <h3>Favourite Aminities *</h3>
+
+          <div className="row">
+            {
+              ["Single Bed","Double Bed","Wifi","Sports Complex"].map((aminity,index)=>{
+                  return(
+                    <div className="col-lg-6 col-md-6">
+                      <div class="form-check form-switch">
+                        <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
+                        <label className="form-check-label" htmlFor="flexSwitchCheckDefault">{aminity}</label>
+                      </div>
+                    </div>
+                  )
+              })
+            }
+          </div>
+
+        </div>
+
         {/* list of listings */}
         <div className="add-listings-box">
           <h3>lists</h3>

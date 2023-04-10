@@ -106,7 +106,8 @@ const Navbar = () => {
               </Link>
               <div className="collapse navbar-collapse mean-menu">
                 <ul className="navbar-nav">
-                  <li className="nav-item">
+                
+                  {/* <li className="nav-item">
                     <a href="#" className="dropdown-toggle nav-link">
                       Listings
                     </a>
@@ -116,7 +117,7 @@ const Navbar = () => {
                           List Layout <i className="bx bx-chevron-right"></i>
                         </a>
                         <ul className="dropdown-menu">
-                          {/* <li className="nav-item">
+                          <li className="nav-item">
                             <Link
                               href="/vertical-listings-left-sidebar"
                               activeClassName="active"
@@ -141,7 +142,7 @@ const Navbar = () => {
                             >
                               <a className="nav-link">Full Width</a>
                             </Link>
-                          </li> */}
+                          </li>
 
                           <li className="nav-item">
                             <Link
@@ -152,15 +153,15 @@ const Navbar = () => {
                             </Link>
                           </li>
 
-                          {/* <li className="nav-item">
+                          <li className="nav-item">
                             <Link
                               href="/vertical-listings-full-map"
                               activeClassName="active"
                             >
                               <a className="nav-link">Full Width + Full Map</a>
                             </Link>
-                          </li> */}
-                        </ul>
+                          </li>
+                        </ul> 
                       </li>
 
                       <li className="nav-item">
@@ -239,9 +240,9 @@ const Navbar = () => {
                         </Link>
                       </li>
                     </ul>
-                  </li>
+                  </li> */}
 
-                  <li className="nav-item">
+                  {/* <li className="nav-item">
                     <a href="#" className="dropdown-toggle nav-link">
                       Shop
                     </a>
@@ -270,9 +271,9 @@ const Navbar = () => {
                         </Link>
                       </li>
                     </ul>
-                  </li>
+                  </li> */}
 
-                  <li className="nav-item">
+                  {/* <li className="nav-item">
                     <a href="#" className="dropdown-toggle nav-link">
                       Blog
                     </a>
@@ -341,7 +342,7 @@ const Navbar = () => {
                         </ul>
                       </li>
                     </ul>
-                  </li>
+                  </li> */}
 
                   <li className="nav-item">
                     <a href="#" className="dropdown-toggle nav-link">
@@ -425,6 +426,8 @@ const Navbar = () => {
                       </li>
                     </ul>
                   </li>
+
+                  
                   {authContextData?.user !== undefined ? (
                     authContextData?.user?.role === "admin" ? (
                       <li className="nav-item">

@@ -16,6 +16,8 @@ import { useMutation } from "react-query";
 import listingApi from "../../../utils/Api/listing.api";
 import { useAuthToken } from "../../../contexts/authContext";
 
+import Loading from "../../../components/Shared/Loading";
+
 const AddListing = () => {
   const [displayIM, toggleIM] = useState(false);
   
@@ -39,8 +41,7 @@ const AddListing = () => {
     </div>
   ));
 
-  useEffect(
-    () => () => {
+  useEffect(() => () => {
       // Make sure to revoke the data uris to avoid memory leaks
       files.forEach((file) => URL.revokeObjectURL(file.preview));
     },

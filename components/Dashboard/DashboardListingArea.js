@@ -13,6 +13,11 @@ const DashboardListingArea = () => {
   return (
     <>
       <section className="listing-area">
+        {/* .....................pre Loader............................ */}
+        {/* <div className="preloader">
+            <i class="fa fa-spinner fa-spin"></i>
+        </div> */}
+
         <div className="tab-content" id="myTabContent">
           <div className="" id="active-listing">
             {isLoading ? (
