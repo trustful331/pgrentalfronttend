@@ -4,11 +4,12 @@ import { useRouter } from "next/router";
 
 import Footer from "../components/_App/Footer";
 import useListing from "../utils/Hooks/useListing";
+import Loading from "../components/Shared/Loading";
 
 const Listing = () => {
   const router = useRouter();
   const query = router.query;
-  const { listing } = useListing(query?.city, query?.roomType);
+  const { listing,isLoading } = useListing(query?.city, query?.roomType);
 
   return (
     <>
@@ -19,6 +20,7 @@ const Listing = () => {
               <div className="row">
                 <div className="col-lg-4 col-md-12">
                   <aside className="listings-widget-area">
+
                     <section className="widget widget_filters">
                       <h3 className="widget-title">Filters</h3>
 
@@ -253,7 +255,9 @@ const Listing = () => {
                           </div>
                         );
                       })} */}
-                      {listing.map(
+
+
+                      {(isLoading)?(<Loading/>):listing.map(
                         ({
                           id,
                           name,
@@ -380,6 +384,7 @@ const Listing = () => {
                           </a>
                         </div>
                       </div> */}
+
                     </div>
                   </div>
                 </div>
