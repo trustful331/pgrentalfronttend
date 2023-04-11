@@ -9,7 +9,7 @@ import Loading from "../components/Shared/Loading";
 const Listing = () => {
   const router = useRouter();
   const query = router.query;
-  const { listing,isLoading } = useListing(query?.city, query?.roomType);
+  const { listing, isLoading } = useListing(query?.city, query?.roomType);
 
   return (
     <>
