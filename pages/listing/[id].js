@@ -14,10 +14,11 @@ import VisitModal from "../../components/Modal/VisitModal";
 
 const SingleListings = ({ images }) => {
   const router = useRouter();
+  console.log(router.query);
   const { id } = router.query;
   const { listing, isLoading } = useGetListingById(id);
-  const [displaySM,toggleSM] = useState(false)
-  const [displayVM,toggleVM] = useState(false)
+  const [displaySM, toggleSM] = useState(false);
+  const [displayVM, toggleVM] = useState(false);
 
   const questionsAnswers = [
     {
@@ -54,8 +55,6 @@ const SingleListings = ({ images }) => {
   if (!listing) {
     return <div>Not listing by id</div>;
   }
-
-  
 
   return (
     <>
@@ -144,8 +143,158 @@ const SingleListings = ({ images }) => {
                               <img src={path} alt="image" />
                             </div>
                           </div>
-                        );
-                      })}
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+                <h3>Dinning Area Images</h3>
+                <div id="gallery">
+                  <div className="row justify-content-center">
+                    {listing.commonAreaPhotos.map(({ id, path }) => {
+                      return (
+                        <div key={id} className="col-lg-4 col-md-6">
+                          <div className="single-image-bpx">
+                            <img src={path} alt="image" />
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+                <h3>Rooms Images</h3>
+                <div id="gallery">
+                  <div className="row justify-content-center">
+                    {listing.roomPhotos.map(({ id, path }) => {
+                      return (
+                        <div key={id} className="col-lg-4 col-md-6">
+                          <div className="single-image-bpx">
+                            <img src={path} alt="image" />
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                <h3>Food menu</h3>
+
+                <div className="fcontainer">
+                  <div className="component">
+                    <div className="illustration">
+                      <img
+                        src="../images/accordion/illustration-box-desktop.svg"
+                        alt="illustration with box"
+                        className="illustration__box"
+                      />
+
+                      <img
+                        className="illustration__woman-desktop"
+                        src="../images/accordion/illustration-woman-online-desktop.svg"
+                        alt="illustration with woman"
+                      />
+                      <img
+                        className="illustration__woman-mobile"
+                        src="../images/accordion/illustration-woman-online-mobile.svg"
+                        alt="illustration with woman"
+                      />
+                    </div>
+                    <Accordion questionsAnswers={questionsAnswers} />
+                  </div>
+                </div>
+
+                <h3>Review</h3>
+                <div className="listings-review">
+                  <div className="rating d-flex align-items-center">
+                    <span className="bx bxs-star checked"></span>
+                    <span className="bx bxs-star checked"></span>
+                    <span className="bx bxs-star checked"></span>
+                    <span className="bx bxs-star checked"></span>
+                    <span className="bx bxs-star checked"></span>
+
+                    <span className="overall-rating">5.0</span>
+                    <span className="rating-count">(5 reviews)</span>
+                  </div>
+
+                  <div className="row">
+                    <div className="col-lg-6 col-md-6">
+                      <div className="row m-0">
+                        <div className="side">
+                          <div>Cleanliness</div>
+                        </div>
+                        <div className="middle">
+                          <div className="bar-container">
+                            <div className="bar-4"></div>
+                          </div>
+                        </div>
+                        <div className="side right">
+                          <div>4.0</div>
+                        </div>
+
+                        <div className="side">
+                          <div>Accuracy</div>
+                        </div>
+                        <div className="middle">
+                          <div className="bar-container">
+                            <div className="bar-5"></div>
+                          </div>
+                        </div>
+                        <div className="side right">
+                          <div>5.0</div>
+                        </div>
+
+                        <div className="side">
+                          <div>Location</div>
+                        </div>
+                        <div className="middle">
+                          <div className="bar-container">
+                            <div className="bar-5"></div>
+                          </div>
+                        </div>
+                        <div className="side right">
+                          <div>5.0</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="col-lg-6 col-md-6">
+                      <div className="row m-0">
+                        <div className="side">
+                          <div>Check-in</div>
+                        </div>
+                        <div className="middle">
+                          <div className="bar-container">
+                            <div className="bar-4"></div>
+                          </div>
+                        </div>
+                        <div className="side right">
+                          <div>4.0</div>
+                        </div>
+
+                        <div className="side">
+                          <div>Communication</div>
+                        </div>
+                        <div className="middle">
+                          <div className="bar-container">
+                            <div className="bar-5"></div>
+                          </div>
+                        </div>
+                        <div className="side right">
+                          <div>5.0</div>
+                        </div>
+
+                        <div className="side">
+                          <div>Value</div>
+                        </div>
+                        <div className="middle">
+                          <div className="bar-container">
+                            <div className="bar-5"></div>
+                          </div>
+                        </div>
+                        <div className="side right">
+                          <div>5.0</div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                   <h3>Common Area Images</h3>
@@ -945,6 +1094,46 @@ const SingleListings = ({ images }) => {
                 </div>
               </div>
             </div>
+
+            <div className="col-lg-4 col-md-12">
+              <div className="listings-sidebar">
+                <div className="listings-widget book_listings">
+                  <h3>Booking Online</h3>
+
+                  <a
+                    href="#"
+                    className="default-btn"
+                    onClick={() => {
+                      toggleSM(!displaySM);
+                    }}
+                  >
+                    Schedule a call{" "}
+                  </a>
+
+                  <a
+                    href="#"
+                    className="default-btn"
+                    onClick={() => {
+                      toggleVM(!displayVM);
+                    }}
+                  >
+                    visite Now
+                  </a>
+
+                  <span>
+                    By <a href="#">Zestos.com</a>
+                  </span>
+                </div>
+
+                <div className="listings-widget listings_contact_details">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d243646.88005384957!2d78.26795710593576!3d17.412627419334125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb99daeaebd2c7%3A0xae93b78392bafbc2!2sHyderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1679405651481!5m2!1sen!2sin"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    style={{ width: "100%", height: "500px" }}
+                  ></iframe>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
       }
@@ -953,9 +1142,14 @@ const SingleListings = ({ images }) => {
 
       {/* ....................................Schedule Modal.............................. */}
 
-      <ScheduleModal displaySM={displaySM} toggleSM={toggleSM} />
+      <ScheduleModal
+        roomType={router.query?.roomType}
+        displaySM={displaySM}
+        toggleSM={toggleSM}
+        residentId={id}
+      />
 
-      <VisitModal displayVM={displayVM} toggleVM={toggleVM}/>
+      <VisitModal displayVM={displayVM} toggleVM={toggleVM} />
     </>
   );
 };

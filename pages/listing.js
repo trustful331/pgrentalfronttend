@@ -287,7 +287,9 @@ const Listing = () => {
                                         <i className="flaticon-cooking"></i>
                                       </a>
 
-                                      <Link href={`/listing/${id}`}>
+                                      <Link
+                                        href={`/listing/${id}?roomType=${query?.roomType}`}
+                                      >
                                         <a className="link-btn"></a>
                                       </Link>
                                     </div>
@@ -308,7 +310,9 @@ const Listing = () => {
                                       )}
 
                                       <h3>
-                                        <Link href={`/listing/${id}`}>
+                                        <Link
+                                          href={`/listing/${id}?roomType=${query?.roomType}`}
+                                        >
                                           <a>{name}</a>
                                         </Link>
                                       </h3>
