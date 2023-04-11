@@ -16026,7 +16026,8 @@ width:100%;
 }
 
 .box{
-  display: box;
+  /* display: box; */
+  
 	display: -webkit-box;
 	display: -moz-box;
 	display: -ms-flexbox;

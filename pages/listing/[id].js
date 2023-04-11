@@ -51,8 +51,10 @@ const SingleListings = ({ images }) => {
       answer: `Chat and email support is available 24/7. Phone lines are open during normal business hours.`,
     },
   ];
+
+
   if (!listing) {
-    return <div>Not listing by id</div>;
+    return <Loading/>;
   }
 
   
@@ -65,7 +67,7 @@ const SingleListings = ({ images }) => {
           <div className="listings-details-image">
             <img
               src={
-                listing.coverImage.length === 0
+                (listing.coverImage.length === 0)
                   ? "/images/listings-details.jpg"
                   : listing.coverImage[0].path
               }
