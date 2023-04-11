@@ -1,5 +1,3 @@
-"use client";
-
 import { useState, useEffect, useContext } from "react";
 import { IndiceContext } from "../../contexts";
 import AuthModal from "../Modal/AuthModal";
@@ -106,7 +104,6 @@ const Navbar = () => {
               </Link>
               <div className="collapse navbar-collapse mean-menu">
                 <ul className="navbar-nav">
-                
                   {/* <li className="nav-item">
                     <a href="#" className="dropdown-toggle nav-link">
                       Listings
@@ -427,7 +424,6 @@ const Navbar = () => {
                     </ul>
                   </li>
 
-                  
                   {authContextData?.user !== undefined ? (
                     authContextData?.user?.role === "admin" ? (
                       <li className="nav-item">
