@@ -13,6 +13,7 @@ import AddAminities from "../../components/AdminDashBoard/AddAminities";
 import ProfileComponent from "../../components/CommonDashBoard/Profile";
 import { useAuthContext } from "../../contexts/authContext";
 import UserList from "../../components/AdminDashBoard/UsersList";
+import ScheduleVisit from "../../components/AdminDashBoard/ScduleVisits";
 
 const Template = ({ children, value }) => {
   return (
@@ -45,6 +46,8 @@ const RenderComponent = ({ slug }) => {
     return <ProfileComponent admin="admin" />;
   } else if (slug === "users") {
     return <UserList />;
+  } else if (slug === "scheduleVisit") {
+    return <ScheduleVisit />;
   }
 };
 function Dynamic() {

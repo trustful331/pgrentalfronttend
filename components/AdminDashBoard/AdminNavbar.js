@@ -52,6 +52,11 @@ const AdminNavbar = ({ value }) => {
                 path: "bookings",
                 title: "Bookings",
               },
+              {
+                iconClass: "bx  bx-copy",
+                path: "scheduleVisit",
+                title: "Schedule Visit",
+              },
             ].map(({ iconClass, path, title }) => (
               <li className="nav-item" key={path}>
                 <Link href={`/admin/${path}`}>

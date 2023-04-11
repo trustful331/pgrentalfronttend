@@ -1,12 +1,11 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { Tabs } from "react-tabs";
 import * as yup from "yup";
 
 import { useMutation, useQueryClient } from "react-query";
 import { useAuthToken } from "../../contexts/authContext";
-import featureApi from "../../utils/Api/features.api";
 import { toast } from "react-hot-toast";
 import useRoomTypes from "../../utils/Hooks/useRoomTypes";
 import { Formik } from "formik";
@@ -28,6 +27,7 @@ function AddAvailabilityModal({
   residentId,
 }) {
   const { roomTypes } = useRoomTypes();
+  console.log(residentId);
 
   const queryClient = useQueryClient();
   const token = useAuthToken();
@@ -36,8 +36,7 @@ function AddAvailabilityModal({
     onSuccess: () => {
       toggleAM();
       toast.success(`New Availability added Successfully`);
-      queryClient.invalidateQueries(["getAllFeatures", residentId]);
-      setFeatureName("");
+      queryClient.invalidateQueries([`listingDetailById ${residentId}`]);
     },
     onError: (error) => {
       const message =
