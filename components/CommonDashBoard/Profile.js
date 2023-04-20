@@ -1,25 +1,33 @@
 import Link from "next/link";
 import React from "react";
+import useAllRentPayment from "../../utils/Hooks/useAllRentPayment";
 
 function ProfileComponent({ admin }) {
+  const { allRentPayment } = useAllRentPayment();
+  console.log(allRentPayment);
   return (
     <>
       <div className="main-content d-flex flex-column">
         <div className="breadcrumb-area">
           <h1>My Profile</h1>
-          <ol className="breadcrumb">
-            <li className="item">
-              <Link href={`/${admin}`}>
-                <a>Home</a>
-              </Link>
-            </li>
-            <li className="item">
-              <Link href={`/${admin}`}>
-                <a>Dashboard</a>
-              </Link>
-            </li>
-            <li className="item">My Profile</li>
-          </ol>
+
+          {admin === "admin" ? (
+            <ol className="breadcrumb">
+              <li className="item">
+                <Link href={`/${admin}`}>
+                  <a>Home</a>
+                </Link>
+              </li>
+              <li className="item">
+                <Link href={`/${admin}`}>
+                  <a>Dashboard</a>
+                </Link>
+              </li>
+              <li className="item">My Profile</li>
+            </ol>
+          ) : (
+            <div></div>
+          )}
         </div>
 
         <div className="row">
@@ -208,7 +216,6 @@ function ProfileComponent({ admin }) {
             </div>
           </div>
         </div>
-
       </div>
     </>
   );

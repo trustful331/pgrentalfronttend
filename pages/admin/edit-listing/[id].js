@@ -5,9 +5,13 @@ import AddAvailabilityModal from "../../../components/Modal/AddAvailAbilityMocal
 import ImageModal from "../../../components/Modal/ImageAddModal";
 import Loading from "../../../components/Shared/Loading";
 import useGetListingById from "../../../utils/Hooks/useGetListingById";
+import CommentTable from "../../../components/AdminDashBoard/CommentTable";
+import EditAvailabilityModal from "../../../components/Modal/EditAvailabilityModal";
 
 const EditListing = () => {
   const [displayIM, toggleIM] = useState(false);
+  const [diaplayEditModal, setdisplayEditModal] = useState(false);
+  const [availabilityForModal, setAvailabilityForModal] = useState(undefined);
   const [displayAddvailabiltyModal, setDisplayAddAvailabiltyModal] =
     useState(false);
   const router = useRouter();
@@ -25,8 +29,8 @@ const EditListing = () => {
 
   const { name, location, AvailAbility } = listing;
   return (
-    <>
-      <div className="main-content d-flex flex-column">
+    <div className="p-3">
+      <div className="">
         <div className="breadcrumb-area">
           <h1>Edit Listing</h1>
         </div>
@@ -57,20 +61,34 @@ const EditListing = () => {
           <h3>Edit Aminities</h3>
 
           <div className="row">
-            {
-              ["Single Bed","Double Bed","Triple Bed","Wifi","Sports Complex","Gamming Zone"].map((aminity,index)=>{
-                  return(
-                    <div className="col-lg-6 col-md-6">
-                      <div class="form-check form-switch">
-                        <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
-                        <label className="form-check-label" htmlFor="flexSwitchCheckDefault">{aminity}</label>
-                      </div>
-                    </div>
-                  )
-              })
-            }
+            {[
+              "Single Bed",
+              "Double Bed",
+              "Triple Bed",
+              "Wifi",
+              "Sports Complex",
+              "Gamming Zone",
+            ].map((aminity, index) => {
+              return (
+                <div className="col-lg-6 col-md-6">
+                  <div class="form-check form-switch">
+                    <input
+                      className="form-check-input"
+                      type="checkbox"
+                      role="switch"
+                      id="flexSwitchCheckDefault"
+                    />
+                    <label
+                      className="form-check-label"
+                      htmlFor="flexSwitchCheckDefault"
+                    >
+                      {aminity}
+                    </label>
+                  </div>
+                </div>
+              );
+            })}
           </div>
-
         </div>
 
         {/* favourite aminities check box */}
@@ -79,20 +97,29 @@ const EditListing = () => {
           <h3>Favourite Aminities *</h3>
 
           <div className="row">
-            {
-              ["Single Bed","Double Bed","Wifi","Sports Complex"].map((aminity,index)=>{
-                  return(
-                    <div className="col-lg-6 col-md-6">
-                      <div class="form-check form-switch">
-                        <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
-                        <label className="form-check-label" htmlFor="flexSwitchCheckDefault">{aminity}</label>
-                      </div>
+            {["Single Bed", "Double Bed", "Wifi", "Sports Complex"].map(
+              (aminity, index) => {
+                return (
+                  <div className="col-lg-6 col-md-6">
+                    <div class="form-check form-switch">
+                      <input
+                        className="form-check-input"
+                        type="checkbox"
+                        role="switch"
+                        id="flexSwitchCheckDefault"
+                      />
+                      <label
+                        className="form-check-label"
+                        htmlFor="flexSwitchCheckDefault"
+                      >
+                        {aminity}
+                      </label>
                     </div>
-                  )
-              })
-            }
+                  </div>
+                );
+              }
+            )}
           </div>
-
         </div>
 
         {/* list of listings */}
@@ -111,21 +138,30 @@ const EditListing = () => {
             </thead>
 
             <tbody>
-              {AvailAbility.map(
-                ({ id, roomType, numberOfOccupancies, price }) => (
+              {AvailAbility.map((availability) => {
+                const { id, roomType, numberOfOccupancies, price } =
+                  availability;
+                return (
                   <tr key={id}>
                     <th scope="row">1</th>
                     <td>{roomType.typeOfRoom}</td>
                     <td>{numberOfOccupancies}</td>
                     <td>{price}</td>
                     <td>
-                      <button type="button" className="btn btn-success">
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setdisplayEditModal(!diaplayEditModal);
+                          setAvailabilityForModal(availability);
+                        }}
+                        className="btn btn-success"
+                      >
                         <i className="fas fa-edit"></i>
                       </button>
                     </td>
                   </tr>
-                )
-              )}
+                );
+              })}
             </tbody>
           </table>
 
@@ -179,7 +215,7 @@ const EditListing = () => {
 
         <div className="flex-grow-1"></div>
       </div>
-
+      <CommentTable residentId={id} />
       {/*..........................Image MODAL................................................. */}
       <ImageModal displayIM={displayIM} toggleIM={toggleIM} />
       {/*..........................Image MODAL................................................. */}
@@ -191,7 +227,13 @@ const EditListing = () => {
         toggleAM={toggleAddAvailabilityModal}
         residentId={id}
       />
-    </>
+      <EditAvailabilityModal
+        displayAM={diaplayEditModal}
+        toggleAM={setdisplayEditModal}
+        availability={availabilityForModal}
+        residentId={id}
+      />
+    </div>
   );
 };
 

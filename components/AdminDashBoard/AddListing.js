@@ -11,6 +11,8 @@ import useFacilites from "../../utils/Hooks/useFacilities";
 import { useAuthToken } from "../../contexts/authContext";
 import listingApi from "../../utils/Api/listing.api";
 import Loading from "../Shared/Loading";
+import toast from "react-hot-toast";
+import { useRouter } from "next/router";
 
 const UploadComponent = ({
   fieldName,
@@ -59,36 +61,41 @@ const UploadComponent = ({
 };
 
 const AddListing = () => {
-  const { cities,isLoading } = useCities();
+  const { cities } = useCities();
   const { features } = useFacilites();
+  const router = useRouter();
   const token = useAuthToken();
-  const { mutate } = useMutation({
+  const { mutate, isLoading } = useMutation({
     mutationFn: (data) => listingApi.addNewListing(data, token),
     mutationKey: "addNewLising",
+    onSuccess: (data) => {
+      toast.success(data.data.name + " Added Successfully");
+      router.push("/admin/my-listing");
+    },
   });
 
   return (
     <>
       <div className="main-content d-flex flex-column">
-        {
-          (isLoading)? 
-          (<Loading/>):
-          (<>
+        {isLoading ? (
+          <Loading />
+        ) : (
+          <>
             <div className="breadcrumb-area">
-            <h1>Add Listings</h1>
-            <ol className="breadcrumb">
-              <li className="item">
-                <Link href="/dashboard">
-                  <a>Home</a>
-                </Link>
-              </li>
-              <li className="item">
-                <Link href="/dashboard">
-                  <a>Dashboard</a>
-                </Link>
-              </li>
-              <li className="item">Add Listings</li>
-            </ol>
+              <h1>Add Listings</h1>
+              <ol className="breadcrumb">
+                <li className="item">
+                  <Link href="/dashboard">
+                    <a>Home</a>
+                  </Link>
+                </li>
+                <li className="item">
+                  <Link href="/dashboard">
+                    <a>Dashboard</a>
+                  </Link>
+                </li>
+                <li className="item">Add Listings</li>
+              </ol>
             </div>
             <Formik
               initialValues={{
@@ -196,7 +203,9 @@ const AddListing = () => {
                         <div className="col-lg-12 col-md-12">
                           <div className="form-group">
                             <label
-                              className={`${errors?.seoTitle ? "text-danger" : ""}`}
+                              className={`${
+                                errors?.seoTitle ? "text-danger" : ""
+                              }`}
                             >
                               <i className="bx bx-duplicate"></i>{" "}
                               {errors.seoTitle ?? "Enter Seo Title:"}
@@ -366,8 +375,14 @@ const AddListing = () => {
                     </div>
 
                     {[
-                      { field: "coverImage", title: "Add Cover  images (Gallery)" },
-                      { field: "roomPhotos", title: "Add Rooms  images (Gallery)" },
+                      {
+                        field: "coverImage",
+                        title: "Add Cover  images (Gallery)",
+                      },
+                      {
+                        field: "roomPhotos",
+                        title: "Add Rooms  images (Gallery)",
+                      },
                       {
                         field: "commonAreaPhotos",
                         title: "Add Common Area  images (Gallery)",
@@ -486,15 +501,11 @@ const AddListing = () => {
               }}
             </Formik>
           </>
-          )
-
-         }
+        )}
       </div>
     </>
   );
 };
-
-
 
 const formValidationSchema = yup.object().shape({
   name: yup

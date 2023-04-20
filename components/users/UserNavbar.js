@@ -2,7 +2,7 @@ import Link from "next/link";
 import { useState, useContext } from "react";
 import { IndiceContext } from "../../contexts";
 
-const AdminNavbar = ({ value }) => {
+const UsersNavbar = ({ value }) => {
   const { displaySideMenu, toggleSideMenu } = useContext(IndiceContext);
   const [display, setDisplay] = useState(false);
 
@@ -43,34 +43,13 @@ const AdminNavbar = ({ value }) => {
             <li className="nav-item-title">Main</li>
             {[
               {
-                iconClass: "bx bx-home-circle",
-                path: "",
-                title: "Dashboard",
-              }, 
-              {
                 iconClass: "bx  bx-copy",
-                path: "scheduleVisit",
-                title: "Schedule Visit",
+                path: "bookings",
+                title: "Bookings",
               },
-              {
-                iconClass: "bx  bx-copy",
-                path: "advanceBooking",
-                title: "Advance Booking",
-              },
-               {
-                iconClass: "bx  bx-copy",
-                path: "rentPayment",
-                title: "Rent Payment",
-              },
-              {
-                iconClass: "bx  bx-copy",
-                path: "complains",
-                title: "Complains",
-              },
-
             ].map(({ iconClass, path, title }) => (
               <li className="nav-item" key={path}>
-                <Link href={`/admin/${path}`}>
+                <Link href={`/users/${path}`}>
                   <a className={`${path === value ? "active" : ""}`}>
                     <span className="icon">
                       <i className={iconClass}></i>
@@ -84,39 +63,13 @@ const AdminNavbar = ({ value }) => {
             <li className="nav-item-title">Listings</li>
             {[
               {
-                iconClass: "bx bx-layer",
-                path: "my-listing",
-                title: "My Listings",
-              },
-              {
-                iconClass: "bx bx-layer",
-                path: "users",
-                title: "Users",
-              },
-
-              {
                 iconClass: "bx bx-plus-circle",
-                path: "add-listing",
-                title: "Add Listings",
-              },
-              {
-                iconClass: "bx bx-plus-circle",
-                path: "add-city",
-                title: "Add City",
-              },
-              {
-                iconClass: "bx bx-plus-circle",
-                path: "add-room-type",
-                title: "Add Room Type",
-              },
-              {
-                iconClass: "bx bx-plus-circle",
-                path: "add-aminities",
-                title: "Add Aminities",
+                path: "complains",
+                title: "Complain",
               },
             ].map(({ iconClass, path, title }) => (
               <li className="nav-item" key={path}>
-                <Link href={`/admin/${path}`}>
+                <Link href={`/users/${path}`}>
                   <a className={`${path === value ? "active" : ""}`}>
                     <span className="icon">
                       <i className={iconClass}></i>
@@ -137,7 +90,7 @@ const AdminNavbar = ({ value }) => {
               },
             ].map(({ iconClass, path, title }) => (
               <li className="nav-item" key={path}>
-                <Link href={`/admin/${path}`}>
+                <Link href={`/users/${path}`}>
                   <a className={`${path === value ? "active" : ""}`}>
                     <span className="icon">
                       <i className={iconClass}></i>
@@ -163,4 +116,4 @@ const AdminNavbar = ({ value }) => {
   );
 };
 
-export default AdminNavbar;
+export default UsersNavbar;

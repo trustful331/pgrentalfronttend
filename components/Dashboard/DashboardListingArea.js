@@ -6,10 +6,7 @@ import Link from "next/link";
 import Loading from "../Shared/Loading";
 import useListingForAdmin from "../../utils/Hooks/useAllListingForAdmin";
 
-const DashboardListingArea = () => {
-  const { listing, isLoading } = useListingForAdmin();
-  // console.log(listing);
-  console.log(isLoading);
+const DashboardListingArea = ({ listing, isLoading }) => {
   return (
     <>
       <section className="listing-area">
@@ -88,7 +85,6 @@ const DashboardListingArea = () => {
                           <a href="#" className="default-btn">
                             Delete
                           </a>
-
                         </div>
                       </div>
                     </div>

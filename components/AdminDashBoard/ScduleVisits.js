@@ -144,7 +144,7 @@ const ScheduleVisit = () => {
     <>
       <div className="main-content d-flex flex-column">
         <MaterialReactTable
-          state={{ isLoading: isLoading && isLoading2 }}
+          state={{ isLoading: isLoading || isLoading2 }}
           displayColumnDefOptions={{
             "mrt-row-actions": {
               muiTableHeadCellProps: {

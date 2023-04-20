@@ -13,8 +13,9 @@ const Listing = () => {
 
   return (
     <>
-      {
-        (isLoading)?(<Loading/>):
+      {isLoading ? (
+        <Loading />
+      ) : (
         <section className="listings-area mt-lg-5">
           <div className="container-fluid">
             <div className="row m-0">
@@ -22,7 +23,6 @@ const Listing = () => {
                 <div className="row">
                   <div className="col-lg-4 col-md-12">
                     <aside className="listings-widget-area">
-
                       <section className="widget widget_filters">
                         <h3 className="widget-title">Filters</h3>
 
@@ -87,7 +87,11 @@ const Listing = () => {
                             "Shopping",
                           ].map((elm, index) => (
                             <li key={index}>
-                              <input id="categories1" type="checkbox" key={elm} />
+                              <input
+                                id="categories1"
+                                type="checkbox"
+                                key={elm}
+                              />
                               <label htmlFor="categories1">{elm}</label>
                             </li>
                           ))}
@@ -126,12 +130,14 @@ const Listing = () => {
                           ))}
 
                           {/* hide list */}
-                          {["Driving (10 mi.)", "Walking (11 mi.)"].map((elm) => (
-                            <li className="hide" key={elm}>
-                              <input id="distance6" type="checkbox" />
-                              <label htmlFor="distance6">{elm}</label>
-                            </li>
-                          ))}
+                          {["Driving (10 mi.)", "Walking (11 mi.)"].map(
+                            (elm) => (
+                              <li className="hide" key={elm}>
+                                <input id="distance6" type="checkbox" />
+                                <label htmlFor="distance6">{elm}</label>
+                              </li>
+                            )
+                          )}
                           <li className="see-all-btn">
                             <span>See All</span>
                           </li>
@@ -170,95 +176,6 @@ const Listing = () => {
                       </div>
 
                       <div className="row">
-                        {/* ..........................................CARD LIST.............................................. */}
-
-                        {/* {cardData.map((obj, index) => {
-                          return (
-                            <div key={index} className="col-lg-12 col-md-12">
-                              <div className="single-listings-item">
-                                <div className="row m-0">
-                                  <div className="col-lg-4 col-md-4 p-0">
-                                    <div className="listings-image bg-img5">
-                                      <img src={obj.img_src} alt="image" />
-                                      <a href="#" className="bookmark-save">
-                                        <i className="flaticon-heart"></i>
-                                      </a>
-                                      <a href="#" className="category">
-                                        <i className="flaticon-cooking"></i>
-                                      </a>
-
-                                      <Link href="/single-listings">
-                                        <a className="link-btn"></a>
-                                      </Link>
-
-                                      <div className="author">
-                                        <div className="d-flex align-items-center">
-                                          <img src={obj.Oimg_src} alt="image" />
-                                          <span>{obj.Oname}</span>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-
-                                  <div className="col-lg-8 col-md-8 p-0">
-                                    <div className="listings-content">
-                                      {obj.isOpen ? (
-                                        <span className="status">
-                                          <i className="flaticon-save"></i> Open
-                                          Now
-                                        </span>
-                                      ) : (
-                                        <span className="status status-close">
-                                          <i className="flaticon-save"></i> Close
-                                          Now
-                                        </span>
-                                      )}
-
-                                      <h3>
-                                        <Link href="/single-listings">
-                                          <a>{obj.name}</a>
-                                        </Link>
-                                      </h3>
-                                      <div className="d-flex align-items-center justify-content-between">
-                                        <div className="rating">
-                                          <i className="bx bxs-star"></i>
-                                          <i className="bx bxs-star"></i>
-                                          <i className="bx bxs-star"></i>
-                                          <i className="bx bxs-star"></i>
-                                          <i className="bx bxs-star"></i>
-                                          <span className="count">(55)</span>
-                                        </div>
-                                        <div className="price">
-                                          Start From <span>${obj.price}</span>
-                                        </div>
-                                      </div>
-                                      <ul className="listings-meta">
-                                        {obj.amenities.map((amenity, index) => {
-                                          return (
-                                            <li key={index}>
-                                              <a href="#">
-                                                <i className="flaticon-shopping-bags"></i>{" "}
-                                                {amenity}
-                                              </a>
-                                            </li>
-                                          );
-                                        })}
-                                        <li>
-                                          <a href="#">
-                                            <i className="flaticon-pin"></i>{" "}
-                                            {obj.address}
-                                          </a>
-                                        </li>
-                                      </ul>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          );
-                        })} */}
-
-
                         {listing.map(
                           ({
                             id,
@@ -290,8 +207,15 @@ const Listing = () => {
                                         </a>
 
                                         <Link
-                                        href={`/listing/${id}?roomType=${query?.roomType}`}
-                                      >
+                                          href={{
+                                            pathname: `/listing/${id}`,
+                                            query: {
+                                              roomType:
+                                                AvailAbility[0]?.roomType
+                                                  ?.typeOfRoom,
+                                            },
+                                          }}
+                                        >
                                           <a className="link-btn"></a>
                                         </Link>
                                       </div>
@@ -301,8 +225,8 @@ const Listing = () => {
                                       <div className="listings-content">
                                         {true ? (
                                           <span className="status">
-                                            <i className="flaticon-save"></i> Open
-                                            Now
+                                            <i className="flaticon-save"></i>{" "}
+                                            Open Now
                                           </span>
                                         ) : (
                                           <span className="status status-close">
@@ -313,8 +237,15 @@ const Listing = () => {
 
                                         <h3>
                                           <Link
-                                          href={`/listing/${id}?roomType=${query?.roomType}`}
-                                        >
+                                            href={{
+                                              pathname: `/listing/${id}`,
+                                              query: {
+                                                roomType:
+                                                  AvailAbility[0]?.roomType
+                                                    ?.typeOfRoom,
+                                              },
+                                            }}
+                                          >
                                             <a>{name}</a>
                                           </Link>
                                         </h3>
@@ -362,35 +293,6 @@ const Listing = () => {
                             );
                           }
                         )}
-
-                        {/*....................................page no.........................................*/}
-
-                        {/* <div className="col-lg-12 col-md-12">
-                          <div className="pagination-area text-center">
-                            <a href="#" className="prev page-numbers">
-                              <i className="bx bx-chevrons-left"></i>
-                            </a>
-                            <span
-                              className="page-numbers current"
-                              aria-current="page"
-                            >
-                              1
-                            </span>
-                            <a href="#" className="page-numbers">
-                              2
-                            </a>
-                            <a href="#" className="page-numbers">
-                              3
-                            </a>
-                            <a href="#" className="page-numbers">
-                              4
-                            </a>
-                            <a href="#" className="next page-numbers">
-                              <i className="bx bx-chevrons-right"></i>
-                            </a>
-                          </div>
-                        </div> */}
-
                       </div>
                     </div>
                   </div>
@@ -406,8 +308,8 @@ const Listing = () => {
               </div>
             </div>
           </div>
-        </section>  
-      }
+        </section>
+      )}
 
       <Footer bgColor="bg-f5f5f5" />
     </>

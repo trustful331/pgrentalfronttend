@@ -9,7 +9,6 @@ const useGetListingById = (id) => {
     queryFn: () => listingApi.getListingById(id),
     queryKey: [`listingDetailById ${id}`],
     onSuccess: (data) => {
-      console.log(data);
       setListing(data.data);
     },
   });

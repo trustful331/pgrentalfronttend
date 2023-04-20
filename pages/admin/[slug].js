@@ -14,6 +14,9 @@ import ProfileComponent from "../../components/CommonDashBoard/Profile";
 import { useAuthContext } from "../../contexts/authContext";
 import UserList from "../../components/AdminDashBoard/UsersList";
 import ScheduleVisit from "../../components/AdminDashBoard/ScduleVisits";
+import AdvanceBooking from "../../components/AdminDashBoard/AdvanceBooking";
+import RentPaymentComponent from "../../components/AdminDashBoard/RentPaymentComponent";
+import ComplainListAdmin from "../../components/AdminDashBoard/ComplainAdmin";
 
 const Template = ({ children, value }) => {
   return (
@@ -25,7 +28,6 @@ const Template = ({ children, value }) => {
 };
 
 const RenderComponent = ({ slug }) => {
-  const router = useRouter();
   if (slug === undefined) {
     return <AdminIndex />;
   } else if (slug === "bookings") {
@@ -48,6 +50,12 @@ const RenderComponent = ({ slug }) => {
     return <UserList />;
   } else if (slug === "scheduleVisit") {
     return <ScheduleVisit />;
+  } else if (slug === "advanceBooking") {
+    return <AdvanceBooking />;
+  } else if (slug === "rentPayment") {
+    return <RentPaymentComponent />;
+  }else if (slug==='complains'){
+    return <ComplainListAdmin/>
   }
 };
 function Dynamic() {

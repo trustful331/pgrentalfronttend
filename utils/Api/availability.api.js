@@ -13,8 +13,21 @@ const addNewAvailability = async (body, token) => {
   );
   return response.data;
 };
+const updateAvailability = async (body, token, id) => {
+  const response = await axios.patch(
+    `${config.url}/api/listing/availability/${id}`,
+    body,
+    {
+      headers: {
+        authorization: `Bearer ${token}`,
+      },
+    }
+  );
+  return response.data;
+};
 
 const availabilityApi = {
   addNewAvailability,
+  updateAvailability,
 };
 export default availabilityApi;

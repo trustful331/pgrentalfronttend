@@ -1,7 +1,11 @@
 import Link from "next/link";
+import useListingForAdmin from "../../utils/Hooks/useAllListingForAdmin";
 import DashboardListingArea from "../Dashboard/DashboardListingArea";
+import Loading from "../Shared/Loading";
 
 const MyListing = () => {
+  const { listing, isLoading } = useListingForAdmin();
+
   return (
     <>
       <div className="main-content d-flex flex-column">
@@ -25,7 +29,11 @@ const MyListing = () => {
             </li>
           </ol>
         </div>
-        <DashboardListingArea />
+        {isLoading ? (
+          <Loading />
+        ) : (
+          <DashboardListingArea listing={listing} isLoading={isLoading} />
+        )}
       </div>
     </>
   );
