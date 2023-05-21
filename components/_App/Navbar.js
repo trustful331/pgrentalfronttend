@@ -196,7 +196,6 @@ const Navbar = () => {
                         <ul className="dropdown-menu">
                           {[
                             { path: "", name: "Dashboard" },
-                            { path: "bookings", name: "Bookings" },
                             { path: "my-listing", name: "My Listings" },
                             { path: "reviews", name: "Reviews" },
                             { path: "bookings", name: "Booking" },

@@ -13,9 +13,18 @@ const addNewCity = async (body, token) => {
   });
   return response.data;
 };
+const deleteCityById = async (id, token) => {
+  const response = await axios.delete(`${config.url}/api/listing/city/${id}`, {
+    headers: {
+      authorization: `Bearer ${token}`,
+    },
+  });
+  return response.data;
+};
 
 const cityApi = {
   getAllCity,
   addNewCity,
+  deleteCityById,
 };
 export default cityApi;

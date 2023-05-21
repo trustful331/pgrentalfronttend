@@ -5,8 +5,15 @@ import Link from "next/link";
 
 import Loading from "../Shared/Loading";
 import useListingForAdmin from "../../utils/Hooks/useAllListingForAdmin";
+import { useQueryClient } from "react-query";
+import { useAuthToken } from "../../contexts/authContext";
+import { useMutation } from "react-query";
+import listingApi from "../../utils/Api/listing.api";
+import toast from "react-hot-toast";
 
-const DashboardListingArea = ({ listing, isLoading }) => {
+const DashboardListingArea = ({ listing, isLoading,deleteListingById }) => {
+
+
   return (
     <>
       <section className="listing-area">
@@ -82,9 +89,12 @@ const DashboardListingArea = ({ listing, isLoading }) => {
                             Edit
                           </a> */}
 
-                          <a href="#" className="default-btn">
+                          <button
+                            onClick={() => deleteListingById(id)}
+                            className="default-btn"
+                          >
                             Delete
-                          </a>
+                          </button>
                         </div>
                       </div>
                     </div>

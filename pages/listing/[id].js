@@ -89,7 +89,7 @@ const ListingDetails = () => {
           <div className="listings-details-image">
             <img
               src={
-                listing.coverImage.length === 0
+                listing?.coverImage?.length === 0
                   ? "/images/listings-details.jpg"
                   : listing.coverImage[0].path
               }
@@ -99,7 +99,7 @@ const ListingDetails = () => {
             <div className="container">
               <div className="container">
                 <div className="listings-details-content">
-                  <h3>{listing.name}</h3>
+                  <h3>{listing?.name}</h3>
                 </div>
               </div>
             </div>
@@ -147,12 +147,12 @@ const ListingDetails = () => {
                   <p>{listing.description}</p>
                   <h3>Amenities</h3>
                   <ul className="amenities-list">
-                    {listing.FeatureResident.map(({ id, feature }) => {
+                    {listing?.FeatureResident?.map(({ id, feature }) => {
                       return (
                         <li key={id}>
                           <span>
                             <i className="bx bx-check"></i>{" "}
-                            {feature.feature_name}
+                            {feature?.feature_name}
                           </span>
                         </li>
                       );
@@ -162,7 +162,7 @@ const ListingDetails = () => {
                   <h3>Cover Image</h3>
                   <div id="gallery">
                     <div className="row justify-content-center">
-                      {listing.coverImage.map(({ id, path }) => {
+                      {listing?.coverImage?.map(({ id, path }) => {
                         return (
                           <div key={id} className="col-lg-4 col-md-6">
                             <div className="single-image-bpx">
@@ -176,7 +176,7 @@ const ListingDetails = () => {
                   <h3>Common Area Images</h3>
                   <div id="gallery">
                     <div className="row justify-content-center">
-                      {listing.dinningAreaPhotos.map(({ id, path }) => {
+                      {listing?.dinningAreaPhotos?.map(({ id, path }) => {
                         return (
                           <div key={id} className="col-lg-4 col-md-6">
                             <div className="single-image-bpx">
@@ -190,7 +190,7 @@ const ListingDetails = () => {
                   <h3>Dinning Area Images</h3>
                   <div id="gallery">
                     <div className="row justify-content-center">
-                      {listing.commonAreaPhotos.map(({ id, path }) => {
+                      {listing?.commonAreaPhotos?.map(({ id, path }) => {
                         return (
                           <div key={id} className="col-lg-4 col-md-6">
                             <div className="single-image-bpx">
@@ -204,7 +204,7 @@ const ListingDetails = () => {
                   <h3>Rooms Images</h3>
                   <div id="gallery">
                     <div className="row justify-content-center">
-                      {listing.roomPhotos.map(({ id, path }) => {
+                      {listing?.roomPhotos?.map(({ id, path }) => {
                         return (
                           <div key={id} className="col-lg-4 col-md-6">
                             <div className="single-image-bpx">
@@ -259,7 +259,7 @@ const ListingDetails = () => {
 
                   <div id="review">
                     <div className="listings-review-comments">
-                      {comments.map((comment) => (
+                      {comments?.map((comment) => (
                         <div key={comment.id} className="user-review">
                           <div className="row m-0">
                             <div className="col-lg-4 col-md-4 p-0">
@@ -321,33 +321,37 @@ const ListingDetails = () => {
 
               <div className="col-lg-4 col-md-12">
                 <div className="listings-sidebar">
-                  <div className="listings-widget book_listings">
-                    <h3>Booking Online</h3>
+                  {roomType ? (
+                    <div className="listings-widget book_listings">
+                      <h3>Booking Online</h3>
 
-                    <a
-                      href="#"
-                      className="default-btn"
-                      onClick={() => {
-                        toggleSM(!displaySM);
-                      }}
-                    >
-                      Schedule a call{" "}
-                    </a>
+                      <button
+                        className="default-btn"
+                        style={{ width: "100%" }}
+                        onClick={() => {
+                          toggleSM(!displaySM);
+                        }}
+                      >
+                        Schedule a call{" "}
+                      </button>
 
-                    <a
-                      href="#"
-                      className="default-btn"
-                      onClick={() => {
-                        toggleVM(!displayVM);
-                      }}
-                    >
-                      Book Now
-                    </a>
-                  </div>
+                      <button
+                        style={{ width: "100%" }}
+                        className="default-btn"
+                        onClick={() => {
+                          toggleVM(!displayVM);
+                        }}
+                      >
+                        Book Now
+                      </button>
+                    </div>
+                  ) : (
+                    <></>
+                  )}
 
                   <div className="listings-widget listings_contact_details">
                     <iframe
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d243646.88005384957!2d78.26795710593576!3d17.412627419334125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb99daeaebd2c7%3A0xae93b78392bafbc2!2sHyderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1679405651481!5m2!1sen!2sin"
+                      src={listing?.googleMapUrl}
                       referrerPolicy="no-referrer-when-downgrade"
                       style={{ width: "100%", height: "500px" }}
                     ></iframe>

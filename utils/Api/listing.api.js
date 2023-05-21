@@ -43,11 +43,26 @@ const addNewListing = async (body, token) => {
   });
   return response.data;
 };
+const getAnalitic = async () => {
+  const response = await axios.get(`${config.url}/api/listing/analitic`);
+  return response.data;
+};
+
+const deleteListingById = async (id, token) => {
+  const response = await axios.delete(`${config.url}/api/listing/${id}`, {
+    headers: {
+      authorization: `Bearer ${token}`,
+    },
+  });
+  return response.data;
+};
 
 const listingApi = {
   getAllListing,
   addNewListing,
   getListingById,
   getAllListingForAdmin,
+  getAnalitic,
+  deleteListingById,
 };
 export default listingApi;

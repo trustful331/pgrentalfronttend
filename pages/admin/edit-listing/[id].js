@@ -55,73 +55,6 @@ const EditListing = () => {
           </div>
         </div>
 
-        {/* aminities check box */}
-
-        <div className="add-listings-box">
-          <h3>Edit Aminities</h3>
-
-          <div className="row">
-            {[
-              "Single Bed",
-              "Double Bed",
-              "Triple Bed",
-              "Wifi",
-              "Sports Complex",
-              "Gamming Zone",
-            ].map((aminity, index) => {
-              return (
-                <div className="col-lg-6 col-md-6">
-                  <div class="form-check form-switch">
-                    <input
-                      className="form-check-input"
-                      type="checkbox"
-                      role="switch"
-                      id="flexSwitchCheckDefault"
-                    />
-                    <label
-                      className="form-check-label"
-                      htmlFor="flexSwitchCheckDefault"
-                    >
-                      {aminity}
-                    </label>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* favourite aminities check box */}
-
-        <div className="add-listings-box">
-          <h3>Favourite Aminities *</h3>
-
-          <div className="row">
-            {["Single Bed", "Double Bed", "Wifi", "Sports Complex"].map(
-              (aminity, index) => {
-                return (
-                  <div className="col-lg-6 col-md-6">
-                    <div class="form-check form-switch">
-                      <input
-                        className="form-check-input"
-                        type="checkbox"
-                        role="switch"
-                        id="flexSwitchCheckDefault"
-                      />
-                      <label
-                        className="form-check-label"
-                        htmlFor="flexSwitchCheckDefault"
-                      >
-                        {aminity}
-                      </label>
-                    </div>
-                  </div>
-                );
-              }
-            )}
-          </div>
-        </div>
-
         {/* list of listings */}
         <div className="add-listings-box">
           <h3>lists</h3>
@@ -173,44 +106,6 @@ const EditListing = () => {
               Add new Availability
             </button>
           </div>
-        </div>
-
-        {/* image show section */}
-        <div className="add-listings-box">
-          <h3>images</h3>
-
-          <div className="gallery-flex">
-            <div className="drop-gallery-thumb">
-              <div className="close">X</div>
-              <img
-                src="https://images.pexels.com/photos/268533/pexels-photo-268533.jpeg?cs=srgb&dl=pexels-pixabay-268533.jpg&fm=jpg"
-                alt="noimg"
-              />
-            </div>
-
-            <div className="drop-gallery-thumb">
-              <div className="close">X</div>
-              <img
-                src="https://images.pexels.com/photos/268533/pexels-photo-268533.jpeg?cs=srgb&dl=pexels-pixabay-268533.jpg&fm=jpg"
-                alt="noimg"
-              />
-            </div>
-          </div>
-
-          <div className="add-listings-btn sub-btn">
-            <button
-              type="submit"
-              onClick={() => {
-                toggleIM(!displayIM);
-              }}
-            >
-              Add Images
-            </button>
-          </div>
-        </div>
-
-        <div className="add-listings-btn">
-          <button type="submit">Update Listings</button>
         </div>
 
         <div className="flex-grow-1"></div>

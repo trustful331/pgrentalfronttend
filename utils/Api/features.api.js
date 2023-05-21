@@ -13,9 +13,21 @@ const addNewFeatures = async (body, token) => {
   });
   return response.data;
 };
+const deleteFeatureById = async (id, token) => {
+  const response = await axios.delete(
+    `${config.url}/api/listing/feature/${id}`,
+    {
+      headers: {
+        authorization: `Bearer ${token}`,
+      },
+    }
+  );
+  return response.data;
+};
 
 const featureApi = {
   getAllAminites,
   addNewFeatures,
+  deleteFeatureById,
 };
 export default featureApi;

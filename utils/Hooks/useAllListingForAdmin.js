@@ -6,7 +6,7 @@ import listingAPi from "../Api/listing.api";
 const useListingForAdmin = (city) => {
   const [listing, setListings] = useState([]);
   const [page, setPageNo] = useState(1);
-  const [limit, setLimit] = useState(5);
+  const [limit, setLimit] = useState(1000000);
   const token = useAuthToken();
   const { refetch, isLoading } = useQuery({
     queryFn: () => listingAPi.getAllListingForAdmin(city, limit, page, token),

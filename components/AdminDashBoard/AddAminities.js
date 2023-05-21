@@ -1,5 +1,10 @@
 import Link from "next/link";
 import React, { useState } from "react";
+import toast from "react-hot-toast";
+import { useMutation } from "react-query";
+import { useQueryClient } from "react-query";
+import { useAuthToken } from "../../contexts/authContext";
+import featureApi from "../../utils/Api/features.api";
 import useFacilites from "../../utils/Hooks/useFacilities";
 import AminityModal from "../Modal/AminityModal";
 import Loading from "../Shared/Loading";
@@ -7,6 +12,19 @@ import Loading from "../Shared/Loading";
 function AddAminities() {
   const [displayAM, toggleAM] = useState(false);
   const { features, isLoading } = useFacilites();
+  const token = useAuthToken();
+  const queryClient = useQueryClient();
+  const { mutate: deleteAminitesById, isLoading: isLoading2 } = useMutation({
+    mutationKey: ["deleteCityById"],
+    mutationFn: (id) => {
+      return featureApi.deleteFeatureById(id, token);
+    },
+    onSuccess: () => {
+      toast.success(`Aminites deleted Successfully`);
+      queryClient.invalidateQueries(["getAllFeatures"]);
+      refetch();
+    },
+  });
 
   return (
     <>
@@ -40,23 +58,21 @@ function AddAminities() {
         </div>
 
         <div className="flex-grow-1">
-          {isLoading ? (
+          {isLoading || isLoading2 ? (
             <Loading />
           ) : (
             <ul className="list-group cityList">
-              {features.map(({ feature_name, _id }) => {
+              {features.map(({ feature_name, id }) => {
                 return (
-                  <li className="list-group-item d-flex" key={_id}>
+                  <li className="list-group-item d-flex" key={id}>
                     <p className="p-0 m-0 flex-grow-1">{feature_name}</p>
 
                     <div className="add-listings-btn">
-                      <button type="submit" className="btn-success">
-                        Edit
-                      </button>
-                    </div>
-
-                    <div className="add-listings-btn">
-                      <button type="submit" className="btn-success">
+                      <button
+                        type="submit"
+                        onClick={() => deleteAminitesById(id)}
+                        className="btn-success"
+                      >
                         DELETE
                       </button>
                     </div>

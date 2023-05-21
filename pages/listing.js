@@ -5,11 +5,44 @@ import { useRouter } from "next/router";
 import Footer from "../components/_App/Footer";
 import useListing from "../utils/Hooks/useListing";
 import Loading from "../components/Shared/Loading";
+import { useMemo, useState } from "react";
 
 const Listing = () => {
   const router = useRouter();
   const query = router.query;
   const { listing, isLoading } = useListing(query?.city, query?.roomType);
+  const [iframe, setIframe] = useState(undefined);
+  const [filter,setFilter]=useState([])
+  const allFeature=useMemo(()=>{
+    const set=new Set()
+     if(!listing){
+      return []
+     }
+     listing?.forEach(({FeatureResident})=>{
+      FeatureResident.map(({feature})=>{
+          set.add(feature.feature_name)
+      })
+     })
+     return [...set]
+  },[listing])
+  const filterOnClickHandler=(e,value)=>{
+    if(e?.target?.checked){
+       setFilter(filter.concat(value))
+    }else{
+        setFilter(filter.filter((ele)=>ele!==value))
+    }
+  }
+  const filterListing=useMemo(()=>{
+    if(filter.length===0){
+       return listing
+    }
+    return listing.filter(({FeatureResident})=>{
+      const res=false
+    
+    const arr=FeatureResident.map(({feature})=>feature.feature_name)
+     return filter.every((ele=>arr.includes(ele)))
+    })
+ },[filter,listing])
 
   return (
     <>
@@ -23,124 +56,21 @@ const Listing = () => {
                 <div className="row">
                   <div className="col-lg-4 col-md-12">
                     <aside className="listings-widget-area">
-                      <section className="widget widget_filters">
-                        <h3 className="widget-title">Filters</h3>
-
-                        <ul>
-                          <li>
-                            <button type="button">$</button>
-                          </li>
-                          <li>
-                            <button type="button">$$</button>
-                          </li>
-                          <li>
-                            <button type="button">$$$</button>
-                          </li>
-                          <li>
-                            <button type="button">$$$$</button>
-                          </li>
-                        </ul>
-                      </section>
-
-                      <section className="widget widget_categories">
-                        <h3 className="widget-title">Categories</h3>
-                        <ul>
-                          {/* none hide list */}
-                          {[
-                            "Restaurant",
-                            "Hotel",
-                            "Beauty & Spa",
-                            "Fitness",
-                            "Shopping",
-                          ].map((elm, index) => (
-                            <li key={index}>
-                              <input id="categories1" type="checkbox" />
-                              <label htmlFor="categories1">{elm}</label>
-                            </li>
-                          ))}
-
-                          {/* hide list */}
-                          {["Hospital", "Events", "Clothing"].map(
-                            (elm, index) => (
-                              <li className="hide" key={index}>
-                                <input id="categories6" type="checkbox" />
-                                <label htmlFor="categories6">{elm}</label>
-                              </li>
-                            )
-                          )}
-                          <li className="see-all-btn">
-                            <span>See All</span>
-                          </li>
-                        </ul>
-                      </section>
-
                       <section className="widget widget_features">
                         <h3 className="widget-title">Features</h3>
-
                         <ul>
                           {/* none hide list */}
-                          {[
-                            "Restaurant",
-                            "Hotel",
-                            "Beauty & Spa",
-                            "Fitness",
-                            "Shopping",
-                          ].map((elm, index) => (
+                          {allFeature.map((elm, index) => (
                             <li key={index}>
                               <input
                                 id="categories1"
                                 type="checkbox"
                                 key={elm}
+                                onClick={(e)=>filterOnClickHandler(e,elm)}
                               />
                               <label htmlFor="categories1">{elm}</label>
                             </li>
                           ))}
-
-                          {/* hide list */}
-                          {["Hospital", "Events", "Clothing"].map(
-                            (elm, index) => (
-                              <li className="hide" key={elm}>
-                                <input id="categories6" type="checkbox" />
-                                <label htmlFor="categories6">{elm}</label>
-                              </li>
-                            )
-                          )}
-                          <li className="see-all-btn">
-                            <span>See All</span>
-                          </li>
-                        </ul>
-                      </section>
-
-                      <section className="widget widget_distance">
-                        <h3 className="widget-title">Distance</h3>
-
-                        <ul>
-                          {/* none hide list */}
-                          {[
-                            "Driving (5 mi.)",
-                            "Walking (1 mi.)",
-                            "Biking (2 mi.)",
-                            "Within 4 blocks",
-                            "Bicycle (6 mi.)",
-                          ].map((elm) => (
-                            <li key={elm}>
-                              <input id="distance1" type="checkbox" />
-                              <label htmlFor="distance1">{elm}</label>
-                            </li>
-                          ))}
-
-                          {/* hide list */}
-                          {["Driving (10 mi.)", "Walking (11 mi.)"].map(
-                            (elm) => (
-                              <li className="hide" key={elm}>
-                                <input id="distance6" type="checkbox" />
-                                <label htmlFor="distance6">{elm}</label>
-                              </li>
-                            )
-                          )}
-                          <li className="see-all-btn">
-                            <span>See All</span>
-                          </li>
                         </ul>
                       </section>
                     </aside>
@@ -151,32 +81,15 @@ const Listing = () => {
                       <div className="listings-grid-sorting row align-items-center">
                         <div className="col-lg-5 col-md-6 result-count">
                           <p>
-                            <span className="count">9</span> Results
+                            <span className="count">{listing.length}</span> Results
                           </p>
                         </div>
 
-                        <div className="col-lg-7 col-md-6 ordering">
-                          <div className="d-flex justify-content-end">
-                            <div className="select-box">
-                              <label>Sort By:</label>
-                              <select className="blog-select">
-                                {[
-                                  "Recommended",
-                                  "Default",
-                                  "Latest",
-                                  "Price: low to high",
-                                  "Price: high to low",
-                                ].map((elm) => (
-                                  <option key={elm}>{elm}</option>
-                                ))}
-                              </select>
-                            </div>
-                          </div>
-                        </div>
+                   
                       </div>
 
                       <div className="row">
-                        {listing.map(
+                        {filterListing.map(
                           ({
                             id,
                             name,
@@ -184,9 +97,14 @@ const Listing = () => {
                             FeatureResident,
                             city,
                             roomPhotos,
+                            googleMapUrl,
                           }) => {
                             return (
-                              <div key={id} className="col-lg-12 col-md-12">
+                              <div
+                                key={id}
+                                onMouseEnter={() => setIframe(googleMapUrl)}
+                                className="col-lg-12 col-md-12"
+                              >
                                 <div className="single-listings-item">
                                   <div className="row m-0">
                                     <div className="col-lg-4 col-md-4 p-0">
@@ -267,7 +185,8 @@ const Listing = () => {
                                         </div>
                                         <ul className="listings-meta">
                                           {FeatureResident.map(
-                                            ({ feature, featureId }, index) => {
+                                            ({ feature, featureId }) => {
+                                              console.log(googleMapUrl);
                                               return (
                                                 <li key={featureId}>
                                                   <a href="#">
@@ -302,7 +221,12 @@ const Listing = () => {
               <div className="col-xl-4 col-lg-12 col-md-12 p-0">
                 <div className="map-container fw-map side-full-map">
                   <div id="main-full-map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8385385572983!2d144.95358331584498!3d-37.81725074201705!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d4dd5a05d97%3A0x3e64f855a564844d!2s121%20King%20St%2C%20Melbourne%20VIC%203000%2C%20Australia!5e0!3m2!1sen!2sbd!4v1612419490850!5m2!1sen!2sbd"></iframe>
+                    <iframe
+                      src={`${
+                        iframe ??
+                        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8385385572983!2d144.95358331584498!3d-37.81725074201705!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d4dd5a05d97%3A0x3e64f855a564844d!2s121%20King%20St%2C%20Melbourne%20VIC%203000%2C%20Australia!5e0!3m2!1sen!2sbd!4v1612419490850!5m2!1sen!2sbd"
+                      }`}
+                    ></iframe>
                   </div>
                 </div>
               </div>

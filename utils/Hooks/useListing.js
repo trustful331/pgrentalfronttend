@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import listingAPi from "../Api/listing.api";
 
-const useListing = (city, roomType,pageLimit=5) => {
+const useListing = (city, roomType,pageLimit=1000) => {
   const [listing, setListings] = useState([]);
   const [page, setPageNo] = useState(1);
   const [limit, setLimit] = useState(pageLimit);

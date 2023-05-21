@@ -31,6 +31,10 @@ function AuthModal({ displayAuth, toggleAuth }) {
       toast.error(message);
     },
   });
+  useEffect(() => {
+    setDisable(true);
+    setPhoneNo("");
+  }, []);
   const { mutate: verifyOtp, isSuccess: isSuccess2 } = useMutation({
     mutationKey: "verifyOtpLogin",
     mutationFn: (data) => authApi.verifyOtpForLogin(data),
@@ -51,18 +55,15 @@ function AuthModal({ displayAuth, toggleAuth }) {
     },
   });
 
-
   const onSubmitForSendOtp = (e) => {
     e.preventDefault();
     if (otp === "") mutate({ number: phoneNo });
     else verifyOtp({ otp: otp, number: phoneNo });
   };
 
-
   const onChangeHandlerForPhoneNo = (e) => {
     setPhoneNo(e.target.value);
   };
-
 
   const onChangeHandlerOtp = (e) => {
     setOtp(e.target.value);
@@ -97,8 +98,6 @@ function AuthModal({ displayAuth, toggleAuth }) {
                     Login
                   </a>
                 </Tab>
-
-                
               </TabList>
             </ul>
 
@@ -106,14 +105,12 @@ function AuthModal({ displayAuth, toggleAuth }) {
               <TabPanel>
                 <div className="tab-pane fade show active" id="login">
                   <div className="miran-login">
-                    
                     <span className="sub-title">
                       <span>Phone Number</span>
                     </span>
 
                     <form onSubmit={onSubmitForSendOtp}>
-
-{/*...............................................otp send............................................................................*/}
+                      {/*...............................................otp send............................................................................*/}
 
                       <div className="form-group">
                         <input
@@ -130,7 +127,7 @@ function AuthModal({ displayAuth, toggleAuth }) {
                         Send OTP
                       </button>
 
-{/*..........................................otp verify............................................................................*/}
+                      {/*..........................................otp verify............................................................................*/}
                       <div className="form-group">
                         <input
                           type="Text"
@@ -155,7 +152,14 @@ function AuthModal({ displayAuth, toggleAuth }) {
                     </form>
 
                     <span className="dont-account">
-                      Don't get OTP? <a href="#">Resend OTP</a>
+                      Don't get OTP?{" "}
+                      <button
+                        className="btn"
+                        onClick={() => mutate({ number: phoneNo })}
+                        disabled={disable}
+                      >
+                        Resend OTP
+                      </button>
                     </span>
                   </div>
                 </div>
