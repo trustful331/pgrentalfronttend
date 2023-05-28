@@ -12,37 +12,37 @@ const Listing = () => {
   const query = router.query;
   const { listing, isLoading } = useListing(query?.city, query?.roomType);
   const [iframe, setIframe] = useState(undefined);
-  const [filter,setFilter]=useState([])
-  const allFeature=useMemo(()=>{
-    const set=new Set()
-     if(!listing){
+  const [filter, setFilter] = useState([])
+  const allFeature = useMemo(() => {
+    const set = new Set()
+    if (!listing) {
       return []
-     }
-     listing?.forEach(({FeatureResident})=>{
-      FeatureResident.map(({feature})=>{
-          set.add(feature.feature_name)
+    }
+    listing?.forEach(({ FeatureResident }) => {
+      FeatureResident.map(({ feature }) => {
+        set.add(feature.feature_name)
       })
-     })
-     return [...set]
-  },[listing])
-  const filterOnClickHandler=(e,value)=>{
-    if(e?.target?.checked){
-       setFilter(filter.concat(value))
-    }else{
-        setFilter(filter.filter((ele)=>ele!==value))
+    })
+    return [...set]
+  }, [listing])
+  const filterOnClickHandler = (e, value) => {
+    if (e?.target?.checked) {
+      setFilter(filter.concat(value))
+    } else {
+      setFilter(filter.filter((ele) => ele !== value))
     }
   }
-  const filterListing=useMemo(()=>{
-    if(filter.length===0){
-       return listing
+  const filterListing = useMemo(() => {
+    if (filter.length === 0) {
+      return listing
     }
-    return listing.filter(({FeatureResident})=>{
-      const res=false
-    
-    const arr=FeatureResident.map(({feature})=>feature.feature_name)
-     return filter.every((ele=>arr.includes(ele)))
+    return listing.filter(({ FeatureResident }) => {
+      const res = false
+
+      const arr = FeatureResident.map(({ feature }) => feature.feature_name)
+      return filter.every((ele => arr.includes(ele)))
     })
- },[filter,listing])
+  }, [filter, listing])
 
   return (
     <>
@@ -66,7 +66,7 @@ const Listing = () => {
                                 id="categories1"
                                 type="checkbox"
                                 key={elm}
-                                onClick={(e)=>filterOnClickHandler(e,elm)}
+                                onClick={(e) => filterOnClickHandler(e, elm)}
                               />
                               <label htmlFor="categories1">{elm}</label>
                             </li>
@@ -85,7 +85,7 @@ const Listing = () => {
                           </p>
                         </div>
 
-                   
+
                       </div>
 
                       <div className="row">
@@ -108,21 +108,14 @@ const Listing = () => {
                                 <div className="single-listings-item">
                                   <div className="row m-0">
                                     <div className="col-lg-4 col-md-4 p-0">
-                                      <div className="listings-image bg-img5">
-                                        <img
-                                          src={`${
-                                            roomPhotos === 0
-                                              ? "/images/listings/listings10.jpg"
-                                              : roomPhotos[0].path
-                                          }`}
+                                      <div >
+                                        <img style={{ width: "100%", height: "219px" }}
+                                          src={`${roomPhotos === 0
+                                            ? "/images/listings/listings10.jpg"
+                                            : roomPhotos[0].path
+                                            }`}
                                           alt="image"
                                         />
-                                        <a href="#" className="bookmark-save">
-                                          <i className="flaticon-heart"></i>
-                                        </a>
-                                        <a href="#" className="category">
-                                          <i className="flaticon-cooking"></i>
-                                        </a>
 
                                         <Link
                                           href={{
@@ -222,10 +215,9 @@ const Listing = () => {
                 <div className="map-container fw-map side-full-map">
                   <div id="main-full-map">
                     <iframe
-                      src={`${
-                        iframe ??
+                      src={`${iframe ??
                         "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8385385572983!2d144.95358331584498!3d-37.81725074201705!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d4dd5a05d97%3A0x3e64f855a564844d!2s121%20King%20St%2C%20Melbourne%20VIC%203000%2C%20Australia!5e0!3m2!1sen!2sbd!4v1612419490850!5m2!1sen!2sbd"
-                      }`}
+                        }`}
                     ></iframe>
                   </div>
                 </div>

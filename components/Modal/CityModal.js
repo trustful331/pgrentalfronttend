@@ -1,37 +1,19 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { TabPanel } from "react-tabs";
 import { Tab } from "react-tabs";
 import { TabList } from "react-tabs";
 import { Tabs } from "react-tabs";
 
-import { toast } from "react-hot-toast";
-import { useAuthToken } from "../../contexts/authContext";
-import { useMutation, useQueryClient } from "react-query";
-import cityApi from "../../utils/Api/city.api";
-
-function CityModal({ displayCM, toggleCM }) {
+function CityModal({ displayCM, toggleCM, mutate }) {
   const [cityName, setCityName] = useState("");
-  const queryClient = useQueryClient();
-  const token = useAuthToken();
-  const { mutate } = useMutation({
-    mutationFn: (data) => cityApi.addNewCity(data, token),
-    onSuccess: () => {
-      toast.success(`${cityName} city added successfully`);
-      queryClient.invalidateQueries({ queryKey: ["getAllcities"] });
-      setCityName("");
-    },
-    onError: (error) => {
-      const message =
-        error?.response?.data?.message || "Mobile Number does not exist";
-      toast.error(message);
-      setCityName("");
-    },
-  });
+
   const handleSubmit = (e) => {
     e.preventDefault();
     mutate({ name: cityName });
+    setCityName("");
+    toggleCM();
   };
 
   const onChnageHandler = (e) => {

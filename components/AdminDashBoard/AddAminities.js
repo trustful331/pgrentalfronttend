@@ -26,6 +26,19 @@ function AddAminities() {
     },
   });
 
+  const { mutate, isLoading: isLoading3 } = useMutation({
+    mutationFn: (data) => featureApi.addNewFeatures(data, token),
+    onSuccess: () => {
+      toggleAM();
+      toast.success(`feature added Successfully`);
+      queryClient.invalidateQueries(["getAllFeatures"]);
+    },
+    onError: () => {
+      const message = "Something went wrong try again later";
+      toast.error(message);
+    },
+  });
+
   return (
     <>
       <div className="main-content d-flex flex-column">
@@ -58,7 +71,7 @@ function AddAminities() {
         </div>
 
         <div className="flex-grow-1">
-          {isLoading || isLoading2 ? (
+          {isLoading || isLoading2 || isLoading3 ? (
             <Loading />
           ) : (
             <ul className="list-group cityList">
@@ -108,7 +121,7 @@ function AddAminities() {
       </div>
 
       {/*..........................CITY MODAL................................................. */}
-      <AminityModal displayAM={displayAM} toggleAM={toggleAM} />
+      <AminityModal displayAM={displayAM} mutate={mutate} toggleAM={toggleAM} />
     </>
   );
 }

@@ -21,10 +21,20 @@ const getUserDetail = async (token) => {
   });
   return response.data;
 };
+const updateProfilePic = async (token, data) => {
+  console.log(token, data)
+  const response = await axios.post(`${config.url}/api/auth/me/profilePic`, data, {
+    headers: {
+      authorization: `Bearer ${token}`,
+    },
+  });
+  return response.data.data;
+};
 
 const authApi = {
   loginHandlerApi,
   verifyOtpForLogin,
   getUserDetail,
+  updateProfilePic
 };
 export default authApi;

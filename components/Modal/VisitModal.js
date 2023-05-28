@@ -7,6 +7,7 @@ import { Tab } from "react-tabs";
 import { TabList } from "react-tabs";
 import { Tabs } from "react-tabs";
 import advanceBookingApi from "../../utils/Api/advanceBooking.api";
+import config from "../../utils/config";
 
 function BookRoomModal({ displayVM, toggleVM, roomType, residentId }) {
   const Razorpay = useRazorpay();
@@ -21,7 +22,7 @@ function BookRoomModal({ displayVM, toggleVM, roomType, residentId }) {
         });
       toggleVM(!displayVM);
       const options = {
-        key: "rzp_test_ftb5flv3icVffB",
+        key: config.razorpayKey,
         amount: "3000",
         currency: "INR",
         name: "Acme Corp",

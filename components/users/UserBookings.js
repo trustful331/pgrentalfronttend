@@ -1,24 +1,23 @@
 import Link from "next/link";
-import Script from 'next/script'
+import Script from "next/script";
 import useAllRentPayment from "../../utils/Hooks/useAllRentPayment";
 import Loading from "../../components/Shared/Loading";
 import rentPaymentApi from "../../utils/Api/rentPayment.api";
-import useRazorpay from "react-razorpay";
 import toast from "react-hot-toast";
 import { useAuthToken } from "../../contexts/authContext";
 import { useQueryClient } from "react-query";
+import config from "../../utils/config";
 
 const UserBookings = () => {
   const { allRentPayment, isLoading } = useAllRentPayment();
-  const queryClient=useQueryClient()
+  const queryClient = useQueryClient();
 
   const token = useAuthToken();
-
 
   const handleSubmitHandler = async ({ subscription_id, id }) => {
     try {
       const options = {
-        key: "rzp_test_ftb5flv3icVffB",
+        key: config.razorpayKey,
         subscription_id: subscription_id,
         description: "Monthly Test Plan",
         name: "Aritra Ghorai",
@@ -28,7 +27,7 @@ const UserBookings = () => {
           try {
             await rentPaymentApi.updateRentPayment(res, id, token);
             toast.success("You have successfully activate the subcription");
-            queryClient.invalidateQueries['rentPayments']
+            queryClient.invalidateQueries["rentPayments"];
           } catch (error) {
             toast.error(
               error?.response?.data?.message ||
@@ -65,7 +64,7 @@ const UserBookings = () => {
 
   return (
     <div className="main-content d-flex flex-column">
-       <Script src="https://checkout.razorpay.com/v1/checkout.js" />
+      <Script src="https://checkout.razorpay.com/v1/checkout.js" />
 
       <div className="breadcrumb-area">
         <h1>Bookings</h1>

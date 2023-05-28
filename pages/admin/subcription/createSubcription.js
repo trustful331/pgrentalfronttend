@@ -14,6 +14,7 @@ import { useRouter } from "next/router";
 import { useMutation } from "react-query";
 import { useQueryClient } from "react-query";
 import toast from "react-hot-toast";
+import { TextField } from "@mui/material";
 
 function CreateSubcription() {
   const { users, isLoading } = useUsers();
@@ -33,10 +34,10 @@ function CreateSubcription() {
       queryClient.invalidateQueries(["rentPayments"]);
       router.push("/admin/rentPayment");
     },
-    onError:()=>{
-      toast.error("There is already a subcription exist which is not cancel")
+    onError: () => {
+      toast.error("There is already a subcription exist which is not cancel");
       router.push("/admin/rentPayment");
-    }
+    },
   });
 
   const [residentId, setResidentId] = useState("");
@@ -50,7 +51,7 @@ function CreateSubcription() {
   const usersSelectOption = useMemo(() => {
     const selectOption = users.map((ele) => ({
       value: ele.id,
-      label: ele.name+" "+ele.role+"",
+      label: ele.name + " " + ele.role + "",
       color: "black",
     }));
     return selectOption;
@@ -80,8 +81,8 @@ function CreateSubcription() {
       toast.error("Plase select one AvailAbility");
       return;
     }
-    const { availabilityId, userId } = values;
-    addNewRentPayment({ availabilityId, userId });
+    const { availabilityId, userId, roomNo } = values;
+    addNewRentPayment({ availabilityId, userId, roomNo });
   };
 
   if (isLoading || isLoading2 || isLoading3) {
@@ -96,9 +97,10 @@ function CreateSubcription() {
           residentId: "",
           userId: "",
           availabilityId: "",
+          roomNo: "",
         }}
       >
-        {({ handleSubmit, values, setFieldValue }) => (
+        {({ handleSubmit, values, setFieldValue, handleChange }) => (
           <form onSubmit={handleSubmit}>
             <Stack spacing={2} direction="column" sx={{ marginBottom: 4 }}>
               <Typography>Add New Subcription</Typography>
@@ -136,7 +138,17 @@ function CreateSubcription() {
                   setFieldValue("availabilityId", select.value);
                 }}
               />
-              <Button variant="outlined" color="secondary" type="submit">
+              <TextField
+                value={values.roomNo}
+                onChange={handleChange}
+                name="roomNo"
+              />
+              <Button
+                variant="outlined"
+                title="Enter Room No"
+                color="secondary"
+                type="submit"
+              >
                 Add New Subcription
               </Button>
             </Stack>

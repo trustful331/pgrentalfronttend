@@ -6,34 +6,14 @@ import { Tab } from "react-tabs";
 import { TabList } from "react-tabs";
 import { Tabs } from "react-tabs";
 
-import { useMutation, useQueryClient } from "react-query";
-import { useAuthToken } from "../../contexts/authContext";
-import featureApi from "../../utils/Api/features.api";
-import { toast } from "react-hot-toast";
-
-function AminityModal({ displayAM, toggleAM }) {
+function AminityModal({ displayAM, toggleAM, mutate }) {
   const [featureName, setFeatureName] = useState("");
-  const queryClient = useQueryClient();
-  const token = useAuthToken();
-  const { mutate } = useMutation({
-    mutationFn: (data) => featureApi.addNewFeatures(data, token),
-    onSuccess: () => {
-      toggleAM();
-      toast.success(`${featureName} added Successfully`);
-      queryClient.invalidateQueries(["getAllFeatures"]);
-      setFeatureName("");
-    },
-    onError: (error) => {
-      const message =
-        error?.response?.data?.message || `${featureName} alredy exist`;
-      toast.error(message);
-      setFeatureName("");
-    },
-  });
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     mutate(formData);
+    toggleAM();
   };
   const onChnageHandler = (e) => {
     setFeatureName(e.target.value);

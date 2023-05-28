@@ -14,23 +14,47 @@ import { useAuthContext } from "../../contexts/authContext";
 function AuthModal({ displayAuth, toggleAuth }) {
   const [phoneNo, setPhoneNo] = useState("");
   const [otp, setOtp] = useState("");
+  const [resendTimer, setResendTimer] = useState(0);
+  const resendTimerRef = useRef(null);
+  const [wholeDisable, setWholeDisble] = useState(false);
   const [disable, setDisable] = useState(true);
-  const verifyOtpButton = useRef(null);
   const authContTextData = useAuthContext();
   const { mutate, isSuccess } = useMutation({
     mutationKey: "login",
     mutationFn: (data) => authApi.loginHandlerApi(data),
     onSuccess: (data) => {
+      setResendTimer(60); // Set the timer value to 60 seconds
       toast.success(data.message);
-      setDisable((disable) => false);
+      setDisable(() => false);
+      setWholeDisble(false);
     },
     onError: (error) => {
       console.log(error);
+      setWholeDisble(false);
       const message =
         error?.response?.data?.message || "Mobile Number does not exist";
       toast.error(message);
     },
   });
+  useEffect(() => {
+    if (isSuccess) {
+      setResendTimer(60); // Set the timer value to 60 seconds
+      // Start the timer countdown
+      resendTimerRef.current = setInterval(() => {
+        setResendTimer((prevTimer) => {
+          if (prevTimer === 0) {
+            clearInterval(resendTimerRef.current);
+            return 0;
+          }
+          return prevTimer - 1;
+        });
+      }, 1000);
+    }
+    // Clear the timer interval when the component unmounts or OTP is verified
+    return () => {
+      clearInterval(resendTimerRef.current);
+    };
+  }, [isSuccess]);
   useEffect(() => {
     setDisable(true);
     setPhoneNo("");
@@ -38,18 +62,23 @@ function AuthModal({ displayAuth, toggleAuth }) {
   const { mutate: verifyOtp, isSuccess: isSuccess2 } = useMutation({
     mutationKey: "verifyOtpLogin",
     mutationFn: (data) => authApi.verifyOtpForLogin(data),
+    onMutate: () => {
+      setWholeDisble(true);
+    },
     onSuccess: (data) => {
       toast.success(data.message);
       authContTextData.setToken(data.token);
       authContTextData.setUser(data.user);
       localStorage.setItem("token", data.token);
+      setWholeDisble(false);
       setDisable(true);
-      setPhoneNo("");
+
       setOtp("");
       toggleAuth();
     },
 
     onError: (error) => {
+      setWholeDisble(false);
       const message = error?.response?.data?.message || "Otp is oncorrect";
       toast.error(message);
     },
@@ -57,8 +86,10 @@ function AuthModal({ displayAuth, toggleAuth }) {
 
   const onSubmitForSendOtp = (e) => {
     e.preventDefault();
-    if (otp === "") mutate({ number: phoneNo });
-    else verifyOtp({ otp: otp, number: phoneNo });
+    if (otp === "") {
+      mutate({ number: phoneNo });
+      setWholeDisble(true);
+    } else verifyOtp({ otp: otp, number: phoneNo });
   };
 
   const onChangeHandlerForPhoneNo = (e) => {
@@ -117,13 +148,13 @@ function AuthModal({ displayAuth, toggleAuth }) {
                           type="text"
                           value={phoneNo}
                           onChange={onChangeHandlerForPhoneNo}
-                          readOnly={!disable}
+                          readOnly={!disable || wholeDisable}
                           placeholder="Phone Number"
                           className="form-control"
                         />
                       </div>
 
-                      <button type="submit" disabled={!disable}>
+                      <button type="submit" disabled={!disable || wholeDisable}>
                         Send OTP
                       </button>
 
@@ -133,7 +164,7 @@ function AuthModal({ displayAuth, toggleAuth }) {
                           type="Text"
                           value={otp}
                           onChange={onChangeHandlerOtp}
-                          readOnly={disable}
+                          readOnly={disable || wholeDisable}
                           placeholder="OTP"
                           className="form-control"
                         />
@@ -143,7 +174,7 @@ function AuthModal({ displayAuth, toggleAuth }) {
                         onClick={() => {
                           verifyOtp({ otp: otp, number: phoneNo });
                         }}
-                        disabled={disable}
+                        disabled={disable || wholeDisable}
                         type="submit"
                         className="disabled"
                       >
@@ -153,13 +184,17 @@ function AuthModal({ displayAuth, toggleAuth }) {
 
                     <span className="dont-account">
                       Don't get OTP?{" "}
-                      <button
-                        className="btn"
-                        onClick={() => mutate({ number: phoneNo })}
-                        disabled={disable}
-                      >
-                        Resend OTP
-                      </button>
+                      {resendTimer === 0 ? (
+                        <button
+                          className="btn"
+                          onClick={() => mutate({ number: phoneNo })}
+                          disabled={disable || wholeDisable}
+                        >
+                          Resend OTP
+                        </button>
+                      ) : (
+                        <span>Resend OTP in {resendTimer} seconds</span>
+                      )}
                     </span>
                   </div>
                 </div>

@@ -1,13 +1,21 @@
 import Link from "next/link";
-import React from "react";
-import useAllRentPayment from "../../utils/Hooks/useAllRentPayment";
+import React, { useState } from "react";
+import ChnageProfilePicModal from "../Modal/ChangeProfilePicModal";
+import useProfile from "../../utils/Hooks/useProfile";
+import Loading from "../Shared/Loading";
+import { useAuthContext } from "../../contexts/authContext";
 
 function ProfileComponent({ admin }) {
-  const { allRentPayment } = useAllRentPayment();
-  console.log(allRentPayment);
+  const [modal, showModal] = useState(false)
+  const toggleModal = () => {
+    showModal(modal ? false : true)
+  }
+  const context = useAuthContext()
   return (
     <>
       <div className="main-content d-flex flex-column">
+
+        <ChnageProfilePicModal displayAM={modal} toggleAM={toggleModal} />
         <div className="breadcrumb-area">
           <h1>My Profile</h1>
 
@@ -39,15 +47,12 @@ function ProfileComponent({ admin }) {
                 <div className="row">
                   <div className="col-lg-12 col-md-12">
                     <div className="form-group profile-box">
-                      <img src="/images/user1.jpg" alt="image" />
-                      <div className="file-upload">
-                        <input
-                          type="file"
-                          name="file"
-                          id="file"
+                      <img src={context?.user?.profile_pic?.path ?? "/images/user1.jpg"} alt="image" />
+                      <div className="file-upload" onClick={toggleModal}>
+                        <button
                           className="inputfile"
                         />
-                        <label htmlFor="file">
+                        <label htmlFor="file" >
                           <i className="bx bx-upload"></i> Upload Photo
                         </label>
                       </div>
@@ -216,6 +221,8 @@ function ProfileComponent({ admin }) {
             </div>
           </div>
         </div>
+
+
       </div>
     </>
   );

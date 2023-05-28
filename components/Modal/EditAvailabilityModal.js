@@ -45,6 +45,7 @@ function EditAvailabilityModal({
       numberOfOccupancies: Number(values.numberOfOccupancies),
       price: Number(values.price),
     });
+    toggleAM();
   };
   if (!availability) {
     return (

@@ -1,38 +1,18 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import { TabPanel } from "react-tabs";
 import { Tab } from "react-tabs";
 import { TabList } from "react-tabs";
 import { Tabs } from "react-tabs";
 
-import { toast } from "react-hot-toast";
-import { useMutation, useQueryClient } from "react-query";
-import { useAuthToken } from "../../contexts/authContext";
-import roomTypeAPi from "../../utils/Api/roomType.api";
-
-function RoomTypeModal({ displayCTM, toggleCTM }) {
+function RoomTypeModal({ displayCTM, toggleCTM, mutate }) {
   const [roomTypeName, setRoomTypeName] = useState("");
-  const queryClient = useQueryClient();
-  const token = useAuthToken();
-  const { mutate } = useMutation({
-    mutationFn: (data) => roomTypeAPi.addNewRoomType(data, token),
-    onSuccess: () => {
-      toast.success(`${roomTypeName} added successfully`);
-      queryClient.invalidateQueries({ queryKey: ["getAllRoomType"] });
-      setRoomTypeName("");
-    },
-    onError: (error) => {
-      const message =
-        error?.response?.data?.message || "Mobile Number does not exist";
-      toast.error(message);
-      setRoomTypeName("");
-    },
-  });
 
   const handleSubmit = (e) => {
     e.preventDefault();
     mutate({ name: roomTypeName });
+    toggleCTM();
   };
 
   const onChnageHandler = (e) => {

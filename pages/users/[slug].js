@@ -23,8 +23,8 @@ const RenderComponent = ({ slug }) => {
     return <ProfileComponent admin="users" />;
   } else if (slug === "profile") {
     return <ProfileComponent admin="users" />;
-  }else if(slug==="complains"){
-    return <ComplainList/>
+  } else if (slug === "complains") {
+    return <ComplainList />;
   }
 };
 function Dynamic() {

@@ -48,6 +48,9 @@ const UerList = () => {
       toast.success(`${data.data.name} added Successfully`);
       queryClient.invalidateQueries(["getAllUsers"]);
     },
+    onError: (err) => {
+      toast.error("Mobile Number alredy Exist")
+    }
   });
 
   const { mutate: deleteUserById, isLoading: isLoading3 } = useMutation({
@@ -178,6 +181,22 @@ const UerList = () => {
           )),
         },
       },
+      {
+        accessorFn: (row) => row?.DocumentImage?.path ?? "",
+        enableEditing: false, //disable editing on this column
+        enableSorting: false,
+        // filterVariant: 'range', //if not using filter modes feature, use this instead of filterFn
+        header: 'Document Image',
+        size: 200,
+        Cell: ({ cell }) => (
+          <Box
+            component="span"
+
+          >
+            <img src={cell.getValue()} alt="" />
+          </Box>
+        ),
+      },
     ],
     [getCommonEditTextFieldProps]
   );
@@ -246,16 +265,23 @@ const newUserDataValidation = yup.object().shape({
   document_detail: yup.string().min(3).required("Document Detail is Required"),
   address: yup.string().min(3).required("Address is Required"),
   email: yup.string().email().optional(),
+  documentImage: yup.mixed(),
 });
 
 //example of creating a mui dialog modal for creating new rows
 export const CreateNewAccountModal = ({ open, onClose, addNewUser }) => {
   const handleSubmit = (values) => {
-    if (values.email === "") {
-      addNewUser({ ...values, email: undefined });
-    } else {
-      addNewUser(values);
-    }
+    const formData = new FormData();
+    Object.keys(values).forEach((key) => {
+      if (key === "documentImage") {
+        formData.append(key, values[key], values[key].name);
+      } else {
+        if (values[key] !== "") {
+          formData.append(key, values[key]);
+        }
+      }
+    });
+    addNewUser(formData);
     onClose();
   };
 
@@ -272,6 +298,7 @@ export const CreateNewAccountModal = ({ open, onClose, addNewUser }) => {
             document_detail: "",
             email: "",
             address: "",
+            documentImage: "",
           }}
           validationSchema={newUserDataValidation}
         >
@@ -292,16 +319,26 @@ export const CreateNewAccountModal = ({ open, onClose, addNewUser }) => {
                   { id: "document_detail", title: "Document Detail" },
                   { id: "email", title: "Email" },
                   { id: "address", title: "Address" },
-                ].map(({ id, title }) => (
+                ].map(({ id, title, type }) => (
                   <TextField
                     key={id}
-                    error={errors[id]}
+                    error={errors[id] ? true : false}
                     label={errors[id] ?? title}
                     name={id}
+                    type={type ?? "text"}
                     onChange={handleChange}
                     value={values[id]}
                   />
                 ))}
+                <TextField
+                  key="documentImage"
+                  name="documentImage"
+                  type="file"
+                  error={errors.documentImage ? true : false}
+                  onChange={(e) => {
+                    setFieldValue("documentImage", e.target.files[0]);
+                  }}
+                />
               </Stack>
             </form>
           )}

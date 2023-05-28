@@ -45,6 +45,13 @@ const RentPaymentComponent = () => {
         size: 80,
       },
       {
+        accessorKey: "roomNo",
+        header: "Room No",
+        enableEditing: false,
+        size: 80,
+      },
+
+      {
         accessorKey: "status",
         header: "Status",
         enableEditing: false,

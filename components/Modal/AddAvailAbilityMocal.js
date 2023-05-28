@@ -52,6 +52,7 @@ function AddAvailabilityModal({
       price: Number(values.price),
       numberOfOccupancies: Number(values.numberOfOccupancies),
     });
+    toggleAM();
   };
 
   return (

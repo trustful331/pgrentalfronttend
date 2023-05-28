@@ -25,6 +25,17 @@ function AddCity() {
       refetch();
     },
   });
+  const { mutate, isLoading: isLoading3 } = useMutation({
+    mutationFn: (data) => cityApi.addNewCity(data, token),
+    onSuccess: () => {
+      toast.success(`City added successfully`);
+      queryClient.invalidateQueries({ queryKey: ["getAllcities"] });
+    },
+    onError: () => {
+      const message = "Something went wrong try again later";
+      toast.error(message);
+    },
+  });
 
   return (
     <>
@@ -60,7 +71,7 @@ function AddCity() {
         </div>
 
         {/*.................................... city List .........................................................*/}
-        {isLoading || isLoading2 ? (
+        {isLoading || isLoading2 || isLoading3 ? (
           <Loading />
         ) : (
           <ul className="list-group cityList">
@@ -111,7 +122,7 @@ function AddCity() {
       </div>
 
       {/*..........................CITY MODAL................................................. */}
-      <CityModal displayCM={displayCM} toggleCM={toggleCM} />
+      <CityModal displayCM={displayCM} mutate={mutate} toggleCM={toggleCM} />
     </>
   );
 }

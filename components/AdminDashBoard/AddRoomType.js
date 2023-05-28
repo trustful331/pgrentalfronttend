@@ -13,8 +13,20 @@ import Loading from "../Shared/Loading";
 const AddRoomType = () => {
   const [displayCTM, toggleCTM] = useState(false);
   const { roomTypes, isLoading } = useRoomTypes();
-  const token = useAuthToken();
   const queryClient = useQueryClient();
+  const token = useAuthToken();
+  const { mutate, isLoading: isLoading3 } = useMutation({
+    mutationFn: (data) => roomTypeAPi.addNewRoomType(data, token),
+    onSuccess: () => {
+      toast.success(`RoomType added successfully`);
+      queryClient.invalidateQueries({ queryKey: ["getAllRoomType"] });
+    },
+    onError: () => {
+      const message = "Something Went Wrong try again";
+      toast.error(message);
+    },
+  });
+
   const { mutate: deleteRoomTypeById, isLoading: isLoading2 } = useMutation({
     mutationKey: ["deleteRoomTypeById"],
     mutationFn: (id) => {
@@ -57,7 +69,7 @@ const AddRoomType = () => {
           </button>
         </div>
 
-        {isLoading || isLoading2 ? (
+        {isLoading || isLoading2 || isLoading3 ? (
           <Loading />
         ) : (
           <ul className="list-group cityList">
@@ -113,7 +125,11 @@ const AddRoomType = () => {
         </div>
       </div>
 
-      <RoomtypeModal displayCTM={displayCTM} toggleCTM={toggleCTM} />
+      <RoomtypeModal
+        mutate={mutate}
+        displayCTM={displayCTM}
+        toggleCTM={toggleCTM}
+      />
     </>
   );
 };
