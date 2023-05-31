@@ -259,28 +259,37 @@ const ListingDetails = () => {
 
                   <div id="review">
                     <div className="listings-review-comments">
-                      {comments?.map((comment) => (
-                        <div key={comment.id} className="user-review">
-                          <div className="row m-0">
-                            <div className="col-lg-4 col-md-4 p-0">
-                              <div className="user">
-                                <div className="d-flex">
-                                  <img src="/images/user3.jpg" alt="image" />
-                                  <div className="title">
-                                    <h4>{comment.user.name}</h4>
+                      {comments?.map((comment) => {
+                        console.log(comment);
+                        return (
+                          <div key={comment.id} className="user-review">
+                            <div className="row m-0">
+                              <div className="col-lg-4 col-md-4 p-0">
+                                <div className="user">
+                                  <div className="d-flex">
+                                    <img
+                                      src={
+                                        comment?.user?.profile_pic?.path ??
+                                        "/images/user3.jpg"
+                                      }
+                                      alt="image"
+                                    />
+                                    <div className="title">
+                                      <h4>{comment.user.name}</h4>
+                                    </div>
                                   </div>
                                 </div>
                               </div>
-                            </div>
 
-                            <div className="col-lg-8 col-md-8 p-0">
-                              <div className="comments">
-                                <p>{comment.content}</p>
+                              <div className="col-lg-8 col-md-8 p-0">
+                                <div className="comments">
+                                  <p>{comment.content}</p>
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                      ))}
+                        );
+                      })}
                     </div>
                   </div>
 
