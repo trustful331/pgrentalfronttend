@@ -11,7 +11,7 @@ import Loading from "../Shared/Loading";
 
 function AddCity() {
   const [displayCM, toggleCM] = useState(false);
-  const { cities, isLoading } = useCities();
+  const { cities, isLoading, isFetching } = useCities();
   const token = useAuthToken();
   const queryClient = useQueryClient();
   const { mutate: deleteCityById, isLoading: isLoading2 } = useMutation({
@@ -71,7 +71,7 @@ function AddCity() {
         </div>
 
         {/*.................................... city List .........................................................*/}
-        {isLoading || isLoading2 || isLoading3 ? (
+        {isLoading || isLoading2 || isLoading3 || isFetching ? (
           <Loading />
         ) : (
           <ul className="list-group cityList">

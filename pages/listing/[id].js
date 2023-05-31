@@ -32,7 +32,7 @@ const ListingDetails = () => {
     },
   });
   const [content, setContent] = useState("");
-  const { listing, isLoading } = useGetListingById(id);
+  const { listing, isLoading, isFetching } = useGetListingById(id);
   const { comments, isLoading: isLoading2 } = useCommentsByResidentId(id);
   const [displaySM, toggleSM] = useState(false);
   const [displayVM, toggleVM] = useState(false);
@@ -75,14 +75,14 @@ const ListingDetails = () => {
       answer: `Chat and email support is available 24/7. Phone lines are open during normal business hours.`,
     },
   ];
-
-  if (!listing && isLoading2) {
-    return <Loading />;
+  if (!isFetching && !isLoading && !listing) {
+    router.push("/404");
+    return;
   }
 
   return (
     <>
-      {isLoading ? (
+      {isLoading || isFetching || isLoading2 ? (
         <Loading />
       ) : (
         <section className="listings-details-area pb-70">

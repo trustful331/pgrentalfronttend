@@ -68,13 +68,17 @@ function CreateSubcription() {
 
     let options = [];
     if (filter) {
-      options = filter?.AvailAbility?.map((ele) => ({
+      console.log(filter?.AvailAbility);
+      const filterAvailability = filter?.AvailAbility?.filter(
+        (ele) => ele.numberOfOccupancies > 0
+      );
+      options = filterAvailability?.map((ele) => ({
         value: ele.uid,
         label: ele.roomType.typeOfRoom,
       }));
     }
 
-    return options;
+    return options ?? [];
   }, [listing, residentId]);
   const onSubmitHandler = (values) => {
     if (values.availabilityId === "") {

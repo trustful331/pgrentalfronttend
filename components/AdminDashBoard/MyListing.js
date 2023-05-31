@@ -8,7 +8,7 @@ import { toast } from "react-hot-toast";
 import { useAuthToken } from "../../contexts/authContext";
 
 const MyListing = () => {
-  const { listing, isLoading } = useListingForAdmin();
+  const { listing, isLoading, isFetching } = useListingForAdmin();
   const token = useAuthToken();
   const queryClient = useQueryClient();
   const { mutate: deleteListingById, isLoading: isLoading2 } = useMutation({
@@ -21,7 +21,7 @@ const MyListing = () => {
       queryClient.invalidateQueries(["getAllLisingAmin"]);
       refetch();
     },
-  });;
+  });
 
   return (
     <>
@@ -46,10 +46,14 @@ const MyListing = () => {
             </li>
           </ol>
         </div>
-        {isLoading ||isLoading2? (
+        {isLoading || isLoading2 || isFetching ? (
           <Loading />
         ) : (
-          <DashboardListingArea listing={listing} deleteListingById={deleteListingById} isLoading={isLoading} />
+          <DashboardListingArea
+            listing={listing}
+            deleteListingById={deleteListingById}
+            isLoading={isLoading}
+          />
         )}
       </div>
     </>

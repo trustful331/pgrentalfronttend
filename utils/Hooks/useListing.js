@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import listingAPi from "../Api/listing.api";
 
-const useListing = (city, roomType,pageLimit=1000) => {
+const useListing = (city, roomType, pageLimit = 1000) => {
   const [listing, setListings] = useState([]);
   const [page, setPageNo] = useState(1);
   const [limit, setLimit] = useState(pageLimit);
-  const { refetch, isLoading } = useQuery({
+  const { refetch, isLoading, isFetching } = useQuery({
     queryFn: () => listingAPi.getAllListing(city, roomType, limit, page),
     queryKey: ["getAllLising", city, roomType],
     onSuccess: (data) => {
@@ -16,6 +16,6 @@ const useListing = (city, roomType,pageLimit=1000) => {
   useEffect(() => {
     refetch();
   }, [refetch]);
-  return { listing, refetch, isLoading };
+  return { listing, refetch, isLoading, isFetching };
 };
 export default useListing;

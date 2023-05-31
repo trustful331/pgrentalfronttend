@@ -8,13 +8,13 @@ const useListingForAdmin = (city) => {
   const [page, setPageNo] = useState(1);
   const [limit, setLimit] = useState(1000000);
   const token = useAuthToken();
-  const { refetch, isLoading } = useQuery({
+  const { refetch, isLoading, isFetching } = useQuery({
     queryFn: () => listingAPi.getAllListingForAdmin(city, limit, page, token),
     queryKey: "getAllLisingAmin",
     onSuccess: (data) => {
       setListings(data.data);
     },
   });
-  return { listing, refetch, isLoading };
+  return { listing, refetch, isLoading, isFetching };
 };
 export default useListingForAdmin;
