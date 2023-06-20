@@ -88,6 +88,7 @@ const Banner = () => {
 
   const onSearchHandler = (e) => {
     e.preventDefault();
+    console.log(roomTypeValue);
     if (roomTypeValue === "select_room_type") {
       toast.error("Select a Room Type Value");
       return;

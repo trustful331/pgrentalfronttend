@@ -18,6 +18,7 @@ import AdvanceBooking from "../../components/AdminDashBoard/AdvanceBooking";
 import RentPaymentComponent from "../../components/AdminDashBoard/RentPaymentComponent";
 import ComplainListAdmin from "../../components/AdminDashBoard/ComplainAdmin";
 import TeamMember from "../../components/AdminDashBoard/TeamMember";
+import AddMeals from '../../components/AdminDashBoard/AddMeals';
 
 const Template = ({ children, value }) => {
   return (
@@ -59,6 +60,8 @@ const RenderComponent = ({ slug }) => {
     return <ComplainListAdmin />;
   } else if (slug === "teamMember") {
     return <TeamMember />;
+  } else if (slug === "addMeals") {
+    return <AddMeals />;
   }
 };
 function Dynamic() {

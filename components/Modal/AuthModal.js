@@ -183,7 +183,7 @@ function AuthModal({ displayAuth, toggleAuth }) {
                     </form>
 
                     <span className="dont-account">
-                      Don't get OTP?{" "}
+                      Dont get OTP?{" "}
                       {resendTimer === 0 ? (
                         <button
                           className="btn"

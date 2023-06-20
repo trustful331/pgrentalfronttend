@@ -119,6 +119,11 @@ const AdminNavbar = ({ value }) => {
                 path: "teamMember",
                 title: "Team Member",
               },
+               {
+                iconClass: "bx bx-plus-circle",
+                path: "addMeals",
+                title: "Add Meals",
+              },
             ].map(({ iconClass, path, title }) => (
               <li className="nav-item" key={path}>
                 <Link href={`/admin/${path}`}>
