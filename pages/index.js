@@ -4,18 +4,18 @@
 // import DesignTab2 from "../components/Home/DesignTab2";
 // import DesignTab3 from "../components/Home/DesignTab3";
 
-import Banner from "../components/Home/Banner";
+import Banner from "../components/Home2/Banner";
 import HowItWorks from "../components/Common/HowItWorks";
 import Feedback from '../components/Common/Feedback';
-import EventsArea from "../components/Home/Event";
-import Appattachment from "../components/Home/Appattachment";
+import EventsArea from "../components/Home2/Event";
+import Appattachment from "../components/Home2/Appattachment";
 
 import Footer from "../components/_App/Footer";
-import DesignTabHeading from "../components/Home/DesignTabHeading";
+import DesignTabHeading from "../components/Home2/DesignTabHeading";
 
 import AppDownload from '../components/Common/AppDownload';
-import Gallery from "../components/Home/Gallery";
-import Features from "../components/Home/Features";
+import Gallery from "../components/Home2/Gallery";
+import Features from "../components/Home2/Features";
 
 import {motion,useAnimation} from 'framer-motion'
 import {useInView} from 'react-intersection-observer'

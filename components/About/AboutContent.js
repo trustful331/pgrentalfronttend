@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import FsLightbox from 'fslightbox-react';
 
+
 const AboutContent = () => {
   const [toggler, setToggler] = useState(false);
   return (

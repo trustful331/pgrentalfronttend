@@ -4,6 +4,7 @@ import AuthModal from "../Modal/AuthModal";
 import { useAuthContext } from "../../contexts/authContext";
 import Link from "next/link";
 
+
 const Navbar = () => {
   const { toggleSideMenu } = useContext(IndiceContext);
   const [displayAuth, setDisplayAuth] = useState(false);
@@ -58,7 +59,8 @@ const Navbar = () => {
         <div className="miran-responsive-nav">
           <div className="container">
             <div className="miran-responsive-menu">
-              <div onClick={() => toggleMenu()} className="hamburger-menu ">
+            
+              <div onClick={() => toggleMenu()} className="hamburger-menu">
                 {showMenu ? (
                   <i className="bx bx-x"></i>
                 ) : (
@@ -82,13 +84,14 @@ const Navbar = () => {
                 <span className="middle-bar"></span>
                 <span className="bottom-bar"></span>
               </div>
-
+              <div className="d-flex">
               <div className="logo">
                 <Link href="/">
                   <a>
                     <img src="/images/black-logo.png" alt="logo" />
                   </a>
                 </Link>
+              </div>
               </div>
             </div>
           </div>
@@ -102,7 +105,7 @@ const Navbar = () => {
                   <img src="/images/black-logo.png" alt="logo" />
                 </a>
               </Link>
-              <div className="collapse navbar-collapse mean-menu">
+              <div className="navbar-collapse mean-menu">
                 <ul className="navbar-nav">
                   <li className="nav-item">
                     <a href="#" className="dropdown-toggle nav-link">

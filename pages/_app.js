@@ -3,6 +3,10 @@ import { IndiceProvider } from "../contexts";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { Toaster } from "react-hot-toast";
 
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+// import "../styles/fontFamily.css";
+
 import "../styles/bootstrap.min.css";
 import "../styles/animate.min.css";
 import "../styles/boxicons.min.css";
@@ -21,6 +25,7 @@ import "../styles/gallery.css"
 import '../styles/appattachment.css'
 
 import '../styles/foodmenue.css'
+import "../styles/home.css"
 
 import Layout from "../components/_App/Layout";
 import Loader from "../components/Shared/Loader";

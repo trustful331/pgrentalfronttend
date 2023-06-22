@@ -1,10 +1,13 @@
 import Link from "next/link";
 import { useState, useContext } from "react";
 import { IndiceContext } from "../../contexts";
+import cn from "classnames";
+import * as Icons from "../../components/Common/Icons"
 
 const AdminNavbar = ({ value }) => {
   const { displaySideMenu, toggleSideMenu } = useContext(IndiceContext);
   const [display, setDisplay] = useState(false);
+  const [showAside, setShowAside] = useState(false)
 
   const listingToggle = () => {
     setDisplay(!display);
@@ -17,33 +20,44 @@ const AdminNavbar = ({ value }) => {
           displaySideMenu
             ? "sidemenu-area active-sidemenu-area"
             : "sidemenu-area"
-        }>
-        <div className="sidemenu-header ">
+        }
+      >
+        <div className="sidemenu-header">
           <Link href="/">
             <a className="navbar-brand   d-flex align-items-center active">
               <img src="/images/black-logo.png" alt="image" />
             </a>
           </Link>
 
-          <div
-            className="responsive-burger-menu d-block d-lg-none"
-            onClick={toggleSideMenu}>
-            <i className="bx bx-x"></i>
-          </div>
         </div>
+        <div style={{width: 60}} className="menu-mob d-xl-none">
+                {showAside ? (
+                  <div onClick={() => setShowAside(false)} className="bg-white"><Icons.CloseIcon/></div>
+                ): (
+                  <div onClick={() => setShowAside(true)} className="bg-white"><Icons.HamburgerIcon/></div>
+                  
+                )}
+              </div>
+              {showAside && (
+                <div className="overlay d-xl-none"></div>
+              )}
 
-        <div className="sidemenu-body">
+        <div className={cn("", {
+          "sidemenu-body": showAside,
+          "hide-sidemenu-body": !showAside
+        })}>
           <ul
             className="sidemenu-nav metisMenu h-100"
             id="sidemenu-nav"
-            data-simplebar>
+            data-simplebar
+          >
             <li className="nav-item-title">Main</li>
             {[
               {
                 iconClass: "bx bx-home-circle",
                 path: "",
                 title: "Dashboard",
-              },
+              }, 
               {
                 iconClass: "bx  bx-copy",
                 path: "scheduleVisit",
@@ -54,7 +68,7 @@ const AdminNavbar = ({ value }) => {
                 path: "advanceBooking",
                 title: "Advance Booking",
               },
-              {
+               {
                 iconClass: "bx  bx-copy",
                 path: "rentPayment",
                 title: "Rent Payment",
@@ -64,6 +78,7 @@ const AdminNavbar = ({ value }) => {
                 path: "complains",
                 title: "Complains",
               },
+
             ].map(({ iconClass, path, title }) => (
               <li className="nav-item" key={path}>
                 <Link href={`/admin/${path}`}>
@@ -115,7 +130,7 @@ const AdminNavbar = ({ value }) => {
                 path: "teamMember",
                 title: "Team Member",
               },
-              {
+               {
                 iconClass: "bx bx-plus-circle",
                 path: "addMeals",
                 title: "Add Meals",
@@ -165,7 +180,7 @@ const AdminNavbar = ({ value }) => {
           </ul>
         </div>
       </div>
-    </>
+          </>
   );
 };
 

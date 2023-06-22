@@ -2,7 +2,7 @@ const Loader = ({ loading }) => {
   return (
     <>
       {loading && (
-        <div className="preloader">
+        <div style={{marginTop: -100}} className="preloader">
           <div id="cupcake" className="box">
             <span className="letter box">Z</span>
             <span className="letter box">e</span>
