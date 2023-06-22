@@ -12224,7 +12224,7 @@ Dashboard CSS
 .sidemenu-area .menu-mob {
   position: absolute;
   top: 25px;
-  right: 0;
+  right: -26rem;
   z-index: 999999999;
 }
 .sidemenu-area .sidemenu-body {
@@ -13379,6 +13379,7 @@ Preloader Area CSS
   opacity: 0.7;
   z-index: 999999;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -13398,6 +13399,8 @@ Preloader Area CSS
 .preloader .preloader span {
   position: absolute;
   display: inline-block;
+  display: flex;
+  flex-direction: column;
   color: var(--whiteColor);
   width: 100px;
   height: 100px;
@@ -13421,4 +13424,248 @@ Preloader Area CSS
 }
 .Typist span {
   color: #0ec6c6;
+}
+
+/*================================================
+Footer Area CSS
+=================================================*/
+.footer-area {
+  padding-top: 100px;
+  position: relative;
+  z-index: 1;
+}
+
+.single-footer-widget {
+  margin-bottom: 30px;
+}
+.single-footer-widget h3 {
+  font-size: 20px;
+  margin-bottom: 25px;
+}
+.single-footer-widget .link-list {
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style-type: none;
+}
+.single-footer-widget .link-list li {
+  margin-bottom: 12px;
+  color: var(--optionalColor);
+  font-weight: 600;
+}
+.single-footer-widget .link-list li a {
+  position: relative;
+  display: inline-block;
+  color: var(--optionalColor);
+}
+.single-footer-widget .link-list li a i {
+  position: absolute;
+  left: 0;
+  top: 1.7px;
+  color: var(--mainColor);
+  font-size: 13px;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition);
+}
+.single-footer-widget .link-list li a:hover {
+  color: var(--mainColor);
+  padding-left: 17px;
+}
+.single-footer-widget .link-list li a:hover i {
+  opacity: 1;
+  visibility: visible;
+}
+.single-footer-widget .link-list li:last-child {
+  margin-bottom: 0;
+}
+.single-footer-widget .languages-switch {
+  margin-bottom: 30px;
+}
+.single-footer-widget .languages-switch .nice-select {
+  background-color: #f1f1f1;
+  border-radius: 3px;
+  border: none;
+  float: unset;
+  height: 45px;
+  line-height: 45px;
+  color: var(--mainColor);
+  font-size: var(--fontSize);
+  font-weight: 600;
+  padding-top: 1px;
+  padding-bottom: 0;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+.single-footer-widget .languages-switch .nice-select::after {
+  border-color: #838383;
+  height: 11px;
+  margin-top: -6px;
+  right: 20px;
+  width: 11px;
+}
+.single-footer-widget .languages-switch .nice-select .list {
+  background-color: var(--whiteColor);
+  border-radius: 5px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  list-style-type: none;
+  border: none;
+  width: 100%;
+  margin-bottom: 0;
+  margin-top: 0;
+  padding-left: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.single-footer-widget .languages-switch .nice-select .list .option {
+  line-height: 38px;
+  min-height: 38px;
+  color: var(--blackColor);
+  position: relative;
+  transition: var(--transition);
+  padding-left: 38px;
+  padding-right: 15px;
+  font-size: var(--fontSize);
+  font-weight: 600;
+}
+.single-footer-widget .languages-switch .nice-select .list .option:hover {
+  background-color: var(--mainColor) !important;
+  color: var(--whiteColor);
+}
+.single-footer-widget .languages-switch .nice-select .list .option:hover::before {
+  color: var(--whiteColor);
+}
+.single-footer-widget .languages-switch .nice-select .list .option.focus, .single-footer-widget .languages-switch .nice-select .list .option.selected.focus {
+  background-color: transparent !important;
+  color: var(--blackColor);
+}
+.single-footer-widget .languages-switch .nice-select .list .option::before {
+  content: "\ea0f";
+  position: absolute;
+  left: 12px;
+  top: -1px;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition);
+  color: var(--mainColor);
+  font-family: "boxicons";
+  font-size: 20px;
+}
+.single-footer-widget .languages-switch .nice-select .list .option.selected::before {
+  opacity: 1;
+  visibility: visible;
+}
+.single-footer-widget .languages-switch .nice-select .list .option.selected:hover {
+  background-color: var(--mainColor) !important;
+  color: var(--whiteColor);
+}
+.single-footer-widget .languages-switch .nice-select .list .option.selected:hover::before {
+  color: var(--whiteColor);
+}
+.single-footer-widget .country-switch .nice-select {
+  background-color: #f1f1f1;
+  border-radius: 3px;
+  border: none;
+  float: unset;
+  height: 45px;
+  line-height: 45px;
+  color: var(--mainColor);
+  font-size: var(--fontSize);
+  font-weight: 600;
+  padding-top: 1px;
+  padding-bottom: 0;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+.single-footer-widget .country-switch .nice-select::after {
+  border-color: #838383;
+  height: 11px;
+  margin-top: -6px;
+  right: 20px;
+  width: 11px;
+}
+.single-footer-widget .country-switch .nice-select .list {
+  background-color: var(--whiteColor);
+  border-radius: 5px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  list-style-type: none;
+  border: none;
+  width: 100%;
+  margin-bottom: 0;
+  margin-top: 0;
+  padding-left: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.single-footer-widget .country-switch .nice-select .list .option {
+  line-height: 38px;
+  min-height: 38px;
+  color: var(--blackColor);
+  position: relative;
+  transition: var(--transition);
+  padding-left: 38px;
+  padding-right: 15px;
+  font-size: var(--fontSize);
+  font-weight: 600;
+}
+.single-footer-widget .country-switch .nice-select .list .option:hover {
+  background-color: var(--mainColor) !important;
+  color: var(--whiteColor);
+}
+.single-footer-widget .country-switch .nice-select .list .option:hover::before {
+  color: var(--whiteColor);
+}
+.single-footer-widget .country-switch .nice-select .list .option.focus, .single-footer-widget .country-switch .nice-select .list .option.selected.focus {
+  background-color: transparent !important;
+  color: var(--blackColor);
+}
+.single-footer-widget .country-switch .nice-select .list .option::before {
+  content: "\ea0f";
+  position: absolute;
+  left: 12px;
+  top: -1px;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition);
+  color: var(--mainColor);
+  font-family: "boxicons";
+  font-size: 20px;
+}
+.single-footer-widget .country-switch .nice-select .list .option.selected::before {
+  opacity: 1;
+  visibility: visible;
+}
+.single-footer-widget .country-switch .nice-select .list .option.selected:hover {
+  background-color: var(--mainColor) !important;
+  color: var(--whiteColor);
+}
+.single-footer-widget .country-switch .nice-select .list .option.selected:hover::before {
+  color: var(--whiteColor);
+}
+
+.footer-image {
+  margin-top: -100px;
+  position: relative;
+  z-index: -1;
+}
+
+.copyright-area {
+  text-align: center;
+  border-top: 1px solid #eeeeee;
+  margin-top: 35px;
+  padding-top: 30px;
+}
+.copyright-area p {
+  line-height: initial;
+  color: #989898;
+}
+.copyright-area p span {
+  color: var(--blackColor);
+  font-weight: 600;
+}
+.copyright-area p a {
+  color: var(--mainColor);
+  font-weight: 600;
+}
+.copyright-area p a:hover {
+  color: var(--blackColor);
 }/*# sourceMappingURL=style.css.map */

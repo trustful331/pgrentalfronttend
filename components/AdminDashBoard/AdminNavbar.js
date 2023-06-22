@@ -24,7 +24,7 @@ const AdminNavbar = ({ value }) => {
       >
         <div className="sidemenu-header">
           <Link href="/">
-            <a className="navbar-brand   d-flex align-items-center active">
+            <a className="navbar-brand d-flex align-items-center active">
               <img src="/images/black-logo.png" alt="image" />
             </a>
           </Link>
@@ -39,7 +39,7 @@ const AdminNavbar = ({ value }) => {
                 )}
               </div>
               {showAside && (
-                <div className="overlay d-xl-none"></div>
+                <div onClick={() => setShowAside(false)} className="overlay d-xl-none"></div>
               )}
 
         <div className={cn("", {
@@ -86,7 +86,7 @@ const AdminNavbar = ({ value }) => {
                     <span className="icon">
                       <i className={iconClass}></i>
                     </span>
-                    <span className="menu-title">{title}</span>
+                    <span onClick={() => setShowAside(false)} className="menu-title">{title}</span>
                   </a>
                 </Link>
               </li>

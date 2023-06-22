@@ -14108,7 +14108,7 @@ Dashboard CSS
   .menu-mob {
     position: absolute;
     top: 25px;
-    right: 0;
+    right: -26rem;
     z-index: 999999999;
   }
 
@@ -15733,6 +15733,8 @@ Dashboard CSS
 /*================================================
 Preloader Area CSS
 =================================================*/
+
+
 .preloader {
   position: fixed;
   top: 0;
@@ -15743,6 +15745,7 @@ Preloader Area CSS
   opacity: 0.7;
   z-index: 999999;
   display: flex;
+    flex-direction: column;
   justify-content: center;
   align-items: center;
   .preloader {
@@ -15761,6 +15764,8 @@ Preloader Area CSS
     span {
       position: absolute;
       display: inline-block;
+      display: flex;
+    flex-direction: column;
       color: var(--whiteColor);
       width: 100px;
       height: 100px;
@@ -15806,3 +15811,295 @@ Preloader Area CSS
   }
 }
 
+
+// Footer CSS
+
+/*================================================
+Footer Area CSS
+=================================================*/
+.footer-area {
+	padding-top: 100px;
+	position: relative;
+	z-index: 1;
+}
+.single-footer-widget {
+	margin-bottom: 30px;
+
+	h3 {
+		font-size: 20px;
+		margin-bottom: 25px;
+	}
+	.link-list {
+		padding-left: 0;
+		margin-bottom: 0;
+		list-style-type: none;
+
+		li {
+			margin-bottom: 12px;
+			color: var(--optionalColor);
+			font-weight: 600;
+
+			a {
+				position: relative;
+				display: inline-block;
+				color: var(--optionalColor);
+
+				i {
+					position: absolute;
+					left: 0;
+					top: 1.7px;
+					color: var(--mainColor);
+					font-size: 13px;
+					opacity: 0;
+					visibility: hidden;
+					transition: var(--transition);
+				}
+				&:hover {
+					color: var(--mainColor);
+					padding-left: 17px;
+
+					i {
+						opacity: 1;
+						visibility: visible;
+					}
+				}
+			}
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+	.languages-switch {
+		margin-bottom: 30px;
+
+		.nice-select {
+			background-color: #f1f1f1;
+			border-radius: 3px;
+			border: none;
+			float: unset;
+			height: 45px;
+			line-height: 45px;
+			color: var(--mainColor);
+			font: {
+				size: var(--fontSize);
+				weight: 600;
+			}
+			padding: {
+				top: 1px;
+				bottom: 0;
+				left: 12px;
+				right: 12px;
+			}
+			&::after {
+				border-color: #838383;
+				height: 11px;
+				margin-top: -6px;
+				right: 20px;
+				width: 11px;
+			}
+			.list {
+				background-color: var(--whiteColor);
+				border-radius: 5px;
+				box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+				list-style-type: none;
+				border: none;
+				width: 100%;
+				margin: {
+					bottom: 0;
+					top: 0;
+				}
+				padding: {
+					left: 0;
+					top: 10px;
+					bottom: 10px;
+				}
+				.option {
+					line-height: 38px;
+					min-height: 38px;
+					color: var(--blackColor);
+					position: relative;
+					transition: var(--transition);
+					padding: {
+						left: 38px;
+						right: 15px;
+					}
+					font: {
+						size: var(--fontSize);
+						weight: 600;
+					}
+					&:hover {
+						background-color: var(--mainColor) !important;
+						color: var(--whiteColor);
+
+						&::before {
+							color: var(--whiteColor);
+						}
+					}
+					&.focus,
+					&.selected.focus {
+						background-color: transparent !important;
+						color: var(--blackColor);
+					}
+					&::before {
+						content: "\ea0f";
+						position: absolute;
+						left: 12px;
+						top: -1px;
+						opacity: 0;
+						visibility: hidden;
+						transition: var(--transition);
+						color: var(--mainColor);
+						font: {
+							family: "boxicons";
+							size: 20px;
+						}
+					}
+					&.selected {
+						&::before {
+							opacity: 1;
+							visibility: visible;
+						}
+						&:hover {
+							background-color: var(--mainColor) !important;
+							color: var(--whiteColor);
+
+							&::before {
+								color: var(--whiteColor);
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	.country-switch {
+		.nice-select {
+			background-color: #f1f1f1;
+			border-radius: 3px;
+			border: none;
+			float: unset;
+			height: 45px;
+			line-height: 45px;
+			color: var(--mainColor);
+			font: {
+				size: var(--fontSize);
+				weight: 600;
+			}
+			padding: {
+				top: 1px;
+				bottom: 0;
+				left: 12px;
+				right: 12px;
+			}
+			&::after {
+				border-color: #838383;
+				height: 11px;
+				margin-top: -6px;
+				right: 20px;
+				width: 11px;
+			}
+			.list {
+				background-color: var(--whiteColor);
+				border-radius: 5px;
+				box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+				list-style-type: none;
+				border: none;
+				width: 100%;
+				margin: {
+					bottom: 0;
+					top: 0;
+				}
+				padding: {
+					left: 0;
+					top: 10px;
+					bottom: 10px;
+				}
+				.option {
+					line-height: 38px;
+					min-height: 38px;
+					color: var(--blackColor);
+					position: relative;
+					transition: var(--transition);
+					padding: {
+						left: 38px;
+						right: 15px;
+					}
+					font: {
+						size: var(--fontSize);
+						weight: 600;
+					}
+					&:hover {
+						background-color: var(--mainColor) !important;
+						color: var(--whiteColor);
+
+						&::before {
+							color: var(--whiteColor);
+						}
+					}
+					&.focus,
+					&.selected.focus {
+						background-color: transparent !important;
+						color: var(--blackColor);
+					}
+					&::before {
+						content: "\ea0f";
+						position: absolute;
+						left: 12px;
+						top: -1px;
+						opacity: 0;
+						visibility: hidden;
+						transition: var(--transition);
+						color: var(--mainColor);
+						font: {
+							family: "boxicons";
+							size: 20px;
+						}
+					}
+					&.selected {
+						&::before {
+							opacity: 1;
+							visibility: visible;
+						}
+						&:hover {
+							background-color: var(--mainColor) !important;
+							color: var(--whiteColor);
+
+							&::before {
+								color: var(--whiteColor);
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+.footer-image {
+	margin-top: -100px;
+	position: relative;
+	z-index: -1;
+}
+.copyright-area {
+	text-align: center;
+	border-top: 1px solid #eeeeee;
+	margin-top: 35px;
+	padding-top: 30px;
+
+	p {
+		line-height: initial;
+		color: #989898;
+
+		span {
+			color: var(--blackColor);
+			font-weight: 600;
+		}
+		a {
+			color: var(--mainColor);
+			font-weight: 600;
+
+			&:hover {
+				color: var(--blackColor);
+			}
+		}
+	}
+}
