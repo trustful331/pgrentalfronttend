@@ -1,10 +1,13 @@
 import Link from "next/link";
 import { useState, useContext } from "react";
 import { IndiceContext } from "../../contexts";
+import cn from "classnames";
+import * as Icons from "../../components/Common/Icons"
 
 const AdminNavbar = ({ value }) => {
   const { displaySideMenu, toggleSideMenu } = useContext(IndiceContext);
   const [display, setDisplay] = useState(false);
+  const [showAside, setShowAside] = useState(false)
 
   const listingToggle = () => {
     setDisplay(!display);
@@ -19,22 +22,30 @@ const AdminNavbar = ({ value }) => {
             : "sidemenu-area"
         }
       >
-        <div className="sidemenu-header ">
+        <div className="sidemenu-header">
           <Link href="/">
-            <a className="navbar-brand   d-flex align-items-center active">
+            <a className="navbar-brand d-flex align-items-center active">
               <img src="/images/black-logo.png" alt="image" />
             </a>
           </Link>
 
-          <div
-            className="responsive-burger-menu d-block d-lg-none"
-            onClick={toggleSideMenu}
-          >
-            <i className="bx bx-x"></i>
-          </div>
         </div>
+        <div style={{width: 60}} className="menu-mob d-xl-none">
+                {showAside ? (
+                  <div onClick={() => setShowAside(false)} className="bg-white"><Icons.CloseIcon/></div>
+                ): (
+                  <div onClick={() => setShowAside(true)} className="bg-white"><Icons.HamburgerIcon/></div>
+                  
+                )}
+              </div>
+              {showAside && (
+                <div onClick={() => setShowAside(false)} className="overlay d-xl-none"></div>
+              )}
 
-        <div className="sidemenu-body">
+        <div className={cn("", {
+          "sidemenu-body": showAside,
+          "hide-sidemenu-body": !showAside
+        })}>
           <ul
             className="sidemenu-nav metisMenu h-100"
             id="sidemenu-nav"
@@ -75,7 +86,7 @@ const AdminNavbar = ({ value }) => {
                     <span className="icon">
                       <i className={iconClass}></i>
                     </span>
-                    <span className="menu-title">{title}</span>
+                    <span onClick={() => setShowAside(false)} className="menu-title">{title}</span>
                   </a>
                 </Link>
               </li>
@@ -169,7 +180,7 @@ const AdminNavbar = ({ value }) => {
           </ul>
         </div>
       </div>
-    </>
+          </>
   );
 };
 
