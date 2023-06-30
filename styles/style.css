@@ -13669,3 +13669,265 @@ Footer Area CSS
 .copyright-area p a:hover {
   color: var(--blackColor);
 }/*# sourceMappingURL=style.css.map */
+
+#dateinputid {
+  margin-top: 2%;
+}
+.loginRegisterModal .modal-dialog .modal-content .tab-content .miran-login form .addmealbtn {
+  display: block;
+  background-color: var(--mainColor);
+  color: var(--whiteColor);
+  border: none;
+  font-weight: 600;
+  display: block;
+  width: 20%;
+  border-radius: 5px;
+  padding: 10px 5px 10px;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+  margin-bottom: 4%;
+  margin-top: 2%;
+}
+.input_addmeals {
+  width: 40%;
+  border: 1px solid grey;
+  padding-left: 2%;
+  padding: 1% ;
+}
+#breakfastsetmealid {
+  display: inline-block;
+  width: 80px;
+  margin: 2%;
+  background-color: var(--mainColor);
+  color: var(--whiteColor);
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+}
+#addmealhead {
+  margin-left: 3% !important;
+}
+.Addmealcon {
+  margin-top: 5%;
+}
+#addorderhead {
+  margin-left: 3% !important;
+}
+.count_input {
+  border: 1px solid grey;
+  padding-left: 2%;
+}
+.orderfooduserhead {
+   color: red !important ; 
+}
+.orderfooduserheadtrue {
+   color: green !important ; 
+}
+.mealcountcon {
+  padding: 2%;
+  width: 90%;
+  border: 1px solid rgba(42,166,159,0.78);
+  box-shadow: 10px 6px 3px 0px rgba(42,166,159,0.78);
+-webkit-box-shadow: 10px 6px 3px 0px rgba(42,166,159,0.78);
+-moz-box-shadow: 10px 6px 3px 0px rgba(42,166,159,0.78);
+  margin: 0 auto;
+  border-radius: 10px;
+}
+.mealcountcon h1 {
+  font-weight: 700;
+  font-size: 24px;
+}
+.mealcountcon p {
+  font-weight: 500;
+  font-size: 20px;
+}
+.mealcountcon h3 {
+  font-weight: 400;
+  font-size: 18px;
+}
+.mealcountcon h4 {
+  font-weight: 400;
+  font-size: 18px;
+}
+.ordersselectcon{
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
+  margin-bottom: 2%;
+}
+.selectcitytagorders {
+  width: 150px;
+  height: 40px;
+  border: 1px solid rgba(42,166,159,0.78);
+  border-radius: 10px;
+}
+.logohome {
+  height: 4em;
+  margin-left: 2%;
+}
+.logocenter {
+  margin-left: 60%;
+  height: 5em;
+}
+.mealcountcon h1 {
+  width: 100%;
+}
+.mealcountcontwo {
+  display: flex;
+}
+.mealcountcontwo div{
+  width: 33%;
+}
+.spn_orders_not {
+  font-size: 20px;
+  font-weight: 600;
+  opacity: 0.8;
+}
+.spinner {
+  animation-name: spin;
+  animation-duration: 500ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  color: #000;
+}
+.moredetord_spn {
+  color: #0982cc;
+  cursor: pointer;
+}
+.fullordercon {
+  width: 50%;
+  height: 10em;
+  position: absolute;
+  top: 30%;
+   padding: 1%;
+   border: 1px solid rgba(42,166,159,0.78);
+   /* display: flex; */
+   /* margin: 0 auto;
+    */
+    background-color: #EBFFFA;
+    margin-left: 30%;
+    border-radius: 10px;
+}
+.canceliconn {
+  cursor: pointer;
+  margin-right: 2%;
+}
+.fullordercon .firstcon {
+  display: flex;
+  justify-content: space-between;
+   margin-top: 1%;
+  
+}
+.fullorderhead {
+  margin-left: 3%;
+  font-size: 20px;
+  font-weight: 600;
+
+}
+.week-picker-display {
+  width: 300px;
+  height: 40px;
+  color: #454545;
+  position: relative;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #c3c0cc;
+  transition: 0.5s ease;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+}
+
+.week-picker-options {
+  padding: 0.4rem;
+  position: absolute;
+  top: 105%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #c3c0cc;
+  display: flex;
+  overflow: hidden;
+  background: white;
+  z-index: 99;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title-week {
+  padding: 0.8rem;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.numbers-container {
+  border-top: 1px solid gainsboro;
+  width: 100%;
+  padding: 0.3rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.single-number {
+  width: 100%;
+  aspect-ratio: 1;
+  font-size: 0.8rem;
+  background: none;
+  color: black;
+  display: grid;
+  place-items: center;
+}
+
+.selected-week {
+  color: white;
+  background-color: #ff9900;
+}
+
+.other-month {
+  background: none;
+  color: #c3c0cc;
+}
+
+.day {
+  background: none;
+  color: black;
+}
+
+.arrow-container {
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+  transition: 0.2s ease-in;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.arrow-container svg {
+  stroke: #454545;
+}
+
+.arrow-container:hover {
+  background-color: #ff9900;
+  border-radius: 15%;
+}
+
+.arrow-container:hover svg {
+  stroke: #fff;
+  fill: #fff;
+}
+
+.other-month {
+  background: none;
+  color: #c3c0cc;
+}

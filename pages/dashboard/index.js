@@ -6,7 +6,7 @@ const Dashboard = () => {
   return (
     <>
       <DashboardNavbar />
-      <NavbarTwo />
+      {/* <NavbarTwo /> */}
       <div className="main-content d-flex flex-column">
         <div className="breadcrumb-area">
           <h1>Howdy, Andy!</h1>

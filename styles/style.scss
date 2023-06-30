@@ -59,7 +59,7 @@ This files table contents are outlined below>>>>>
 Default CSS
 =================================================*/
 :root {
-  --fontFamily: "Work Sans", sans-serif;
+  --fontFamily: 'Work Sans', sans-serif;
   --mainColor: #0ec6c6;
   --mainColor2: #30eded;
   --optionalColor: #666666;
@@ -361,7 +361,7 @@ Navbar Area CSS
             display: none;
           }
           &::before {
-            content: "\f106";
+            content: '\f106';
             position: absolute;
             right: 0;
             top: 32px;
@@ -673,7 +673,7 @@ Navbar Area CSS
             top: 1px;
           }
           &::before {
-            content: "";
+            content: '';
             position: absolute;
             left: 0;
             bottom: 0;
@@ -1016,7 +1016,7 @@ Navbar Area CSS
             top: 1px;
           }
           &::before {
-            content: "";
+            content: '';
             position: absolute;
             left: 0;
             bottom: 0;
@@ -1242,7 +1242,7 @@ Navbar Area CSS
             top: 1px;
           }
           &::before {
-            content: "";
+            content: '';
             position: absolute;
             left: 0;
             bottom: 0;
@@ -1493,7 +1493,7 @@ Main Banner Area CSS
               color: var(--blackColor);
             }
             &::before {
-              content: "\ea0f";
+              content: '\ea0f';
               position: absolute;
               left: 12px;
               top: -1px;
@@ -1502,7 +1502,7 @@ Main Banner Area CSS
               transition: var(--transition);
               color: var(--mainColor);
               font: {
-                family: "boxicons";
+                family: 'boxicons';
                 size: 20px;
               }
             }
@@ -1572,7 +1572,7 @@ Main Banner Area CSS
         position: relative;
 
         &::before {
-          content: "";
+          content: '';
           position: absolute;
           left: 0;
           bottom: 0;
@@ -1747,7 +1747,7 @@ Main Banner Area CSS
               color: var(--blackColor);
             }
             &::before {
-              content: "\ea0f";
+              content: '\ea0f';
               position: absolute;
               left: 12px;
               top: -1px;
@@ -1756,7 +1756,7 @@ Main Banner Area CSS
               transition: var(--transition);
               color: var(--mainColor);
               font: {
-                family: "boxicons";
+                family: 'boxicons';
                 size: 20px;
               }
             }
@@ -1826,7 +1826,7 @@ Main Banner Area CSS
         position: relative;
 
         &::before {
-          content: "";
+          content: '';
           position: absolute;
           left: 0;
           bottom: 0;
@@ -2004,7 +2004,7 @@ Main Banner Area CSS
               color: var(--blackColor);
             }
             &::before {
-              content: "\ea0f";
+              content: '\ea0f';
               position: absolute;
               left: 12px;
               top: -1px;
@@ -2013,7 +2013,7 @@ Main Banner Area CSS
               transition: var(--transition);
               color: var(--mainColor);
               font: {
-                family: "boxicons";
+                family: 'boxicons';
                 size: 20px;
               }
             }
@@ -2083,7 +2083,7 @@ Main Banner Area CSS
         position: relative;
 
         &::before {
-          content: "";
+          content: '';
           position: absolute;
           left: 0;
           bottom: 0;
@@ -2282,7 +2282,7 @@ Main Banner Area CSS
                   color: var(--blackColor);
                 }
                 &::before {
-                  content: "\ea0f";
+                  content: '\ea0f';
                   position: absolute;
                   left: 12px;
                   top: -1px;
@@ -2291,7 +2291,7 @@ Main Banner Area CSS
                   transition: var(--transition);
                   color: var(--mainColor);
                   font: {
-                    family: "boxicons";
+                    family: 'boxicons';
                     size: 20px;
                   }
                 }
@@ -2361,7 +2361,7 @@ Main Banner Area CSS
             position: relative;
 
             &::before {
-              content: "";
+              content: '';
               position: absolute;
               left: 0;
               bottom: 0;
@@ -2559,7 +2559,7 @@ Main Banner Area CSS
               color: var(--blackColor);
             }
             &::before {
-              content: "\ea0f";
+              content: '\ea0f';
               position: absolute;
               left: 12px;
               top: -1px;
@@ -2568,7 +2568,7 @@ Main Banner Area CSS
               transition: var(--transition);
               color: var(--mainColor);
               font: {
-                family: "boxicons";
+                family: 'boxicons';
                 size: 20px;
               }
             }
@@ -2628,8 +2628,8 @@ Main Banner Area CSS
     transition: var(--transition);
 
     &::before {
-      content: "\eb89";
-      font-family: "boxicons";
+      content: '\eb89';
+      font-family: 'boxicons';
       position: absolute;
       right: 0;
       left: 0;
@@ -2654,8 +2654,8 @@ Main Banner Area CSS
     margin-top: 10px;
 
     &::before {
-      content: "\eb56";
-      font-family: "boxicons";
+      content: '\eb56';
+      font-family: 'boxicons';
       position: absolute;
       right: 0;
       left: 0;
@@ -2698,7 +2698,7 @@ Features Area CSS
       left: 12px;
     }
     &::before {
-      content: "";
+      content: '';
       position: absolute;
       left: 0;
       top: 0;
@@ -2721,7 +2721,7 @@ Features Area CSS
     position: relative;
 
     &::before {
-      content: "";
+      content: '';
       position: absolute;
       left: 0;
       bottom: 0;
@@ -2795,7 +2795,7 @@ Listings Area CSS
       border-radius: 5px 5px 0 0;
     }
     &::before {
-      content: "";
+      content: '';
       position: absolute;
       left: 0;
       top: 0;
@@ -2870,7 +2870,7 @@ Listings Area CSS
       z-index: 1;
 
       &::before {
-        content: "";
+        content: '';
         position: absolute;
         left: 0;
         top: 0;
@@ -3379,7 +3379,7 @@ Listings Area CSS
             color: var(--blackColor);
           }
           &::before {
-            content: "\ea0f";
+            content: '\ea0f';
             position: absolute;
             left: 10px;
             top: -3px;
@@ -3388,7 +3388,7 @@ Listings Area CSS
             transition: var(--transition);
             color: var(--mainColor);
             font: {
-              family: "boxicons";
+              family: 'boxicons';
               size: 20px;
             }
           }
@@ -3456,8 +3456,8 @@ Listings Area CSS
     transition: var(--transition);
 
     &::before {
-      content: "\eb89";
-      font-family: "boxicons";
+      content: '\eb89';
+      font-family: 'boxicons';
       position: absolute;
       right: 0;
       left: 0;
@@ -3482,8 +3482,8 @@ Listings Area CSS
     margin-top: 10px;
 
     &::before {
-      content: "\eb56";
-      font-family: "boxicons";
+      content: '\eb56';
+      font-family: 'boxicons';
       position: absolute;
       right: 0;
       left: 0;
@@ -3525,7 +3525,7 @@ Listings Area CSS
     top: 100%;
     left: 50%;
     border: solid transparent;
-    content: " ";
+    content: ' ';
     height: 0;
     width: 0;
     position: absolute;
@@ -3544,7 +3544,7 @@ Listings Area CSS
     border-radius: 5px 5px 0 0;
 
     &:before {
-      content: "";
+      content: '';
       position: absolute;
       top: 0;
       left: 0;
@@ -4024,7 +4024,7 @@ Listings Details Area CSS
           bottom: 20px;
         }
         &::before {
-          content: "";
+          content: '';
           position: absolute;
           left: 0;
           right: 0;
@@ -4427,7 +4427,7 @@ Listings Details Area CSS
               padding-right: 5px;
             }
             &:before {
-              content: "\2605";
+              content: '\2605';
               transition: var(--transition);
               font-size: 25px;
               color: #cccccc;
@@ -4450,12 +4450,12 @@ Listings Details Area CSS
           bottom: 0;
           top: 3px;
         }
-        [type="checkbox"]:checked,
-        [type="checkbox"]:not(:checked) {
+        [type='checkbox']:checked,
+        [type='checkbox']:not(:checked) {
           display: none;
         }
-        [type="checkbox"]:checked + label,
-        [type="checkbox"]:not(:checked) + label {
+        [type='checkbox']:checked + label,
+        [type='checkbox']:not(:checked) + label {
           position: relative;
           padding-left: 28px;
           cursor: pointer;
@@ -4465,9 +4465,9 @@ Listings Details Area CSS
           color: var(--optionalColor);
           font-weight: 500;
         }
-        [type="checkbox"]:checked + label:before,
-        [type="checkbox"]:not(:checked) + label:before {
-          content: "";
+        [type='checkbox']:checked + label:before,
+        [type='checkbox']:not(:checked) + label:before {
+          content: '';
           position: absolute;
           left: 0;
           top: 0;
@@ -4478,9 +4478,9 @@ Listings Details Area CSS
           border-radius: 3px;
           background: #f5f5f5;
         }
-        [type="checkbox"]:checked + label:after,
-        [type="checkbox"]:not(:checked) + label:after {
-          content: "";
+        [type='checkbox']:checked + label:after,
+        [type='checkbox']:not(:checked) + label:after {
+          content: '';
           width: 8px;
           height: 8px;
           background: var(--mainColor);
@@ -4490,20 +4490,20 @@ Listings Details Area CSS
           -webkit-transition: all 0.2s ease;
           transition: all 0.2s ease;
         }
-        [type="checkbox"]:not(:checked) + label:after {
+        [type='checkbox']:not(:checked) + label:after {
           opacity: 0;
           -webkit-transform: scale(0);
           transform: scale(0);
         }
-        [type="checkbox"]:checked + label:after {
+        [type='checkbox']:checked + label:after {
           opacity: 1;
           -webkit-transform: scale(1);
           transform: scale(1);
         }
-        [type="checkbox"]:hover + label:before {
+        [type='checkbox']:hover + label:before {
           border-color: var(--mainColor);
         }
-        [type="checkbox"]:checked + label:before {
+        [type='checkbox']:checked + label:before {
           border-color: var(--mainColor);
         }
       }
@@ -4786,7 +4786,7 @@ Listings Widget Sidebar CSS
         &:last-child {
           margin-bottom: 0;
         }
-        input[type="checkbox"] {
+        input[type='checkbox'] {
           --active: var(--mainColor);
           --active-inner: var(--whiteColor);
           --focus: 2px rgba(39, 94, 254, 0.3);
@@ -4832,7 +4832,7 @@ Listings Widget Sidebar CSS
           }
           &:after,
           &:after {
-            content: "";
+            content: '';
             display: block;
             left: 0;
             top: 0;
@@ -4910,7 +4910,7 @@ Listings Widget Sidebar CSS
         &:last-child {
           margin-bottom: 0;
         }
-        input[type="checkbox"] {
+        input[type='checkbox'] {
           --active: var(--mainColor);
           --active-inner: var(--whiteColor);
           --focus: 2px rgba(39, 94, 254, 0.3);
@@ -4956,7 +4956,7 @@ Listings Widget Sidebar CSS
           }
           &:after,
           &:after {
-            content: "";
+            content: '';
             display: block;
             left: 0;
             top: 0;
@@ -5034,7 +5034,7 @@ Listings Widget Sidebar CSS
         &:last-child {
           margin-bottom: 0;
         }
-        input[type="checkbox"] {
+        input[type='checkbox'] {
           --active: var(--mainColor);
           --active-inner: var(--whiteColor);
           --focus: 2px rgba(39, 94, 254, 0.3);
@@ -5080,7 +5080,7 @@ Listings Widget Sidebar CSS
           }
           &:after,
           &:after {
-            content: "";
+            content: '';
             display: block;
             left: 0;
             top: 0;
@@ -5182,7 +5182,7 @@ About Area CSS
 
     &::after,
     &::before {
-      content: "";
+      content: '';
       display: block;
       position: absolute;
       top: 0;
@@ -5341,7 +5341,7 @@ Category Area CSS
       background-image: url(/images/category/category6.jpg);
     }
     &::before {
-      content: "";
+      content: '';
       position: absolute;
       left: 0;
       right: 0;
@@ -5422,7 +5422,7 @@ Destinations Area CSS
     display: block;
   }
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     left: 0;
     right: 0;
@@ -5470,7 +5470,7 @@ Destinations Area CSS
         position: absolute;
         left: 0;
         bottom: 2px;
-        content: "";
+        content: '';
         background-color: var(--mainColor);
         z-index: -1;
         height: 3px;
@@ -5515,7 +5515,7 @@ Places Area CSS
       transition: var(--transition);
     }
     &::before {
-      content: "";
+      content: '';
       position: absolute;
       left: 0;
       right: 0;
@@ -5557,7 +5557,7 @@ Places Area CSS
         position: absolute;
         left: 0;
         bottom: 2px;
-        content: "";
+        content: '';
         background-color: var(--mainColor);
         z-index: -1;
         height: 3px;
@@ -5641,7 +5641,7 @@ Feedback Area CSS
     }
   }
   &::before {
-    content: "\f128";
+    content: '\f128';
     position: absolute;
     right: 20px;
     bottom: 30px;
@@ -5704,7 +5704,7 @@ Feedback Area CSS
     }
   }
   &::before {
-    content: "\f128";
+    content: '\f128';
     position: absolute;
     right: 20px;
     bottom: 30px;
@@ -5793,7 +5793,7 @@ How It Works Area CSS
   &::before {
     width: 197px;
     height: 73px;
-    content: "";
+    content: '';
     position: absolute;
     right: -100px;
     top: 0;
@@ -6036,7 +6036,7 @@ Events Area CSS
   }
   &::before {
     z-index: 1;
-    content: "";
+    content: '';
     position: absolute;
     left: 0;
     right: 0;
@@ -6165,7 +6165,7 @@ Events Details Area CSS
   margin-bottom: 50px;
 
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     left: 0;
     top: 0;
@@ -6208,7 +6208,7 @@ Events Details Area CSS
         }
       }
       &::before {
-        content: "";
+        content: '';
         position: absolute;
         left: 0;
         right: 0;
@@ -6810,14 +6810,14 @@ blockquote,
     left: 50px;
     top: -50px;
     z-index: -1;
-    content: "\f128";
+    content: '\f128';
     font: {
       family: Flaticon;
       size: 135px;
     }
   }
   &::after {
-    content: "";
+    content: '';
     position: absolute;
     left: 0;
     top: 0;
@@ -6885,7 +6885,7 @@ blockquote,
     }
     &::after {
       display: block;
-      content: "";
+      content: '';
       height: 100%;
       width: 100%;
       position: absolute;
@@ -6982,7 +6982,7 @@ blockquote,
     }
     &::after {
       display: block;
-      content: "";
+      content: '';
       height: 100%;
       width: 100%;
       position: absolute;
@@ -7153,18 +7153,18 @@ blockquote,
     label {
       display: none;
     }
-    input[type="date"],
-    input[type="time"],
-    input[type="datetime-local"],
-    input[type="week"],
-    input[type="month"],
-    input[type="text"],
-    input[type="email"],
-    input[type="url"],
-    input[type="password"],
-    input[type="search"],
-    input[type="tel"],
-    input[type="number"],
+    input[type='date'],
+    input[type='time'],
+    input[type='datetime-local'],
+    input[type='week'],
+    input[type='month'],
+    input[type='text'],
+    input[type='email'],
+    input[type='url'],
+    input[type='password'],
+    input[type='search'],
+    input[type='tel'],
+    input[type='number'],
     textarea {
       display: block;
       width: 100%;
@@ -7389,7 +7389,7 @@ Manage Your Business Area CSS
   z-index: 1;
 
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     left: 0;
     right: 0;
@@ -7399,7 +7399,7 @@ Manage Your Business Area CSS
     height: 60px;
   }
   &::after {
-    content: "";
+    content: '';
     position: absolute;
     left: 0;
     right: 0;
@@ -7444,7 +7444,7 @@ App Download Area CSS
   z-index: 1;
 
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
@@ -7454,7 +7454,7 @@ App Download Area CSS
     height: 90px;
   }
   &::after {
-    content: "";
+    content: '';
     position: absolute;
     bottom: 0;
     left: 0;
@@ -7579,7 +7579,7 @@ Timeline Area CSS
   position: relative;
 
   &::before {
-    content: "";
+    content: '';
     width: 7px;
     height: 100%;
     background: #dfdde3;
@@ -7692,7 +7692,7 @@ Timeline Area CSS
     }
     &::before,
     &::after {
-      content: "";
+      content: '';
       display: block;
       width: 10px;
       height: 50px;
@@ -7846,7 +7846,7 @@ Page Title Area CSS
         display: inline-block;
       }
       &::before {
-        content: "\f11c";
+        content: '\f11c';
         position: absolute;
         right: -18px;
         top: 3.2px;
@@ -8009,7 +8009,7 @@ Page Title Area CSS
               color: var(--blackColor);
             }
             &::before {
-              content: "\ea0f";
+              content: '\ea0f';
               position: absolute;
               left: 12px;
               top: -1px;
@@ -8018,7 +8018,7 @@ Page Title Area CSS
               transition: var(--transition);
               color: var(--mainColor);
               font: {
-                family: "boxicons";
+                family: 'boxicons';
                 size: 20px;
               }
             }
@@ -8105,7 +8105,7 @@ Pricing Area CSS
       cursor: pointer;
 
       &::before {
-        content: "";
+        content: '';
         position: absolute;
         left: 0;
         right: 0;
@@ -8446,7 +8446,7 @@ Products Area CSS
             color: var(--blackColor);
           }
           &::before {
-            content: "\ea0f";
+            content: '\ea0f';
             position: absolute;
             left: 10px;
             top: -3px;
@@ -8455,7 +8455,7 @@ Products Area CSS
             transition: var(--transition);
             color: var(--mainColor);
             font: {
-              family: "boxicons";
+              family: 'boxicons';
               size: 20px;
             }
           }
@@ -8770,7 +8770,7 @@ Products Details Area CSS
         cursor: pointer;
 
         &::before {
-          content: "";
+          content: '';
           position: absolute;
           left: 0;
           width: 0;
@@ -8812,7 +8812,7 @@ Products Details Area CSS
           font-weight: 500;
 
           &::before {
-            content: "";
+            content: '';
             position: absolute;
             left: 0;
             top: 8px;
@@ -9012,7 +9012,7 @@ Products Details Area CSS
                 padding-right: 5px;
               }
               &:before {
-                content: "\2605";
+                content: '\2605';
                 transition: var(--transition);
                 font-size: 27px;
                 color: #cccccc;
@@ -9032,12 +9032,12 @@ Products Details Area CSS
             text-align: left;
             margin-bottom: 0;
 
-            [type="checkbox"]:checked,
-            [type="checkbox"]:not(:checked) {
+            [type='checkbox']:checked,
+            [type='checkbox']:not(:checked) {
               display: none;
             }
-            [type="checkbox"]:checked + label,
-            [type="checkbox"]:not(:checked) + label {
+            [type='checkbox']:checked + label,
+            [type='checkbox']:not(:checked) + label {
               position: relative;
               padding-left: 28px;
               cursor: pointer;
@@ -9047,9 +9047,9 @@ Products Details Area CSS
               color: var(--optionalColor);
               font-weight: 500;
             }
-            [type="checkbox"]:checked + label:before,
-            [type="checkbox"]:not(:checked) + label:before {
-              content: "";
+            [type='checkbox']:checked + label:before,
+            [type='checkbox']:not(:checked) + label:before {
+              content: '';
               position: absolute;
               left: 0;
               top: 0;
@@ -9060,9 +9060,9 @@ Products Details Area CSS
               border-radius: 3px;
               background: #f5f5f5;
             }
-            [type="checkbox"]:checked + label:after,
-            [type="checkbox"]:not(:checked) + label:after {
-              content: "";
+            [type='checkbox']:checked + label:after,
+            [type='checkbox']:not(:checked) + label:after {
+              content: '';
               width: 8px;
               height: 8px;
               background: var(--mainColor);
@@ -9072,20 +9072,20 @@ Products Details Area CSS
               -webkit-transition: all 0.2s ease;
               transition: all 0.2s ease;
             }
-            [type="checkbox"]:not(:checked) + label:after {
+            [type='checkbox']:not(:checked) + label:after {
               opacity: 0;
               -webkit-transform: scale(0);
               transform: scale(0);
             }
-            [type="checkbox"]:checked + label:after {
+            [type='checkbox']:checked + label:after {
               opacity: 1;
               -webkit-transform: scale(1);
               transform: scale(1);
             }
-            [type="checkbox"]:hover + label:before {
+            [type='checkbox']:hover + label:before {
               border-color: var(--mainColor);
             }
-            [type="checkbox"]:checked + label:before {
+            [type='checkbox']:checked + label:before {
               border-color: var(--mainColor);
             }
           }
@@ -9363,7 +9363,7 @@ Checkout Area CSS
     font-size: 22px;
 
     &::before {
-      content: "";
+      content: '';
       position: absolute;
       background: var(--mainColor);
       bottom: -1px;
@@ -9445,7 +9445,7 @@ Checkout Area CSS
             color: var(--blackColor);
           }
           &::before {
-            content: "\ea0f";
+            content: '\ea0f';
             position: absolute;
             left: 10px;
             top: -3px;
@@ -9454,7 +9454,7 @@ Checkout Area CSS
             transition: var(--transition);
             color: var(--mainColor);
             font: {
-              family: "boxicons";
+              family: 'boxicons';
               size: 20px;
             }
           }
@@ -9520,7 +9520,7 @@ Checkout Area CSS
     font-size: 22px;
 
     &::before {
-      content: "";
+      content: '';
       position: absolute;
       background: var(--mainColor);
       bottom: -1px;
@@ -9598,13 +9598,13 @@ Checkout Area CSS
 
     .payment-method {
       p {
-        [type="radio"] {
+        [type='radio'] {
           &:checked,
           &:not(:checked) {
             display: none;
           }
         }
-        [type="radio"] {
+        [type='radio'] {
           &:checked,
           &:not(:checked) {
             + label {
@@ -9617,7 +9617,7 @@ Checkout Area CSS
               font-weight: 700;
 
               &::before {
-                content: "";
+                content: '';
                 position: absolute;
                 left: 0;
                 top: 4px;
@@ -9628,7 +9628,7 @@ Checkout Area CSS
                 background: var(--whiteColor);
               }
               &::after {
-                content: "";
+                content: '';
                 width: 12px;
                 height: 12px;
                 background: var(--mainColor);
@@ -9641,7 +9641,7 @@ Checkout Area CSS
             }
           }
         }
-        [type="radio"] {
+        [type='radio'] {
           &:not(:checked) {
             + label {
               &::after {
@@ -9652,7 +9652,7 @@ Checkout Area CSS
             }
           }
         }
-        [type="radio"] {
+        [type='radio'] {
           &:checked {
             + label {
               &::after {
@@ -9944,7 +9944,7 @@ Widget Sidebar CSS
         size: 20px;
       }
       &::before {
-        content: "";
+        content: '';
         position: absolute;
         left: 0;
         bottom: 0;
@@ -9987,9 +9987,9 @@ Widget Sidebar CSS
             color: transparent;
           }
         }
-        &[type="search"]::-ms-clear,
-        &[type="search"]::-ms-reveal,
-        &[type="search"]::-webkit-search-decoration {
+        &[type='search']::-ms-clear,
+        &[type='search']::-ms-reveal,
+        &[type='search']::-webkit-search-decoration {
           display: none;
         }
       }
@@ -10066,7 +10066,7 @@ Widget Sidebar CSS
         &::before,
         &::after {
           transition: all 0.8s cubic-bezier(0.2, 1, 0.22, 1);
-          content: "";
+          content: '';
           background-color: var(--whiteColor);
           position: absolute;
           z-index: 1;
@@ -10148,7 +10148,7 @@ Widget Sidebar CSS
           background: var(--mainColor);
           height: 8px;
           width: 8px;
-          content: "";
+          content: '';
           left: 0;
           top: 7px;
           position: absolute;
@@ -10250,7 +10250,7 @@ Widget Sidebar CSS
             transition: var(--transition);
           }
           &::before {
-            content: "";
+            content: '';
             position: absolute;
             left: 0;
             right: 0;
@@ -10405,7 +10405,7 @@ Coming Soon Area CSS
           }
         }
         &::before {
-          content: "";
+          content: '';
           display: block;
           position: absolute;
           bottom: 0;
@@ -10700,7 +10700,7 @@ Footer Area CSS
             color: var(--blackColor);
           }
           &::before {
-            content: "\ea0f";
+            content: '\ea0f';
             position: absolute;
             left: 12px;
             top: -1px;
@@ -10709,7 +10709,7 @@ Footer Area CSS
             transition: var(--transition);
             color: var(--mainColor);
             font: {
-              family: "boxicons";
+              family: 'boxicons';
               size: 20px;
             }
           }
@@ -10801,7 +10801,7 @@ Footer Area CSS
             color: var(--blackColor);
           }
           &::before {
-            content: "\ea0f";
+            content: '\ea0f';
             position: absolute;
             left: 12px;
             top: -1px;
@@ -10810,7 +10810,7 @@ Footer Area CSS
             transition: var(--transition);
             color: var(--mainColor);
             font: {
-              family: "boxicons";
+              family: 'boxicons';
               size: 20px;
             }
           }
@@ -10965,7 +10965,7 @@ All Modal CSS
               weight: 600;
             }
             &::before {
-              content: "";
+              content: '';
               position: absolute;
               left: 0;
               bottom: -2px;
@@ -11067,7 +11067,7 @@ All Modal CSS
             position: relative;
 
             &::before {
-              content: "";
+              content: '';
               position: absolute;
               right: 0;
               top: 11px;
@@ -11203,7 +11203,7 @@ All Modal CSS
             position: relative;
 
             &::before {
-              content: "";
+              content: '';
               position: absolute;
               right: 0;
               top: 11px;
@@ -11354,7 +11354,7 @@ Dashboard CSS
                 display: none;
               }
               &::before {
-                content: "\f106";
+                content: '\f106';
                 position: absolute;
                 right: 0;
                 transition: var(--transition);
@@ -11655,7 +11655,7 @@ Dashboard CSS
             display: none;
           }
           &::before {
-            content: "\f106";
+            content: '\f106';
             position: absolute;
             right: 20px;
             transition: var(--transition);
@@ -11900,7 +11900,7 @@ Dashboard CSS
       weight: 600;
     }
     &::before {
-      content: "";
+      content: '';
       position: absolute;
       right: 0;
       top: 50%;
@@ -11935,14 +11935,14 @@ Dashboard CSS
         }
       }
       &::before {
-        content: "\ea1d";
+        content: '\ea1d';
         position: absolute;
         right: -21px;
         top: 4px;
         line-height: 18px;
         color: var(--optionalColor);
         font: {
-          family: "boxicons" !important;
+          family: 'boxicons' !important;
           weight: normal;
           style: normal;
           variant: normal;
@@ -12267,7 +12267,7 @@ Dashboard CSS
             }
           }
           &::before {
-            content: "";
+            content: '';
             width: 1px;
             height: 12px;
             background-color: #eeeeee;
@@ -12374,7 +12374,7 @@ Dashboard CSS
                   }
                 }
                 &::before {
-                  content: "";
+                  content: '';
                   position: absolute;
                   right: -10px;
                   top: 5px;
@@ -12621,7 +12621,7 @@ Dashboard CSS
             }
           }
           &::before {
-            content: "";
+            content: '';
             width: 1px;
             height: 12px;
             background-color: #eeeeee;
@@ -12877,7 +12877,7 @@ Dashboard CSS
                 .status-offline {
                   background-color: #475f7b;
                 }
-                [class*="status-"] {
+                [class*='status-'] {
                   border-radius: 50%;
                   width: 10px;
                   height: 10px;
@@ -12915,7 +12915,7 @@ Dashboard CSS
             &::before {
               width: 70px;
               height: 1px;
-              content: "";
+              content: '';
               position: absolute;
               left: 0;
               bottom: -1px;
@@ -12966,7 +12966,7 @@ Dashboard CSS
               .status-offline {
                 background-color: #475f7b;
               }
-              [class*="status-"] {
+              [class*='status-'] {
                 border-radius: 50%;
                 width: 10px;
                 height: 10px;
@@ -13000,7 +13000,7 @@ Dashboard CSS
 
                     i {
                       &::before {
-                        content: "\ee67";
+                        content: '\ee67';
                       }
                     }
                   }
@@ -13549,7 +13549,7 @@ Dashboard CSS
             color: var(--blackColor);
           }
           &::before {
-            content: "\ea0f";
+            content: '\ea0f';
             position: absolute;
             left: 10px;
             top: -3px;
@@ -13558,7 +13558,7 @@ Dashboard CSS
             transition: var(--transition);
             color: var(--mainColor);
             font: {
-              family: "boxicons";
+              family: 'boxicons';
               size: 20px;
             }
           }
@@ -13624,7 +13624,7 @@ Dashboard CSS
           }
           input + span:before,
           input + span:after {
-            content: "";
+            content: '';
             width: 20px;
             height: 20px;
             display: block;
@@ -13698,7 +13698,7 @@ Dashboard CSS
           }
           input + span:before,
           input + span:after {
-            content: "";
+            content: '';
             display: block;
             position: absolute;
             -webkit-transition: all 0.3s ease;
@@ -13768,8 +13768,8 @@ Dashboard CSS
           weight: 500;
         }
         &::before {
-          content: "\eb8a";
-          font-family: "boxicons";
+          content: '\eb8a';
+          font-family: 'boxicons';
           position: absolute;
           left: 0;
           right: 0;
@@ -13854,7 +13854,7 @@ Dashboard CSS
             color: var(--blackColor);
           }
           &::before {
-            content: "\ea0f";
+            content: '\ea0f';
             position: absolute;
             left: 10px;
             top: -3px;
@@ -13863,7 +13863,7 @@ Dashboard CSS
             transition: var(--transition);
             color: var(--mainColor);
             font: {
-              family: "boxicons";
+              family: 'boxicons';
               size: 20px;
             }
           }
@@ -14094,16 +14094,16 @@ Dashboard CSS
     }
   }
 
-.overlay {
-  position: fixed;
-  top: 0;
-  inset: auto;
-  width: 100%;
-  height: 100%;
-  background-color: black;
-  opacity: 0.5;
-  // z-index: 9999;
-}
+  .overlay {
+    position: fixed;
+    top: 0;
+    inset: auto;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.5;
+    // z-index: 9999;
+  }
 
   .menu-mob {
     position: absolute;
@@ -14122,7 +14122,6 @@ Dashboard CSS
     left: 0;
     transition: all ease-in-out 0.3s;
     z-index: 99999;
-
 
     .sidemenu-nav {
       padding: 20px 0;
@@ -14188,7 +14187,7 @@ Dashboard CSS
             }
           }
           &::before {
-            content: "";
+            content: '';
             position: absolute;
             left: 0;
             top: 0;
@@ -14201,14 +14200,14 @@ Dashboard CSS
             position: relative;
 
             &::after {
-              content: "\ea17";
+              content: '\ea17';
               position: absolute;
               right: 15px;
               top: 9px;
               color: #7e7e7e;
               transition: var(--transition);
               font: {
-                family: "boxicons" !important;
+                family: 'boxicons' !important;
                 weight: normal;
                 style: normal;
                 variant: normal;
@@ -14426,7 +14425,7 @@ Dashboard CSS
             }
           }
           &::before {
-            content: "";
+            content: '';
             position: absolute;
             left: 0;
             top: 0;
@@ -14439,14 +14438,14 @@ Dashboard CSS
             position: relative;
 
             &::after {
-              content: "\ea17";
+              content: '\ea17';
               position: absolute;
               right: 15px;
               top: 9px;
               color: #7e7e7e;
               transition: var(--transition);
               font: {
-                family: "boxicons" !important;
+                family: 'boxicons' !important;
                 weight: normal;
                 style: normal;
                 variant: normal;
@@ -14665,7 +14664,7 @@ Dashboard CSS
               }
             }
             &::before {
-              content: "";
+              content: '';
               position: absolute;
               left: 0;
               top: 0;
@@ -14678,14 +14677,14 @@ Dashboard CSS
               position: relative;
 
               &::after {
-                content: "\ea17";
+                content: '\ea17';
                 position: absolute;
                 right: 15px;
                 top: 9px;
                 color: #7e7e7e;
                 transition: var(--transition);
                 font: {
-                  family: "boxicons" !important;
+                  family: 'boxicons' !important;
                   weight: normal;
                   style: normal;
                   variant: normal;
@@ -14979,7 +14978,7 @@ Dashboard CSS
   &.map-home-area {
     #main-full-map {
       &:before {
-        content: "";
+        content: '';
         position: absolute;
         left: 0;
         right: 0;
@@ -15110,7 +15109,7 @@ Dashboard CSS
   .nav {
     .nav-link {
       &::before {
-        content: "";
+        content: '';
         position: absolute;
         left: 0;
         width: 0;
@@ -15178,7 +15177,7 @@ Dashboard CSS
   position: fixed;
   top: 0;
   left: 0;
-  content: "";
+  content: '';
   background-color: rgba(0, 0, 0, 0.7);
   width: 100%;
   height: 100%;
@@ -15580,7 +15579,7 @@ Dashboard CSS
     .sidemenu-nav {
       .active {
         &::before {
-          content: "";
+          content: '';
           width: 3px;
           background: var(--mainColor);
           position: absolute;
@@ -15596,7 +15595,7 @@ Dashboard CSS
     .sidemenu-nav {
       .active {
         &::before {
-          content: "";
+          content: '';
           width: 3px;
           background: var(--mainColor);
           position: absolute;
@@ -15620,7 +15619,7 @@ Dashboard CSS
 .active-section {
   .active {
     &::after {
-      content: "";
+      content: '';
       background: #fbfbfb;
       width: 3px;
       position: absolute;
@@ -15694,7 +15693,7 @@ Dashboard CSS
   .react-tabs__tab--selected {
     .nav-link {
       &:after {
-        content: "";
+        content: '';
         width: 100%;
         position: absolute;
         top: 33px;
@@ -15734,7 +15733,6 @@ Dashboard CSS
 Preloader Area CSS
 =================================================*/
 
-
 .preloader {
   position: fixed;
   top: 0;
@@ -15745,7 +15743,7 @@ Preloader Area CSS
   opacity: 0.7;
   z-index: 999999;
   display: flex;
-    flex-direction: column;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   .preloader {
@@ -15765,7 +15763,7 @@ Preloader Area CSS
       position: absolute;
       display: inline-block;
       display: flex;
-    flex-direction: column;
+      flex-direction: column;
       color: var(--whiteColor);
       width: 100px;
       height: 100px;
@@ -15811,295 +15809,304 @@ Preloader Area CSS
   }
 }
 
-
 // Footer CSS
 
 /*================================================
 Footer Area CSS
 =================================================*/
 .footer-area {
-	padding-top: 100px;
-	position: relative;
-	z-index: 1;
+  padding-top: 100px;
+  position: relative;
+  z-index: 1;
 }
 .single-footer-widget {
-	margin-bottom: 30px;
+  margin-bottom: 30px;
 
-	h3 {
-		font-size: 20px;
-		margin-bottom: 25px;
-	}
-	.link-list {
-		padding-left: 0;
-		margin-bottom: 0;
-		list-style-type: none;
+  h3 {
+    font-size: 20px;
+    margin-bottom: 25px;
+  }
+  .link-list {
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style-type: none;
 
-		li {
-			margin-bottom: 12px;
-			color: var(--optionalColor);
-			font-weight: 600;
+    li {
+      margin-bottom: 12px;
+      color: var(--optionalColor);
+      font-weight: 600;
 
-			a {
-				position: relative;
-				display: inline-block;
-				color: var(--optionalColor);
+      a {
+        position: relative;
+        display: inline-block;
+        color: var(--optionalColor);
 
-				i {
-					position: absolute;
-					left: 0;
-					top: 1.7px;
-					color: var(--mainColor);
-					font-size: 13px;
-					opacity: 0;
-					visibility: hidden;
-					transition: var(--transition);
-				}
-				&:hover {
-					color: var(--mainColor);
-					padding-left: 17px;
+        i {
+          position: absolute;
+          left: 0;
+          top: 1.7px;
+          color: var(--mainColor);
+          font-size: 13px;
+          opacity: 0;
+          visibility: hidden;
+          transition: var(--transition);
+        }
+        &:hover {
+          color: var(--mainColor);
+          padding-left: 17px;
 
-					i {
-						opacity: 1;
-						visibility: visible;
-					}
-				}
-			}
-			&:last-child {
-				margin-bottom: 0;
-			}
-		}
-	}
-	.languages-switch {
-		margin-bottom: 30px;
+          i {
+            opacity: 1;
+            visibility: visible;
+          }
+        }
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  .languages-switch {
+    margin-bottom: 30px;
 
-		.nice-select {
-			background-color: #f1f1f1;
-			border-radius: 3px;
-			border: none;
-			float: unset;
-			height: 45px;
-			line-height: 45px;
-			color: var(--mainColor);
-			font: {
-				size: var(--fontSize);
-				weight: 600;
-			}
-			padding: {
-				top: 1px;
-				bottom: 0;
-				left: 12px;
-				right: 12px;
-			}
-			&::after {
-				border-color: #838383;
-				height: 11px;
-				margin-top: -6px;
-				right: 20px;
-				width: 11px;
-			}
-			.list {
-				background-color: var(--whiteColor);
-				border-radius: 5px;
-				box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-				list-style-type: none;
-				border: none;
-				width: 100%;
-				margin: {
-					bottom: 0;
-					top: 0;
-				}
-				padding: {
-					left: 0;
-					top: 10px;
-					bottom: 10px;
-				}
-				.option {
-					line-height: 38px;
-					min-height: 38px;
-					color: var(--blackColor);
-					position: relative;
-					transition: var(--transition);
-					padding: {
-						left: 38px;
-						right: 15px;
-					}
-					font: {
-						size: var(--fontSize);
-						weight: 600;
-					}
-					&:hover {
-						background-color: var(--mainColor) !important;
-						color: var(--whiteColor);
+    .nice-select {
+      background-color: #f1f1f1;
+      border-radius: 3px;
+      border: none;
+      float: unset;
+      height: 45px;
+      line-height: 45px;
+      color: var(--mainColor);
+      font: {
+        size: var(--fontSize);
+        weight: 600;
+      }
+      padding: {
+        top: 1px;
+        bottom: 0;
+        left: 12px;
+        right: 12px;
+      }
+      &::after {
+        border-color: #838383;
+        height: 11px;
+        margin-top: -6px;
+        right: 20px;
+        width: 11px;
+      }
+      .list {
+        background-color: var(--whiteColor);
+        border-radius: 5px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        list-style-type: none;
+        border: none;
+        width: 100%;
+        margin: {
+          bottom: 0;
+          top: 0;
+        }
+        padding: {
+          left: 0;
+          top: 10px;
+          bottom: 10px;
+        }
+        .option {
+          line-height: 38px;
+          min-height: 38px;
+          color: var(--blackColor);
+          position: relative;
+          transition: var(--transition);
+          padding: {
+            left: 38px;
+            right: 15px;
+          }
+          font: {
+            size: var(--fontSize);
+            weight: 600;
+          }
+          &:hover {
+            background-color: var(--mainColor) !important;
+            color: var(--whiteColor);
 
-						&::before {
-							color: var(--whiteColor);
-						}
-					}
-					&.focus,
-					&.selected.focus {
-						background-color: transparent !important;
-						color: var(--blackColor);
-					}
-					&::before {
-						content: "\ea0f";
-						position: absolute;
-						left: 12px;
-						top: -1px;
-						opacity: 0;
-						visibility: hidden;
-						transition: var(--transition);
-						color: var(--mainColor);
-						font: {
-							family: "boxicons";
-							size: 20px;
-						}
-					}
-					&.selected {
-						&::before {
-							opacity: 1;
-							visibility: visible;
-						}
-						&:hover {
-							background-color: var(--mainColor) !important;
-							color: var(--whiteColor);
+            &::before {
+              color: var(--whiteColor);
+            }
+          }
+          &.focus,
+          &.selected.focus {
+            background-color: transparent !important;
+            color: var(--blackColor);
+          }
+          &::before {
+            content: '\ea0f';
+            position: absolute;
+            left: 12px;
+            top: -1px;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            color: var(--mainColor);
+            font: {
+              family: 'boxicons';
+              size: 20px;
+            }
+          }
+          &.selected {
+            &::before {
+              opacity: 1;
+              visibility: visible;
+            }
+            &:hover {
+              background-color: var(--mainColor) !important;
+              color: var(--whiteColor);
 
-							&::before {
-								color: var(--whiteColor);
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-	.country-switch {
-		.nice-select {
-			background-color: #f1f1f1;
-			border-radius: 3px;
-			border: none;
-			float: unset;
-			height: 45px;
-			line-height: 45px;
-			color: var(--mainColor);
-			font: {
-				size: var(--fontSize);
-				weight: 600;
-			}
-			padding: {
-				top: 1px;
-				bottom: 0;
-				left: 12px;
-				right: 12px;
-			}
-			&::after {
-				border-color: #838383;
-				height: 11px;
-				margin-top: -6px;
-				right: 20px;
-				width: 11px;
-			}
-			.list {
-				background-color: var(--whiteColor);
-				border-radius: 5px;
-				box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-				list-style-type: none;
-				border: none;
-				width: 100%;
-				margin: {
-					bottom: 0;
-					top: 0;
-				}
-				padding: {
-					left: 0;
-					top: 10px;
-					bottom: 10px;
-				}
-				.option {
-					line-height: 38px;
-					min-height: 38px;
-					color: var(--blackColor);
-					position: relative;
-					transition: var(--transition);
-					padding: {
-						left: 38px;
-						right: 15px;
-					}
-					font: {
-						size: var(--fontSize);
-						weight: 600;
-					}
-					&:hover {
-						background-color: var(--mainColor) !important;
-						color: var(--whiteColor);
+              &::before {
+                color: var(--whiteColor);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .country-switch {
+    .nice-select {
+      background-color: #f1f1f1;
+      border-radius: 3px;
+      border: none;
+      float: unset;
+      height: 45px;
+      line-height: 45px;
+      color: var(--mainColor);
+      font: {
+        size: var(--fontSize);
+        weight: 600;
+      }
+      padding: {
+        top: 1px;
+        bottom: 0;
+        left: 12px;
+        right: 12px;
+      }
+      &::after {
+        border-color: #838383;
+        height: 11px;
+        margin-top: -6px;
+        right: 20px;
+        width: 11px;
+      }
+      .list {
+        background-color: var(--whiteColor);
+        border-radius: 5px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        list-style-type: none;
+        border: none;
+        width: 100%;
+        margin: {
+          bottom: 0;
+          top: 0;
+        }
+        padding: {
+          left: 0;
+          top: 10px;
+          bottom: 10px;
+        }
+        .option {
+          line-height: 38px;
+          min-height: 38px;
+          color: var(--blackColor);
+          position: relative;
+          transition: var(--transition);
+          padding: {
+            left: 38px;
+            right: 15px;
+          }
+          font: {
+            size: var(--fontSize);
+            weight: 600;
+          }
+          &:hover {
+            background-color: var(--mainColor) !important;
+            color: var(--whiteColor);
 
-						&::before {
-							color: var(--whiteColor);
-						}
-					}
-					&.focus,
-					&.selected.focus {
-						background-color: transparent !important;
-						color: var(--blackColor);
-					}
-					&::before {
-						content: "\ea0f";
-						position: absolute;
-						left: 12px;
-						top: -1px;
-						opacity: 0;
-						visibility: hidden;
-						transition: var(--transition);
-						color: var(--mainColor);
-						font: {
-							family: "boxicons";
-							size: 20px;
-						}
-					}
-					&.selected {
-						&::before {
-							opacity: 1;
-							visibility: visible;
-						}
-						&:hover {
-							background-color: var(--mainColor) !important;
-							color: var(--whiteColor);
+            &::before {
+              color: var(--whiteColor);
+            }
+          }
+          &.focus,
+          &.selected.focus {
+            background-color: transparent !important;
+            color: var(--blackColor);
+          }
+          &::before {
+            content: '\ea0f';
+            position: absolute;
+            left: 12px;
+            top: -1px;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            color: var(--mainColor);
+            font: {
+              family: 'boxicons';
+              size: 20px;
+            }
+          }
+          &.selected {
+            &::before {
+              opacity: 1;
+              visibility: visible;
+            }
+            &:hover {
+              background-color: var(--mainColor) !important;
+              color: var(--whiteColor);
 
-							&::before {
-								color: var(--whiteColor);
-							}
-						}
-					}
-				}
-			}
-		}
-	}
+              &::before {
+                color: var(--whiteColor);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
 .footer-image {
-	margin-top: -100px;
-	position: relative;
-	z-index: -1;
+  margin-top: -100px;
+  position: relative;
+  z-index: -1;
 }
 .copyright-area {
-	text-align: center;
-	border-top: 1px solid #eeeeee;
-	margin-top: 35px;
-	padding-top: 30px;
+  text-align: center;
+  border-top: 1px solid #eeeeee;
+  margin-top: 35px;
+  padding-top: 30px;
 
-	p {
-		line-height: initial;
-		color: #989898;
+  p {
+    line-height: initial;
+    color: #989898;
 
-		span {
-			color: var(--blackColor);
-			font-weight: 600;
-		}
-		a {
-			color: var(--mainColor);
-			font-weight: 600;
+    span {
+      color: var(--blackColor);
+      font-weight: 600;
+    }
+    a {
+      color: var(--mainColor);
+      font-weight: 600;
 
-			&:hover {
-				color: var(--blackColor);
-			}
-		}
-	}
+      &:hover {
+        color: var(--blackColor);
+      }
+    }
+  }
 }
+#addmealhead {
+  margin-left: 3%;
+}
+#addorderhead {
+  margin-left: 3%;
+}
+.addorderhead {
+  margin-left: 3%;
+}
+

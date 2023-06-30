@@ -19,6 +19,8 @@ import RentPaymentComponent from "../../components/AdminDashBoard/RentPaymentCom
 import ComplainListAdmin from "../../components/AdminDashBoard/ComplainAdmin";
 import TeamMember from "../../components/AdminDashBoard/TeamMember";
 import AddMeals from '../../components/AdminDashBoard/AddMeals';
+import FoodOrders from '../../components/AdminDashBoard/Foodorders';
+
 
 const Template = ({ children, value }) => {
   return (
@@ -62,6 +64,8 @@ const RenderComponent = ({ slug }) => {
     return <TeamMember />;
   } else if (slug === "addMeals") {
     return <AddMeals />;
+  } else if (slug === "foodorders") {
+    return <FoodOrders />;
   }
 };
 function Dynamic() {

@@ -1,116 +1,309 @@
-import { Transition, Menu } from "@headlessui/react";
+import { useState, useEffect, useContext } from "react";
+import { IndiceContext } from "../../contexts";
+import AuthModal from "../Modal/AuthModal";
+import { useAuthContext } from "../../contexts/authContext";
 import Link from "next/link";
-import { Fragment, useState } from "react";
-import { HiOutlineChevronDown, HiOutlineMenu } from "react-icons/hi";
-import LoginPopup from "./loginpopup";
 
-export default function Navbar() {
-  const [open, setOpen] = useState(false);
-  const openPopup = () => {
-    setOpen(true);
+const Navbar = () => {
+  const { toggleSideMenu } = useContext(IndiceContext);
+  const [displayAuth, setDisplayAuth] = useState(false);
+  const [displayMiniAuth, setDisplayMiniAuth] = useState(false);
+  const [sticky, setSticky] = useState(false);
+  const authContextData = useAuthContext();
+
+  //sticky menu
+  const showStickyMenu = () => {
+    if (window.scrollY >= 80) {
+      setSticky(true);
+    } else {
+      setSticky(false);
+    }
   };
-  const hidePopup = () => {
-    setOpen(false);
+  if (typeof window !== "undefined") {
+    // browser code
+    window.addEventListener("scroll", showStickyMenu);
+  }
+
+  const toggleAuth = () => {
+    setDisplayAuth(!displayAuth);
   };
+
+  const toggleMiniAuth = () => {
+    setDisplayMiniAuth(!displayMiniAuth);
+  };
+
+  const [showMenu, setshowMenu] = useState(false);
+
+  const toggleMenu = () => {
+    setshowMenu(!showMenu);
+  };
+
+  useEffect(() => {
+    let abortController = new AbortController();
+    // your async action is here
+    return () => {
+      abortController.abort();
+    };
+  }, []);
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    authContextData.setUser(undefined);
+    authContextData.setToken(undefined);
+  };
+
   return (
-    <header className="sticky top-0 z-50 bg-white shadow">
-      <div className={`container mx-auto xl:px-0 px-6`}>
-        <div className="flex items-center justify-between min-h-[70px]">
-          <img src="images/home/logo.png" className="shrink-0 w-12" />
-          <nav className="flex items-center">
-            <ul className="lg:flex items-center justify-between hidden !gap-10">
-              {/* <li className="h-[40px] flex items-center">
-                <Link
-                  href="/"
-                  className="text-[16px] font-normal  hover:text-green"
-                >
-                  Explore Residences
-                </Link>
-              </li> */}
-              <li className="group relative h-[40px] flex items-center">
-                <span className="text-[16px] font-normal  hover:text-green flex items-center !ga!p-2">
-                  Explore Us
-                  <HiOutlineChevronDown
-                    size={22}
-                    className="group-hover:-rotate-180 transition duration-200"
-                  />
-                </span>
-                <ul className="absolute hidden group-hover:block bg-white top-[40px] min-w-[15rem] !rounded-xl shadow-primary !py-4 !border">
-                  <li>
-                    <Link href="/about">
-                      <a className="!py-2 px-6 hover:!bg-green/10 text-[14px] block text-black/80 cursor-pointer">
-                        About us
-                      </a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/">
-                      <a className="!py-2 px-6 hover:!bg-green/10 text-[14px] block text-black/80 cursor-pointer">
-                        Our Team
-                      </a>
-                    </Link>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <button className="bg-green !rounded-lg text-white px-6 !py-2 !border !shadow-lg flex items-center gap-3"
-                  onClick={openPopup}>Login</button>
-              </li>
-            </ul>
-            <Menu as="div" className="lg:hidden bg-white">
-              <Menu.Button className="bg-whte hover:text-gray-900 hover:bg-gray-100 inline-flex items-center justify-center !p-2 text-gray-500 !rounded-md">
-                <HiOutlineMenu />
-              </Menu.Button>
-
-              <Transition
-                as={Fragment}
-                enter="duration-200 ease-out"
-                enterFrom="opacity-0 scale-95"
-                enterTo="opacity-100 scale-100"
-                leave="duration-100 ease-in"
-                leaveFrom="opacity-100 scale-100"
-                leaveTo="opacity-0 scale-95"
+    <>
+      <div className={displayAuth ? "body_overlay open" : "body_overlay"}></div>
+      <div className={sticky ? "is-sticky navbar-area " : "navbar-area "}>
+        <div className="miran-responsive-nav">
+          <div className="container">
+            <div className="miran-responsive-menu">
+              <div onClick={() => toggleMenu()} className="hamburger-menu ">
+                {showMenu ? (
+                  <i className="bx bx-x"></i>
+                ) : (
+                  <i className="bx bx-menu"></i>
+                )}
+              </div>
+              <div
+                className="responsive-burger-menu d-lg-none d-block"
+                onClick={toggleSideMenu}
               >
-                <Menu.Items className="absolute top-20 max-w-[92%] mx-auto z-2xlfull inset-x-0 py-[0.5rem] transition transform origin-top-right xxl:hidden">
-                  <div className="rounded-[8px] !shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
-                    <div className="px-12 py-10 space-y-10">
-                      <Menu.Item>
-                        <ul className="gap-7 flex flex-col">
-                          <li>
-                            <Link
-                              href="/about-us"
-                              className="p-[9px] text-[16px] font-normal text-black/70 hover:text-green"
-                            >
-                              About us
+                <span className="top-bar"></span>
+                <span className="middle-bar"></span>
+                <span className="bottom-bar"></span>
+              </div>
+
+              <div
+                className="responsive-burger-menu d-lg-none d-block"
+                onClick={toggleSideMenu}
+              >
+                <span className="top-bar"></span>
+                <span className="middle-bar"></span>
+                <span className="bottom-bar"></span>
+              </div>
+
+              <div className="logo">
+                <Link href="/">
+                  <a>
+                    <img src="/images/black-logo.png" alt="logo" />
+                  </a>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className={showMenu ? "miran-nav show" : "miran-nav"}>
+          <div className="container-fluid">
+            <nav className="navbar navbar-expand-md navbar-light">
+              <Link href="/">
+                <a className="navbar-brand">
+                  <img src="/images/black-logo.png" alt="logo" />
+                </a>
+              </Link>
+              <div className="collapse navbar-collapse mean-menu">
+                <ul className="navbar-nav">
+                  <li className="nav-item">
+                    <a href="#" className="dropdown-toggle nav-link">
+                      Pages
+                    </a>
+                    <ul className="dropdown-menu">
+                      <li className="nav-item">
+                        <Link href="/about" activeClassName="active">
+                          <a className="nav-link">About Us</a>
+                        </Link>
+                      </li>
+
+                      <li className="nav-item">
+                        <Link href="/how-it-works" activeClassName="active">
+                          <a className="nav-link">How It Work</a>
+                        </Link>
+                      </li>
+
+                      <li className="nav-item">
+                        <Link href="/pricing" activeClassName="active">
+                          <a className="nav-link">Pricing</a>
+                        </Link>
+                      </li>
+
+                      <li className="nav-item">
+                        <Link href="/gallery" activeClassName="active">
+                          <a className="nav-link">Gallery</a>
+                        </Link>
+                      </li>
+
+                      <li className="nav-item">
+                        <a href="#" className="nav-link">
+                          Events <i className="bx bx-chevron-right"></i>
+                        </a>
+                        <ul className="dropdown-menu">
+                          <li className="nav-item">
+                            <Link href="/events" activeClassName="active">
+                              <a className="nav-link">Events</a>
                             </Link>
                           </li>
-                          <li>
+
+                          <li className="nav-item">
                             <Link
-                              href="/"
-                              className="p-[9px] text-[16px] font-normal text-black/70 hover:text-green"
+                              href="/single-events"
+                              activeClassName="active"
                             >
-                              Our Team
+                              <a className="nav-link">Events Details</a>
                             </Link>
-                          </li>
-                          <li>
-                            <button
-                              onClick={openPopup}
-                              className="bg-green !rounded-lg text-white px-6 !py-2 !border !shadow-lg flex justify-center items-center gap-3 w-full"
-                            >
-                              Login
-                            </button>
                           </li>
                         </ul>
-                      </Menu.Item>
-                    </div>
+                      </li>
+
+                      <li className="nav-item">
+                        <Link href="/testimonial" activeClassName="active">
+                          <a className="nav-link">Testimonials</a>
+                        </Link>
+                      </li>
+
+                      <li className="nav-item">
+                        <Link href="/faq" activeClassName="active">
+                          <a className="nav-link">FAQ</a>
+                        </Link>
+                      </li>
+
+                      <li className="nav-item">
+                        <Link href="/404" activeClassName="active">
+                          <a className="nav-link">404 Error</a>
+                        </Link>
+                      </li>
+
+                      <li className="nav-item">
+                        <Link href="/coming-soon" activeClassName="active">
+                          <a className="nav-link">Coming Soon</a>
+                        </Link>
+                      </li>
+
+                      <li className="nav-item">
+                        <Link href="/contact" activeClassName="active">
+                          <a className="nav-link">Contact</a>
+                        </Link>
+                      </li>
+                    </ul>
+                  </li>
+
+                  {authContextData?.user !== undefined ? (
+                    authContextData?.user?.role === "admin" ? (
+                      <li className="nav-item">
+                        <a href="#" className="dropdown-toggle nav-link">
+                          Admin Panel
+                        </a>
+                        <ul className="dropdown-menu">
+                          {[
+                            { path: "", name: "Dashboard" },
+                            { path: "my-listing", name: "My Listings" },
+                            { path: "reviews", name: "Reviews" },
+                            { path: "bookings", name: "Booking" },
+                            { path: "add-listing", name: "Add Listings" },
+                            { path: "add-city", name: "Add City" },
+                            { path: "add-room-type", name: "Add Room Type" },
+                            { path: "add-aminities", name: "Add Aminities" },
+                            { path: "profile", name: "My Profile" },
+                          ].map(({ path, name }) => (
+                            <li className="nav-item" key={name}>
+                              <Link href={`/admin/${path}`}>
+                                <a className="nav-link">{name}</a>
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </li>
+                    ) : (
+                      <li className="nav-item">
+                        <a href="#" className="dropdown-toggle nav-link">
+                          User Panel
+                        </a>
+                        <ul className="dropdown-menu">
+                          {[
+                            { path: "bookings", name: "Bookings" },
+                            { path: "complains", name: "Complains" },
+                              { path: "profile", name: "My Profile" },
+                             { path: "orderfooduser", name: "Order Food" },
+                          ].map(({ path, name }) => (
+                            <li className="nav-item" key={name}>
+                              <Link href={`/users/${path}`}>
+                                <a className="nav-link">{name}</a>
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </li>
+                    )
+                  ) : (
+                    <></>
+                  )}
+                </ul>
+
+                <div className="others-option d-flex align-items-center">
+                  <div className="option-item">
+                    {authContextData?.user &&
+                    (authContextData?.user?.role === "user" ||
+                      authContextData?.user?.role === "admin") ? (
+                      <span
+                        data-toggle="modal"
+                        className="auth-one"
+                        onClick={handleLogout}
+                      >
+                        <i className="flaticon-user"></i> Logout
+                      </span>
+                    ) : (
+                      <span
+                        data-toggle="modal"
+                        onClick={toggleAuth}
+                        className="auth-one"
+                      >
+                        <i className="flaticon-user"></i> Login / Register
+                      </span>
+                    )}
                   </div>
-                </Menu.Items>
-              </Transition>
-            </Menu>
-          </nav>
+                </div>
+              </div>
+            </nav>
+          </div>
+        </div>
+
+        <div className="others-option-for-responsive">
+          <div className="container">
+            <div className="dot-menu" onClick={toggleMiniAuth}>
+              <div className="inner">
+                <div className="circle circle-one"></div>
+                <div className="circle circle-two"></div>
+                <div className="circle circle-three"></div>
+              </div>
+            </div>
+
+            <div className={displayMiniAuth ? "container active" : "container"}>
+              <div className="option-inner">
+                <div className="others-option">
+                  <div className="option-item">
+                    {authContextData?.user &&
+                    (authContextData?.user?.role === "user" ||
+                      authContextData?.user?.role === "admin") ? (
+                      <span onClick={handleLogout}>
+                        <i className="flaticon-user"></i> Logout
+                      </span>
+                    ) : (
+                      <span onClick={toggleAuth}>
+                        <i className="flaticon-user"></i> Login / Register
+                      </span>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <LoginPopup open={open} hidePopup={hidePopup} />
-    </header>
+
+      {/* ------------ Auth Modal ------- */}
+      <AuthModal displayAuth={displayAuth} toggleAuth={toggleAuth} />
+    </>
   );
-}
+};
+
+export default Navbar;

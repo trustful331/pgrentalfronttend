@@ -67,6 +67,11 @@ const UsersNavbar = ({ value }) => {
                 path: "complains",
                 title: "Complain",
               },
+              {
+                iconClass: "bx bx-plus-circle",
+                path: "orderfooduser",
+                title: "Order Food",
+              },
             ].map(({ iconClass, path, title }) => (
               <li className="nav-item" key={path}>
                 <Link href={`/users/${path}`}>

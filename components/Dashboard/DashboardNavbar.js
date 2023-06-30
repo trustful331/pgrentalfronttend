@@ -22,7 +22,7 @@ const DashboardNavbar = () => {
         <div className="sidemenu-header">
           <Link href="/">
             <a className="navbar-brand d-flex align-items-center active">
-              <img src="/images/black-logo.png" alt="image" />
+              <img src="/images/home/logo.png" alt="image" />
             </a>
           </Link>
 
@@ -110,7 +110,7 @@ const DashboardNavbar = () => {
               >
                 <li className="nav-item active-section">
                   <Link
-                    href="/dashboard/my-listing/active"
+                    href="/admin/my-listing/active"
                     activeClassName="active"
                   >
                     <a>
@@ -122,7 +122,7 @@ const DashboardNavbar = () => {
 
                 <li className="nav-item active-section">
                   <Link
-                    href="/dashboard/my-listing/pending"
+                    href="/admin/my-listing/pending"
                     activeClassName="active"
                   >
                     <a>
@@ -134,7 +134,7 @@ const DashboardNavbar = () => {
 
                 <li className="nav-item active-section">
                   <Link
-                    href="/dashboard/my-listing/expired"
+                    href="/admin/my-listing/expired"
                     activeClassName="active"
                   >
                     <a>
@@ -147,7 +147,7 @@ const DashboardNavbar = () => {
             </li>
 
             <li className="nav-item">
-              <Link href="/dashboard/reviews" activeClassName="active">
+              <Link href="/admin/reviews" activeClassName="active">
                 <a>
                   <span className="icon">
                     <i className="bx bx-star"></i>
@@ -158,7 +158,7 @@ const DashboardNavbar = () => {
             </li>
 
             <li className="nav-item">
-              <Link href="/dashboard/bookmarks" activeClassName="active">
+              <Link href="/admin/bookmarks" activeClassName="active">
                 <a>
                   <span className="icon">
                     <i className="bx bx-heart"></i>
@@ -169,7 +169,7 @@ const DashboardNavbar = () => {
             </li>
 
             <li className="nav-item">
-              <Link href="/dashboard/add-listing" activeClassName="active">
+              <Link href="/admin/add-listing" activeClassName="active">
                 <a>
                   <span className="icon">
                     <i className="bx bx-plus-circle"></i>
@@ -182,7 +182,7 @@ const DashboardNavbar = () => {
             {/* ..........................................................add 2 morer pages......................................................................... */}
 
             <li className="nav-item">
-              <Link href="/dashboard/add-city" activeClassName="active">
+              <Link href="/admin/add-city" activeClassName="active">
                 <a>
                   <span className="icon">
                     <i className="bx bx-plus-circle"></i>
@@ -193,18 +193,18 @@ const DashboardNavbar = () => {
             </li>
 
             <li className="nav-item">
-              <Link href="/dashboard/add-room-type" activeClassName="active">
+              <Link href="/admin/add-room-type" activeClassName="active">
                 <a>
                   <span className="icon">
                     <i className="bx bx-plus-circle"></i>
                   </span>
-                  <span className="menu-title">Room type</span>
+                  <span className="menu-title">Add Room type</span>
                 </a>
               </Link>
             </li>
 
             <li className="nav-item">
-              <Link href="/dashboard/add-aminities" activeClassName="active">
+              <Link href="/admin/add-aminities" activeClassName="active">
                 <a>
                   <span className="icon">
                     <i className="bx bx-plus-circle"></i>
@@ -215,7 +215,7 @@ const DashboardNavbar = () => {
             </li>
 
             <li className="nav-item">
-              <Link href="/dashboard/users" activeClassName="active">
+              <Link href="/admin/users" activeClassName="active">
                 <a>
                   <span className="icon">
                     <i className="bx bx-plus-circle"></i>
@@ -224,11 +224,21 @@ const DashboardNavbar = () => {
                 </a>
               </Link>
             </li>
+               <li className="nav-item">
+              <Link href="/admin/addMeals" activeClassName="active">
+                <a>
+                  <span className="icon">
+                    <i className="bx bx-plus-circle"></i>
+                  </span>
+                  <span className="menu-title">Add Meals</span>
+                </a>
+              </Link>
+            </li>
 
             {/* ............................................................................................................................................ */}
 
             <li className="nav-item">
-              <Link href="/dashboard/invoice" activeClassName="active">
+              <Link href="/admin/invoice" activeClassName="active">
                 <a>
                   <span className="icon">
                     <i className="bx bx-certification"></i>
@@ -241,7 +251,7 @@ const DashboardNavbar = () => {
             <li className="nav-item-title">Account</li>
 
             <li className="nav-item">
-              <Link href="/dashboard/profile" activeClassName="active">
+              <Link href="/admin/profile" activeClassName="active">
                 <a>
                   <span className="icon">
                     <i className="bx bxs-user-circle"></i>

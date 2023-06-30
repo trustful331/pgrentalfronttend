@@ -32,6 +32,7 @@ import Loader from "../components/Shared/Loader";
 import GoTop from "../components/Shared/GoTop";
 import { AuthContextProvider } from "../contexts/authContext";
 import Navbar from "../components/_App/Navbar";
+import Header from '../components/_App/Header';
 
 function MyApp({ Component, pageProps }) {
   const [loading, setLoading] = useState(true);
@@ -47,7 +48,7 @@ function MyApp({ Component, pageProps }) {
         <QueryClientProvider client={queryClient}>
           <IndiceProvider>
             <AuthContextProvider>
-              <Navbar />
+              <Header />
               <Toaster position="top-right" reverseOrder={false} />
               <Component {...pageProps} />
 

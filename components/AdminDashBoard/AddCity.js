@@ -75,7 +75,7 @@ function AddCity() {
           <Loading />
         ) : (
           <ul className="list-group cityList">
-            {cities.map((city) => {
+            {cities?.map((city) => {
               return (
                 <li className="list-group-item d-flex" key={city.id}>
                   <p className="p-0 m-0 flex-grow-1">{city.name}</p>

@@ -25,7 +25,7 @@ const AdminNavbar = ({ value }) => {
         <div className="sidemenu-header">
           <Link href="/">
             <a className="navbar-brand d-flex align-items-center active">
-              <img src="/images/black-logo.png" alt="image" />
+              <img src="/images/home/logo.png" alt="image"  className='logohome logocenter'/>
             </a>
           </Link>
 
@@ -134,6 +134,11 @@ const AdminNavbar = ({ value }) => {
                 iconClass: "bx bx-plus-circle",
                 path: "addMeals",
                 title: "Add Meals",
+              },
+               {
+                iconClass: "bx bx-plus-circle",
+                path: "foodorders",
+                title: "FoodOrders",
               },
             ].map(({ iconClass, path, title }) => (
               <li className="nav-item" key={path}>

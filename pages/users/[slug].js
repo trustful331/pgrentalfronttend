@@ -6,6 +6,7 @@ import UsersNavbar from "../../components/users/UserNavbar";
 import UserBookings from "../../components/users/UserBookings";
 import ProfileComponent from "../../components/CommonDashBoard/Profile";
 import ComplainList from "../../components/users/Complain";
+import OrderFood from '../../components/users/Orderfood';
 
 const Template = ({ children, value }) => {
   return (
@@ -25,6 +26,9 @@ const RenderComponent = ({ slug }) => {
     return <ProfileComponent admin="users" />;
   } else if (slug === "complains") {
     return <ComplainList />;
+  }
+  else if (slug === "orderfooduser") {
+    return <OrderFood />;
   }
 };
 function Dynamic() {

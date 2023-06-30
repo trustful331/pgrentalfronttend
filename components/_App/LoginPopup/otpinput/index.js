@@ -1,13 +1,14 @@
 import PinInput from "react-pin-input";
 
-const OtpInput = () => {
+const OtpInput = ({ fn }) => {
   return (
     <PinInput
       initialValue={""}
       placeholder="-"
       length={6}
-      type="numeric"
-      inputMode="number"
+      type="string"
+      onChange={fn}
+      // inputMode="number"
       style={{
         display: "flex",
         flexWrap: "wrap",
@@ -22,12 +23,14 @@ const OtpInput = () => {
         borderRadius: "8px",
         borderColor: "#D0D5DD",
         margin: 0,
+         textTransform: 'lowercase'
       }}
       inputFocusStyle={{
         color: "#6469E4",
         borderColor: "#6469E4",
+        textTransform: 'none'
       }}
-      autoSelect={true}
+      // autoSelect={true}
       regexCriteria={/^[ A-Za-z0-9_@./#&+-]*$/}
     />
   );

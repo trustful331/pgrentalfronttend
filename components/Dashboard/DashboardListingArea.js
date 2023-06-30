@@ -28,7 +28,7 @@ const DashboardListingArea = ({ listing, isLoading,deleteListingById }) => {
               <Loading />
             ) : (
               <div className="row">
-                {listing.map(({ id, commonAreaPhotos, name }) => (
+                {listing?.map(({ id, commonAreaPhotos, name }) => (
                   <div key={id} className="col-xl-4 col-lg-6 col-md-6">
                     <div className="single-listings-box">
                       <div className="listings-image">

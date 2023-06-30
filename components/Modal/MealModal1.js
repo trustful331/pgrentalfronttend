@@ -133,7 +133,7 @@ function MealModal({ displayCM, toggleCM, mutate }) {
       id="loginRegisterModal"
     >
       <div className="modal-dialog modal-dialog-centered">
-        <div className="modal-content">
+        <div className="modal-content Addmealcon">
           <Tabs>
             <button
               type="button"
@@ -146,10 +146,10 @@ function MealModal({ displayCM, toggleCM, mutate }) {
             </button>
 
             <ul className="nav nav-tabs" id="myTab">
-              <TabList>
+              <TabList className="tablist_addmeals">
                 <Tab className="nav-item">
                   <a className="nav-link" id="login-tab addmealhead">
-                    Add Meal
+                    Add Menu
                   </a>
                 </Tab>
               </TabList>
@@ -203,7 +203,7 @@ function MealModal({ displayCM, toggleCM, mutate }) {
                         <p>
                         {
                           breakfast?.map((r, i) => {
-                            return (<input key={i} placeholder={r} id='breakfastmealid' className='input_addmeals'></input>);
+                            return (<span key={i} placeholder={r} id='breakfastsetmealid' className='input_addmeals'>{r}</span>);
                           })
                           
                           }
@@ -215,24 +215,24 @@ function MealModal({ displayCM, toggleCM, mutate }) {
                         <p>
                         {
                           lunch?.map((r, i) => {
-                            return (<input key={i} placeholder={r} id='breakfastmealid'></input>);
+                            return (<span key={i} placeholder={r} id='breakfastsetmealid'>{r}</span>);
                           })
                           
                           }
                           </p>
-                        <input type='text' id='breakfastmealid' placeholder='add another meal' onChange={addlunchmeal} value={newlunmeal}></input>
+                        <input type='text' id='breakfastmealid' placeholder='add another meal' onChange={addlunchmeal} className='input_addmeals' value={newlunmeal}></input>
                         <button type='button' className='addmealbtn' onClick={()=>addlunchh()}>Add</button>
 
                         <p>Add Dinner</p>
                         <p>
                         {
                           Dinner?.map((r, i) => {
-                            return (<input key={i} placeholder={r} id='breakfastmealid'></input>);
+                            return (<span key={i}  id='breakfastsetmealid'>{r}</span>);
                           })
                           
                           }
                           </p>
-                        <input type='text' id='breakfastmealid' placeholder='add another meal' onChange={adddinnermeal} value={newdinmeal}></input>
+                        <input type='text' id='breakfastmealid' placeholder='add another meal' onChange={adddinnermeal} className='input_addmeals' value={newdinmeal}></input>
                         <button type='button' className='addmealbtn' onClick={()=>adddinnerr()}>Add</button>
                                              
                       </div>
