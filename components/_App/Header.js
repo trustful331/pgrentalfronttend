@@ -52,7 +52,7 @@ export default function Header() {
                       </a>
                     </Link>
                   </li>
-                  <li>
+                  {/* <li>
                     <Link href="/how-it-works">
                       <a className="!py-2 px-6 hover:!bg-green/10 text-[14px] block text-black/80 cursor-pointer">
                         How It Work
@@ -107,14 +107,14 @@ export default function Header() {
                         404 Error
                       </a>
                     </Link>
-                  </li>
-                   <li>
+                  </li> */}
+                   {/* <li>
                     <Link href="/coming-soon">
                       <a className="!py-2 px-6 hover:!bg-green/10 text-[14px] block text-black/80 cursor-pointer">
                         Coming Soon
                       </a>
                     </Link>
-                  </li>
+                  </li> */}
                    <li>
                     <Link href="/contact">
                       <a className="!py-2 px-6 hover:!bg-green/10 text-[14px] block text-black/80 cursor-pointer">
@@ -138,7 +138,7 @@ export default function Header() {
                 </span>
                 <ul className="absolute hidden group-hover:block bg-white top-[40px] min-w-[15rem] !rounded-xl shadow-primary !py-4 !border">
                   <li>
-                    <Link href="/dashboard">
+                    <Link href="/admin">
                       <a className="!py-2 px-6 hover:!bg-green/10 text-[14px] block text-black/80 cursor-pointer">
                         Dashboard
                       </a>
@@ -203,7 +203,7 @@ export default function Header() {
                    <li>
                     <Link href="/admin/profile">
                       <a className="!py-2 px-6 hover:!bg-green/10 text-[14px] block text-black/80 cursor-pointer">
-                       My Profile
+                       My Profie
                       </a>
                     </Link>
                   </li>
@@ -269,7 +269,7 @@ export default function Header() {
                   />
                 ) : (
                   <ButtonTo
-                    text="Login/Register"
+                    text="Login"
                     className="bg-green !rounded-lg text-white px-6 !py-2 !border !shadow-lg flex items-center gap-3"
                     onClick={openPopup}
                   />
@@ -297,7 +297,7 @@ export default function Header() {
                         <ul className="gap-7 flex flex-col">
                           <li>
                             <Link
-                              href="/about-us"
+                              href="/about"
                               className="p-[9px] text-[16px] font-normal text-black/70 hover:text-green">
                               About us
                             </Link>
@@ -309,13 +309,101 @@ export default function Header() {
                               Our Team
                             </Link>
                           </li>
-                          <li>
+                          {/* <li>
                             <ButtonTo
                               text="Login"
                               className="bg-green !rounded-lg text-white px-6 !py-2 !border !shadow-lg flex justify-center items-center gap-3 w-full"
                               onClick={openPopup}
                             />
-                          </li>
+                          </li> */}
+                          <li>
+
+                          {authContextData?.user !== undefined ? (
+                    authContextData?.user?.role === "admin" ? (
+
+                    
+                                        <li>
+                    <Link href="/admin"
+                      className="p-[9px] text-[16px] font-normal text-black/70 hover:text-green">
+                         Admin Dashboard
+                         
+
+                      
+                    </Link>
+                    <br></br>
+
+                  </li>
+                  
+                
+              
+                    ):( 
+                    
+                    
+                    
+                    <li >
+                      <li>
+                    <Link href="/users/bookings">
+                      <a className="p-[9px] text-[16px] font-normal text-black/70 hover:text-green">
+                        User Panel
+                      </a>
+                    </Link>
+                  </li>
+                {/* <span className="text-[16px] font-normal  hover:text-green flex items-center !ga!p-2">
+                   User Panel
+                  <HiOutlineChevronDown
+                    size={22}
+                    className="group-hover:-rotate-180 transition duration-200"
+                  />
+                </span>
+                <ul className="absolute hidden group-hover:block bg-white top-[40px] min-w-[15rem] !rounded-xl shadow-primary !py-4 !border">
+                  
+                  <li>
+                    <Link href="/users/complains">
+                      <a className="!py-2 px-6 hover:!bg-green/10 text-[14px] block text-black/80 cursor-pointer">
+                        Complain
+                      </a>
+                    </Link>
+                      </li>
+                       <li>
+                    <Link href="/users/orderfooduser">
+                      <a className="!py-2 px-6 hover:!bg-green/10 text-[14px] block text-black/80 cursor-pointer">
+                        Order Food
+                      </a>
+                    </Link>
+                  </li>
+                   <li>
+                    <Link href="/users/profile">
+                      <a className="!py-2 px-6 hover:!bg-green/10 text-[14px] block text-black/80 cursor-pointer">
+                       My Profile
+                      </a>
+                    </Link>
+                      </li>
+                   
+                  
+
+                </ul> */}
+              </li>)
+                  ) : (
+                    <></>
+                  )}
+                <br></br>
+                {authContextData?.user &&
+                  (authContextData?.user?.role === "user" ||
+                    authContextData?.user?.role === "admin") ? (
+                  <ButtonTo
+                    text="LogOut"
+                    className="bg-green !rounded-lg text-white px-6 !py-2 !border !shadow-lg flex items-center gap-3"
+                    onClick={handleLogout}
+                  />
+                ) : (
+                  <ButtonTo
+                    text="Login"
+                    className="bg-green !rounded-lg text-white px-6 !py-2 !border !shadow-lg flex items-center gap-3"
+                    onClick={openPopup}
+                  />
+                )
+                }
+              </li>
                         </ul>
                       </Menu.Item>
                     </div>

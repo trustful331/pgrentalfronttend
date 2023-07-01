@@ -16,10 +16,7 @@ export default function Popular() {
         </h2>
         <div className="text-center md:min-w-[50vw] md:max-w-[30vw] mx-auto md:px-0 sm:px-6 px-[15px] mt-10 md:mt-20">
           <p className="lg:text-[20px] md:text-[16px] text-[14px] font-normal lg:leading-[30px] leading-[28px] text-black/70">
-            lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem
-            ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-            lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem
-            ipsum lorem ipsum
+          Our location provides easy access to a variety of captivating cities with diverse attractions. City A offers a bustling metropolis with skyscrapers, shopping, and museums. City B boasts natural landscapes, parks, and mountain ranges for relaxation and outdoor activities. City C is rich in history, featuring ancient temples, palaces, and cultural festivals that showcase its heritage.
           </p>
         </div>
       </div>

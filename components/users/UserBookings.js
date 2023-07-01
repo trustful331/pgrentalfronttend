@@ -7,6 +7,7 @@ import toast from "react-hot-toast";
 import { useAuthToken } from "../../contexts/authContext";
 import { useQueryClient } from "react-query";
 import config from "../../utils/config";
+import { useAuthContext } from "../../contexts/authContext";
 
 const UserBookings = () => {
   const { allRentPayment, isLoading } = useAllRentPayment();
@@ -57,6 +58,8 @@ const UserBookings = () => {
       );
     }
   };
+  const context = useAuthContext()
+
 
   if (isLoading) {
     <Loading />;
@@ -77,9 +80,9 @@ const UserBookings = () => {
           <table className="table">
             <thead>
               <tr>
-                <th>Customer</th>
-                <th>Details</th>
-                <th>Action</th>
+                <th>Customer Details</th>
+                <th>Subscribtion Status</th>
+                <th>Subscribtion Amount</th>
               </tr>
             </thead>
 
@@ -88,7 +91,9 @@ const UserBookings = () => {
                 ({ uid, user, availability, status, subcriptionId }) => (
                   <tr key={uid}>
                     <td className="name">
-                      <img src="/images/user1.jpg" alt="image" />
+                      {/* <img src="/images/user1.jpg" alt="image" /> */}
+
+                      <img src={context?.user?.profile_pic?.path ?? "/images/user1.jpg"} alt="image" />
                       <div className="info">
                         <span>{user.name}</span>
                         <ul>
@@ -109,13 +114,7 @@ const UserBookings = () => {
                         </span>
                       </h4>
 
-                      <ul>
-                        <li>
-                          <i className="bx bx-purchase-tag"></i>
-                          <span>Price:</span>
-                          Rs. {availability.price}
-                        </li>
-                      </ul>
+                      
                     </td>
 
                     <td className="action">
@@ -132,7 +131,14 @@ const UserBookings = () => {
                           <i className="bx bx-check-circle"></i> Pay
                         </button>
                       ) : (
-                        <div className="default-btn">{status}</div>
+                        <div className="default-btn">
+                        <ul>
+                        <li>
+                          <i className="bx bx-purchase-tag"></i>
+                          <span>Price:</span>
+                          Rs. {availability.price}
+                        </li>
+                      </ul></div>
                       )}
                     </td>
                   </tr>

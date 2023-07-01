@@ -7,13 +7,11 @@ export default function LiveLoveLife({ visibleSections }) {
             Live, Love & Laugh
           </h3>
           <p className="md:text-[25px] text-[16px] md:leading-[38px] leading-[28px] mb-4 text-black/80 font-normal ">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book.
+            
+"Welcome to our inviting space where you can truly live, love, and laugh. Embrace the beauty of life's joyful moments as you find comfort and happiness in our warm and vibrant haven, where every day is filled with laughter and cherished memories."
           </p>
           <button className="bg-black rounded-full text-white px-16 py-2.5 border-0 shadow-lg flex items-center gap-3 mx-auto">
-            Discover more
+            Discover yourself at zestos
           </button>
           <img
             src="images/home/live_life.png"

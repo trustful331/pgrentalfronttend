@@ -24,10 +24,8 @@ export default function App() {
         </h2>
         <div className="text-center md:min-w-[50vw] md:max-w-[30vw] mx-auto md:px-0 sm:px-6 px-[15px] mt-10 md:mt-20">
           <p className="lg:text-[20px] md:text-[16px] text-[14px] font-normal lg:leading-[30px] leading-[28px] text-black/70">
-            lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem
-            ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-            lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem
-            ipsum lorem ipsum
+            
+"Your One-Tap Mobile Solution: Simplifying Your Needs with a Single Touch"
           </p>
           <div className="flex sm:flex-row flex-col items-center justify-center gap-3 my-10">
             <button className=" border-black/20 hover:opacity-70 rounded-2xl text-black/80 px-10 py-1.5 border shadow-md flex items-center gap-3">

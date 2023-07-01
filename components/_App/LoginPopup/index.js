@@ -140,7 +140,7 @@ function LoginPopup({ open, hidePopup }) {
                     </div>
                     <div className=" w-full">
                       <input
-                        type="email"
+                        type="input"
                         placeholder="Enter Your PIN"
                         className="h-[45px] font-Lato placeholder:font-normal sm:hidden rounded-[8px] border outline-0 border-[#D0D5DD] placeholder:text-[#D0D5DD] shadow-sm px-3 flex items-center w-full mb-4"
                       />
