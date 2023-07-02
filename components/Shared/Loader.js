@@ -4,7 +4,7 @@
 //   return (
 //     <>
 //       {loading && (
-//         <div style={{marginTop: -100}} className="preloader">
+//         <div style={{ marginTop: -100 }} className="preloader">
 //           <div id="cupcake" className="box">
 //             <span className="letter box">Z</span>
 //             <span className="letter box">e</span>
@@ -18,8 +18,8 @@
 //             </div>
 //             <span className="letter box">s</span>
 //           </div>
-//           <div style={{marginTop: 20 }}>
-//           <LoadingAnimation progress={75} duration={1000} />
+//           <div style={{ marginTop: 20 }}>
+//             <LoadingAnimation progress={75} duration={1000} />
 //           </div>
 //         </div>
 //       )}

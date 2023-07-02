@@ -4,12 +4,12 @@
 // function Loading() {
 //   return (
 //     <>
-//     <div className="preloader">
-//     <div className="sub-preloader">
-//       <div className="spinner-border text-light" role="status"></div>
-//       {/* <LoadingAnimation progress={75} duration={1000} /> */}
-//     </div>
+//       <div className="preloader">
+//         <div className="sub-preloader">
+//           <div className="spinner-border text-light" role="status"></div>
+//           {/* <LoadingAnimation progress={75} duration={1000} /> */}
 //         </div>
+//       </div>
 //     </>
 //   );
 // }
