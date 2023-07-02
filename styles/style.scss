@@ -14110,7 +14110,7 @@ Dashboard CSS
     position: relative;
     height: 100%;
     box-shadow: 0 8px 10px 0 rgba(183, 192, 206, 0.1);
-    background: red;
+    background: var(--whiteColor);
     overflow: hidden;
     left: 0;
     transition: all ease-in-out 0.3s;
