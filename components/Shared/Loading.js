@@ -19,7 +19,7 @@
 import React from "react";
 import LoadingAnimation from "./LoadingAnimation";
 
-const Loader = ({ loading }) => {
+const Loading = ({ loading }) => {
   return (
     <>
       {loading && (
@@ -34,4 +34,4 @@ const Loader = ({ loading }) => {
   );
 };
 
-export default Loader;
+export default Loading;

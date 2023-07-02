@@ -22,16 +22,9 @@ const DashboardNavbar = () => {
         <div className="sidemenu-header">
           <Link href="/">
             <a className="navbar-brand d-flex align-items-center active">
-              <img src="/images/home/logo.png" alt="image" />
+              <img src="/images/logo.png" alt="image" />
             </a>
           </Link>
-
-          <div
-            className="responsive-burger-menu d-block d-lg-none"
-            onClick={toggleSideMenu}
-          >
-            <i className="bx bx-x"></i>
-          </div>
         </div>
 
         <div className="sidemenu-body">

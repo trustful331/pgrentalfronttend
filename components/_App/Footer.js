@@ -11,7 +11,7 @@ const Footer = () => (
         <div className="sm:grid-cols-4 lg:gap-10 grid grid-cols-1 gap-6">
           <div className="">
             <div className="h-[100px] relative">
-              <img src="images/home/logo.png" className="w-20" />
+              <img src="images/logo.png" className="w-20" />
             </div>
             <h4 className="text-[20px] text-green font-semibold !mb-4 !mt-4">
               Contact Us
