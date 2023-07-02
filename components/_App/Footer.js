@@ -11,7 +11,11 @@ const Footer = () => (
         <div className="sm:grid-cols-4 lg:gap-10 grid grid-cols-1 gap-6">
           <div className="">
             <div className="h-[100px] relative">
-              <img src="images/logo.png" className="w-20" />
+              <Link href="/">
+                <a>
+                  <img src="/images/logo.png" className="w-20" />
+                </a>
+              </Link>
             </div>
             <h4 className="text-[20px] text-green font-semibold !mb-4 !mt-4">
               Contact Us
@@ -88,7 +92,7 @@ const Footer = () => (
           <div className="">
             <div className="h-[100px] relative lg:block hidden"></div>
             <h4 className="text-[20px] text-green font-semibold !mb-4 !mt-4"></h4>
-            <img src="images/home/coming_soon.png" className="w-[70%] pt-4" />
+            <img src="/images/home/coming_soon.png" className="w-[70%] pt-4" />
           </div>
         </div>
       </div>

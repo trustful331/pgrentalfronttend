@@ -1,11 +1,8 @@
+"on-child";
 import { Transition, Menu } from "@headlessui/react";
 import Link from "next/link";
 import { Fragment, useState } from "react";
-import {
-  HiOutlineChevronDown,
-  HiOutlineMenu,
-  HiOutlineMenuAlt1,
-} from "react-icons/hi";
+import { HiOutlineChevronDown } from "react-icons/hi";
 import ButtonTo from "../Button";
 import LoginPopup from "./LoginPopup/index";
 import { useAuthContext } from "../../contexts/authContext";
@@ -29,7 +26,11 @@ export default function Header() {
     <header className="sticky top-0 z-50 bg-white shadow">
       <div className={`container mx-auto xl:px-0 px-6`}>
         <div className="flex items-center justify-between min-h-[70px]">
-          <img src="/images/home/logo.png" className="logohome" />
+          <Link href="/" className="block">
+            <a>
+              <img src="/images/home/logo.png" className="logohome" />
+            </a>
+          </Link>
           <nav className="flex items-center">
             <ul className="lg:flex items-center justify-between hidden !gap-10">
               {/* <li className="h-[40px] flex items-center">
@@ -283,8 +284,7 @@ export default function Header() {
                 enterTo="opacity-100 scale-100"
                 leave="duration-100 ease-in"
                 leaveFrom="opacity-100 scale-100"
-                leaveTo="opacity-0 scale-95"
-              >
+                leaveTo="opacity-0 scale-95">
                 <Menu.Items className="absolute top-20 max-w-[92%] mx-auto z-2xlfull inset-x-0 py-[0.5rem] transition transform origin-top-right xxl:hidden">
                   <div className="rounded-[8px] !shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
                     <div className="px-12 py-10 space-y-10">
@@ -293,16 +293,14 @@ export default function Header() {
                           <li>
                             <Link
                               href="/about"
-                              className="p-[9px] text-[16px] font-normal text-black/70 hover:text-green"
-                            >
+                              className="p-[9px] text-[16px] font-normal text-black/70 hover:text-green">
                               About us
                             </Link>
                           </li>
                           <li>
                             <Link
                               href="/"
-                              className="p-[9px] text-[16px] font-normal text-black/70 hover:text-green"
-                            >
+                              className="p-[9px] text-[16px] font-normal text-black/70 hover:text-green">
                               Our Team
                             </Link>
                           </li>
@@ -319,8 +317,7 @@ export default function Header() {
                                 <li>
                                   <Link
                                     href="/admin"
-                                    className="p-[9px] text-[16px] font-normal text-black/70 hover:text-green"
-                                  >
+                                    className="p-[9px] text-[16px] font-normal text-black/70 hover:text-green">
                                     Admin Dashboard
                                   </Link>
                                   <br></br>

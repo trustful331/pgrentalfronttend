@@ -17,11 +17,10 @@ const DashboardNavbar = () => {
           displaySideMenu
             ? "sidemenu-area active-sidemenu-area"
             : "sidemenu-area"
-        }
-      >
+        }>
         <div className="sidemenu-header">
           <Link href="/">
-            <a className="navbar-brand d-flex align-items-center active">
+            <a className="navbar-brand d-flex align-items-center active h-10">
               <img src="/images/logo.png" alt="image" />
             </a>
           </Link>
@@ -31,8 +30,7 @@ const DashboardNavbar = () => {
           <ul
             className="sidemenu-nav metisMenu h-100"
             id="sidemenu-nav"
-            data-simplebar
-          >
+            data-simplebar>
             <li className="nav-item-title">Main</li>
 
             <li className="nav-item">
@@ -86,8 +84,7 @@ const DashboardNavbar = () => {
               <a
                 href="#"
                 className="collapsed-nav-link nav-link"
-                onClick={listingToggle}
-              >
+                onClick={listingToggle}>
                 <span className="icon">
                   <i className="bx bx-layer"></i>
                 </span>
@@ -99,13 +96,11 @@ const DashboardNavbar = () => {
                   display
                     ? "sidemenu-nav-second-level show"
                     : "sidemenu-nav-second-level sidemenu-nav-display"
-                }
-              >
+                }>
                 <li className="nav-item active-section">
                   <Link
                     href="/admin/my-listing/active"
-                    activeClassName="active"
-                  >
+                    activeClassName="active">
                     <a>
                       <span className="menu-title">Active</span>
                       <span className="badge">5</span>
@@ -116,8 +111,7 @@ const DashboardNavbar = () => {
                 <li className="nav-item active-section">
                   <Link
                     href="/admin/my-listing/pending"
-                    activeClassName="active"
-                  >
+                    activeClassName="active">
                     <a>
                       <span className="menu-title">Pending</span>
                       <span className="badge yellow">1</span>
@@ -128,8 +122,7 @@ const DashboardNavbar = () => {
                 <li className="nav-item active-section">
                   <Link
                     href="/admin/my-listing/expired"
-                    activeClassName="active"
-                  >
+                    activeClassName="active">
                     <a>
                       <span className="menu-title">Expired</span>
                       <span className="badge red">2</span>
@@ -217,7 +210,7 @@ const DashboardNavbar = () => {
                 </a>
               </Link>
             </li>
-               <li className="nav-item">
+            <li className="nav-item">
               <Link href="/admin/addMeals" activeClassName="active">
                 <a>
                   <span className="icon">

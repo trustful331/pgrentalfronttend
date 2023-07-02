@@ -4,7 +4,7 @@ import { IndiceContext } from "../../contexts";
 import cn from "classnames";
 import * as Icons from "../../components/Common/Icons";
 import { HiOutlineMenu } from "react-icons/hi";
-import {RxCross1} from 'react-icons/rx'
+import { RxCross1 } from "react-icons/rx";
 
 const AdminNavbar = ({ value }) => {
   const { displaySideMenu, toggleSideMenu } = useContext(IndiceContext);
@@ -17,50 +17,46 @@ const AdminNavbar = ({ value }) => {
 
   return (
     <>
-      <div onClick={() => setShowAside(true)} className="fixed top-5 right-5 z-50 lg:hidden">
+      <div
+        onClick={() => setShowAside(true)}
+        className="top-5 right-5 lg:hidden fixed z-50">
         <HiOutlineMenu className="w-8 h-8" />
       </div>
       <div
         onClick={() => setShowAside(false)}
         className={`bg-black fixed top-0 h-full w-full opacity-60 z-[9999] transition-all ease-in-out duration-500 ${
           showAside ? "ml-0" : "-ml-[200rem]"
-        }`}
-      ></div>
+        }`}></div>
       <div
         className={
           displaySideMenu
             ? "sidemenu-area active-sidemenu-area"
             : "sidemenu-area"
-        }
-      >
+        }>
         <div className="bg-white h-[70px] py-1 pl-5">
           <Link href="/">
             <a className="navbar-brand d-flex align-items-center active">
-              <img
-                src="/images/logo.png"
-                alt="image"
-                className="h-[60px]"
-              />
+              <img src="/images/logo.png" alt="image" className="h-12" />
             </a>
           </Link>
           {showAside && (
-            <div onClick={() => setShowAside(false)} className="fixed top-5 left-[13rem]">
-            <RxCross1 className="w-8 h-8" />
-          </div>
+            <div
+              onClick={() => setShowAside(false)}
+              className="fixed top-5 left-[13rem]">
+              <RxCross1 className="w-6 h-6" />
+            </div>
           )}
         </div>
 
         <div
           className={cn("sidemenu-body", {
-            "ml-0": showAside,
-            "lg:ml-0 -ml-[100%]": !showAside,
-          })}
-        >
+            "!left-0": showAside,
+            "lg:!left-0 !-left-[100%]": !showAside,
+          })}>
           <ul
             className={`sidemenu-nav metisMenu h-100`}
             id="sidemenu-nav"
-            data-simplebar
-          >
+            data-simplebar>
             <li className="nav-item-title">Main</li>
             {[
               {
@@ -97,8 +93,7 @@ const AdminNavbar = ({ value }) => {
                     </span>
                     <span
                       onClick={() => setShowAside(false)}
-                      className="menu-title"
-                    >
+                      className="menu-title">
                       {title}
                     </span>
                   </a>

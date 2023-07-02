@@ -89,12 +89,8 @@ export default function Home() {
         />
       </div>
       <Products />
-      <div className="xl:block hidden">
-        <Features anime="yes" />
-      </div>
-      <div className="xl:hidden block">
-        <Features anime="none" />
-      </div>
+      <Features />
+
       <div className="relative md:mt-[200px] cities-bg flex items-end xl:h-screen sm:h-[700px] h-[500px]">
         <div className="container">
           <div className="grid sm:grid-cols-12 grid-cols-1 !gap-5">
