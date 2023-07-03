@@ -13,6 +13,7 @@ import cityApi from "../../utils/Api/city.api";
 import useCities from "../../utils/Hooks/useCities";
 import { MdCancel } from "react-icons/md";
 import { ReactComponent as Loaderr } from '../../public/images/svg/loader.svg'
+import { ExportToExcel } from '../helpers/ExportToExcel';
 
 
 
@@ -88,10 +89,10 @@ const FoodOrders = () => {
              
     }
     let datas = await mealsApi.Orderbyresanddate(data)
-    setfullorderdata(datas)
+    setfullorderdata(datas.data)
         document.getElementById("fullordermainconid").style.filter = "blur(5px)";
     setshowfullorder(true)
-    console.log(fullorderdata)
+    console.log(fullorderdata.breakfast)
   }  
 
   const cancelcrtemp = () => {
@@ -205,7 +206,7 @@ const FoodOrders = () => {
   //   ],
   //   []
   // );
-  // console.log(countdata);
+ 
   var curr = new Date();
 curr.setDate(curr.getDate());
   var date = curr.toISOString().substring(0, 10);
@@ -289,7 +290,11 @@ curr.setDate(curr.getDate());
               } */}
              
                     </div>
-                    <span className='moredetord_spn' onClick={()=>Moreorderdetails(r)}>More Details</span>
+                    <span className='moredetord_spn' onClick={() => Moreorderdetails(r)}>More Details</span>
+                    <span> <ExportToExcel
+                  apiData={fullorderdata}
+                  fileName="EmployeesData"
+                ></ExportToExcel></span>
                   </div>
                   </> 
                 : <Loaderr className="spinner" />}
@@ -324,22 +329,46 @@ curr.setDate(curr.getDate());
             />
             </div>
             <p>
-              <span>1.</span><span>Breakfast</span>
-              {showfullorder && (
-                showfullorder.Breakfast?.map((r, i) => {
-                  {
-                    r.map((x, i) => {
-                      console.log(x)
-                      return (<>
-                    <p>{x.dish}</p>
-                    <p>{x.user.name}</p>
-                    <p>{x.user?.RentPaymentSubcriptin[0]?.roomNo}</p>
-                  </>)
-                   }) 
-                  }
-                 
-                }) )
-              }
+              <h4>Breakfast</h4>
+          
+              {fullorderdata.breakfast && ( fullorderdata.breakfast.map((r, i) => {
+                {/* console.log(r) */}
+              return (
+               <div className='fullorderdetailscon' key={i}>
+                  <div className='fullordercondish'> <p key={i}>Dish : {r.dish}</p> <p>Name : {r.user.name}</p>   <p>{r.user?.RentPaymentSubcriptin[0]?.roomNo}</p></div>
+                   
+                    
+                      </div>
+              );
+            }))}
+            </p>
+             <p>
+              <h4>Lunch</h4>
+          
+              {fullorderdata.lunch && ( fullorderdata.lunch.map((r, i) => {
+                {/* console.log(r) */}
+              return (
+               <div className='fullorderdetailscon' key={i}>
+                  <div className='fullordercondish'> <p key={i}>Dish : {r.dish}</p> <p>Name : {r.user.name}</p>   <p>{r.user?.RentPaymentSubcriptin[0]?.roomNo}</p></div>
+                   
+                    
+                      </div>
+              );
+            }))}
+            </p>
+             <p>
+              <h4>Dinner</h4>
+          
+              {fullorderdata.dinner && ( fullorderdata.dinner.map((r, i) => {
+                {/* console.log(r) */}
+              return (
+               <div className='fullorderdetailscon' key={i}>
+                  <div className='fullordercondish'> <p key={i}>Dish : {r.dish}</p> <p>Name : {r.user.name}</p>   <p>{r.user?.RentPaymentSubcriptin[0]?.roomNo}</p></div>
+                   
+                    
+                      </div>
+              );
+            }))}
             </p>
             
            </div>

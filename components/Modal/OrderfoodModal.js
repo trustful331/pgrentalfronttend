@@ -61,11 +61,11 @@ function OrderFoodModal({ displayCM, toggleCM, mutate }) {
     try {
        let datee = document.getElementById("dateinputid").value
      let breakfast = document.getElementById("bkfastselectid").value
-      let BKcount = document.getElementById("bkfastcountid").value
+      // let BKcount = document.getElementById("bkfastcountid").value
        let lunch = document.getElementById("lunselectid").value
-        let LKCount = document.getElementById("luncountid").value
+        // let LKCount = document.getElementById("luncountid").value
          let Dinner = document.getElementById("dinselectid").value
-          let DinCount = document.getElementById("dincountid").value
+          // let DinCount = document.getElementById("dincountid").value
           
 
 
@@ -75,11 +75,9 @@ function OrderFoodModal({ displayCM, toggleCM, mutate }) {
       date,
       userid : authContextData?.user.id,
       "breakfast": breakfast,
-      "bkcount": BKcount,
       "lunch": lunch,
-     "luncount":LKCount,
      "dinner": Dinner,
-      "dincount": DinCount
+      
     }
     
    
@@ -253,10 +251,12 @@ function OrderFoodModal({ displayCM, toggleCM, mutate }) {
                           type="date"
                           // onChange={onChnageHandler}
                           // value={cityName}
+                          min={new Date().toISOString().split('T')[0]}
                           placeholder="add meal"
                           className="form-control select"
                                                   id='dateinputid'
-                            onChange={dateselected}                      
+                          onChange={dateselected}        
+                        
                         >
                           
                         </input>
@@ -280,8 +280,8 @@ function OrderFoodModal({ displayCM, toggleCM, mutate }) {
                             })
                           }
                         </select>
-                        <p>Select Breakfast Count</p>
-                        <input type='number' className='count_input' id='bkfastcountid' ></input>
+                        {/* <p>Select Breakfast Count</p>
+                        <input type='number' className='count_input' id='bkfastcountid' ></input> */}
                      
 
                                               <p>Select Lunch</p>
@@ -304,8 +304,8 @@ function OrderFoodModal({ displayCM, toggleCM, mutate }) {
                             })
                           }
                         </select>
-                                        <p>Select Lunch Count</p>
-                        <input type='number' className='count_input' id='luncountid' ></input>
+                                        {/* <p>Select Lunch Count</p>
+                        <input type='number' className='count_input' id='luncountid' ></input> */}
                                               <p>Add Dinner</p>
                          <select
                           // type="text"
@@ -325,8 +325,8 @@ function OrderFoodModal({ displayCM, toggleCM, mutate }) {
                             })
                           }
                         </select>
-                                        <p>Select Dinner Count</p>
-                        <input type='number' className='count_input' id='dincountid' ></input>
+                                        {/* <p>Select Dinner Count</p>
+                        <input type='number' className='count_input' id='dincountid' ></input> */}
                         {/* <p>
                         {
                           foodmenu?.breakfast?.map((r, i) => {

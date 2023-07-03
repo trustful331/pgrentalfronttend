@@ -14,7 +14,7 @@ import moment from 'moment-timezone';
 import mealsApi from '../../utils/Api/meals.api';
 import { useAuthContext } from '../../contexts/authContext';
 
-function EditFoodModal({ displayCM, toggleCM, mutate, row, menu }) {
+function EditFoodModal({ displayCM, toggleCM, mutate, row, menu , fn }) {
   // const [cityName, setCityName] = useState("");
   const { cities } = useCities();
   const [breakfast, setbreakfast] = useState([]);
@@ -56,12 +56,12 @@ function EditFoodModal({ displayCM, toggleCM, mutate, row, menu }) {
       try {
        
       let meal = document.getElementById('selectedmealid').value;
-      let count = document.getElementById('mealcountid').value;
+      // let count = document.getElementById('mealcountid').value;
       
           let data = {
             "id":row._valuesCache.id,
             "dish": meal,
-             "quantity":parseInt(count) 
+            //  "quantity":parseInt(count) 
           }
            let result = await mealsApi.updateuserdishes(data);
       console.log(result);
@@ -254,8 +254,7 @@ function EditFoodModal({ displayCM, toggleCM, mutate, row, menu }) {
                               );
                             })}
                                                   </select>
-                                                  <p>Select  Count</p>
-                                                      <input type='number' className='count_input' id='mealcountid' ></input>
+                                                
                                                       </>
                         )}
                                               {row._valuesCache?.foodtype === 'lunch' && (
@@ -280,8 +279,7 @@ function EditFoodModal({ displayCM, toggleCM, mutate, row, menu }) {
                               );
                             })}
                                                   </select>
-                                                  <p>Select  Count</p>
-                                                      <input type='number' className='count_input' id='mealcountid' ></input>
+                                              
                                                       </>
                         )}
                                               {row._valuesCache?.foodtype === 'dinner' && (
@@ -306,8 +304,8 @@ function EditFoodModal({ displayCM, toggleCM, mutate, row, menu }) {
                               );
                             })}
                                                   </select>
-                                                  <p>Select  Count</p>
-                                                      <input type='number' className='count_input' id='mealcountid' ></input>
+                                                  {/* <p>Select  Count</p>
+                                                      <input type='number' className='count_input' id='mealcountid' ></input> */}
                                                       </>
                         )}
 
@@ -399,6 +397,7 @@ function EditFoodModal({ displayCM, toggleCM, mutate, row, menu }) {
                         type='submit'
                         onClick={() => {
                           toggleCM(!displayCM);
+                          fn();
                         }}
                       >
                         Add Meal

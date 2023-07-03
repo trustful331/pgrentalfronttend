@@ -98,9 +98,10 @@ function OrderFood() {
       console.log("error while fetching data");
     }
   };
-   useEffect(() => {
+  useEffect(() => {
+   
     AllUserOrders();
-  
+     ResidentsData();
   }, []);
    const columns = useMemo(
     () => [
@@ -193,7 +194,7 @@ function OrderFood() {
     setselectedrow(row)
     
   }
-  ResidentsData()
+  // ResidentsData()
   return (
     <>
       <div className="main-content d-flex flex-column">
@@ -298,7 +299,7 @@ function OrderFood() {
       {/*..........................CITY MODAL................................................. */}
       <OrderFoodModal displayCM={displayCM} mutate={mutate} toggleCM={toggleCM} />
       
-      <EditFoodModal displayCM={displayCMEdit} toggleCM={toggleCMEdit} row={selectedrow } menu={foodmenu} />
+      <EditFoodModal displayCM={displayCMEdit} toggleCM={toggleCMEdit} row={selectedrow } menu={foodmenu} fn={AllUserOrders} />
      
     </>
   );
