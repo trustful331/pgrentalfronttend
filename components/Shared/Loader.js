@@ -4,7 +4,7 @@
 //   return (
 //     <>
 //       {loading && (
-//         <div style={{marginTop: -100}} className="preloader">
+//         <div style={{ marginTop: -100 }} className="preloader">
 //           <div id="cupcake" className="box">
 //             <span className="letter box">Z</span>
 //             <span className="letter box">e</span>
@@ -18,8 +18,8 @@
 //             </div>
 //             <span className="letter box">s</span>
 //           </div>
-//           <div style={{marginTop: 20 }}>
-//           <LoadingAnimation progress={75} duration={1000} />
+//           <div style={{ marginTop: 20 }}>
+//             <LoadingAnimation progress={75} duration={1000} />
 //           </div>
 //         </div>
 //       )}
@@ -38,9 +38,9 @@ const Loader = ({ loading }) => {
       {loading && (
         <div className="fixed inset-0 bg-black flex flex-col items-center justify-center z-[9999999999999]">
           <img src="/images/home/logo_white.png" className="w-[200px]" />
-          <div style={{marginTop: 10 }}>
-           <LoadingAnimation progress={75} duration={1000} />
-           </div>
+          <div style={{ marginTop: 10 }}>
+            <LoadingAnimation progress={75} duration={1000} />
+          </div>
         </div>
       )}
     </>

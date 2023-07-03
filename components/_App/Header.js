@@ -1,22 +1,23 @@
+"on-child";
 import { Transition, Menu } from "@headlessui/react";
 import Link from "next/link";
 import { Fragment, useState } from "react";
-import { HiOutlineChevronDown, HiOutlineMenu } from "react-icons/hi";
+import { HiOutlineChevronDown } from "react-icons/hi";
 import ButtonTo from "../Button";
 import LoginPopup from "./LoginPopup/index";
-import { useAuthContext } from '../../contexts/authContext';
+import { useAuthContext } from "../../contexts/authContext";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
-    const authContextData = useAuthContext();
+  const authContextData = useAuthContext();
   const openPopup = () => {
     setOpen(true);
   };
   const hidePopup = () => {
     setOpen(false);
   };
- 
-   const handleLogout = () => {
+
+  const handleLogout = () => {
     localStorage.removeItem("token");
     authContextData.setUser(undefined);
     authContextData.setToken(undefined);
@@ -25,7 +26,11 @@ export default function Header() {
     <header className="sticky top-0 z-50 bg-white shadow">
       <div className={`container mx-auto xl:px-0 px-6`}>
         <div className="flex items-center justify-between min-h-[70px]">
-          <img src="/images/home/logo.png" className="logohome" />
+          <Link href="/" className="block">
+            <a>
+              <img src="/images/home/logo.png" className="logohome" />
+            </a>
+          </Link>
           <nav className="flex items-center">
             <ul className="lg:flex items-center justify-between hidden !gap-10">
               {/* <li className="h-[40px] flex items-center">
@@ -108,160 +113,155 @@ export default function Header() {
                       </a>
                     </Link>
                   </li> */}
-                   {/* <li>
+                  {/* <li>
                     <Link href="/coming-soon">
                       <a className="!py-2 px-6 hover:!bg-green/10 text-[14px] block text-black/80 cursor-pointer">
                         Coming Soon
                       </a>
                     </Link>
                   </li> */}
-                   <li>
+                  <li>
                     <Link href="/contact">
                       <a className="!py-2 px-6 hover:!bg-green/10 text-[14px] block text-black/80 cursor-pointer">
                         Contact
                       </a>
                     </Link>
                   </li>
-
                 </ul>
               </li>
 
-               {authContextData?.user !== undefined ? (
-                    authContextData?.user?.role === "admin" ? (
-                     <li className="group relative h-[40px] flex items-center">
-                <span className="text-[16px] font-normal  hover:text-green flex items-center !ga!p-2">
-                  Admin Panel
-                  <HiOutlineChevronDown
-                    size={22}
-                    className="group-hover:-rotate-180 transition duration-200"
-                  />
-                </span>
-                <ul className="absolute hidden group-hover:block bg-white top-[40px] min-w-[15rem] !rounded-xl shadow-primary !py-4 !border">
-                  <li>
-                    <Link href="/admin">
-                      <a className="!py-2 px-6 hover:!bg-green/10 text-[14px] block text-black/80 cursor-pointer">
-                        Dashboard
-                      </a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/admin/my-listing">
-                      <a className="!py-2 px-6 hover:!bg-green/10 text-[14px] block text-black/80 cursor-pointer">
-                        My Listings
-                      </a>
-                    </Link>
-                  </li>
-                   <li>
-                    <Link href="/admin/reviews">
-                      <a className="!py-2 px-6 hover:!bg-green/10 text-[14px] block text-black/80 cursor-pointer">
-                        Reviews
-                      </a>
-                    </Link>
-                  </li>
-                   <li>
-                    <Link href="/admin/bookings">
-                      <a className="!py-2 px-6 hover:!bg-green/10 text-[14px] block text-black/80 cursor-pointer">
-                       Booking
-                      </a>
-                    </Link>
-                  </li>
-                   <li>
-                    <Link href="/admin/add-listing">
-                      <a className="!py-2 px-6 hover:!bg-green/10 text-[14px] block text-black/80 cursor-pointer">
-                        Add Listings
-                      </a>
-                    </Link>
-                  </li>
-                   <li>
-                    <Link href="/admin/add-city">
-                      <a className="!py-2 px-6 hover:!bg-green/10 text-[14px] block text-black/80 cursor-pointer">
-                        Add City
-                      </a>
-                    </Link>
-                  </li>
-                   <li>
-                    <Link href="/admin/add-room-type">
-                      <a className="!py-2 px-6 hover:!bg-green/10 text-[14px] block text-black/80 cursor-pointer">
-                        Add Room Type
-                      </a>
-                    </Link>
-                  </li>
-                   <li>
-                    <Link href="/admin/add-aminities">
-                      <a className="!py-2 px-6 hover:!bg-green/10 text-[14px] block text-black/80 cursor-pointer">
-                       Add Aminities
-                      </a>
-                    </Link>
+              {authContextData?.user !== undefined ? (
+                authContextData?.user?.role === "admin" ? (
+                  <li className="group relative h-[40px] flex items-center">
+                    <span className="text-[16px] font-normal  hover:text-green flex items-center !ga!p-2">
+                      Admin Panel
+                      <HiOutlineChevronDown
+                        size={22}
+                        className="group-hover:-rotate-180 transition duration-200"
+                      />
+                    </span>
+                    <ul className="absolute hidden group-hover:block bg-white top-[40px] min-w-[15rem] !rounded-xl shadow-primary !py-4 !border">
+                      <li>
+                        <Link href="/admin">
+                          <a className="!py-2 px-6 hover:!bg-green/10 text-[14px] block text-black/80 cursor-pointer">
+                            Dashboard
+                          </a>
+                        </Link>
                       </li>
-                       <li>
-                    <Link href="/admin/addMeals">
-                      <a className="!py-2 px-6 hover:!bg-green/10 text-[14px] block text-black/80 cursor-pointer">
-                       Add Meals
-                      </a>
-                    </Link>
-                  </li>
-                   <li>
-                    <Link href="/admin/profile">
-                      <a className="!py-2 px-6 hover:!bg-green/10 text-[14px] block text-black/80 cursor-pointer">
-                       My Profie
-                      </a>
-                    </Link>
-                  </li>
-                   
-
-                </ul>
-              </li>
-                    ):( <li className="group relative h-[40px] flex items-center">
-                <span className="text-[16px] font-normal  hover:text-green flex items-center !ga!p-2">
-                   User Panel
-                  <HiOutlineChevronDown
-                    size={22}
-                    className="group-hover:-rotate-180 transition duration-200"
-                  />
-                </span>
-                <ul className="absolute hidden group-hover:block bg-white top-[40px] min-w-[15rem] !rounded-xl shadow-primary !py-4 !border">
-                  <li>
-                    <Link href="/users/bookings">
-                      <a className="!py-2 px-6 hover:!bg-green/10 text-[14px] block text-black/80 cursor-pointer">
-                        Bookings
-                      </a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/users/complains">
-                      <a className="!py-2 px-6 hover:!bg-green/10 text-[14px] block text-black/80 cursor-pointer">
-                        Complain
-                      </a>
-                    </Link>
+                      <li>
+                        <Link href="/admin/my-listing">
+                          <a className="!py-2 px-6 hover:!bg-green/10 text-[14px] block text-black/80 cursor-pointer">
+                            My Listings
+                          </a>
+                        </Link>
                       </li>
-                       <li>
-                    <Link href="/users/orderfooduser">
-                      <a className="!py-2 px-6 hover:!bg-green/10 text-[14px] block text-black/80 cursor-pointer">
-                        Order Food
-                      </a>
-                    </Link>
-                  </li>
-                   <li>
-                    <Link href="/users/profile">
-                      <a className="!py-2 px-6 hover:!bg-green/10 text-[14px] block text-black/80 cursor-pointer">
-                       My Profile
-                      </a>
-                    </Link>
+                      <li>
+                        <Link href="/admin/reviews">
+                          <a className="!py-2 px-6 hover:!bg-green/10 text-[14px] block text-black/80 cursor-pointer">
+                            Reviews
+                          </a>
+                        </Link>
                       </li>
-                   
-                  
+                      <li>
+                        <Link href="/admin/bookings">
+                          <a className="!py-2 px-6 hover:!bg-green/10 text-[14px] block text-black/80 cursor-pointer">
+                            Booking
+                          </a>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="/admin/add-listing">
+                          <a className="!py-2 px-6 hover:!bg-green/10 text-[14px] block text-black/80 cursor-pointer">
+                            Add Listings
+                          </a>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="/admin/add-city">
+                          <a className="!py-2 px-6 hover:!bg-green/10 text-[14px] block text-black/80 cursor-pointer">
+                            Add City
+                          </a>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="/admin/add-room-type">
+                          <a className="!py-2 px-6 hover:!bg-green/10 text-[14px] block text-black/80 cursor-pointer">
+                            Add Room Type
+                          </a>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="/admin/add-aminities">
+                          <a className="!py-2 px-6 hover:!bg-green/10 text-[14px] block text-black/80 cursor-pointer">
+                            Add Aminities
+                          </a>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="/admin/addMeals">
+                          <a className="!py-2 px-6 hover:!bg-green/10 text-[14px] block text-black/80 cursor-pointer">
+                            Add Meals
+                          </a>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="/admin/profile">
+                          <a className="!py-2 px-6 hover:!bg-green/10 text-[14px] block text-black/80 cursor-pointer">
+                            My Profie
+                          </a>
+                        </Link>
+                      </li>
+                    </ul>
+                  </li>
+                ) : (
+                  <li className="group relative h-[40px] flex items-center">
+                    <span className="text-[16px] font-normal  hover:text-green flex items-center !ga!p-2">
+                      User Panel
+                      <HiOutlineChevronDown
+                        size={22}
+                        className="group-hover:-rotate-180 transition duration-200"
+                      />
+                    </span>
+                    <ul className="absolute hidden group-hover:block bg-white top-[40px] min-w-[15rem] !rounded-xl shadow-primary !py-4 !border">
+                      <li>
+                        <Link href="/users/bookings">
+                          <a className="!py-2 px-6 hover:!bg-green/10 text-[14px] block text-black/80 cursor-pointer">
+                            Bookings
+                          </a>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="/users/complains">
+                          <a className="!py-2 px-6 hover:!bg-green/10 text-[14px] block text-black/80 cursor-pointer">
+                            Complain
+                          </a>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="/users/orderfooduser">
+                          <a className="!py-2 px-6 hover:!bg-green/10 text-[14px] block text-black/80 cursor-pointer">
+                            Order Food
+                          </a>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="/users/profile">
+                          <a className="!py-2 px-6 hover:!bg-green/10 text-[14px] block text-black/80 cursor-pointer">
+                            My Profile
+                          </a>
+                        </Link>
+                      </li>
+                    </ul>
+                  </li>
+                )
+              ) : (
+                <></>
+              )}
 
-                </ul>
-              </li>)
-                  ) : (
-                    <></>
-                  )}
-
-              
               <li>
                 {authContextData?.user &&
-                  (authContextData?.user?.role === "user" ||
-                    authContextData?.user?.role === "admin") ? (
+                (authContextData?.user?.role === "user" ||
+                  authContextData?.user?.role === "admin") ? (
                   <ButtonTo
                     text="LogOut"
                     className="bg-green !rounded-lg text-white px-6 !py-2 !border !shadow-lg flex items-center gap-3"
@@ -273,15 +273,10 @@ export default function Header() {
                     className="bg-green !rounded-lg text-white px-6 !py-2 !border !shadow-lg flex items-center gap-3"
                     onClick={openPopup}
                   />
-                )
-                }
+                )}
               </li>
             </ul>
             <Menu as="div" className="lg:hidden bg-white">
-              <Menu.Button className="bg-whte hover:text-gray-900 hover:bg-gray-100 inline-flex items-center justify-center !p-2 text-gray-500 !rounded-md">
-                <HiOutlineMenu />
-              </Menu.Button>
-
               <Transition
                 as={Fragment}
                 enter="duration-200 ease-out"
@@ -317,38 +312,26 @@ export default function Header() {
                             />
                           </li> */}
                           <li>
-
-                          {authContextData?.user !== undefined ? (
-                    authContextData?.user?.role === "admin" ? (
-
-                    
-                                        <li>
-                    <Link href="/admin"
-                      className="p-[9px] text-[16px] font-normal text-black/70 hover:text-green">
-                         Admin Dashboard
-                         
-
-                      
-                    </Link>
-                    <br></br>
-
-                  </li>
-                  
-                
-              
-                    ):( 
-                    
-                    
-                    
-                    <li >
-                      <li>
-                    <Link href="/users/bookings">
-                      <a className="p-[9px] text-[16px] font-normal text-black/70 hover:text-green">
-                        User Panel
-                      </a>
-                    </Link>
-                  </li>
-                {/* <span className="text-[16px] font-normal  hover:text-green flex items-center !ga!p-2">
+                            {authContextData?.user !== undefined ? (
+                              authContextData?.user?.role === "admin" ? (
+                                <li>
+                                  <Link
+                                    href="/admin"
+                                    className="p-[9px] text-[16px] font-normal text-black/70 hover:text-green">
+                                    Admin Dashboard
+                                  </Link>
+                                  <br></br>
+                                </li>
+                              ) : (
+                                <li>
+                                  <li>
+                                    <Link href="/users/bookings">
+                                      <a className="p-[9px] text-[16px] font-normal text-black/70 hover:text-green">
+                                        User Panel
+                                      </a>
+                                    </Link>
+                                  </li>
+                                  {/* <span className="text-[16px] font-normal  hover:text-green flex items-center !ga!p-2">
                    User Panel
                   <HiOutlineChevronDown
                     size={22}
@@ -382,28 +365,28 @@ export default function Header() {
                   
 
                 </ul> */}
-              </li>)
-                  ) : (
-                    <></>
-                  )}
-                <br></br>
-                {authContextData?.user &&
-                  (authContextData?.user?.role === "user" ||
-                    authContextData?.user?.role === "admin") ? (
-                  <ButtonTo
-                    text="LogOut"
-                    className="bg-green !rounded-lg text-white px-6 !py-2 !border !shadow-lg flex items-center gap-3"
-                    onClick={handleLogout}
-                  />
-                ) : (
-                  <ButtonTo
-                    text="Login"
-                    className="bg-green !rounded-lg text-white px-6 !py-2 !border !shadow-lg flex items-center gap-3"
-                    onClick={openPopup}
-                  />
-                )
-                }
-              </li>
+                                </li>
+                              )
+                            ) : (
+                              <></>
+                            )}
+                            <br></br>
+                            {authContextData?.user &&
+                            (authContextData?.user?.role === "user" ||
+                              authContextData?.user?.role === "admin") ? (
+                              <ButtonTo
+                                text="LogOut"
+                                className="bg-green !rounded-lg text-white px-6 !py-2 !border !shadow-lg flex items-center gap-3"
+                                onClick={handleLogout}
+                              />
+                            ) : (
+                              <ButtonTo
+                                text="Login"
+                                className="bg-green !rounded-lg text-white px-6 !py-2 !border !shadow-lg flex items-center gap-3"
+                                onClick={openPopup}
+                              />
+                            )}
+                          </li>
                         </ul>
                       </Menu.Item>
                     </div>

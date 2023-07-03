@@ -2,12 +2,14 @@ import Link from "next/link";
 import { useState, useContext } from "react";
 import { IndiceContext } from "../../contexts";
 import cn from "classnames";
-import * as Icons from "../../components/Common/Icons"
+import * as Icons from "../../components/Common/Icons";
+import { HiOutlineMenu } from "react-icons/hi";
+import { RxCross1 } from "react-icons/rx";
 
 const AdminNavbar = ({ value }) => {
   const { displaySideMenu, toggleSideMenu } = useContext(IndiceContext);
   const [display, setDisplay] = useState(false);
-  const [showAside, setShowAside] = useState(false)
+  const [showAside, setShowAside] = useState(false);
 
   const listingToggle = () => {
     setDisplay(!display);
@@ -16,48 +18,52 @@ const AdminNavbar = ({ value }) => {
   return (
     <>
       <div
+        onClick={() => setShowAside(true)}
+        className="top-5 right-5 lg:hidden fixed z-50">
+        <HiOutlineMenu className="w-8 h-8" />
+      </div>
+      <div
+        onClick={() => setShowAside(false)}
+        className={`bg-black fixed top-0 h-full w-full opacity-60 z-[9999] transition-all ease-in-out duration-500 ${
+          showAside ? "ml-0" : "-ml-[200rem]"
+        }`}></div>
+      <div
         className={
           displaySideMenu
             ? "sidemenu-area active-sidemenu-area"
             : "sidemenu-area"
-        }
-      >
-        <div className="sidemenu-header">
+        }>
+        <div className="bg-white h-[70px] py-1 pl-5">
           <Link href="/">
             <a className="navbar-brand d-flex align-items-center active">
-              <img src="/images/home/logo.png" alt="image"  className='logohome logocenter'/>
+              <img src="/images/logo.png" alt="image" className="h-12" />
             </a>
           </Link>
-
+          {showAside && (
+            <div
+              onClick={() => setShowAside(false)}
+              className="fixed top-5 left-[13rem]">
+              <RxCross1 className="w-6 h-6" />
+            </div>
+          )}
         </div>
-        <div style={{width: 60}} className="menu-mob d-xl-none">
-                {showAside ? (
-                  <div onClick={() => setShowAside(false)} className="bg-white"><Icons.CloseIcon/></div>
-                ): (
-                  <div onClick={() => setShowAside(true)} className="bg-white"><Icons.HamburgerIcon/></div>
-                  
-                )}
-              </div>
-              {showAside && (
-                <div onClick={() => setShowAside(false)} className="overlay d-xl-none"></div>
-              )}
 
-        <div className={cn("", {
-          "sidemenu-body": showAside,
-          "hide-sidemenu-body": !showAside
-        })}>
+        <div
+          className={cn("sidemenu-body", {
+            "!left-0": showAside,
+            "lg:!left-0 !-left-[100%]": !showAside,
+          })}>
           <ul
-            className="sidemenu-nav metisMenu h-100"
+            className={`sidemenu-nav metisMenu h-100`}
             id="sidemenu-nav"
-            data-simplebar
-          >
+            data-simplebar>
             <li className="nav-item-title">Main</li>
             {[
               {
                 iconClass: "bx bx-home-circle",
                 path: "",
                 title: "Dashboard",
-              }, 
+              },
               {
                 iconClass: "bx  bx-copy",
                 path: "scheduleVisit",
@@ -68,7 +74,7 @@ const AdminNavbar = ({ value }) => {
                 path: "advanceBooking",
                 title: "Advance Booking",
               },
-               {
+              {
                 iconClass: "bx  bx-copy",
                 path: "rentPayment",
                 title: "Rent Payment",
@@ -78,7 +84,6 @@ const AdminNavbar = ({ value }) => {
                 path: "complains",
                 title: "Complains",
               },
-
             ].map(({ iconClass, path, title }) => (
               <li className="nav-item" key={path}>
                 <Link href={`/admin/${path}`}>
@@ -86,7 +91,11 @@ const AdminNavbar = ({ value }) => {
                     <span className="icon">
                       <i className={iconClass}></i>
                     </span>
-                    <span onClick={() => setShowAside(false)} className="menu-title">{title}</span>
+                    <span
+                      onClick={() => setShowAside(false)}
+                      className="menu-title">
+                      {title}
+                    </span>
                   </a>
                 </Link>
               </li>
@@ -130,12 +139,12 @@ const AdminNavbar = ({ value }) => {
                 path: "teamMember",
                 title: "Team Member",
               },
-               {
+              {
                 iconClass: "bx bx-plus-circle",
                 path: "addMeals",
                 title: "Add Meals",
               },
-               {
+              {
                 iconClass: "bx bx-plus-circle",
                 path: "foodorders",
                 title: "FoodOrders",
@@ -185,7 +194,7 @@ const AdminNavbar = ({ value }) => {
           </ul>
         </div>
       </div>
-          </>
+    </>
   );
 };
 

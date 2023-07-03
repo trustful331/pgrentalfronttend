@@ -45,11 +45,10 @@ export default function Products() {
         initial={{ opacity: 0, y: "10vh" }}
         whileInView={{ y: 0, opacity: 1 }}
         viewport={{ once: false, amount: 0.9 }}
-        transition={{ staggerChildren: 0.9, duration: 0.9 }}
-      >
+        transition={{ staggerChildren: 0.9, duration: 0.9 }}>
         <h2 className="xl:text-[86px] lg:text-[66px] md:text-[56px] sm:text-[46px] text-[2.5rem] font-extrabold md:mt-[90px] mt-10 md:mb-[80px] mb-5 text-center leading-[1]">
           The Comfort of Your{" "}
-          <span className="bg-gradient-to-r font-ananda from-yellow to-green text-transparent bg-clip-text font-extrabold inline-block">
+          <span className="bg-gradient-to-r font-ananda from-yellow to-green bg-clip-text inline-block font-extrabold text-transparent">
             Home
           </span>
         </h2>
@@ -58,8 +57,7 @@ export default function Products() {
         initial={{ opacity: 0, y: "10vh" }}
         whileInView={{ y: 0, opacity: 1 }}
         viewport={{ once: false, amount: 0.9 }}
-        transition={{ staggerChildren: 0.9, duration: 0.9 }}
-      >
+        transition={{ staggerChildren: 0.9, duration: 0.9 }}>
         <p className="xl:text-[18px] text-[16px] text-black/50 leading-[30px] xl:w-[50vw] mx-auto text-center mb-24">
           Living in a new city is very challenging for everyone and notably, if
           you’re a young person it will be quite scary as well. Missing your
@@ -69,22 +67,21 @@ export default function Products() {
           the amenities you call your own.
         </p>
       </motion.div>
-      <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 md:gap-8 gap-5 md:mt-0 mt-10">
+      <div className="lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 md:gap-8 md:mt-0 grid gap-5 mt-10">
         {data.map((detail, index) => {
           return (
             <motion.div
               initial={{ opacity: 0, y: "10vh" }}
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: false, amount: 0.9 }}
-              transition={{ staggerChildren: 0.9, duration: 0.9 }}
-            >
+              transition={{ staggerChildren: 0.9, duration: 0.9 }}>
               <div className={`relative `}>
                 <div className="rounded-xl p-3 md:shadow-none shadow-[0_1px_1rem_#00000026]">
                   <Link href="/product-details">
                     <a>
                       <img
                         src={detail.img}
-                        className="rounded-xl w-full hover:scale-105 transition-all duration-300"
+                        className="rounded-xl hover:scale-105 w-full transition-all duration-300"
                         alt="image"
                       />
                     </a>
