@@ -58,8 +58,7 @@ const UserBookings = () => {
       );
     }
   };
-  const context = useAuthContext()
-
+  const context = useAuthContext();
 
   if (isLoading) {
     <Loading />;
@@ -77,6 +76,7 @@ const UserBookings = () => {
         <h3>Booking Bookings</h3>
 
         <div className="table-responsive">
+          {/* <Loading /> */}
           <table className="table">
             <thead>
               <tr>
@@ -93,7 +93,13 @@ const UserBookings = () => {
                     <td className="name">
                       {/* <img src="/images/user1.jpg" alt="image" /> */}
 
-                      <img src={context?.user?.profile_pic?.path ?? "/images/user1.jpg"} alt="image" />
+                      <img
+                        src={
+                          context?.user?.profile_pic?.path ??
+                          "/images/user1.jpg"
+                        }
+                        alt="image"
+                      />
                       <div className="info">
                         <span>{user.name}</span>
                         <ul>
@@ -108,13 +114,10 @@ const UserBookings = () => {
                         <span
                           className={`bookings-status ${
                             status === "CANCELED" ? "canceled" : "pending"
-                          }`}
-                        >
+                          }`}>
                           {status}{" "}
                         </span>
                       </h4>
-
-                      
                     </td>
 
                     <td className="action">
@@ -126,19 +129,19 @@ const UserBookings = () => {
                               subscription_id: subcriptionId,
                               id: uid,
                             });
-                          }}
-                        >
+                          }}>
                           <i className="bx bx-check-circle"></i> Pay
                         </button>
                       ) : (
                         <div className="default-btn">
-                        <ul>
-                        <li>
-                          <i className="bx bx-purchase-tag"></i>
-                          <span>Price:</span>
-                          Rs. {availability.price}
-                        </li>
-                      </ul></div>
+                          <ul>
+                            <li>
+                              <i className="bx bx-purchase-tag"></i>
+                              <span>Price:</span>
+                              Rs. {availability.price}
+                            </li>
+                          </ul>
+                        </div>
                       )}
                     </td>
                   </tr>

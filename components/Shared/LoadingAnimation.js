@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from "react";
 
 const LoadingAnimation = ({ progress, duration }) => {
   const barRef = useRef(null);
@@ -15,8 +15,7 @@ const LoadingAnimation = ({ progress, duration }) => {
       <div
         ref={barRef}
         className="loading-bar"
-        style={{ transitionDuration: `${duration}ms` }}
-      ></div>
+        style={{ transitionDuration: `${duration}ms` }}></div>
     </div>
   );
 };
