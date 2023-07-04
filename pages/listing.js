@@ -5,7 +5,7 @@ import cn from "classnames";
 import * as Icons from "../components/Common/Icons"
 import Footer from "../components/_App/Footer";
 import useListing from "../utils/Hooks/useListing";
-import Loading from "../components/Shared/Loading";
+import Loader from "../components/Shared/Loader";
 import { useMemo, useState } from "react";
 import useFacilites from "../utils/Hooks/useFacilities";
 
@@ -20,6 +20,7 @@ const Listing = () => {
   const [showSelectFeatures, setShowSelectFeatures] = useState(false)
   const [filter, setFilter] = useState([]);
   const { features, isLoading: isLoading3 } = useFacilites();
+  const [loading, _setLoading] = useState(true)
   const allFeature = useMemo(() => {
     const res = [];
     if (!features) {
@@ -47,7 +48,7 @@ const Listing = () => {
   return (
     <>
       {isLoading || !listing || isFetching || isLoading3 ? (
-        <Loading />
+        <Loader loading={loading} />
       ) : (
         <section className="listings-area mt-lg-5">
           <div className="container-fluid">

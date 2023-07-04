@@ -22,7 +22,7 @@ import LoadingAnimation from "./LoadingAnimation";
 const Loading = () => {
   return (
     <>
-      <div className="fixed right-0 bottom-0 bg-black opacity-40 flex flex-col items-center justify-center z-10 2xl:h-[100%] h-[100%] 2xl:w-[90%] w-[85%]">
+      <div className="fixed right-0 bottom-0 bg-black opacity-40 flex flex-col items-center justify-center z-10 h-full w-full">
         <img src="/images/home/logo_white.png" className="w-[200px]" />
         <div style={{ marginTop: 10 }}>
           <LoadingAnimation progress={75} duration={1000} />
