@@ -2,15 +2,15 @@ import React from "react";
 import * as FileSaver from "file-saver";
 import * as XLSX from "xlsx";
 
-export const ExportToExcel = ({ apiData, fileName }) => {
-  const fileType =
+
+  
+
+export const exportToexcel = (apiData, fileName) => {
+    const fileType =
     "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8";
   const fileExtension = ".xlsx";
-
-  const exportToexcel = (apiData, fileName) => {
-    console.log(apiData);
-    const array=[...apiData.breakfast ]
-     console.log(array);
+    console.log(fileName);
+  
 
     const ws = XLSX.utils.json_to_sheet(apiData);
     const wb = { Sheets: { data: ws }, SheetNames: ["data"] };
@@ -19,5 +19,5 @@ export const ExportToExcel = ({ apiData, fileName }) => {
     FileSaver.saveAs(data, fileName + fileExtension);
   };
 
-    return <button className="exportbtn_excel" onClick={(e) => exportToexcel(apiData , fileName)}>Export</button>;
-};
+    // return <button className="exportbtn_excel" onClick={(e) => exportToexcel(apiData , fileName)}>Export</button>;
+

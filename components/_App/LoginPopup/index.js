@@ -145,10 +145,17 @@ function LoginPopup({ open, hidePopup }) {
                         />
                       </div>
                       <div className="flex items-center justify-between mx-auto my-4 text-left">
-                        <label className="font-Lato inline-block mb-1 text-sm font-medium">
+                        {/* <label className="font-Lato inline-block mb-1 text-sm font-medium">
                           Recent Otp
-                        </label>
-                        <h3>123532</h3>
+                        </label> */}
+                        <button
+                        className="btn"
+                        onClick={() => mutate({ number: phoneNo })}
+                        disabled={disable}
+                      >
+                        Resend OTP
+                      </button>
+                        
                       </div>
                     </div>
                   </div>

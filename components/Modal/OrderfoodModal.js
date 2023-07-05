@@ -4,6 +4,10 @@ import React, { useEffect, useState } from "react";
 import { TabPanel } from "react-tabs";
 import { Tab } from "react-tabs";
 import { TabList } from "react-tabs";
+import DatePicker from "react-datepicker";
+import 'react-datepicker/dist/react-datepicker-cssmodules.css';
+import 'react-datepicker/dist/react-datepicker.css';
+// import './date-picker.component.bootstrap.css';
 import { Tabs } from "react-tabs";
 import { useQueryClient } from "react-query";
 import { useMutation } from "react-query";
@@ -13,18 +17,20 @@ import { toast } from "react-hot-toast";
 import moment from 'moment-timezone';
 import mealsApi from '../../utils/Api/meals.api';
 import { useAuthContext } from "../../contexts/authContext";
+import { date } from 'yup';
 
 
 
 
 
 
-function OrderFoodModal({ displayCM, toggleCM, mutate }) {
+function OrderFoodModal({ displayCM, toggleCM, mutate  }) {
   // const [cityName, setCityName] = useState("");
     const { cities } = useCities();
   const [breakfast, setbreakfast] = useState([])
   const [lunch, setlunch] = useState([])
   const [Dinner, setDinner] = useState([])
+  const [includedates, setincludedates] = useState([])
   const[newbkfmeal , setnewbkfmeal] = useState("")
   const [newlunmeal, setnewlunmeal] = useState("")
     const [newdinmeal, setnewdinmeal] = useState("")
@@ -33,16 +39,24 @@ function OrderFoodModal({ displayCM, toggleCM, mutate }) {
     const [ foodmenu , setfoodmenu] = useState({})
     const [menuavailable , setmenuavailable] = useState(false)
     const [dinner, setdinner] = useState([]);
-    const queryClient = useQueryClient();
+  const queryClient = useQueryClient();
+  let newDate = new Date()
+  let startdate = moment(newDate, 'MM-DD-YYYY').format('DD-MM-YYYY')
+ 
+   let date = newDate.getFullYear() + '-' + (newDate.getMonth() + 1) + '-' + newDate.getDate();
     const authContextData = useAuthContext();
   
     useEffect(() => {
-        ResidentsData();
-  })
+      // useAuthContext();
+      ResidentsData();
+      Menudatesdata();
+  
+  }, [])
   
      const ResidentsData = async () => {
-         try {
-             let data = {
+       try {
+        
+           let data = {
             userid : authContextData?.user
         }
              
@@ -50,12 +64,42 @@ function OrderFoodModal({ displayCM, toggleCM, mutate }) {
          
            
              setresidentid(datas.data.Residentid);
+         
+             
       
     } catch (error) {
       console.log("error while fetching data");
     }
   };
-  
+
+  const Menudatesdata = async () => {
+    
+    try {
+      let data = {
+        "Residentid": `{residentid}`,
+        
+      }
+     
+      let datas = await mealsApi.getmenudates(data);
+      // console.log(datas);
+      // let dates = datas.data.dates
+     
+      setincludedates(datas.data.dates)
+      //  for (let i = 0; i <= dates.length; i++){
+      //    let date = new Date(dates[i].date)
+      //    console.log(date);
+      //    Includededates.push(date)
+      //    if (i === dates.length - 1) {
+      //       setincludedates(Includededates);
+      //    }
+      
+         
+      
+    } catch (error) {
+      console.log("error while fetching data");
+    }
+  }
+    // Menudatesdata();
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -81,9 +125,9 @@ function OrderFoodModal({ displayCM, toggleCM, mutate }) {
     }
     
    
-     console.log(data);
+  
       let result = await mealsApi.adduserdishes(data);
-      console.log(result);
+      
     if (result.status == true) {
        toast.success(result.message);
     }
@@ -177,14 +221,14 @@ function OrderFoodModal({ displayCM, toggleCM, mutate }) {
         let datee = document.getElementById("dateinputid").value
       
         let date = moment(datee, 'YYYY-MM-DD').format('DD-MM-YYYY');
-        
+       
         let data = {
             "Residentid": residentid,
              "date":date
         }
-        
+        console.log(data);
       let datas = await mealsApi.getdishes(data);
-      console.log(datas?.data[0]?.menu.length);
+     
       
         // console.log(datas?.data[0]?.menu[0]);
       setfoodmenu(datas?.data[0]?.menu[0])
@@ -198,7 +242,7 @@ function OrderFoodModal({ displayCM, toggleCM, mutate }) {
 
     }
    
-   
+ 
   return (
     <div
       className={
@@ -247,19 +291,47 @@ function OrderFoodModal({ displayCM, toggleCM, mutate }) {
                       <div className="form-group">
                         
                         
-                         <input
+                         {/* <input
                           type="date"
                           // onChange={onChnageHandler}
                           // value={cityName}
                           min={new Date().toISOString().split('T')[0]}
                           placeholder="add meal"
                           className="form-control select"
+                          
                                                   id='dateinputid'
                           onChange={dateselected}        
                         
                         >
                           
-                        </input>
+                        </input> */}
+                         <select
+                          // type="text"
+                          // onChange={onChnageHandler}
+                          // value={cityName}
+                          placeholder="Select date"
+                          className="form-control select"
+                          onChange={dateselected}
+                             id='dateinputid'
+                        //   id='cityselecttagid'
+                        //   onChange={}
+                        >
+                          <option selected disabled>Select Date</option>
+                          {
+                            
+                            includedates?.map((r, i) => {
+                              return (<option key={i} value={r.date}>{r.date}</option>)
+                             
+                            })
+                          }
+                        </select>
+                        {/* <DatePicker
+    selected={ newDate}
+    // onChange={(date) => setStartDate(date)}
+    includeDates={includedates}
+                          placeholderText="Select a date other than today or yesterday"
+                         dateFormat='dd-MM-yyyy'
+/> */}
                         <p>Select Breakfast</p>
                          <select
                           // type="text"
