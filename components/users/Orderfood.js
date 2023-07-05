@@ -297,7 +297,7 @@ function OrderFood() {
       </div>
 
       {/*..........................CITY MODAL................................................. */}
-      <OrderFoodModal displayCM={displayCM} mutate={mutate} toggleCM={toggleCM} />
+      <OrderFoodModal displayCM={displayCM} mutate={mutate} toggleCM={toggleCM} residentid={residentid} />
       
       <EditFoodModal displayCM={displayCMEdit} toggleCM={toggleCMEdit} row={selectedrow } menu={foodmenu} fn={AllUserOrders} />
      
