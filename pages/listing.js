@@ -110,7 +110,7 @@ const Listing = () => {
       roomPhotos,
       googleMapUrl,
     }) => {
-      const randomFeatures = shuffle(FeatureResident).slice(0, 2);
+      const randomFeatures = shuffle(FeatureResident).slice(0, 4);
       const isAvailable = AvailAbility.length < 5;
       const statusClassName = isAvailable ? "status status-close" : "status";
       const statusText = isAvailable ? "Almost filled" : "Available";
@@ -153,9 +153,9 @@ const Listing = () => {
 
               <div className="col-lg-8 col-md-8 p-0">
                 <div className="listings-content">
-                  <span className={statusClassName}>
+                  {/* <span className={statusClassName}>
                     <i className="flaticon-save"></i> {statusText}
-                  </span>
+                  </span> */}
 
                   <h3>
                     <Link
@@ -169,11 +169,7 @@ const Listing = () => {
                       <a>{name}</a>
                     </Link>
                   </h3>
-                  <div className="d-flex align-items-center justify-content-between">
-                    <div className="price">
-                      Price <span>Rs.{AvailAbility[0].price}</span>
-                    </div>
-                  </div>
+                  
                   <ul className="listings-meta">
                     {randomFeatures.map(({ feature, featureId }) => (
                       <li key={featureId}>
@@ -184,6 +180,15 @@ const Listing = () => {
                       </li>
                     ))}
                   </ul>
+                  <ul className="listings-meta">
+                  
+                  
+                  <div className="d-flex align-items-center justify-content-between">
+                    <div className="price">
+                      Price <span>Rs.{AvailAbility[0].price}</span>
+                    </div>
+                  </div>
+</ul>
                 </div>
               </div>
             </div>
