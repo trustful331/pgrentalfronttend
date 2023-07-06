@@ -8,6 +8,7 @@ const OtpInput = ({ fn }) => {
       length={6}
       type="string"
       onChange={fn}
+      onComplete={fn}
       // inputMode="number"
       style={{
         display: "flex",

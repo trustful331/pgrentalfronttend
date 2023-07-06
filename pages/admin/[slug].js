@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import React, { useEffect } from "react";
+import authApi from "../../utils/Api/auth.api";
 
 import AdminIndex from "../../components/AdminDashBoard";
 import Booking from "../../components/AdminDashBoard/Booking";
@@ -68,6 +69,28 @@ const RenderComponent = ({ slug }) => {
     return <FoodOrders />;
   }
 };
+var flag = 0;
+
+// function Dynamic() {
+//   const router = useRouter();
+//   const authState = useAuthContext();
+//   const ruter = useRouter();
+//   useEffect(() => {
+//     if (!authState?.user || authState?.user?.role !== "admin") {
+//       router.push("/");
+//     }
+//   }, [authState.user, router]);
+
+//   const slug = ruter.query.slug;
+
+//   return (
+//     <Template value={slug}>
+//       <RenderComponent slug={slug} />
+//     </Template>
+//   );
+// }
+
+
 function Dynamic() {
   const router = useRouter();
   const authState = useAuthContext();
