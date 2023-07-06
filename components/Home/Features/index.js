@@ -89,12 +89,14 @@ export default function Features({ anime }) {
                   <div className="w-[55px] h-[55px] flex-shrink-0 flex items-center justify-center rounded-full bg-yellow">
                     <BiSupport size={28} className="flex-shrink-0 text-white" />
                   </div>
-                  <motion.div
+                  {/* <motion.div
                     initial={{ opacity: 0, y: "40vh" }}
                     whileInView={{ y: 0, opacity: 1 }}
                     viewport={{ once: false, amount: 0.9 }}
                     transition={{ staggerChildren: 0.9, duration: 0.9 }}>
-                    <div>
+                    
+                  </motion.div> */}
+                  <div>
                       <h6 className="text-[20px] leading-[24px] text-[#232728] font-semibold !mb-2">
                         Supportive and Responsive Staff
                       </h6>
@@ -111,7 +113,6 @@ export default function Features({ anime }) {
                         staff and guests.
                       </p>
                     </div>
-                  </motion.div>
                 </div>
                 <p className="text-[18px] text-white font-normal">
                   A crucial aspect of a paying guest service is the presence of
