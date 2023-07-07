@@ -18010,7 +18010,7 @@ Footer Area CSS
   animation-duration: 500ms;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
-  color: #000;
+  color: #888;
 }
 .moredetord_spn {
   color: #0982cc;
@@ -18018,7 +18018,7 @@ Footer Area CSS
 }
 .fullordercon {
   width: 50%;
-  height: 10em;
+  /* height: 10em; */
   position: absolute;
   top: 30%;
   padding: 1%;
@@ -18029,6 +18029,9 @@ Footer Area CSS
   background-color: #ebfffa;
   margin-left: 30%;
   border-radius: 10px;
+}
+.fullordercon h4 {
+  font-size: 20px;
 }
 .canceliconn {
   cursor: pointer;
@@ -18150,4 +18153,23 @@ Footer Area CSS
 .other-month {
   background: none;
   color: #c3c0cc;
+}
+.fullorderdetailscon {
+  color: #000;
+}
+.fullordercondish {
+  display: flex;
+  column-gap: 20px;
+}
+.exporttoexcelbtn {
+  background-color: rgb(91, 203, 207);
+  padding: 0.2% 1%;
+  border: 2px solid rgb(91, 203, 207);
+  border-radius: 10px;
+  margin-left: 75%;
+
+}
+.exporttoexcelbtn:hover {
+  transform: translateY(2px);
+  background-color: rgb(66, 162, 166);
 }

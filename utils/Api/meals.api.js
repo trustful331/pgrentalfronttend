@@ -36,6 +36,15 @@ const getdishes = async (body) => {
   });
   return response.data;
 };
+const getmenudates = async (body) => {
+    
+  const response = await axios.post(`${config.url}/api/foodmodule/showDishesDates`, body, {
+    // headers: {
+    //   authorization: `Bearer ${token}`,
+    // },
+  });
+  return response.data;
+};
 const getallmenus = async (body) => {
     
   const response = await axios.get(`${config.url}/api/foodmodule/showallmenus`, body, {
@@ -57,6 +66,15 @@ const getuserorders = async (body) => {
 const deletemenu = async (body) => {
     
   const response = await axios.post(`${config.url}/api/foodmodule/deletemenu`, body, {
+    // headers: {
+    //   authorization: `Bearer ${token}`,
+    // },
+  });
+  return response.data;
+};
+const exportdatas = async (body) => {
+    
+  const response = await axios.post(`${config.url}/api/foodmodule/exportfoodorders`, body, {
     // headers: {
     //   authorization: `Bearer ${token}`,
     // },
@@ -113,6 +131,8 @@ const mealsApi = {
   adduserdishes,
    updateuserdishes ,
   allfoodorders,
-   Orderbyresanddate,
+  Orderbyresanddate,
+  getmenudates,
+   exportdatas,
 };
 export default mealsApi;

@@ -13,6 +13,8 @@ import cityApi from "../../utils/Api/city.api";
 import useCities from "../../utils/Hooks/useCities";
 import { MdCancel } from "react-icons/md";
 import { ReactComponent as Loaderr } from '../../public/images/svg/loader.svg'
+// import { ExportToExcel } from '../helpers/ExportToExcel';
+import { exportToexcel } from '../helpers/ExportToExcel';
 
 
 
@@ -67,8 +69,7 @@ const FoodOrders = () => {
         
     let data = {
           "date":datee,
-            "cityId": cityId
-             
+            "cityId": cityId  
         }
        
      let datas = await mealsApi.allfoodorders(data)
@@ -88,10 +89,10 @@ const FoodOrders = () => {
              
     }
     let datas = await mealsApi.Orderbyresanddate(data)
-    setfullorderdata(datas)
+    setfullorderdata(datas.data)
         document.getElementById("fullordermainconid").style.filter = "blur(5px)";
     setshowfullorder(true)
-    console.log(fullorderdata)
+    console.log(fullorderdata.breakfast)
   }  
 
   const cancelcrtemp = () => {
@@ -205,7 +206,21 @@ const FoodOrders = () => {
   //   ],
   //   []
   // );
-  // console.log(countdata);
+  const Exportdatas = async(r) => {
+    console.log(r)
+        let Date = moment(r.UserDishes[0].date, 'YYYY-MM-DD').format('DD-MM-YYYY');
+    let data = {
+      "Residentid": r.id,
+    "date": Date ,
+    }
+ 
+    let datas = await mealsApi.exportdatas(data)
+    const apiData = datas.data
+    
+    const fileName = `FoodOrders(${Date})`
+    exportToexcel(apiData , fileName)
+    
+   }
   var curr = new Date();
 curr.setDate(curr.getDate());
   var date = curr.toISOString().substring(0, 10);
@@ -289,7 +304,10 @@ curr.setDate(curr.getDate());
               } */}
              
                     </div>
-                    <span className='moredetord_spn' onClick={()=>Moreorderdetails(r)}>More Details</span>
+                    <span className='moredetord_spn' onClick={() => Moreorderdetails(r)}>More Details</span>
+                    <span> <button onClick={()=>Exportdatas(r)} className='exporttoexcelbtn'>
+                  Export
+                </button></span>
                   </div>
                   </> 
                 : <Loaderr className="spinner" />}
@@ -317,29 +335,54 @@ curr.setDate(curr.getDate());
             <div className='fullordercon'>
                  <div className="firstcon">
            
-            <span className="fullorderhead">Full Order</span>
+              <span className="fullorderhead">Full Order</span>
+
             <MdCancel className='canceliconn'
               style={{ color: "EA1E21", fontSize: "1.6em" }}
               onClick={() => cancelcrtemp()}
             />
             </div>
             <p>
-              <span>1.</span><span>Breakfast</span>
-              {showfullorder && (
-                showfullorder.Breakfast?.map((r, i) => {
-                  {
-                    r.map((x, i) => {
-                      console.log(x)
-                      return (<>
-                    <p>{x.dish}</p>
-                    <p>{x.user.name}</p>
-                    <p>{x.user?.RentPaymentSubcriptin[0]?.roomNo}</p>
-                  </>)
-                   }) 
-                  }
-                 
-                }) )
-              }
+              <h4>Breakfast</h4>
+          
+              {fullorderdata.breakfast && ( fullorderdata.breakfast.map((r, i) => {
+                {/* console.log(r) */}
+              return (
+               <div className='fullorderdetailscon' key={i}>
+                  <div className='fullordercondish'> <p key={i}>Dish : {r.dish}</p> <p>Name : {r.user.name}</p>   <p>{r.user?.RentPaymentSubcriptin[0]?.roomNo}</p></div>
+                   
+                    
+                      </div>
+              );
+            }))}
+            </p>
+             <p>
+              <h4>Lunch</h4>
+          
+              {fullorderdata.lunch && ( fullorderdata.lunch.map((r, i) => {
+                {/* console.log(r) */}
+              return (
+               <div className='fullorderdetailscon' key={i}>
+                  <div className='fullordercondish'> <p key={i}>Dish : {r.dish}</p> <p>Name : {r.user.name}</p>   <p>{r.user?.RentPaymentSubcriptin[0]?.roomNo}</p></div>
+                   
+                    
+                      </div>
+              );
+            }))}
+            </p>
+             <p>
+              <h4>Dinner</h4>
+          
+              {fullorderdata.dinner && ( fullorderdata.dinner.map((r, i) => {
+                {/* console.log(r) */}
+              return (
+               <div className='fullorderdetailscon' key={i}>
+                  <div className='fullordercondish'> <p key={i}>Dish : {r.dish}</p> <p>Name : {r.user.name}</p>   <p>{r.user?.RentPaymentSubcriptin[0]?.roomNo}</p></div>
+                   
+                    
+                      </div>
+              );
+            }))}
             </p>
             
            </div>
