@@ -69,37 +69,27 @@ const RenderComponent = ({ slug }) => {
     return <FoodOrders />;
   }
 };
-var flag = 0;
-
-// function Dynamic() {
-//   const router = useRouter();
-//   const authState = useAuthContext();
-//   const ruter = useRouter();
-//   useEffect(() => {
-//     if (!authState?.user || authState?.user?.role !== "admin") {
-//       router.push("/");
-//     }
-//   }, [authState.user, router]);
-
-//   const slug = ruter.query.slug;
-
-//   return (
-//     <Template value={slug}>
-//       <RenderComponent slug={slug} />
-//     </Template>
-//   );
-// }
-
-
 function Dynamic() {
   const router = useRouter();
   const authState = useAuthContext();
   const ruter = useRouter();
-  useEffect(() => {
-    if (!authState?.user || authState?.user?.role !== "admin") {
+
+  const getUser = async (token) => {  ///////refresh 
+    const res = await authApi.getUserDetail(token);
+    if (!res.user && res.user.role !== "admin") {
       router.push("/");
     }
-  }, [authState.user, router]);
+};
+
+useEffect(() => {
+  const token = localStorage.getItem("token");
+  if (token) {
+    getUser(token);
+  }else {
+    router.push("/");
+  }
+
+}, authState, [router]); 
 
   const slug = ruter.query.slug;
 
