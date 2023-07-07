@@ -33,7 +33,7 @@ function EditFoodModal({ displayCM, toggleCM, mutate, row, menu , fn }) {
 
   useEffect(() => {
     ResidentsData();
-    dateselected();
+    // dateselected();
   });
 
   const ResidentsData = async () => {
@@ -148,18 +148,18 @@ function EditFoodModal({ displayCM, toggleCM, mutate, row, menu , fn }) {
 
     setcityid(Value);
   };
-  const dateselected = async () => {
-    // let date = moment(row._valuesCache?.date, 'YYYY-MM-DD').format('DD-MM-YYYY');
+  // const dateselected = async () => {
+  //   // let date = moment(row._valuesCache?.date, 'YYYY-MM-DD').format('DD-MM-YYYY');
 
-    let data = {
-      Residentid: residentid,
-      date: '27-06-2023',
-    };
+  //   let data = {
+  //     Residentid: residentid,
+  //     date: '27-06-2023',
+  //   };
 
-    let datas = await mealsApi.getdishes(data);
+  //   let datas = await mealsApi.getdishes(data);
 
-    //   setfoodmenu(datas?.data[0]?.menu[0])
-  };
+  //   //   setfoodmenu(datas?.data[0]?.menu[0])
+  // };
 
 
   return (
