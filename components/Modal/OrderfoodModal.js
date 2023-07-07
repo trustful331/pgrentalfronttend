@@ -51,7 +51,7 @@ function OrderFoodModal({ displayCM, toggleCM, mutate  }) {
       ResidentsData();
       Menudatesdata();
   
-  }, [])
+  }, [authContextData])
   
      const ResidentsData = async () => {
        try {
