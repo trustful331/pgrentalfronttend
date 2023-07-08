@@ -160,7 +160,7 @@ const ListingDetails = () => {
                     })}
                   </ul>
 
-                  <h3>Cover Image</h3>
+                  <h3>Gallery</h3>
                   <div id="gallery">
                     <div className="row justify-content-center">
                       {listing?.coverImage?.map(({ id, path }) => {
@@ -172,9 +172,31 @@ const ListingDetails = () => {
                           </div>
                         );
                       })}
+                      
+                      {listing?.dinningAreaPhotos?.map(({ id, path }) => {
+                        return (
+                          <div key={id} className="col-lg-4 col-md-6">
+                            <div className="single-image-bpx">
+                              <img src={path} alt="image" />
+                            </div>
+                          </div>
+                        );
+                      })}
+
+{listing?.commonAreaPhotos?.map(({ id, path }) => {
+                        return (
+                          <div key={id} className="col-lg-4 col-md-6">
+                            <div className="single-image-bpx">
+                              <img src={path} alt="image" />
+                            </div>
+                          </div>
+                        );
+                      })}
+
                     </div>
+                    
                   </div>
-                  <h3>Common Area Images</h3>
+                  {/* <h3>Common Area Images</h3>
                   <div id="gallery">
                     <div className="row justify-content-center">
                       {listing?.dinningAreaPhotos?.map(({ id, path }) => {
@@ -215,9 +237,9 @@ const ListingDetails = () => {
                         );
                       })}
                     </div>
-                  </div>
+                  </div> */}
 
-                  <h3>Food menu</h3>
+                  {/* <h3>Food menu</h3>
 
                   <div className="fcontainer">
                     <div className="component">
@@ -241,7 +263,7 @@ const ListingDetails = () => {
                       </div>
                       <Accordion questionsAnswers={questionsAnswers} />
                     </div>
-                  </div>
+                  </div> */}
 
                   <h3>Reviews</h3>
 
@@ -298,10 +320,10 @@ const ListingDetails = () => {
                     {token && (
                       <div id="reviewButton" className="review-form-wrapper">
                         <h3>Add A Review</h3>
-                        <p className="comment-notes">
+                        {/* <p className="comment-notes">
                           // // Your address will not be published. Required //
                           // fields are marked <span>*</span>
-                        </p>
+                        </p> */}
                         <form onSubmit={addCommentHandler}>
                           <div className="row">
                             <div className="col-lg-12 col-md-12">

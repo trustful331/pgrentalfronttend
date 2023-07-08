@@ -156,13 +156,13 @@ export default function Header() {
                           </a>
                         </Link>
                       </li>
-                      <li>
+                      {/* <li>
                         <Link href="/admin/reviews">
                           <a className="!py-2 px-6 hover:!bg-green/10 text-[14px] block text-black/80 cursor-pointer">
                             Reviews
                           </a>
                         </Link>
-                      </li>
+                      </li> */}
                       <li>
                         <Link href="/admin/bookings">
                           <a className="!py-2 px-6 hover:!bg-green/10 text-[14px] block text-black/80 cursor-pointer">
@@ -208,7 +208,7 @@ export default function Header() {
                       <li>
                         <Link href="/admin/profile">
                           <a className="!py-2 px-6 hover:!bg-green/10 text-[14px] block text-black/80 cursor-pointer">
-                            My Profie
+                            Upload Photo
                           </a>
                         </Link>
                       </li>
