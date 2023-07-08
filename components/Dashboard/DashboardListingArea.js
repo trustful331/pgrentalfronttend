@@ -11,9 +11,7 @@ import { useMutation } from "react-query";
 import listingApi from "../../utils/Api/listing.api";
 import toast from "react-hot-toast";
 
-const DashboardListingArea = ({ listing, isLoading,deleteListingById }) => {
-
-
+const DashboardListingArea = ({ listing, isLoading, deleteListingById }) => {
   return (
     <>
       <section className="listing-area">
@@ -21,14 +19,13 @@ const DashboardListingArea = ({ listing, isLoading,deleteListingById }) => {
         {/* <div className="preloader">
             <i class="fa fa-spinner fa-spin"></i>
         </div> */}
-
         <div className="tab-content" id="myTabContent">
           <div className="" id="active-listing">
             {isLoading ? (
               <Loading />
             ) : (
               <div className="row">
-                {listing.map(({ id, commonAreaPhotos, name }) => (
+                {listing?.map(({ id, commonAreaPhotos, name }) => (
                   <div key={id} className="col-xl-4 col-lg-6 col-md-6">
                     <div className="single-listings-box">
                       <div className="listings-image">
@@ -80,8 +77,7 @@ const DashboardListingArea = ({ listing, isLoading,deleteListingById }) => {
                         <div className="d-flex justify-content-between align-items-center">
                           <Link
                             href={`/admin/edit-listing/${id}`}
-                            className="default-btn"
-                          >
+                            className="default-btn">
                             Edit
                           </Link>
 
@@ -91,8 +87,7 @@ const DashboardListingArea = ({ listing, isLoading,deleteListingById }) => {
 
                           <button
                             onClick={() => deleteListingById(id)}
-                            className="default-btn"
-                          >
+                            className="default-btn">
                             Delete
                           </button>
                         </div>

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import toast from "react-hot-toast";
 import { useMutation } from "react-query";
 import { useQueryClient } from "react-query";
@@ -11,6 +11,7 @@ import Loading from "../Shared/Loading";
 
 function AddAminities() {
   const [displayAM, toggleAM] = useState(false);
+  const [loading, setLoading] = useState(true);
   const { features, isLoading } = useFacilites();
   const token = useAuthToken();
   const queryClient = useQueryClient();
@@ -39,8 +40,15 @@ function AddAminities() {
     },
   });
 
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
+
   return (
     <>
+    {loading && <Loading/>}
       <div className="main-content d-flex flex-column">
         <div className="breadcrumb-area">
           <h1>Add Aminities</h1>

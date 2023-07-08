@@ -222,7 +222,8 @@ const Navbar = () => {
                           {[
                             { path: "bookings", name: "Bookings" },
                             { path: "complains", name: "Complains" },
-                            { path: "profile", name: "My Profile" },
+                              { path: "profile", name: "My Profile" },
+                             { path: "orderfooduser", name: "Order Food" },
                           ].map(({ path, name }) => (
                             <li className="nav-item" key={name}>
                               <Link href={`/users/${path}`}>

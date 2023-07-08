@@ -1,10 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import { useRouter } from "next/router";
-
+import cn from "classnames";
+import * as Icons from "../components/Common/Icons"
 import Footer from "../components/_App/Footer";
 import useListing from "../utils/Hooks/useListing";
-import Loading from "../components/Shared/Loading";
+import Loader from "../components/Shared/Loader";
 import { useMemo, useState } from "react";
 import useFacilites from "../utils/Hooks/useFacilities";
 
@@ -16,8 +17,10 @@ const Listing = () => {
     query?.roomType
   );
   const [iframe, setIframe] = useState(undefined);
+  const [showSelectFeatures, setShowSelectFeatures] = useState(false)
   const [filter, setFilter] = useState([]);
   const { features, isLoading: isLoading3 } = useFacilites();
+  const [loading, _setLoading] = useState(true)
   const allFeature = useMemo(() => {
     const res = [];
     if (!features) {
@@ -45,7 +48,7 @@ const Listing = () => {
   return (
     <>
       {isLoading || !listing || isFetching || isLoading3 ? (
-        <Loading />
+        <Loader loading={loading} />
       ) : (
         <section className="listings-area mt-lg-5">
           <div className="container-fluid">
@@ -55,8 +58,19 @@ const Listing = () => {
                   <div className="col-lg-4 col-md-12">
                     <aside className="listings-widget-area">
                       <section className="widget widget_features">
-                        <h3 className="widget-title">Features</h3>
-                        <ul>
+                        <div onClick={() => setShowSelectFeatures(!showSelectFeatures)} className="feature-collapse">
+                          <h1 className="widget-title">Features</h1>
+                          <div className={cn("transition h-25", {
+                            "active-icon": showSelectFeatures,
+                            "close-icon": !showSelectFeatures
+                          })}>
+                          <Icons.DownArrowIcon/>
+                          </div>
+                        </div>
+                        <ul className={cn("handle-collapse overflow-y-scroll", {
+                          "show-collapse": showSelectFeatures,
+                          "hide-collapse": !showSelectFeatures
+                        })}>
                           {/* none hide list */}
                           {allFeature.map((elm, index) => (
                             <li key={index}>
@@ -106,10 +120,10 @@ const Listing = () => {
                                   <div className="row m-0">
                                     <div className="col-lg-4 col-md-4 p-0">
                                       <div>
-                                        <img
+                                        <img className="object-cover"
                                           style={{
                                             width: "100%",
-                                            height: "219px",
+                                            height: "315px",
                                           }}
                                           src={`${
                                             roomPhotos === 0
@@ -183,7 +197,7 @@ const Listing = () => {
                                             ({ feature, featureId }) => {
                                               console.log(googleMapUrl);
                                               return (
-                                                <li key={featureId}>
+                                                <li key={featureId} className="my-2 mx-3">
                                                   <a href="#">
                                                     <i className="flaticon-shopping-bags"></i>{" "}
                                                     {feature.feature_name}
@@ -192,7 +206,7 @@ const Listing = () => {
                                               );
                                             }
                                           )}
-                                          <li>
+                                          <li className="mx-2">
                                             <a href="#">
                                               <i className="flaticon-pin"></i>{" "}
                                               {city.name}

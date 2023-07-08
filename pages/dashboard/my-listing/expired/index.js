@@ -8,7 +8,7 @@ const Index = () => {
       <DashboardNavbar />
 
       <div className="main-content d-flex flex-column">
-        <NavbarTwo />
+        {/* <NavbarTwo /> */}
 
         <DashboardListingArea />
       </div>

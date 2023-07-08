@@ -24,6 +24,7 @@ $value_nine: 1550px;
     .option-item .auth-one{
         display: none !important;
     }
+    
 
     .navbar-expand-md .navbar-nav {
         flex-direction: column;
@@ -118,7 +119,7 @@ $value_nine: 1550px;
         font-size: 54px;
         top: -15px;
         cursor: pointer;
-        color: #fff;
+        color: #000000;
     }
     .responsive-others-option {
         top: 6px;
@@ -2665,6 +2666,7 @@ $value_nine: 1550px;
                 }
             }
         }
+
         .others-option-for-responsive {
             .dot-menu {
                 right: 45px;
@@ -2701,18 +2703,18 @@ $value_nine: 1550px;
         }
     }
     .sidemenu-area {
-        z-index: 9999;
-        left: -100%;
-        opacity: 0;
-        visibility: hidden;
+        // z-index: 9999;
+        // left: -100%;
+        // opacity: 0;
+        // visibility: hidden;
 
         &.active-sidemenu-area {
-            left: 0;
-            opacity: 1;
-            visibility: visible;
+            // left: 0;
+            // opacity: 1;
+            // visibility: visible;
         }
         .sidemenu-header {
-            height: 75px;
+            height: 70px;
 
             .responsive-burger-menu {
                 display: block !important;
@@ -3347,7 +3349,7 @@ $value_nine: 1550px;
         font-size: 54px;
         top: -15px;
         cursor: pointer;
-        color: #fff;
+        color: #000000;
     }
     .responsive-others-option {
         top: 6px;
@@ -4436,18 +4438,18 @@ $value_nine: 1550px;
         }
     }
     .sidemenu-area {
-        z-index: 9999;
-        left: -100%;
-        opacity: 0;
-        visibility: hidden;
+        // z-index: 9999;
+        // left: 0;
+        // opacity: 0;
+        // visibility: hidden;
 
         &.active-sidemenu-area {
-            left: 0;
-            opacity: 1;
-            visibility: visible;
+            // left: 0;
+            // opacity: 1;
+            // visibility: visible;
         }
         .sidemenu-header {
-            height: 75px;
+            height: 70px;
 
             .responsive-burger-menu {
                 display: block !important;
@@ -4599,7 +4601,7 @@ $value_nine: 1550px;
         font-size: 54px;
         top: -15px;
         cursor: pointer;
-        color: #fff;
+        color: #000000;
     }
     .responsive-others-option {
         top: 6px;
@@ -5186,18 +5188,18 @@ $value_nine: 1550px;
         }
     }
     .sidemenu-area {
-        z-index: 9999;
-        left: -100%;
-        opacity: 0;
-        visibility: hidden;
+        // z-index: 9999;
+        // left: -100%;
+        // opacity: 0;
+        // visibility: hidden;
 
         &.active-sidemenu-area {
-            left: 0;
-            opacity: 1;
-            visibility: visible;
+            // left: 0;
+            // opacity: 1;
+            // visibility: visible;
         }
         .sidemenu-header {
-            height: 75px;
+            height: 70px;
 
             .responsive-burger-menu {
                 display: block !important;

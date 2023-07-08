@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Script from "next/script";
 import useAllRentPayment from "../../utils/Hooks/useAllRentPayment";
@@ -7,9 +8,12 @@ import toast from "react-hot-toast";
 import { useAuthToken } from "../../contexts/authContext";
 import { useQueryClient } from "react-query";
 import config from "../../utils/config";
+import { useAuthContext } from "../../contexts/authContext";
+import CircleLoading from "../../components/Shared/CircleLoading";
 
 const UserBookings = () => {
-  const { allRentPayment, isLoading } = useAllRentPayment();
+  const { allRentPayment } = useAllRentPayment();
+  const [isLoading, setIsLoading] = useState(true);
   const queryClient = useQueryClient();
 
   const token = useAuthToken();
@@ -58,9 +62,17 @@ const UserBookings = () => {
     }
   };
 
-  if (isLoading) {
-    <Loading />;
-  }
+  const context = useAuthContext();
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+  }, []);
+
+  // if (isLoading) {
+  //   <Loading />;
+  // }
 
   return (
     <div className="main-content d-flex flex-column">
@@ -74,21 +86,30 @@ const UserBookings = () => {
         <h3>Booking Bookings</h3>
 
         <div className="table-responsive">
-          <table className="table">
+          <table className="table relative">
             <thead>
               <tr>
-                <th>Customer</th>
-                <th>Details</th>
-                <th>Action</th>
+                <th>Customer Details</th>
+                <th>Subscribtion Status</th>
+                <th>Subscribtion Amount</th>
               </tr>
             </thead>
 
             <tbody>
+
               {allRentPayment.map(
                 ({ uid, user, availability, status, subcriptionId }) => (
                   <tr key={uid}>
                     <td className="name">
-                      <img src="/images/user1.jpg" alt="image" />
+                      {/* <img src="/images/user1.jpg" alt="image" /> */}
+
+                      <img
+                        src={
+                          context?.user?.profile_pic?.path ??
+                          "/images/user1.jpg"
+                        }
+                        alt="image"
+                      />
                       <div className="info">
                         <span>{user.name}</span>
                         <ul>
@@ -98,6 +119,7 @@ const UserBookings = () => {
                         </ul>
                       </div>
                     </td>
+
                     <td className="details">
                       <h4>
                         <span
@@ -108,14 +130,6 @@ const UserBookings = () => {
                           {status}{" "}
                         </span>
                       </h4>
-
-                      <ul>
-                        <li>
-                          <i className="bx bx-purchase-tag"></i>
-                          <span>Price:</span>
-                          Rs. {availability.price}
-                        </li>
-                      </ul>
                     </td>
 
                     <td className="action">
@@ -132,7 +146,15 @@ const UserBookings = () => {
                           <i className="bx bx-check-circle"></i> Pay
                         </button>
                       ) : (
-                        <div className="default-btn">{status}</div>
+                        <div className="default-btn">
+                          <ul>
+                            <li>
+                              <i className="bx bx-purchase-tag"></i>
+                              <span>Price:</span>
+                              Rs. {availability.price}
+                            </li>
+                          </ul>
+                        </div>
                       )}
                     </td>
                   </tr>
@@ -140,6 +162,11 @@ const UserBookings = () => {
               )}
             </tbody>
           </table>
+          {isLoading && (
+            <div className="flex justify-center w-full absolute top-2/5 right-0 py-20 bg-white">
+              <CircleLoading />
+            </div>
+          )}
         </div>
       </div>
 

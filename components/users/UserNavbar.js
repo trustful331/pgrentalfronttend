@@ -1,10 +1,13 @@
 import Link from "next/link";
 import { useState, useContext } from "react";
 import { IndiceContext } from "../../contexts";
+import { HiOutlineMenu } from "react-icons/hi";
+import { RxCross1 } from "react-icons/rx";
 
 const UsersNavbar = ({ value }) => {
   const { displaySideMenu, toggleSideMenu } = useContext(IndiceContext);
   const [display, setDisplay] = useState(false);
+  const [showSidebar, setShowSidebar] = useState(false);
 
   const listingToggle = () => {
     setDisplay(!display);
@@ -13,33 +16,44 @@ const UsersNavbar = ({ value }) => {
   return (
     <>
       <div
+        onClick={() => setShowSidebar(true)}
+        className="top-5 right-5 lg:hidden fixed z-50">
+        <HiOutlineMenu className="w-8 h-8" />
+      </div>
+      <div
+        onClick={() => setShowSidebar(false)}
+        className={`bg-black fixed top-0 h-full w-full opacity-60 z-[9999] transition-all ease-in-out duration-300 ${
+          showSidebar ? "ml-0" : "-ml-[100%]"
+        }`}></div>
+      <div
         className={
           displaySideMenu
             ? "sidemenu-area active-sidemenu-area"
             : "sidemenu-area"
-        }
-      >
-        <div className="sidemenu-header ">
+        }>
+        <div className="h-[70px] py-1 pl-5 bg-white">
           <Link href="/">
-            <a className="navbar-brand   d-flex align-items-center active">
-              <img src="/images/black-logo.png" alt="image" />
+            <a className="navbar-brand d-flex align-items-center active">
+              <img src="/images/logo.png" alt="image" className="w-12" />
             </a>
           </Link>
-
-          <div
-            className="responsive-burger-menu d-block d-lg-none"
-            onClick={toggleSideMenu}
-          >
-            <i className="bx bx-x"></i>
-          </div>
+          {showSidebar && (
+            <div
+              onClick={() => setShowSidebar(false)}
+              className="fixed top-5 left-[13rem]">
+              <RxCross1 className="w-6 h-6" />
+            </div>
+          )}
         </div>
 
-        <div className="sidemenu-body">
+        <div
+          className={`sidemenu-body ${
+            showSidebar ? "mr-0" : "lg:mr-0 mr-[100%]"
+          }`}>
           <ul
             className="sidemenu-nav metisMenu h-100"
             id="sidemenu-nav"
-            data-simplebar
-          >
+            data-simplebar>
             <li className="nav-item-title">Main</li>
             {[
               {
@@ -66,6 +80,11 @@ const UsersNavbar = ({ value }) => {
                 iconClass: "bx bx-plus-circle",
                 path: "complains",
                 title: "Complain",
+              },
+              {
+                iconClass: "bx bx-plus-circle",
+                path: "orderfooduser",
+                title: "Order Food",
               },
             ].map(({ iconClass, path, title }) => (
               <li className="nav-item" key={path}>

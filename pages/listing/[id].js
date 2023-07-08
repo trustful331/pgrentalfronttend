@@ -5,7 +5,7 @@ import Footer from "../../components/_App/Footer";
 import Accordion from "../../components/Accordion/Accordion";
 import useGetListingById from "../../utils/Hooks/useGetListingById";
 
-import Loading from "../../components/Shared/Loading";
+import Loader from "../../components/Shared/Loader";
 
 import ScheduleModal from "../../components/Modal/ScheduleModal";
 import VisitModal from "../../components/Modal/VisitModal";
@@ -34,6 +34,7 @@ const ListingDetails = () => {
   const [content, setContent] = useState("");
   const { listing, isLoading, isFetching } = useGetListingById(id);
   const { comments, isLoading: isLoading2 } = useCommentsByResidentId(id);
+  const [loading, _setLoading] = useState(true);
   const [displaySM, toggleSM] = useState(false);
   const [displayVM, toggleVM] = useState(false);
 
@@ -83,7 +84,7 @@ const ListingDetails = () => {
   return (
     <>
       {isLoading || isFetching || isLoading2 ? (
-        <Loading />
+        <Loader loading={loading} />
       ) : (
         <section className="listings-details-area pb-70">
           <div className="listings-details-image">
@@ -93,7 +94,7 @@ const ListingDetails = () => {
                   ? "/images/listings-details.jpg"
                   : listing.coverImage[0].path
               }
-              alt="image"
+              alt="image" className="w-full h-[35rem] object-cover"
             />
 
             <div className="container">
@@ -346,7 +347,7 @@ const ListingDetails = () => {
 
                       <button
                         style={{ width: "100%" }}
-                        className="default-btn"
+                        className="default-btn mt-3"
                         onClick={() => {
                           toggleVM(!displayVM);
                         }}

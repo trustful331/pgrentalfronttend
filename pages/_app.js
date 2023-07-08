@@ -3,6 +3,10 @@ import { IndiceProvider } from "../contexts";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { Toaster } from "react-hot-toast";
 
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+// import "../styles/fontFamily.css";
+
 import "../styles/bootstrap.min.css";
 import "../styles/animate.min.css";
 import "../styles/boxicons.min.css";
@@ -21,12 +25,14 @@ import "../styles/gallery.css"
 import '../styles/appattachment.css'
 
 import '../styles/foodmenue.css'
+import "../styles/home.css"
 
 import Layout from "../components/_App/Layout";
 import Loader from "../components/Shared/Loader";
 import GoTop from "../components/Shared/GoTop";
 import { AuthContextProvider } from "../contexts/authContext";
 import Navbar from "../components/_App/Navbar";
+import Header from '../components/_App/Header';
 
 function MyApp({ Component, pageProps }) {
   const [loading, setLoading] = useState(true);
@@ -42,7 +48,7 @@ function MyApp({ Component, pageProps }) {
         <QueryClientProvider client={queryClient}>
           <IndiceProvider>
             <AuthContextProvider>
-              <Navbar />
+              <Header />
               <Toaster position="top-right" reverseOrder={false} />
               <Component {...pageProps} />
 
