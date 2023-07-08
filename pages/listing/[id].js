@@ -94,7 +94,7 @@ const ListingDetails = () => {
                   ? "/images/listings-details.jpg"
                   : listing.coverImage[0].path
               }
-              alt="image"
+              alt="image" className="w-full h-[35rem] object-cover"
             />
 
             <div className="container">
@@ -347,7 +347,7 @@ const ListingDetails = () => {
 
                       <button
                         style={{ width: "100%" }}
-                        className="default-btn"
+                        className="default-btn mt-3"
                         onClick={() => {
                           toggleVM(!displayVM);
                         }}

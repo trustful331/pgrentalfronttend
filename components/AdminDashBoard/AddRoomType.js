@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import toast from "react-hot-toast";
 import { useQueryClient } from "react-query";
 import { useMutation } from "react-query";
@@ -12,6 +12,7 @@ import Loading from "../Shared/Loading";
 
 const AddRoomType = () => {
   const [displayCTM, toggleCTM] = useState(false);
+  const [loading, setLoading] = useState(true);
   const { roomTypes, isLoading } = useRoomTypes();
   const queryClient = useQueryClient();
   const token = useAuthToken();
@@ -38,8 +39,15 @@ const AddRoomType = () => {
     },
   });
 
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
+
   return (
     <>
+    {loading && <Loading/>}
       <div className="main-content d-flex flex-column">
         <div className="breadcrumb-area">
           <h1>Add Room type</h1>

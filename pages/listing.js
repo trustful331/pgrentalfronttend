@@ -67,7 +67,7 @@ const Listing = () => {
                           <Icons.DownArrowIcon/>
                           </div>
                         </div>
-                        <ul className={cn("handle-collapse", {
+                        <ul className={cn("handle-collapse overflow-y-scroll", {
                           "show-collapse": showSelectFeatures,
                           "hide-collapse": !showSelectFeatures
                         })}>
@@ -120,10 +120,10 @@ const Listing = () => {
                                   <div className="row m-0">
                                     <div className="col-lg-4 col-md-4 p-0">
                                       <div>
-                                        <img
+                                        <img className="object-cover"
                                           style={{
                                             width: "100%",
-                                            height: "219px",
+                                            height: "315px",
                                           }}
                                           src={`${
                                             roomPhotos === 0
@@ -197,7 +197,7 @@ const Listing = () => {
                                             ({ feature, featureId }) => {
                                               console.log(googleMapUrl);
                                               return (
-                                                <li key={featureId}>
+                                                <li key={featureId} className="my-2 mx-3">
                                                   <a href="#">
                                                     <i className="flaticon-shopping-bags"></i>{" "}
                                                     {feature.feature_name}
@@ -206,7 +206,7 @@ const Listing = () => {
                                               );
                                             }
                                           )}
-                                          <li>
+                                          <li className="mx-2">
                                             <a href="#">
                                               <i className="flaticon-pin"></i>{" "}
                                               {city.name}

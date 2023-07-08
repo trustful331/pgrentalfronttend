@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Script from "next/script";
 import useAllRentPayment from "../../utils/Hooks/useAllRentPayment";
@@ -8,9 +9,11 @@ import { useAuthToken } from "../../contexts/authContext";
 import { useQueryClient } from "react-query";
 import config from "../../utils/config";
 import { useAuthContext } from "../../contexts/authContext";
+import CircleLoading from "../../components/Shared/CircleLoading";
 
 const UserBookings = () => {
-  const { allRentPayment, isLoading } = useAllRentPayment();
+  const { allRentPayment } = useAllRentPayment();
+  const [isLoading, setIsLoading] = useState(true);
   const queryClient = useQueryClient();
 
   const token = useAuthToken();
@@ -58,11 +61,18 @@ const UserBookings = () => {
       );
     }
   };
+
   const context = useAuthContext();
 
-  if (isLoading) {
-    <Loading />;
-  }
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+  }, []);
+
+  // if (isLoading) {
+  //   <Loading />;
+  // }
 
   return (
     <div className="main-content d-flex flex-column">
@@ -76,8 +86,7 @@ const UserBookings = () => {
         <h3>Booking Bookings</h3>
 
         <div className="table-responsive">
-          {/* <Loading /> */}
-          <table className="table">
+          <table className="table relative">
             <thead>
               <tr>
                 <th>Customer Details</th>
@@ -87,6 +96,7 @@ const UserBookings = () => {
             </thead>
 
             <tbody>
+
               {allRentPayment.map(
                 ({ uid, user, availability, status, subcriptionId }) => (
                   <tr key={uid}>
@@ -109,12 +119,14 @@ const UserBookings = () => {
                         </ul>
                       </div>
                     </td>
+
                     <td className="details">
                       <h4>
                         <span
                           className={`bookings-status ${
                             status === "CANCELED" ? "canceled" : "pending"
-                          }`}>
+                          }`}
+                        >
                           {status}{" "}
                         </span>
                       </h4>
@@ -129,7 +141,8 @@ const UserBookings = () => {
                               subscription_id: subcriptionId,
                               id: uid,
                             });
-                          }}>
+                          }}
+                        >
                           <i className="bx bx-check-circle"></i> Pay
                         </button>
                       ) : (
@@ -149,6 +162,11 @@ const UserBookings = () => {
               )}
             </tbody>
           </table>
+          {isLoading && (
+            <div className="flex justify-center w-full absolute top-2/5 right-0 py-20 bg-white">
+              <CircleLoading />
+            </div>
+          )}
         </div>
       </div>
 
