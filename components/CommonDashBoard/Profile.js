@@ -17,7 +17,7 @@ function ProfileComponent({ admin }) {
 
         <ChnageProfilePicModal displayAM={modal} toggleAM={toggleModal} />
         <div className="breadcrumb-area">
-          <h1>My Profile</h1>
+          <h1>Upload Photo</h1>
 
           {admin === "admin" ? (
             <ol className="breadcrumb">
@@ -31,7 +31,7 @@ function ProfileComponent({ admin }) {
                   <a>Dashboard</a>
                 </Link>
               </li>
-              <li className="item">My Profile</li>
+              <li className="item">Upload Photo</li>
             </ol>
           ) : (
             <div></div>
@@ -41,7 +41,7 @@ function ProfileComponent({ admin }) {
         <div className="row">
           <div className="col-lg-6 col-md-12">
             <div className="my-profile-box">
-              <h3>Profile Details</h3>
+              <h3>Upload Photo</h3>
 
               <form>
                 <div className="row">
@@ -59,128 +59,19 @@ function ProfileComponent({ admin }) {
                     </div>
                   </div>
 
-                  <div className="col-lg-12 col-md-12">
-                    <div className="form-group">
-                      <label>Your Name</label>
-                      <input
-                        type="text"
-                        className="form-control"
-                        defaultValue="Andy Smith"
-                      />
-                    </div>
-                  </div>
+                  
 
-                  <div className="col-xl-6 col-lg-12 col-md-12">
-                    <div className="form-group">
-                      <label>Email</label>
-                      <input
-                        type="email"
-                        className="form-control"
-                        defaultValue="hello@andysmith.com"
-                      />
-                    </div>
-                  </div>
+                  
 
-                  <div className="col-xl-6 col-lg-12 col-md-12">
-                    <div className="form-group">
-                      <label>Phone</label>
-                      <input
-                        type="text"
-                        className="form-control"
-                        defaultValue="+88 (123) 123456"
-                      />
-                    </div>
-                  </div>
+                  
 
-                  <div className="col-xl-6 col-lg-12 col-md-12">
-                    <div className="form-group">
-                      <label>Address</label>
-                      <input
-                        type="text"
-                        className="form-control"
-                        defaultValue="Wonder Street, USA, New York"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="col-xl-6 col-lg-12 col-md-12">
-                    <div className="form-group">
-                      <label>Website</label>
-                      <input
-                        type="text"
-                        className="form-control"
-                        defaultValue="EnvyTheme.com"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="col-lg-12 col-md-12">
-                    <div className="form-group">
-                      <label>Bio</label>
-                      <textarea
-                        cols="30"
-                        rows="6"
-                        placeholder="Short description about you..."
-                        className="form-control"
-                      ></textarea>
-                    </div>
-                  </div>
-
-                  <div className="col-xl-6 col-lg-12 col-md-12">
-                    <div className="form-group">
-                      <label>Facebook URL</label>
-                      <input
-                        type="text"
-                        className="form-control"
-                        placeholder="https://www.facebook.com/"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="col-xl-6 col-lg-12 col-md-12">
-                    <div className="form-group">
-                      <label>Twitter URL</label>
-                      <input
-                        type="text"
-                        className="form-control"
-                        placeholder="https://twitter.com/"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="col-xl-6 col-lg-12 col-md-12">
-                    <div className="form-group">
-                      <label>Linkedin URL</label>
-                      <input
-                        type="text"
-                        className="form-control"
-                        placeholder="https://www.linkedin.com/"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="col-xl-6 col-lg-12 col-md-12">
-                    <div className="form-group">
-                      <label>Instagram URL</label>
-                      <input
-                        type="text"
-                        className="form-control"
-                        placeholder="https://instagram.com/"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="col-lg-12 col-md-12">
-                    <div className="form-group">
-                      <button type="submit">Save Change</button>
-                    </div>
-                  </div>
+                  
                 </div>
               </form>
             </div>
           </div>
 
-          <div className="col-lg-6 col-md-12">
+          {/* <div className="col-lg-6 col-md-12">
             <div className="my-profile-box">
               <h3>Change Password</h3>
 
@@ -219,7 +110,7 @@ function ProfileComponent({ admin }) {
                 </div>
               </form>
             </div>
-          </div>
+          </div> */}
         </div>
 
 

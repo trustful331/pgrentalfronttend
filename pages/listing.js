@@ -8,7 +8,7 @@ import useListing from "../utils/Hooks/useListing";
 import Loader from "../components/Shared/Loader";
 import { useMemo, useState } from "react";
 import useFacilites from "../utils/Hooks/useFacilities";
-
+import { shuffle } from 'lodash';
 const Listing = () => {
   const router = useRouter();
   const query = router.query;
@@ -67,7 +67,7 @@ const Listing = () => {
                           <Icons.DownArrowIcon/>
                           </div>
                         </div>
-                        <ul className={cn("handle-collapse overflow-y-scroll", {
+                        <ul className={cn("handle-collapse", {
                           "show-collapse": showSelectFeatures,
                           "hide-collapse": !showSelectFeatures
                         })}>
@@ -100,128 +100,105 @@ const Listing = () => {
                       </div>
 
                       <div className="row">
-                        {filterListing.map(
-                          ({
-                            id,
-                            name,
-                            AvailAbility,
-                            FeatureResident,
-                            city,
-                            roomPhotos,
-                            googleMapUrl,
-                          }) => {
-                            return (
-                              <div
-                                key={id}
-                                onMouseEnter={() => setIframe(googleMapUrl)}
-                                className="col-lg-12 col-md-12"
-                              >
-                                <div className="single-listings-item">
-                                  <div className="row m-0">
-                                    <div className="col-lg-4 col-md-4 p-0">
-                                      <div>
-                                        <img className="object-cover"
-                                          style={{
-                                            width: "100%",
-                                            height: "315px",
-                                          }}
-                                          src={`${
-                                            roomPhotos === 0
-                                              ? "/images/listings/listings10.jpg"
-                                              : roomPhotos[0].path
-                                          }`}
-                                          alt="image"
-                                        />
+  {filterListing.map(
+    ({
+      id,
+      name,
+      AvailAbility,
+      FeatureResident,
+      city,
+      roomPhotos,
+      googleMapUrl,
+    }) => {
+      const randomFeatures = shuffle(FeatureResident).slice(0, 4);
+      const isAvailable = AvailAbility.length < 5;
+      const statusClassName = isAvailable ? "status status-close" : "status";
+      const statusText = isAvailable ? "Almost filled" : "Available";
 
-                                        <Link
-                                          href={{
-                                            pathname: `/listing/${id}`,
-                                            query: {
-                                              roomType:
-                                                AvailAbility[0]?.roomType
-                                                  ?.typeOfRoom,
-                                            },
-                                          }}
-                                        >
-                                          <a className="link-btn"></a>
-                                        </Link>
-                                      </div>
-                                    </div>
+      return (
+        <div
+          key={id}
+          onMouseEnter={() => setIframe(googleMapUrl)}
+          className="col-lg-12 col-md-12"
+        >
+          <div className="single-listings-item">
+            <div className="row m-0">
+              <div className="col-lg-4 col-md-4 p-0">
+                <div>
+                  <img
+                    style={{
+                      width: "100%",
+                      height: "219px",
+                    }}
+                    src={`${
+                      roomPhotos === 0
+                        ? "/images/listings/listings10.jpg"
+                        : roomPhotos[0].path
+                    }`}
+                    alt="image"
+                  />
 
-                                    <div className="col-lg-8 col-md-8 p-0">
-                                      <div className="listings-content">
-                                        {true ? (
-                                          <span className="status">
-                                            <i className="flaticon-save"></i>{" "}
-                                            Open Now
-                                          </span>
-                                        ) : (
-                                          <span className="status status-close">
-                                            <i className="flaticon-save"></i>{" "}
-                                            Close Now
-                                          </span>
-                                        )}
+                  <Link
+                    href={{
+                      pathname: `/listing/${id}`,
+                      query: {
+                        roomType: AvailAbility[0]?.roomType?.typeOfRoom,
+                      },
+                    }}
+                  >
+                    <a className="link-btn"></a>
+                  </Link>
+                </div>
+              </div>
 
-                                        <h3>
-                                          <Link
-                                            href={{
-                                              pathname: `/listing/${id}`,
-                                              query: {
-                                                roomType:
-                                                  AvailAbility[0]?.roomType
-                                                    ?.typeOfRoom,
-                                              },
-                                            }}
-                                          >
-                                            <a>{name}</a>
-                                          </Link>
-                                        </h3>
-                                        <div className="d-flex align-items-center justify-content-between">
-                                          <div className="rating">
-                                            <i className="bx bxs-star"></i>
-                                            <i className="bx bxs-star"></i>
-                                            <i className="bx bxs-star"></i>
-                                            <i className="bx bxs-star"></i>
-                                            <i className="bx bxs-star"></i>
-                                            <span className="count">(55)</span>
-                                          </div>
-                                          <div className="price">
-                                            Start From{" "}
-                                            <span>
-                                              Rs.{AvailAbility[0].price}
-                                            </span>
-                                          </div>
-                                        </div>
-                                        <ul className="listings-meta">
-                                          {FeatureResident.map(
-                                            ({ feature, featureId }) => {
-                                              console.log(googleMapUrl);
-                                              return (
-                                                <li key={featureId} className="my-2 mx-3">
-                                                  <a href="#">
-                                                    <i className="flaticon-shopping-bags"></i>{" "}
-                                                    {feature.feature_name}
-                                                  </a>
-                                                </li>
-                                              );
-                                            }
-                                          )}
-                                          <li className="mx-2">
-                                            <a href="#">
-                                              <i className="flaticon-pin"></i>{" "}
-                                              {city.name}
-                                            </a>
-                                          </li>
-                                        </ul>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            );
-                          }
-                        )}
-                      </div>
+              <div className="col-lg-8 col-md-8 p-0">
+                <div className="listings-content">
+                  {/* <span className={statusClassName}>
+                    <i className="flaticon-save"></i> {statusText}
+                  </span> */}
+
+                  <h3>
+                    <Link
+                      href={{
+                        pathname: `/listing/${id}`,
+                        query: {
+                          roomType: AvailAbility[0]?.roomType?.typeOfRoom,
+                        },
+                      }}
+                    >
+                      <a>{name}</a>
+                    </Link>
+                  </h3>
+                  
+                  <ul className="listings-meta">
+                    {randomFeatures.map(({ feature, featureId }) => (
+                      <li key={featureId}>
+                        <a href="#">
+                          <i className="bx bx-check"></i>{" "}
+                          {feature.feature_name}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                  <ul className="listings-meta">
+                  
+                  
+                  <div className="d-flex align-items-center justify-content-between">
+                    <div className="price">
+                      Price <span>Rs.{AvailAbility[0].price}</span>
+                    </div>
+                  </div>
+</ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    }
+  )}
+</div>
+
                     </div>
                   </div>
                 </div>

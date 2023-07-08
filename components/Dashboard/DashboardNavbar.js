@@ -242,7 +242,7 @@ const DashboardNavbar = () => {
                   <span className="icon">
                     <i className="bx bxs-user-circle"></i>
                   </span>
-                  <span className="menu-title">Profile</span>
+                  <span className="menu-title">Upload Photo</span>
                 </a>
               </Link>
             </li>

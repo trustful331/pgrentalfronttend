@@ -305,9 +305,12 @@ curr.setDate(curr.getDate());
              
                     </div>
                     <span className='moredetord_spn' onClick={() => Moreorderdetails(r)}>More Details</span>
-                    <span> <button onClick={()=>Exportdatas(r)} className='exporttoexcelbtn'>
-                  Export
-                </button></span>
+                    {r.UserDishes.length > 0 ? <span> <button onClick={() => Exportdatas(r)} className='exporttoexcelbtn'>
+                      Export
+                    </button></span> : null
+
+                    }
+                   
                   </div>
                   </> 
                 : <Loaderr className="spinner" />}

@@ -17,6 +17,10 @@ function LoginPopup({ open, hidePopup }) {
   const [disable, setDisable] = useState(true);
   const resendTimerRef = useRef(null);
   const authContTextData = useAuthContext();
+  const onChangeHandlerForOtp = (e) => {
+    console.log(e);
+    setOtp(e.target.value);
+  };
   const { mutate, isSuccess } = useMutation({
     mutationKey: "login",
     mutationFn: (data) => authApi.loginHandlerApi(data),
@@ -138,7 +142,8 @@ function LoginPopup({ open, hidePopup }) {
                         <OtpInput fn={setOtp} />
                       </div>
                       <div className=" w-full">
-                        <input
+                        <input  
+                          onChange={onChangeHandlerForOtp}
                           type="input"
                           placeholder="Enter Your PIN"
                           className="h-[45px] font-Lato placeholder:font-normal sm:hidden rounded-[8px] border outline-0 border-[#D0D5DD] placeholder:text-[#D0D5DD] shadow-sm px-3 flex items-center w-full mb-4"

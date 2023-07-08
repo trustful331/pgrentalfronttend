@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import React, { useEffect } from "react";
+import authApi from "../../utils/Api/auth.api";
 
 import AdminIndex from "../../components/AdminDashBoard";
 import Booking from "../../components/AdminDashBoard/Booking";
@@ -72,11 +73,23 @@ function Dynamic() {
   const router = useRouter();
   const authState = useAuthContext();
   const ruter = useRouter();
-  useEffect(() => {
-    if (!authState?.user || authState?.user?.role !== "admin") {
+
+  const getUser = async (token) => {  ///////refresh 
+    const res = await authApi.getUserDetail(token);
+    if (!res.user && res.user.role !== "admin") {
       router.push("/");
     }
-  }, [authState.user, router]);
+};
+
+useEffect(() => {
+  const token = localStorage.getItem("token");
+  if (token) {
+    getUser(token);
+  }else {
+    router.push("/");
+  }
+
+}, authState, [router]); 
 
   const slug = ruter.query.slug;
 

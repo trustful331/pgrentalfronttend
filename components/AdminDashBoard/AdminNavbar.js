@@ -168,7 +168,7 @@ const AdminNavbar = ({ value }) => {
               {
                 iconClass: "bx bxs-user-circle",
                 path: "profile",
-                title: "Profile",
+                title: "Upload Photo",
               },
             ].map(({ iconClass, path, title }) => (
               <li className="nav-item" key={path}>
