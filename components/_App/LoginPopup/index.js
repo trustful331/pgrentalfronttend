@@ -5,11 +5,13 @@ import OtpInput from "./otpinput";
 import ButtonTo from "../../Button";
 import { useMutation } from "react-query";
 import { toast } from "react-hot-toast";
+import Loader from "../../Shared/Loader"
 
 import authApi from "../../../utils/Api/auth.api";
 import { useAuthContext } from "../../../contexts/authContext";
 
 function LoginPopup({ open, hidePopup }) {
+  const [loading, setLoading] = useState(true);
   const [phoneNo, setPhoneNo] = useState("");
   const [resendTimer, setResendTimer] = useState(0);
   const [otp, setOtp] = useState("");
@@ -93,16 +95,23 @@ function LoginPopup({ open, hidePopup }) {
     if (otp === "") {
       mutate({ number: phoneNo });
       setWholeDisble(true);
-    } else verifyOtp({ otp: otp.toLowerCase(), number: phoneNo });
+    } else
+    setLoading(true)
+    verifyOtp({ otp: otp.toLowerCase(), number: phoneNo });
   };
+  useEffect(() => {
+    setTimeout(() => setLoading(false), 3000);
+  }, [loading]);
 
   const onChangeHandlerForPhoneNo = (e) => {
     setPhoneNo(e.target.value);
   };
 
   return (
+    <>
+    <Loader loading={loading}/>
     <Transition appear show={open} as={Fragment}>
-      <Dialog onClose={hidePopup} className="relative z-[9999]">
+      <Dialog onClose={hidePopup} className="relative z-40">
         <div className="bg-black/30 fixed inset-0" aria-hidden="true" />
         <div className="fixed inset-0 flex items-center justify-center p-4">
           <Transition.Child
@@ -175,6 +184,7 @@ function LoginPopup({ open, hidePopup }) {
         </div>
       </Dialog>
     </Transition>
+    </>
   );
 }
 
